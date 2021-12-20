@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="nl" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../css/main.css">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Semantisch Versioneren 2.0.0 | Semantic Versioning</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Semantisch Versioneren 2.0.0" />
+<meta name="author" content="Tom Preston-Werner" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Semantic Versioning spec and website" />
+<meta property="og:description" content="Semantic Versioning spec and website" />
+<link rel="canonical" href="v2.0.0.html" />
+<meta property="og:url" content="https://semver.org/lang/nl/spec/v2.0.0.html" />
+<meta property="og:site_name" content="Semantic Versioning" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Semantisch Versioneren 2.0.0" />
+<script type="application/ld+json">
+{"description":"Semantic Versioning spec and website","headline":"Semantisch Versioneren 2.0.0","url":"https://semver.org/lang/nl/spec/v2.0.0.html","@type":"WebPage","author":{"@type":"Person","name":"Tom Preston-Werner"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+  <body>
+    <ul class="nav lang" dir="ltr">
+      
+      
+        <li class="language language-ar">
+          <a rel="alternate" lang="ar" hreflang="ar"
+            
+              href="../../ar/index.html"
+            
+            >العربية (ar)</a>
+        </li>
+      
+        <li class="language language-bg">
+          <a rel="alternate" lang="bg" hreflang="bg"
+            
+              href="../../bg/index.html"
+            
+            >Български (bg)</a>
+        </li>
+      
+        <li class="language language-ca">
+          <a rel="alternate" lang="ca" hreflang="ca"
+            
+              href="../../ca/index.html"
+            
+            >català (ca)</a>
+        </li>
+      
+        <li class="language language-cs">
+          <a rel="alternate" lang="cs" hreflang="cs"
+            
+              href="../../cs/index.html"
+            
+            >čeština (cs)</a>
+        </li>
+      
+        <li class="language language-de">
+          <a rel="alternate" lang="de" hreflang="de"
+            
+              href="../../de/index.html"
+            
+            >Deutsch (de)</a>
+        </li>
+      
+        <li class="language language-en">
+          <a rel="alternate" lang="en" hreflang="en"
+            
+              href="../../../index.html"
+            
+            >English (en)</a>
+        </li>
+      
+        <li class="language language-es">
+          <a rel="alternate" lang="es" hreflang="es"
+            
+              href="../../es/index.html"
+            
+            >español (es)</a>
+        </li>
+      
+        <li class="language language-fa">
+          <a rel="alternate" lang="fa" hreflang="fa"
+            
+              href="../../fa/index.html"
+            
+            >فارسی (fa)</a>
+        </li>
+      
+        <li class="language language-fr">
+          <a rel="alternate" lang="fr" hreflang="fr"
+            
+              href="../../fr/index.html"
+            
+            >français (fr)</a>
+        </li>
+      
+        <li class="language language-he">
+          <a rel="alternate" lang="he" hreflang="he"
+            
+              href="../../he/index.html"
+            
+            >עברית (he)</a>
+        </li>
+      
+        <li class="language language-hin">
+          <a rel="alternate" lang="hin" hreflang="hin"
+            
+              href="../../hin/index.html"
+            
+            >हिन्दी (hin)</a>
+        </li>
+      
+        <li class="language language-hr">
+          <a rel="alternate" lang="hr" hreflang="hr"
+            
+              href="../../hr/index.html"
+            
+            >hrvatski (hr)</a>
+        </li>
+      
+        <li class="language language-hu">
+          <a rel="alternate" lang="hu" hreflang="hu"
+            
+              href="../../hu/index.html"
+            
+            >magyar (hu)</a>
+        </li>
+      
+        <li class="language language-hy">
+          <a rel="alternate" lang="hy" hreflang="hy"
+            
+              href="../../hy/index.html"
+            
+            >Հայերեն (hy)</a>
+        </li>
+      
+        <li class="language language-id">
+          <a rel="alternate" lang="id" hreflang="id"
+            
+              href="../../id/index.html"
+            
+            >bahasa Indonesia (id)</a>
+        </li>
+      
+        <li class="language language-it">
+          <a rel="alternate" lang="it" hreflang="it"
+            
+              href="../../it/index.html"
+            
+            >italiano (it)</a>
+        </li>
+      
+        <li class="language language-ja">
+          <a rel="alternate" lang="ja" hreflang="ja"
+            
+              href="../../ja/index.html"
+            
+            >日本語 (ja)</a>
+        </li>
+      
+        <li class="language language-ka">
+          <a rel="alternate" lang="ka" hreflang="ka"
+            
+              href="../../ka/index.html"
+            
+            >ქართული (ka)</a>
+        </li>
+      
+        <li class="language language-kab">
+          <a rel="alternate" lang="kab" hreflang="kab"
+            
+              href="../../kab/index.html"
+            
+            >taqbaylit (kab)</a>
+        </li>
+      
+        <li class="language language-ko">
+          <a rel="alternate" lang="ko" hreflang="ko"
+            
+              href="../../ko/index.html"
+            
+            >한국어 (ko)</a>
+        </li>
+      
+        <li class="language language-nl">
+          <a rel="alternate" lang="nl" hreflang="nl"
+            
+              href="../index.html"
+            
+            >Nederlands (nl)</a>
+        </li>
+      
+        <li class="language language-pl">
+          <a rel="alternate" lang="pl" hreflang="pl"
+            
+              href="../../pl/index.html"
+            
+            >polski (pl)</a>
+        </li>
+      
+        <li class="language language-pt-BR">
+          <a rel="alternate" lang="pt-BR" hreflang="pt-BR"
+            
+              href="../../pt-BR/index.html"
+            
+            >português brasileiro (pt-BR)</a>
+        </li>
+      
+        <li class="language language-ro">
+          <a rel="alternate" lang="ro" hreflang="ro"
+            
+              href="../../ro/index.html"
+            
+            >Română (ro)</a>
+        </li>
+      
+        <li class="language language-ru">
+          <a rel="alternate" lang="ru" hreflang="ru"
+            
+              href="../../ru/index.html"
+            
+            >pyccкий (ru)</a>
+        </li>
+      
+        <li class="language language-sk">
+          <a rel="alternate" lang="sk" hreflang="sk"
+            
+              href="../../sk/index.html"
+            
+            >slovensky (sk)</a>
+        </li>
+      
+        <li class="language language-sl">
+          <a rel="alternate" lang="sl" hreflang="sl"
+            
+              href="../../sl/index.html"
+            
+            >slovenščina (sl)</a>
+        </li>
+      
+        <li class="language language-sv">
+          <a rel="alternate" lang="sv" hreflang="sv"
+            
+              href="../../sv/index.html"
+            
+            >svenska (sv)</a>
+        </li>
+      
+        <li class="language language-tr">
+          <a rel="alternate" lang="tr" hreflang="tr"
+            
+              href="../../tr/index.html"
+            
+            >Türkçe (tr)</a>
+        </li>
+      
+        <li class="language language-uk">
+          <a rel="alternate" lang="uk" hreflang="uk"
+            
+              href="../../uk/index.html"
+            
+            >українська (uk)</a>
+        </li>
+      
+        <li class="language language-vi">
+          <a rel="alternate" lang="vi" hreflang="vi"
+            
+              href="../../vi/index.html"
+            
+            >vietnamese (vi)</a>
+        </li>
+      
+        <li class="language language-zh-CN">
+          <a rel="alternate" lang="zh-CN" hreflang="zh-CN"
+            
+              href="../../zh-CN/index.html"
+            
+            >简体中文 (zh-CN)</a>
+        </li>
+      
+        <li class="language language-zh-TW">
+          <a rel="alternate" lang="zh-TW" hreflang="zh-TW"
+            
+              href="../../zh-TW/index.html"
+            
+            >繁體中文 (zh-TW)</a>
+        </li>
+      
+    </ul>
+    <ul class="nav">
+      
+      
+        
+        
+        
+          <li class="version version-2.0.0">
+            <a href="v2.0.0.html">2.0.0</a>
+          </li>
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+    </ul>
+    <div id="spec">
+     <h1 id="semantisch-versioneren-200">Semantisch Versioneren 2.0.0</h1>
+
+<h2 id="samenvatting">Samenvatting</h2>
+
+<p>Gegeven een versienummer in de vorm MAJEUR.MINEUR.PATCH, worden de individuele elementen als volgt verhoogd:</p>
+
+<ol>
+  <li>MAJEUR wordt verhoogd bij incompatibele API-wijzigingen,</li>
+  <li>MINEUR wordt verhoogd bij het toevoegen van functionaliteit die compatibel is met de vorige versie, en</li>
+  <li>PATCH wordt verhoogd bij compatibele bugfixes.</li>
+</ol>
+
+<p>Er zijn aanvullende labels beschikbaar voor pre-release en build-metadata om toe te voegen aan het MAJEUR.MINEUR.PATCH-formaat.</p>
+
+<h2 id="introductie">Introductie</h2>
+
+<p>In de wereld van softwarebeheer bestaat er een gevreesde plek genaamd “dependency hell” oftewel de “hel van afhankelijkheden”. Hoe groter een systeem wordt en hoe meer packages er worden geïntegreerd in de software, des te aannemelijker is het dat je op een zekere dag belandt op deze mistroostige plek.</p>
+
+<p>Het uitbrengen van een nieuwe packageversie kan al snel een nachtmerrie worden als systemen te maken hebben met een hoop afhankelijkheden. Als de afhankelijkheden te strikt gespecificeerd zijn, ontstaat het gevaar op “version lock”: het is dan niet meer mogelijk om een package te upgraden zonder dat alle afhankelijke packages ook een versie verhoogd moeten worden. Als de afhankelijkheden te losjes zijn gespecificeerd, zul je onvermijdelijk worden gebeten door het fenomeen versievermenging: de verwachting dat er meer compatibiliteit is met toekomstige versies dan je redelijkerwijs mag verwachten. Je bevindt je in de hel van afhankelijkheden wanneer “version lock” en/of versievermenging zodanig in de weg zitten dat je project niet makkelijk en veilig kan worden voortgezet.</p>
+
+<p>Als oplossing voor dit probleem stel ik een simpele set van regels en voorwaarden voor die beschrijven hoe versienummers toegewezen en verhoogd worden. Deze regels zijn gebaseerd op, maar niet noodzakelijk beperkt tot reeds bestaande en wijdverspreide gebruiken in zowel gesloten als opensource-software. Om dit systeem succesvol te laten zijn, is het als eerste nodig om je API publiek te declareren. Of deze nu bestaat uit documentatie of wordt afgedwongen door de code zelf maakt niet uit: het belangrijkste is dat de API duidelijk en exact is. Zodra je je publieke API geïdentificeerd hebt, worden wijzigingen gecommuniceerd met specifieke verhogingen in het versienummer. Gebruik een versieformaat van X.Y.Z (Majeur.Mineur.Patch). Bugfixes zonder effect op de API verhogen de patchversie, toevoegingen en wijzigingen aan de API die compatibel zijn met de vorige versie verhogen de mineurversie en wijzigingen aan de API die niet compatibel zijn met de vorige versie verhogen de majeurversie.</p>
+
+<p>Ik noem dit systeem “Semantisch Versioneren”, waarmee versienummers en de manier waarop ze veranderen en verhoogd worden duiding geven over de onderliggende code en wat er is aangepast tussen de verschillende versies.</p>
+
+<h2 id="specificatie-semantisch-versioneren-semver">Specificatie Semantisch Versioneren (SemVer)</h2>
+
+<p>De termen “MOET” (“MUST”), “MAG NIET” (“MUST NOT”), “VERPLICHT” (“REQUIRED”), “ZAL” (“SHALL”), “ZAL NIET” (“SHALL NOT”), “ZOU MOETEN” (“SHOULD”), “ZOU NIET MOETEN” (“SHOULD NOT”), “AANBEVOLEN” (“RECOMMENDED”), “MAG” (“MAY”), “OPTIONEEL” (“OPTIONAL”) in dit document dienen te worden geïnterpreteerd zoals beschreven in <a href="https://tools.ietf.org/html/rfc2119">RFC 2119</a>.</p>
+
+<ol>
+  <li>
+    <p>Software die gebruikmaakt van Semantisch Versioneren MOET een publieke API declareren. Deze API kan worden gepubliceerd in de code of strikt uit documentatie bestaan. Ongeacht de vorm is het de bedoeling dat deze nauwkeurig en uitgebreid ZOU MOETEN zijn.</p>
+  </li>
+  <li>
+    <p>Een normaal versienummer MOET de structuur X.Y.Z. hebben, waar X, Y en Z een niet-negatief geheel getal zijn. Voorloopnullen MOGEN NIET aanwezig zijn. X is de majeurversie, Y is de mineurversie en Z is de patchversie. Elk element MOET numeriek ophogen. Bijvoorbeeld: 1.9.0 -&gt; 1.10.0 -&gt; 1.11.0.</p>
+  </li>
+  <li>
+    <p>Wanneer een geversioneerd package is gepubliceerd, MAG de inhoud NIET worden aangepast. Alle wijzigingen MOETEN worden gepubliceerd als een nieuwe versie.</p>
+  </li>
+  <li>
+    <p>Majeurversie nul (0.y.z) is voor de eerste ontwikkelfase. Alles MAG op ieder moment veranderen. De publieke API ZOU NIET als stabiel MOETEN worden beschouwd.</p>
+  </li>
+  <li>
+    <p>Versie 1.0.0 definieert de publieke API. De manier waarop het versienummer wordt verhoogd na deze release is afhankelijk van de publieke API en hoe deze verandert.</p>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>Patchversie Z (x.y.Z</td>
+          <td>x &gt; 0) MOET worden verhoogd als wijzigingen zijn doorgevoerd die compatibel zijn met de vorige versie. De definitie van een bugfix is een interne wijziging welke foutief gedrag corrigeert.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>Mineurversie Y (x.Y.z</td>
+          <td>x &gt; 0) MOET worden verhoogd als nieuwe, met de vorige versie compatibele wijzigingen worden gedaan aan de publieke API. Het MOET worden verhoogd op het moment dat publieke-API-functionaliteit wordt uitgefaseerd. Het MAG worden verhoogd als substantiële nieuwe functionaliteit of verbeteringen worden doorgevoerd in de afgeschermde code. Het MAG ook wijzigingen van niveau patch bevatten. De patchversie MOET op 0 worden teruggezet wanneer een mineurversie is verhoogd.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>Majeurversie X (X.y.z</td>
+          <td>X &gt; 0) MOET worden verhoogd als wijzigingen worden doorgevoerd niet compatibel zijn met de publieke API. Het MAG ook wijzigingen van niveau mineur en patch bevatten. De patch- en mineurversie MOETEN op 0 worden teruggezet wanneer majeurversie is verhoogd.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p>Een prerelease-versie MAG worden aangeduid met de toevoeging van een koppelteken en een serie van puntgescheiden id’s direct volgend op de patchversie. Id’s MOETEN slechts bestaan uit alfanumerieke ASCII karakters en koppeltekens [0-9A-Za-z-]. Id’s MOGEN NIET leeg zijn. Voorloopnullen MOGEN NIET aanwezig zijn in numerieke id’s. Prerelease-versies hebben een lagere prioriteit dan de bijbehorende reguliere versie. Een prerelease-versie impliceert instabiel te zijn en voldoet mogelijk niet aan de voorgenomen compatibiliteitseisen zoals aangeduid bij de bijbehorende reguliere versie. Voorbeelden: 1.0.0-alpha, 1.0.0-alpha.1, 1.0.0-0.3.7, 1.0.0-x.7.z.92, 1.0.0-x-y-z.–.</p>
+  </li>
+  <li>
+    <p>Build-metadata MAG worden aangeduid door het toevoegen van een plusteken en een serie van puntgescheiden id’s direct volgend op de patch- of prereleaseversie. Id’s MOETEN slechts bestaan uit alfanumerieke ASCII-karakters en koppeltekens [0-9A-Za-z-]. Id’s MOGEN NIET leeg zijn. Build-metadata MOET genegeerd worden wanneer versieprioriteit wordt bepaald. Kortom, twee verschillende versies welke alleen verschillen in build-metadata hebben dezelfde prioriteit. Voorbeelden: 1.0.0-alpha+001, 1.0.0+20130313144700, 1.0.0-beta+exp.sha.5114f85, 1.0.0+21AF26D3—-117B344092BD.</p>
+  </li>
+  <li>
+    <p>Prioriteit refereert naar hoe versies in relatie tot elkaar staan wanneer ze zijn gesorteerd.</p>
+
+    <ol>
+      <li>
+        <p>Prioriteit MOET worden berekend door de versie te scheiden in de majeur-, mineur-, patch- en prerelease-id’s, in die volgorde. (Build-metadata wordt niet meegenomen in het bepalen van prioriteit).</p>
+      </li>
+      <li>
+        <p>De prioriteit wordt bepaald door het eerste gevonden verschil wanneer elk van de id’s van links naar rechts onderling vergeleken worden, op de volgende manier: majeur, mineur en patchversies worden altijd numeriek vergeleken. Voorbeeld: 1.0.0 &lt; 2.0.0 &lt; 2.1.0 &lt; 2.1.1.</p>
+      </li>
+      <li>
+        <p>Wanneer majeur, mineur en patch gelijk zijn, heeft een prerelease-versie lagere prioriteit dan een normale versie. Voorbeeld: 1.0.0-alpha &lt; 1.0.0.</p>
+      </li>
+      <li>
+        <p>Prioriteit voor twee prerelease-versies met dezelfde majeur-, mineur- en patchversie MOET worden bepaald door vergelijking van elk puntgescheiden id van links naar rechts tot een verschil is gevonden, en wel zo:</p>
+
+        <ol>
+          <li>
+            <p>Id’s alleen bestaand uit cijfers worden numeriek vergeleken.</p>
+          </li>
+          <li>
+            <p>Id’s met letters of koppeltekens worden lexicaal vergeleken in de ASCII-volgorde.</p>
+          </li>
+          <li>
+            <p>Numerieke id’s hebben altijd een lagere prioriteit dan niet-numerieke id’s.</p>
+          </li>
+          <li>
+            <p>Een grote reeks met prerelease-velden heeft een hogere prioriteit dan een kleinere als alle voorafgaande id’s gelijk zijn. Voorbeeld:: 1.0.0-alpha &lt; 1.0.0-alpha.1 &lt; 1.0.0-alpha.beta &lt; 1.0.0-beta &lt; 1.0.0-beta.2 &lt; 1.0.0-beta.11 &lt; 1.0.0-rc.1 &lt; 1.0.0.</p>
+          </li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="backusnaur-form-grammatica-voor-geldige-semver-versies">Backus–Naur Form grammatica voor geldige SemVer-versies</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;valid semver&gt; ::= &lt;version core&gt;
+                 | &lt;version core&gt; "-" &lt;pre-release&gt;
+                 | &lt;version core&gt; "+" &lt;build&gt;
+                 | &lt;version core&gt; "-" &lt;pre-release&gt; "+" &lt;build&gt;
+
+&lt;version core&gt; ::= &lt;major&gt; "." &lt;minor&gt; "." &lt;patch&gt;
+
+&lt;major&gt; ::= &lt;numeric identifier&gt;
+
+&lt;minor&gt; ::= &lt;numeric identifier&gt;
+
+&lt;patch&gt; ::= &lt;numeric identifier&gt;
+
+&lt;pre-release&gt; ::= &lt;dot-separated pre-release identifiers&gt;
+
+&lt;dot-separated pre-release identifiers&gt; ::= &lt;pre-release identifier&gt;
+                                          | &lt;pre-release identifier&gt; "." &lt;dot-separated pre-release identifiers&gt;
+
+&lt;build&gt; ::= &lt;dot-separated build identifiers&gt;
+
+&lt;dot-separated build identifiers&gt; ::= &lt;build identifier&gt;
+                                    | &lt;build identifier&gt; "." &lt;dot-separated build identifiers&gt;
+
+&lt;pre-release identifier&gt; ::= &lt;alphanumeric identifier&gt;
+                           | &lt;numeric identifier&gt;
+
+&lt;build identifier&gt; ::= &lt;alphanumeric identifier&gt;
+                     | &lt;digits&gt;
+
+&lt;alphanumeric identifier&gt; ::= &lt;non-digit&gt;
+                            | &lt;non-digit&gt; &lt;identifier characters&gt;
+                            | &lt;identifier characters&gt; &lt;non-digit&gt;
+                            | &lt;identifier characters&gt; &lt;non-digit&gt; &lt;identifier characters&gt;
+
+&lt;numeric identifier&gt; ::= "0"
+                       | &lt;positive digit&gt;
+                       | &lt;positive digit&gt; &lt;digits&gt;
+
+&lt;identifier characters&gt; ::= &lt;identifier character&gt;
+                          | &lt;identifier character&gt; &lt;identifier characters&gt;
+
+&lt;identifier character&gt; ::= &lt;digit&gt;
+                         | &lt;non-digit&gt;
+
+&lt;non-digit&gt; ::= &lt;letter&gt;
+              | "-"
+
+&lt;digits&gt; ::= &lt;digit&gt;
+           | &lt;digit&gt; &lt;digits&gt;
+
+&lt;digit&gt; ::= "0"
+          | &lt;positive digit&gt;
+
+&lt;positive digit&gt; ::= "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+
+&lt;letter&gt; ::= "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J"
+           | "K" | "L" | "M" | "N" | "O" | "P" | "Q" | "R" | "S" | "T"
+           | "U" | "V" | "W" | "X" | "Y" | "Z" | "a" | "b" | "c" | "d"
+           | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m" | "n"
+           | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x"
+           | "y" | "z"
+</code></pre></div></div>
+
+<h2 id="waarom-semantisch-versioneren">Waarom semantisch versioneren?</h2>
+
+<p>Dit is geen nieuw of revolutionair idee, waarschijnlijk gebruik je al iets wat hier erg op lijkt. En daar gaat het nu juist om: dat is niet goed genoeg. Zonder je aan een formele specificatie te houden zijn versienummers in essentie nutteloos voor afhankelijkheidsbeheer. Door de bovenstaande ideeën een naam te geven en ze helder te definiëren, is het makkelijker om je bedoelingen over te brengen aan de gebruikers van je software. Pas als deze bedoelingen helder en flexibel (maar niet te flexibel) zijn, kunnen eindelijk specificaties over afhankelijkheid worden gemaakt.</p>
+
+<p>Een eenvoudig voorbeeld toont aan hoe Semantisch Versioneren voorgoed afrekent met de hel van afhankelijkheden. Denk aan een softwarebibliotheek genaamd “Brandweerwagen”. Deze heeft een SemVer-package genaamd “Ladder” nodig. Op het moment dat Brandweerwagen uitgebracht wordt, zit Ladder op versie 3.1.0. Omdat Brandweerwagen functionaliteit gebruikt die is geïntroduceerd in versie 3.1.0, kun je veilig vastleggen dat de afhankelijkheid van Ladder groter dan of gelijk is aan 3.1.0 maar kleiner dan 4.0.0. Als Ladder-versie 3.1.1 en 3.2.0 beschikbaar komen, kunnen deze worden gepubliceerd naar het package-beheersysteem wetend dat ze compatibel zijn met huidige, afhankelijke software.</p>
+
+<p>Als een verantwoordelijke ontwikkelaar wil je natuurlijk nagaan dat alle package-upgrades functioneren zoals beschreven. De echte wereld is turbulent; daar kunnen we niets aan doen anders dan waakzaam zijn. Je kunt Semantisch Versioneren gebruiken als een verstandige en logische manier om packages uit te brengen en bij te werken, zonder nieuwe versies van afhankelijke packages uit te moeten brengen. Dat bespaart tijd en gedoe.</p>
+
+<p>Als bovenstaande aantrekkelijk klinkt, is het enige wat je hoeft te doen verklaren dat je Semantisch Versioneert en dan de regels volgen. Verwijs naar deze website vanuit je README zodat anderen deze regels ook kennen en er profijt van kunnen hebben.</p>
+
+<h2 id="faq">FAQ</h2>
+
+<h3 id="hoe-kan-ik-omgaan-met-correcties-in-de-0yz-eerste-ontwikkelfase">Hoe kan ik omgaan met correcties in de 0.y.z eerste ontwikkelfase?</h3>
+
+<p>Het makkelijkst is om de release van de eerste ontwikkelfase te starten met 0.1.0 en vervolgens met een mineurversie ophogen voor elke volgende release.</p>
+
+<h3 id="hoe-weet-ik-wanneer-ik-versie-100-kan-uitbrengen">Hoe weet ik wanneer ik versie 1.0.0 kan uitbrengen?</h3>
+
+<p>Als de software reeds in productie gebruikt wordt, is hij waarschijnlijk al versie 1.0.0. Als je een stabiele API hebt waar gebruikers van afhankelijk zijn, dan dien je op versie 1.0.0 te zitten. Bij zorgen over compatibiliteit met vorige versies is het ook hoog tijd voor versie 1.0.0.</p>
+
+<h3 id="werkt-dit-niet-ontmoedigend-voor-snel-ontwikkelen-en-snelle-iteraties">Werkt dit niet ontmoedigend voor snel ontwikkelen en snelle iteraties?</h3>
+
+<p>Bij majeurversie nul draait het om snelle ontwikkeling. Als je de API dagelijks wijzigt zou je nog op versie 0.y.z moeten zitten of op een aparte ontwikkelbranch voor de volgende majeurversie.</p>
+
+<h3 id="als-zelfs-kleine-niet-compatibele-wijzigingen-aan-de-publieke-api-zorgen-voor-een-verhoging-van-de-majeurversie-zit-ik-dan-niet-binnen-afzienbare-tijd-op-versie-4200">Als zelfs kleine niet-compatibele wijzigingen aan de publieke API zorgen voor een verhoging van de majeurversie, zit ik dan niet binnen afzienbare tijd op versie 42.0.0?</h3>
+
+<p>Het gaat hier om verantwoordelijk ontwikkelen en voortschrijdend inzicht. Niet-compatibele wijzigingen dienen niet licht opgevat te worden als het om software gaat waar veel van afhankelijk is. De ontwikkelkosten voor een upgrade kunnen significant zijn. Een majeurversie verhogen voor het uitbrengen van niet-compatibele wijzigingen betekent dat je moet nadenken over de impact van de wijzigingen en daarbij de kosten en baten in overweging moet nemen.</p>
+
+<h3 id="het-is-veel-te-veel-werk-om-de-volledige-publieke-api-te-documenteren">Het is veel te veel werk om de volledige publieke API te documenteren!</h3>
+
+<p>Het is je verantwoordelijkheid als professioneel ontwikkelaar om software die door anderen gebruikt wordt adequaat te documenteren. Een essentieel onderdeel van een efficiënt softwareproject is om de complexiteit beheersbaar te houden, wat bijzonder lastig wordt als niemand weet hoe je software gebruikt moet worden en welke methoden veilig zijn aan te roepen. Op de lange duur zorgen Semantisch Versioneren en het hameren op een goed gedocumenteerde API ervoor dat de zaken soepel lopen.</p>
+
+<h3 id="wat-als-ik-per-ongeluk-een-niet-compatibele-wijziging-uitbreng-als-een-mineurversie">Wat als ik per ongeluk een niet-compatibele wijziging uitbreng als een mineurversie?</h3>
+
+<p>Als je je realiseert dat je de regels van Semantisch Versioneren overtreden hebt, breng dan zo snel mogelijk een nieuwe mineurversie uit die het probleem oplost en de incompatibiliteit met de vorige versie repareert. Zelfs onder deze omstandigheden is het onacceptabel dat reeds uitgebrachte versies gewijzigd worden. Indien toepasselijk, documenteer de foute versie en informeer je gebruikers over het probleem zodat ze er rekening mee kunnen houden.</p>
+
+<h3 id="wat-moet-ik-doen-als-ik-mijn-eigen-afhankelijkheden-bijwerk-zonder-wijzigingen-aan-de-publieke-api">Wat moet ik doen als ik mijn eigen afhankelijkheden bijwerk zonder wijzigingen aan de publieke API?</h3>
+
+<p>Dit wordt beschouwd als compatibel omdat het geen effect heeft op de publieke API. Software die expliciet afhankelijk is van dezelfde afhankelijkheden als jouw package, dient eigen specificaties over deze afhankelijkheden te hebben waarbij de maker conflicten zal opmerken. Bepalen of de wijziging van het niveau patch of mineur is hangt af van het feit of je afhankelijkheden zijn bijgewerkt om een bug op te lossen of om nieuwe functionaliteit uit te brengen. Voor het tweede is er meestal nieuwe code toegevoegd, wat het zonder twijfel een mineure wijziging maakt.</p>
+
+<h3 id="wat-als-ik-per-ongeluk-de-publieke-api-aanpas-op-een-manier-die-niet-strookt-met-de-wijziging-in-het-versienummer-bijvoorbeeld-de-code-introduceert-een-majeure-niet-compatibele-wijziging-in-een-patchrelease">Wat als ik per ongeluk de publieke API aanpas op een manier die niet strookt met de wijziging in het versienummer (bijvoorbeeld: de code introduceert een majeure niet-compatibele wijziging in een patchrelease)?</h3>
+
+<p>Gebruik je gezond verstand. Bij een groot publiek dat veel hinder ondervindt als het gedrag van de publieke API weer wordt aangepast, kan het de beste keus zijn om een majeure versie uit te brengen ook al is de wijziging eigenlijk een patch. Onthoud dat Semantisch Versioneren vooral gaat over het geven van betekenis aan de manier waarop het versienummer verandert. Als deze wijzigingen belangrijk zijn voor je gebruikers, zet dan het versienummer in om ze hierover te informeren.</p>
+
+<h3 id="hoe-moet-ik-omgaan-met-uitgefaseerde-functionaliteit">Hoe moet ik omgaan met uitgefaseerde functionaliteit?</h3>
+
+<p>Het uitfaseren van bestaande functionaliteit is een normaal onderdeel van softwareontwikkeling en is vaak vereist om voortgang te maken. Als een deel van je publieke API uitgefaseerd wordt, dienen er twee dingen te veranderen: (1) werk documentatie bij zodat gebruikers op de hoogte zijn van de wijziging, (2) breng een nieuwe mineurversie uit waaruit duidelijk wordt dat de functionaliteit wordt uitgefaseerd. Voordat je met een majeure versie de functionaliteit helemaal verwijdert, dient er tenminste één mineurversie uitgebracht te zijn die duidelijk maakt dat de functionaliteit wordt uitgefaseerd, zodat gebruikers een soepele overgang hebben naar de nieuwe API.</p>
+
+<h3 id="is-er-binnen-semver-een-limiet-op-het-aantal-tekens-van-de-versienaam">Is er binnen SemVer een limiet op het aantal tekens van de versienaam?</h3>
+
+<p>Nee, maar hou het realistisch. Een versie die 255 karakters bevat is waarschijnlijk overdreven. Bepaalde systemen kunnen ook eigen limieten stellen aan de lengte van de versienaam.</p>
+
+<h3 id="is-v123-een-semantische-versie">Is “v1.2.3” een semantische versie?</h3>
+
+<p>Nee, “v.1.2.3” is geen semantische versie. Echter, het prefixen van een semantische versie met de letter “v” is een veel voorkomende manier (in het Engels) om aan te geven dat het een versienummer betreft. Het afkorten van “versie” met “v” wordt vaak gezien bij versiebeheer. Voorbeeld: <code class="language-plaintext highlighter-rouge">git tag v1.2.3 -m "Release version 1.2.3"</code>, in dit geval is “v.1.2.3” een naamtag en de semantische versie is “1.2.3”.</p>
+
+<h3 id="bestaat-er-een-reguliere-expressie-regex-om-een-semver-tekenreeks-te-controleren">Bestaat er een reguliere expressie (RegEx) om een SemVer-tekenreeks te controleren?</h3>
+
+<p>Er zijn er twee. De ene bevat <em>named groups</em> voor systemen die dit ondersteunen (PCRE [Perl Compatible Regular Expressions, zoals Perl, PHP and R], Python
+en Go).</p>
+
+<p>Zie ook: <a href="https://regex101.com/r/Ly7O1x/3/">https://regex101.com/r/Ly7O1x/3/</a></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>^(?P&lt;major&gt;0|[1-9]\d*)\.(?P&lt;minor&gt;0|[1-9]\d*)\.(?P&lt;patch&gt;0|[1-9]\d*)(?:-(?P&lt;prerelease&gt;(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+(?P&lt;buildmetadata&gt;[0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
+</code></pre></div></div>
+
+<p>En een met <em>numbered capture groups</em> (dus cg1 = majeur, cg2 = mineur, cg3 = patch, cg4 = prerelease and cg5 = buildmetadata) die compatibel is met ECMA Script (JavaScript), PCRE (Perl Compatible Regular Expressions,zoals Perl, PHP and R), Python and Go.</p>
+
+<p>Zie ook: <a href="https://regex101.com/r/vkijKf/1/">https://regex101.com/r/vkijKf/1/</a></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
+</code></pre></div></div>
+
+<h2 id="over">Over</h2>
+
+<p>De specificatie van Semantisch Versioneren is oorspronkelijk geschreven door <a href="https://tom.preston-werner.com">Tom Preston-Werner</a>, uitvinder van Gravatar en medeoprichter van GitHub.</p>
+
+<p>Feedback kan achtergelaten worden door <a href="https://github.com/semver/semver/issues">een issue op GitHub te openen</a>.</p>
+
+<p>Vertaling door: <a href="https://github.com/niekvangalen">Niek van Galen</a> (auteur), <a href="https://github.com/pieter-edelman-nictiz">Pieter Edelman</a> (redacteur), <a href="https://github.com/ahenket">Alexander Henket</a> (redacteur)</p>
+
+<h2 id="licentie">Licentie</h2>
+
+<p><a href="https://creativecommons.org/licenses/by/3.0/">Creative Commons ― CC BY 3.0</a></p>
+
+    </div>
+    <script src="../../../js/anchorli.js"></script>
+  </body>
+</html>

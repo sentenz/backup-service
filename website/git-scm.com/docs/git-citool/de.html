@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49925874-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-49925874-3');
+  </script>
+
+  <meta charset='utf-8'>
+  <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Git - git-citool Documentation</title>
+
+  <link href='../../favicon.ico' rel='shortcut icon' type='image/x-icon'>
+
+  <link rel="stylesheet" media="screen" href="../../assets/application-42b7b91ccf5cb92469695cf08b5da9e9230594f634cb88264f305d5bd54e477f.css" />
+  <script src="../../assets/modernize-b3ebe0c31c24f230dc62179d3e1030d2e57a53b1668d9382c0a27dbd44a94beb.js"></script>
+  <!--[if (gte IE 6)&(lte IE 8)]>
+  <script src="/javascripts/selectivizr-min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body id="documentation">
+
+  <div class="inner">
+    <header>
+
+  <a href="https://git-scm.com/"><img src="../../images/logo@2x.png" width="110" height="46" alt="Git" /></a>
+  <span id="tagline"></span>
+  <script type="text/javascript">
+    var taglines = ["fast-version-control","everything-is-local","distributed-even-if-your-workflow-isnt","local-branching-on-the-cheap","distributed-is-the-new-centralized"];
+    var tagline = taglines[Math.floor(Math.random() * taglines.length)];
+    document.getElementById('tagline').innerHTML = '--' + tagline;
+  </script>
+  <form id="search" action="https://git-scm.com/search/results">
+    <input id="search-text" name="search" placeholder="Search entire site..." autocomplete="off" type="text" />
+  </form>
+  <div id="search-results"></div>
+
+</header>
+
+  </div> <!-- .inner -->
+
+    <div class="inner">
+      <div id="content-wrapper">
+        <button class="sidebar-btn"></button>
+<aside class="sidebar" id="sidebar">
+  <nav>
+    <ul>
+      <li>
+        <a href="https://git-scm.com/about">About</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/about">Branching and Merging</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/small-and-fast">Small and Fast</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/distributed">Distributed</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/info-assurance">Data Assurance</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/staging-area">Staging Area</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/free-and-open-source">Free and Open Source</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/trademark">Trademark</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a class="active" href="https://git-scm.com/doc">Documentation</a>
+        <ul class="expanded">
+          <li>
+            <a class="active" href="../git-pack/pt_BR.html">Reference</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/book">Book</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/videos">Videos</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/doc/ext">External Links</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/downloads">Downloads</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/downloads/guis">GUI Clients</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/downloads/logos">Logos</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/community">Community</a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+
+        <div id="content">
+          
+  <div id='reference-version'>
+    <a class="dropdown-trigger" id="reference-languages-trigger" data-panel-id="l10n-versions-dropdown" href="de.html#">
+  Deutsch ▾</a>
+<div class='dropdown-panel right' id='l10n-versions-dropdown'>
+  <header>Localized versions of <strong>git-citool</strong> manual</header>
+  <ol class='reference-previous-versions'>
+      <li>
+        <a href="de.html"><span class="version">Deutsch</span>
+        </a>
+        </li>
+      <li>
+        <a href="en.html"><span class="version">English</span>
+        </a>
+        </li>
+      <li>
+        <a href="fr.html"><span class="version">Français</span>
+        </a>
+        </li>
+      <li>
+        <a href="pt_BR.html"><span class="version">Português (Brasil)</span>
+        </a>
+        </li>
+  </ol>
+  <footer>
+    Want to read in your language or fix typos?<br/> <a href="https://github.com/jnavila/git-manpages-l10n">You can help translate this page</a>.
+  </footer>
+</div>
+
+    <a class="dropdown-trigger" id="reference-topics-trigger" data-panel-id="topics-dropdown" href="de.html#">Topics ▾</a>
+<div class='dropdown-panel right' id='topics-dropdown'>
+  <div class='three-column'>
+    <div class='column-left'>
+      <h3 class='setup'>Setup and Config</h3>
+<ul class='unstyled'>
+  <li><a href="../git/de.html">git</a></li>
+  <li><a href="../git-config/de.html">config</a></li>
+  <li><a href="../git-help/de.html">help</a></li>
+  <li><a href="../git-bugreport/de.html">bugreport</a></li>
+</ul>
+
+      <h3 class='projects'>Getting and Creating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-init/de.html">init</a></li>
+  <li><a href="../git-clone/de.html">clone</a></li>
+</ul>
+
+      <h3 class='snapshotting'>Basic Snapshotting</h3>
+<ul class='unstyled'>
+  <li><a href="../git-add/de.html">add</a></li>
+  <li><a href="../git-status/de.html">status</a></li>
+  <li><a href="../git-diff/de.html">diff</a></li>
+  <li><a href="../git-commit/de.html">commit</a></li>
+  <li><a href="../git-notes/de.html">notes</a></li>
+  <li><a href="../git-restore/de.html">restore</a></li>
+  <li><a href="../git-reset/de.html">reset</a></li>
+  <li><a href="../git-rm/de.html">rm</a></li>
+  <li><a href="../git-mv/de.html">mv</a></li>
+</ul>
+
+      <h3 class='branching'>Branching and Merging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-branch/de.html">branch</a></li>
+  <li><a href="../git-checkout/de.html">checkout</a></li>
+  <li><a href="../git-switch/de.html">switch</a></li>
+  <li><a href="../git-merge/de.html">merge</a></li>
+  <li><a href="../git-mergetool/de.html">mergetool</a></li>
+  <li><a href="../git-log/de.html">log</a></li>
+  <li><a href="../git-stash/de.html">stash</a></li>
+  <li><a href="../git-tag/de.html">tag</a></li>
+  <li><a href="../git-worktree/de.html">worktree</a></li>
+</ul>
+
+      <h3 class='sharing'>Sharing and Updating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-fetch/de.html">fetch</a></li>
+  <li><a href="../git-pull/de.html">pull</a></li>
+  <li><a href="../git-push/de.html">push</a></li>
+  <li><a href="../git-remote/de.html">remote</a></li>
+  <li><a href="../git-submodule/de.html">submodule</a></li>
+</ul>
+
+    </div>
+    <div class='column-middle'>
+      <h3 class='inspection'>Inspection and Comparison</h3>
+<ul class='unstyled'>
+  <li><a href="../git-show/de.html">show</a></li>
+  <li><a href="../git-log/de.html">log</a></li>
+  <li><a href="../git-diff/de.html">diff</a></li>
+  <li><a href="../git-difftool/de.html">difftool</a></li>
+  <li><a href="../git-range-diff/de.html">range-diff</a></li>
+  <li><a href="../git-shortlog/de.html">shortlog</a></li>
+  <li><a href="../git-describe/de.html">describe</a></li>
+</ul>
+
+      <h3 class='patching'>Patching</h3>
+<ul class='unstyled'>
+  <li><a href="../git-apply/de.html">apply</a></li>
+  <li><a href="../git-cherry-pick/de.html">cherry-pick</a></li>
+  <li><a href="../git-diff/de.html">diff</a></li>
+  <li><a href="../git-rebase/de.html">rebase</a></li>
+  <li><a href="../git-revert/de.html">revert</a></li>
+</ul>
+
+      <h3 class='debugging'>Debugging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-bisect/de.html">bisect</a></li>
+  <li><a href="../git-blame/de.html">blame</a></li>
+  <li><a href="../git-grep/de.html">grep</a></li>
+</ul>
+
+      <h3 class='email'>Email</h3>
+<ul class='unstyled'>
+  <li><a href="../git-am/de.html">am</a></li>
+  <li><a href="../git-apply/de.html">apply</a></li>
+  <li><a href="../git-format-patch/de.html">format-patch</a></li>
+  <li><a href="../git-send-email/de.html">send-email</a></li>
+  <li><a href="../git-request-pull/de.html">request-pull</a></li>
+</ul>
+
+      <h3 class='external'>External Systems</h3>
+<ul class='unstyled'>
+  <li><a href="../git-svn/de.html">svn</a></li>
+  <li><a href="../git-fast-import/de.html">fast-import</a></li>
+</ul>
+
+      <h3 class='server-admin'>Server Admin</h3>
+<ul class='unstyled'>
+  <li><a href="../git-daemon/de.html">daemon</a></li>
+  <li><a href="../git-update-server-info/de.html">update-server-info</a></li>
+</ul>
+
+    </div>
+    <div class='column-right'>
+      <h3 class='guides'>Guides</h3>
+<ul class='unstyled'>
+  <li><a href="../gitattributes/de.html">gitattributes</a></li>
+  <li><a href="../gitcli/de.html">Command-line interface conventions</a></li>
+  <li><a href="../giteveryday/de.html">Everyday Git</a></li>
+  <li><a href="../gitfaq/de.html">Frequently Asked Questions (FAQ)</a></li>
+  <li><a href="../gitglossary/de.html">Glossary</a></li>
+  <li><a href="../githooks/de.html">Hooks</a></li>
+  <li><a href="../gitignore/de.html">gitignore</a></li>
+  <li><a href="../gitmodules/de.html">gitmodules</a></li>
+  <li><a href="../gitrevisions/de.html">Revisions</a></li>
+  <li><a href="../gitsubmodules/de.html">Submodules</a></li>
+  <li><a href="../gittutorial/de.html">Tutorial</a></li>
+  <li><a href="../gitworkflows/de.html">Workflows</a></li>
+  <li><a href="../git/ru.html#_guides">All guides...</a></li>
+</ul>
+
+      <h3 class='admin'>Administration</h3>
+<ul class='unstyled'>
+  <li><a href="../git-clean/de.html">clean</a></li>
+  <li><a href="../git-gc/de.html">gc</a></li>
+  <li><a href="../git-fsck/de.html">fsck</a></li>
+  <li><a href="../git-reflog/de.html">reflog</a></li>
+  <li><a href="../git-filter-branch/de.html">filter-branch</a></li>
+  <li><a href="../git-instaweb/de.html">instaweb</a></li>
+  <li><a href="../git-archive/de.html">archive</a></li>
+  <li><a href="../git-bundle/de.html">bundle</a></li>
+</ul>
+
+      <h3 class='plumbing'>Plumbing Commands</h3>
+<ul class='unstyled'>
+  <li><a href="../git-cat-file/de.html">cat-file</a></li>
+  <li><a href="../git-check-ignore/de.html">check-ignore</a></li>
+  <li><a href="../git-checkout-index/de.html">checkout-index</a></li>
+  <li><a href="../git-commit-tree/de.html">commit-tree</a></li>
+  <li><a href="../git-count-objects/de.html">count-objects</a></li>
+  <li><a href="../git-diff-index/de.html">diff-index</a></li>
+  <li><a href="../git-for-each-ref/de.html">for-each-ref</a></li>
+  <li><a href="../git-hash-object/de.html">hash-object</a></li>
+  <li><a href="../git-ls-files/de.html">ls-files</a></li>
+  <li><a href="../git-ls-tree/de.html">ls-tree</a></li>
+  <li><a href="../git-merge-base/de.html">merge-base</a></li>
+  <li><a href="../git-read-tree/de.html">read-tree</a></li>
+  <li><a href="../git-rev-list/de.html">rev-list</a></li>
+  <li><a href="../git-rev-parse/de.html">rev-parse</a></li>
+  <li><a href="../git-show-ref/de.html">show-ref</a></li>
+  <li><a href="../git-symbolic-ref/de.html">symbolic-ref</a></li>
+  <li><a href="../git-update-index/de.html">update-index</a></li>
+  <li><a href="../git-update-ref/de.html">update-ref</a></li>
+  <li><a href="../git-verify-pack/de.html">verify-pack</a></li>
+  <li><a href="../git-write-tree/de.html">write-tree</a></li>
+</ul>
+
+    </div>
+  </div>
+</div>
+
+    <a class="dropdown-trigger" id="reference-versions-trigger" data-panel-id="previous-versions-dropdown" href="de.html#">
+      Latest version
+       ▾ </a>
+<span class="light d-flex">git-citool last updated in 2.34.1</span>
+<div class='dropdown-panel left' id='previous-versions-dropdown'>
+  <header>Changes in the <strong>git-citool</strong> manual</header>
+  <ol class='reference-previous-versions'>
+    <li>&nbsp;</li>
+    <!-- <li><a class="more" href="#">See more previous releases →</a></li> -->
+  </ol>
+  <footer>
+    <p>Check your version of git by running</p>
+    <code class="command">git --version</code>
+  </footer>
+</div>
+
+  </div>
+
+  <div id='main'>
+    <div class="sect1">
+<h2 id="_name"><a class="anchor" href="de.html#_name"></a>NAME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>git-gitool - Graphische Alternative zu git-commit</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_übersicht"><a class="anchor" href="de.html#_übersicht"></a>ÜBERSICHT</h2>
+<div class="sectionbody">
+<div class="verseblock">
+<pre class="content"><em>git citool</em></pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_beschreibung"><a class="anchor" href="de.html#_beschreibung"></a>BESCHREIBUNG</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Eine graphische, Tcl/Tk-basierte Oberfläche, um veränderte Dateien anzushen,
+sie in den Index aufzunehmen, eine Änderungsnachricht einzugeben und neue
+Änderungen in den aktuellen Zweig einzupflegen.  Diese Oberfläche ist eine
+alternative zum weniger interaktiven Programm <em>git commit</em>.</p>
+</div>
+<div class="paragraph">
+<p><em>git citool</em> ist eigentlich ein Standardalias für <code>git gui citool</code>.  Siehe
+<a href='../git-gui/de.html'>git-gui[1]</a> für weitere Informationen.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git"><a class="anchor" href="de.html#_git"></a>GIT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Teil der <a href='../git/de.html'>git[1]</a> Suite</p>
+</div>
+</div>
+</div>
+  </div>
+
+        </div>
+      </div>
+      <footer>
+  <div class="site-source">
+    <a href="https://git-scm.com/site">About this site</a><br>
+    Patches, suggestions, and comments are welcome.
+  </div>
+  <div class="sfc-member">
+    Git is a member of <a href="https://git-scm.com/sfc">Software Freedom Conservancy</a>
+  </div>
+</footer>
+<a href="de.html#top" class="no-js scrollToTop" id="scrollToTop" data-label="Scroll to top">
+  <img src="../../images/icons/chevron-up@2x.png" width="20" height="20" alt="scroll-to-top"/>
+</a>
+<script src="../../assets/application-e12a0e837db60213b777cd7a706e0741beed474d7e5b94a641979fc87ce0d2cc.js"></script>
+
+    </div>
+
+</body>
+</html>

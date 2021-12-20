@@ -1,0 +1,36 @@
+{
+  "name": "@commitlint/test-environment",
+  "version": "15.0.0",
+  "description": "test environment for @commitlint",
+  "private": true,
+  "main": "lib/test-environment.js",
+  "types": "lib/test-environment.d.ts",
+  "files": [
+    "lib/"
+  ],
+  "engines": {
+    "node": ">=v12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/conventional-changelog/commitlint.git",
+    "directory": "@packages/test-environment"
+  },
+  "bugs": {
+    "url": "https://github.com/conventional-changelog/commitlint/issues"
+  },
+  "homepage": "https://commitlint.js.org/",
+  "keywords": [
+    "conventional-changelog",
+    "commitlint",
+    "test",
+    "cli"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@types/tmp": "^0.2.0",
+    "jest-environment-node": "^27.0.0",
+    "tmp": "0.2.1"
+  },
+  "gitHead": "71f0194f33943954a8dac1c458be47e5049717cd"
+}

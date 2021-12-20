@@ -1,0 +1,1675 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49925874-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-49925874-3');
+  </script>
+
+  <meta charset='utf-8'>
+  <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Git - git-config Documentation</title>
+
+  <link href='../../favicon.ico' rel='shortcut icon' type='image/x-icon'>
+
+  <link rel="stylesheet" media="screen" href="../../assets/application-42b7b91ccf5cb92469695cf08b5da9e9230594f634cb88264f305d5bd54e477f.css" />
+  <script src="../../assets/modernize-b3ebe0c31c24f230dc62179d3e1030d2e57a53b1668d9382c0a27dbd44a94beb.js"></script>
+  <!--[if (gte IE 6)&(lte IE 8)]>
+  <script src="/javascripts/selectivizr-min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body id="documentation">
+
+  <div class="inner">
+    <header>
+
+  <a href="https://git-scm.com/"><img src="../../images/logo@2x.png" width="110" height="46" alt="Git" /></a>
+  <span id="tagline"></span>
+  <script type="text/javascript">
+    var taglines = ["fast-version-control","everything-is-local","distributed-even-if-your-workflow-isnt","local-branching-on-the-cheap","distributed-is-the-new-centralized"];
+    var tagline = taglines[Math.floor(Math.random() * taglines.length)];
+    document.getElementById('tagline').innerHTML = '--' + tagline;
+  </script>
+  <form id="search" action="https://git-scm.com/search/results">
+    <input id="search-text" name="search" placeholder="Search entire site..." autocomplete="off" type="text" />
+  </form>
+  <div id="search-results"></div>
+
+</header>
+
+  </div> <!-- .inner -->
+
+    <div class="inner">
+      <div id="content-wrapper">
+        <button class="sidebar-btn"></button>
+<aside class="sidebar" id="sidebar">
+  <nav>
+    <ul>
+      <li>
+        <a href="https://git-scm.com/about">About</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/about">Branching and Merging</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/small-and-fast">Small and Fast</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/distributed">Distributed</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/info-assurance">Data Assurance</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/staging-area">Staging Area</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/free-and-open-source">Free and Open Source</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/trademark">Trademark</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a class="active" href="https://git-scm.com/doc">Documentation</a>
+        <ul class="expanded">
+          <li>
+            <a class="active" href="../git-pack/pt_BR.html">Reference</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/book">Book</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/videos">Videos</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/doc/ext">External Links</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/downloads">Downloads</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/downloads/guis">GUI Clients</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/downloads/logos">Logos</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/community">Community</a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+
+        <div id="content">
+          
+  <div id='reference-version'>
+    <a class="dropdown-trigger" id="reference-languages-trigger" data-panel-id="l10n-versions-dropdown" href="de.html#">
+  Deutsch ▾</a>
+<div class='dropdown-panel right' id='l10n-versions-dropdown'>
+  <header>Localized versions of <strong>git-config</strong> manual</header>
+  <ol class='reference-previous-versions'>
+      <li>
+        <a href="de.html"><span class="version">Deutsch</span>
+        </a>
+        </li>
+      <li>
+        <a href="en.html"><span class="version">English</span>
+        </a>
+        </li>
+      <li>
+        <a href="pt_BR.html"><span class="version">Português (Brasil)</span>
+        </a>
+        </li>
+  </ol>
+  <footer>
+    Want to read in your language or fix typos?<br/> <a href="https://github.com/jnavila/git-manpages-l10n">You can help translate this page</a>.
+  </footer>
+</div>
+
+    <a class="dropdown-trigger" id="reference-topics-trigger" data-panel-id="topics-dropdown" href="de.html#">Topics ▾</a>
+<div class='dropdown-panel right' id='topics-dropdown'>
+  <div class='three-column'>
+    <div class='column-left'>
+      <h3 class='setup'>Setup and Config</h3>
+<ul class='unstyled'>
+  <li><a href="../git/de.html">git</a></li>
+  <li><a class="active" href="de.html">config</a></li>
+  <li><a href="../git-help/de.html">help</a></li>
+  <li><a href="../git-bugreport/de.html">bugreport</a></li>
+</ul>
+
+      <h3 class='projects'>Getting and Creating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-init/de.html">init</a></li>
+  <li><a href="../git-clone/de.html">clone</a></li>
+</ul>
+
+      <h3 class='snapshotting'>Basic Snapshotting</h3>
+<ul class='unstyled'>
+  <li><a href="../git-add/de.html">add</a></li>
+  <li><a href="../git-status/de.html">status</a></li>
+  <li><a href="../git-diff/de.html">diff</a></li>
+  <li><a href="../git-commit/de.html">commit</a></li>
+  <li><a href="../git-notes/de.html">notes</a></li>
+  <li><a href="../git-restore/de.html">restore</a></li>
+  <li><a href="../git-reset/de.html">reset</a></li>
+  <li><a href="../git-rm/de.html">rm</a></li>
+  <li><a href="../git-mv/de.html">mv</a></li>
+</ul>
+
+      <h3 class='branching'>Branching and Merging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-branch/de.html">branch</a></li>
+  <li><a href="../git-checkout/de.html">checkout</a></li>
+  <li><a href="../git-switch/de.html">switch</a></li>
+  <li><a href="../git-merge/de.html">merge</a></li>
+  <li><a href="../git-mergetool/de.html">mergetool</a></li>
+  <li><a href="../git-log/de.html">log</a></li>
+  <li><a href="../git-stash/de.html">stash</a></li>
+  <li><a href="../git-tag/de.html">tag</a></li>
+  <li><a href="../git-worktree/de.html">worktree</a></li>
+</ul>
+
+      <h3 class='sharing'>Sharing and Updating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-fetch/de.html">fetch</a></li>
+  <li><a href="../git-pull/de.html">pull</a></li>
+  <li><a href="../git-push/de.html">push</a></li>
+  <li><a href="../git-remote/de.html">remote</a></li>
+  <li><a href="../git-submodule/de.html">submodule</a></li>
+</ul>
+
+    </div>
+    <div class='column-middle'>
+      <h3 class='inspection'>Inspection and Comparison</h3>
+<ul class='unstyled'>
+  <li><a href="../git-show/de.html">show</a></li>
+  <li><a href="../git-log/de.html">log</a></li>
+  <li><a href="../git-diff/de.html">diff</a></li>
+  <li><a href="../git-difftool/de.html">difftool</a></li>
+  <li><a href="../git-range-diff/de.html">range-diff</a></li>
+  <li><a href="../git-shortlog/de.html">shortlog</a></li>
+  <li><a href="../git-describe/de.html">describe</a></li>
+</ul>
+
+      <h3 class='patching'>Patching</h3>
+<ul class='unstyled'>
+  <li><a href="../git-apply/de.html">apply</a></li>
+  <li><a href="../git-cherry-pick/de.html">cherry-pick</a></li>
+  <li><a href="../git-diff/de.html">diff</a></li>
+  <li><a href="../git-rebase/de.html">rebase</a></li>
+  <li><a href="../git-revert/de.html">revert</a></li>
+</ul>
+
+      <h3 class='debugging'>Debugging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-bisect/de.html">bisect</a></li>
+  <li><a href="../git-blame/de.html">blame</a></li>
+  <li><a href="../git-grep/de.html">grep</a></li>
+</ul>
+
+      <h3 class='email'>Email</h3>
+<ul class='unstyled'>
+  <li><a href="../git-am/de.html">am</a></li>
+  <li><a href="../git-apply/de.html">apply</a></li>
+  <li><a href="../git-format-patch/de.html">format-patch</a></li>
+  <li><a href="../git-send-email/de.html">send-email</a></li>
+  <li><a href="../git-request-pull/de.html">request-pull</a></li>
+</ul>
+
+      <h3 class='external'>External Systems</h3>
+<ul class='unstyled'>
+  <li><a href="../git-svn/de.html">svn</a></li>
+  <li><a href="../git-fast-import/de.html">fast-import</a></li>
+</ul>
+
+      <h3 class='server-admin'>Server Admin</h3>
+<ul class='unstyled'>
+  <li><a href="../git-daemon/de.html">daemon</a></li>
+  <li><a href="../git-update-server-info/de.html">update-server-info</a></li>
+</ul>
+
+    </div>
+    <div class='column-right'>
+      <h3 class='guides'>Guides</h3>
+<ul class='unstyled'>
+  <li><a href="../gitattributes/de.html">gitattributes</a></li>
+  <li><a href="../gitcli/de.html">Command-line interface conventions</a></li>
+  <li><a href="../giteveryday/de.html">Everyday Git</a></li>
+  <li><a href="../gitfaq/de.html">Frequently Asked Questions (FAQ)</a></li>
+  <li><a href="../gitglossary/de.html">Glossary</a></li>
+  <li><a href="../githooks/de.html">Hooks</a></li>
+  <li><a href="../gitignore/de.html">gitignore</a></li>
+  <li><a href="../gitmodules/de.html">gitmodules</a></li>
+  <li><a href="../gitrevisions/de.html">Revisions</a></li>
+  <li><a href="../gitsubmodules/de.html">Submodules</a></li>
+  <li><a href="../gittutorial/de.html">Tutorial</a></li>
+  <li><a href="../gitworkflows/de.html">Workflows</a></li>
+  <li><a href="../git/ru.html#_guides">All guides...</a></li>
+</ul>
+
+      <h3 class='admin'>Administration</h3>
+<ul class='unstyled'>
+  <li><a href="../git-clean/de.html">clean</a></li>
+  <li><a href="../git-gc/de.html">gc</a></li>
+  <li><a href="../git-fsck/de.html">fsck</a></li>
+  <li><a href="../git-reflog/de.html">reflog</a></li>
+  <li><a href="../git-filter-branch/de.html">filter-branch</a></li>
+  <li><a href="../git-instaweb/de.html">instaweb</a></li>
+  <li><a href="../git-archive/de.html">archive</a></li>
+  <li><a href="../git-bundle/de.html">bundle</a></li>
+</ul>
+
+      <h3 class='plumbing'>Plumbing Commands</h3>
+<ul class='unstyled'>
+  <li><a href="../git-cat-file/de.html">cat-file</a></li>
+  <li><a href="../git-check-ignore/de.html">check-ignore</a></li>
+  <li><a href="../git-checkout-index/de.html">checkout-index</a></li>
+  <li><a href="../git-commit-tree/de.html">commit-tree</a></li>
+  <li><a href="../git-count-objects/de.html">count-objects</a></li>
+  <li><a href="../git-diff-index/de.html">diff-index</a></li>
+  <li><a href="../git-for-each-ref/de.html">for-each-ref</a></li>
+  <li><a href="../git-hash-object/de.html">hash-object</a></li>
+  <li><a href="../git-ls-files/de.html">ls-files</a></li>
+  <li><a href="../git-ls-tree/de.html">ls-tree</a></li>
+  <li><a href="../git-merge-base/de.html">merge-base</a></li>
+  <li><a href="../git-read-tree/de.html">read-tree</a></li>
+  <li><a href="../git-rev-list/de.html">rev-list</a></li>
+  <li><a href="../git-rev-parse/de.html">rev-parse</a></li>
+  <li><a href="../git-show-ref/de.html">show-ref</a></li>
+  <li><a href="../git-symbolic-ref/de.html">symbolic-ref</a></li>
+  <li><a href="../git-update-index/de.html">update-index</a></li>
+  <li><a href="../git-update-ref/de.html">update-ref</a></li>
+  <li><a href="../git-verify-pack/de.html">verify-pack</a></li>
+  <li><a href="../git-write-tree/de.html">write-tree</a></li>
+</ul>
+
+    </div>
+  </div>
+</div>
+
+    <a class="dropdown-trigger" id="reference-versions-trigger" data-panel-id="previous-versions-dropdown" href="de.html#">
+      Latest version
+       ▾ </a>
+<span class="light d-flex">git-config last updated in 2.34.1</span>
+<div class='dropdown-panel left' id='previous-versions-dropdown'>
+  <header>Changes in the <strong>git-config</strong> manual</header>
+  <ol class='reference-previous-versions'>
+        <li class="no-change"><span>2.34.1 no changes</span></li>
+        <li>
+        <a href="2.34.0.html"><span class="version">2.34.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">11/15/21</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.33.1.html"><span class="version">2.33.1</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">10/12/21</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.33.0.html"><span class="version">2.33.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">08/16/21</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.32.0.html"><span class="version">2.32.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">06/06/21</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.31.1.html"><span class="version">2.31.1</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">03/26/21</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.31.0.html"><span class="version">2.31.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+          </span>
+          <em class="date">03/15/21</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.30.2 no changes</span></li>
+        <li>
+        <a href="2.30.1.html"><span class="version">2.30.1</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">02/08/21</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.30.0.html"><span class="version">2.30.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">12/27/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.29.1 &rarr; 2.29.3 no changes</span></li>
+        <li>
+        <a href="2.29.0.html"><span class="version">2.29.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">10/19/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.28.1 no changes</span></li>
+        <li>
+        <a href="2.28.0.html"><span class="version">2.28.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">07/27/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.27.1 no changes</span></li>
+        <li>
+        <a href="2.27.0.html"><span class="version">2.27.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">06/01/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.26.1 &rarr; 2.26.3 no changes</span></li>
+        <li>
+        <a href="2.26.0.html"><span class="version">2.26.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">03/22/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.25.3 &rarr; 2.25.5 no changes</span></li>
+        <li>
+        <a href="2.25.2.html"><span class="version">2.25.2</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">03/17/20</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.25.1.html"><span class="version">2.25.1</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">02/17/20</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.25.0.html"><span class="version">2.25.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">01/13/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.24.1 &rarr; 2.24.4 no changes</span></li>
+        <li>
+        <a href="2.24.0.html"><span class="version">2.24.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">11/04/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.23.1 &rarr; 2.23.4 no changes</span></li>
+        <li>
+        <a href="2.23.0.html"><span class="version">2.23.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">08/16/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.22.2 &rarr; 2.22.5 no changes</span></li>
+        <li>
+        <a href="2.22.1.html"><span class="version">2.22.1</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">08/11/19</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.22.0.html"><span class="version">2.22.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">06/07/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.21.1 &rarr; 2.21.4 no changes</span></li>
+        <li>
+        <a href="2.21.0.html"><span class="version">2.21.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">02/24/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.20.1 &rarr; 2.20.5 no changes</span></li>
+        <li>
+        <a href="2.20.0.html"><span class="version">2.20.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">12/09/18</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.19.3 &rarr; 2.19.6 no changes</span></li>
+        <li>
+        <a href="2.19.2.html"><span class="version">2.19.2</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">11/21/18</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.19.1 no changes</span></li>
+        <li>
+        <a href="2.19.0.html"><span class="version">2.19.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">09/10/18</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.18.1 &rarr; 2.18.5 no changes</span></li>
+        <li>
+        <a href="2.18.0.html"><span class="version">2.18.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">06/21/18</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.17.1 &rarr; 2.17.6 no changes</span></li>
+        <li>
+        <a href="2.17.0.html"><span class="version">2.17.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+          </span>
+          <em class="date">04/02/18</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.16.6.html"><span class="version">2.16.6</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">12/06/19</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.15.4.html"><span class="version">2.15.4</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">12/06/19</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.14.6.html"><span class="version">2.14.6</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">12/06/19</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.13.7.html"><span class="version">2.13.7</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">05/22/18</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.12.5.html"><span class="version">2.12.5</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">09/22/17</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.11.4.html"><span class="version">2.11.4</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">09/22/17</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.10.5.html"><span class="version">2.10.5</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">09/22/17</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.9.5.html"><span class="version">2.9.5</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">07/30/17</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.8.6.html"><span class="version">2.8.6</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">07/30/17</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.7.6.html"><span class="version">2.7.6</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">07/30/17</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.6.7.html"><span class="version">2.6.7</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">05/05/17</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.5.6.html"><span class="version">2.5.6</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">05/05/17</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.4.12.html"><span class="version">2.4.12</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">05/05/17</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.3.10.html"><span class="version">2.3.10</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">09/28/15</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.2.3.html"><span class="version">2.2.3</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">09/04/15</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.1.4.html"><span class="version">2.1.4</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">12/17/14</em>
+        </a>
+        </li>
+    <li>&nbsp;</li>
+    <!-- <li><a class="more" href="#">See more previous releases →</a></li> -->
+  </ol>
+  <footer>
+    <p>Check your version of git by running</p>
+    <code class="command">git --version</code>
+  </footer>
+</div>
+
+  </div>
+
+  <div id='main'>
+    <div class="sect1">
+<h2 id="_name"><a class="anchor" href="de.html#_name"></a>NAME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>git-config – Repository eigene oder globale Optionen auslesen und setzen</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_übersicht"><a class="anchor" href="de.html#_übersicht"></a>ÜBERSICHT</h2>
+<div class="sectionbody">
+<div class="verseblock">
+<pre class="content"><em>git config</em> [&lt;Datei-Option&gt;] [--type=&lt;Typ&gt;] [--show-origin] [--show-scope] [-z|--null] Name [Wert [Wert_Regex]]
+<em>git config</em> [&lt;Datei-Option&gt;] [--type=&lt;Typ&gt;] --add Name Wert
+<em>git config</em> [&lt;Datei-Option&gt;] [--type=&lt;Typ&gt;] --replace-all Name Wert [Wert_Regex]
+<em>git config</em> [&lt;Datei-Option&gt;] [--type=&lt;Typ&gt;] [--show-origin] [--show-scope] [-z|--null] --get Name [Wert_Regex]
+<em>git config</em> [&lt;Datei-Option&gt;] [--type=&lt;Typ&gt;] [--show-origin] [--show-scope] [-z|--null] --get-all Name [Wert_Regex]
+<em>git config</em> [&lt;Datei-Option&gt;] [--type=&lt;Typ&gt;] [--show-origin] [--show-scope] [-z|--null] [--name-only] --get-regexp Name_Regex [Wert_Regex]
+<em>git config</em> [&lt;Datei-Option&gt;] [--type=&lt;Typ&gt;] [-z|--null] --get-urlmatch Name URL
+<em>git config</em> [&lt;Datei-Option&gt;] --unset Name [Wert_Regex]
+<em>git config</em> [&lt;Datei-Option&gt;] --unset-all Name [Wert_Regex]
+<em>git config</em> [&lt;Datei-Option&gt;] --rename-section alter_Name neuer_Name
+<em>git config</em> [&lt;Datei-Option&gt;] --remove-section Name
+<em>git config</em> [&lt;Datei-Option&gt;] [--show-origin] [--show-scope] [-z|--null] [--name-only] -l | --list
+<em>git config</em> [&lt;Datei-Option&gt;] --get-color Name [Standard]
+<em>git config</em> [&lt;Datei-Option&gt;] --get-colorbool Name [Standardausgabe-ist-tty]
+<em>git config</em> [&lt;Datei-Option&gt;] -e | --edit</pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_beschreibung"><a class="anchor" href="de.html#_beschreibung"></a>BESCHREIBUNG</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sie können mit diesem Befehl Optionen abfragen/setzen/ersetzen/leeren. Der
+Name ist tatsächlich der Abschnitt und der Schlüssel, getrennt durch einen
+Punkt, und der Wert wird außer Acht gelassen.</p>
+</div>
+<div class="paragraph">
+<p>Einer Option können mehrere Zeilen hinzugefügt werden, indem Sie die Option
+<code>--add</code> verwenden.  Wenn Sie eine Option, die auf mehreren Zeilen vorkommen
+kann, aktualisieren oder zurücksetzen wollen, muss ein regulärer
+POSIX-Ausdruck (regexp) <code>value_regex</code> angegeben werden.  Nur die vorhandenen
+Werte, die mit dem regexp übereinstimmen, werden aktualisiert oder
+zurückgesetzt.  Wenn Sie die Zeilen bearbeiten wollen, die mit dem regulären
+Ausdruck <strong>nicht</strong> übereinstimmen, setzen Sie einfach ein einzelnes
+Ausrufezeichen davor (siehe auch <a href="de.html#BEISPIELE">[BEISPIELE]</a>).</p>
+</div>
+<div class="paragraph">
+<p>Die Option <code>--type=&lt;Typ&gt;</code> veranlasst <em>git config</em> zu überprüfen, ob ein- und
+ausgehende Werte unter den angegebenen &lt;Typ&gt; zulässig sind.  Wenn kein
+<code>--type=&lt;Typ&gt;</code> angegeben wird, wird keine Kanonisierung
+durchgeführt. Benutzer können einen bestehenden <code>--type</code> Bezeichner mit
+<code>--no-type</code> aufheben.</p>
+</div>
+<div class="paragraph">
+<p>Standardmäßig werden die Werte aus den lokalen Konfigurationsdateien des
+Systems, der globalen Einstellung und der des Repositorys ausgelesen. Die
+Optionen <code>--system</code>, <code>--global</code>, <code>--local</code>, <code>---worktree</code> und <code>--file
+&lt;Datei-Name&gt;</code> können verwendet werden, um dem Befehl anzuweisen, nur von
+diesem Speicherort zu lesen (siehe den Abschnitt <a href="de.html#DATEIEN">[DATEIEN]</a>).</p>
+</div>
+<div class="paragraph">
+<p>Beim Schreiben wird der neue Wert standardmäßig in die lokale
+Konfigurationsdatei des Repositorys geschrieben, und die Optionen
+<code>--system</code>, <code>--global</code>, <code>--worktree</code>, <code>--file &lt;filename&gt;</code> können benutzt
+werden, um dem Befehl mitzuteilen, dass er dorthin schreiben soll (Sie
+können <code>--local</code> angeben, aber das ist schon die Voreinstellung).</p>
+</div>
+<div class="paragraph">
+<p>Dieser Befehl schlägt bei einem Fehler mit einem Nicht-Null-Status fehl.
+Einige dieser Exit-Codes sind:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Der Abschnitt oder Schlüssel ist ungültig (ret=1),</p>
+</li>
+<li>
+<p>weder Abschnitt noch Name wurde angegeben (ret=2),</p>
+</li>
+<li>
+<p>die Konfigurationsdatei ist falsch (ret=3),</p>
+</li>
+<li>
+<p>die Konfigurationsdatei kann nicht geschrieben werden (ret=4),</p>
+</li>
+<li>
+<p>Sie versuchen, eine nicht existierende Option aufzuheben (ret=5),</p>
+</li>
+<li>
+<p>Sie versuchen, eine Option rückgängig zu machen/einzustellen, für die
+mehrere Zeilen übereinstimmen (ret=5), oder</p>
+</li>
+<li>
+<p>Sie versuchen, einen ungültigen regulären Ausdruck (regexp) zu verwenden
+(ret=6).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Bei erfolgreichem Abschluss gibt der Befehl den Exit-Code 0 zurück.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_optionen"><a class="anchor" href="de.html#_optionen"></a>OPTIONEN</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-config---replace-all"> <a class="anchor" href="de.html#git-config---replace-all"></a>--replace-all </dt>
+<dd>
+<p>Das Standardverhalten ist, höchstens eine Zeile zu ersetzen. Dies ersetzt
+alle Zeilen, die dem Schlüssel entsprechen (und eventuell dem Wert_Regex).</p>
+</dd>
+<dt class="hdlist1" id="git-config---add"> <a class="anchor" href="de.html#git-config---add"></a>--add </dt>
+<dd>
+<p>Fügt der Option eine neue Zeile hinzu, ohne bestehende Werte zu ändern.  Das
+entspricht der Angabe von <em>^$</em> als Regex-Wert (value_regex) in
+<code>--replace-all</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-config---get"> <a class="anchor" href="de.html#git-config---get"></a>--get </dt>
+<dd>
+<p>Liefert den Wert für einen angegebenen Schlüssel (optional gefiltert durch
+einen dem Wert entsprechenden Regex). Gibt Fehlercode 1 zurück, wenn der
+Schlüssel nicht gefunden wurde. Wenn mehrere Schlüsselwerte gefunden werden,
+wird der letzte Wert zurückgegeben.</p>
+</dd>
+<dt class="hdlist1" id="git-config---get-all"> <a class="anchor" href="de.html#git-config---get-all"></a>--get-all </dt>
+<dd>
+<p>Entspricht <code>--get</code>, liefert aber alle Werte eines mehrwertigen Schlüssels
+zurück.</p>
+</dd>
+<dt class="hdlist1" id="git-config---get-regexp"> <a class="anchor" href="de.html#git-config---get-regexp"></a>--get-regexp </dt>
+<dd>
+<p>Wie <code>--get-all</code>, interpretiert den Namen aber als regulären Ausdruck und
+gibt die Schlüsselnamen aus.  Der Abgleich mit regulären Ausdrücken
+unterscheidet derzeit zwischen Groß- und Kleinschreibung und erfolgt gegen
+eine kanonisierte Version des Schlüssels, in der die Namen von Abschnitt und
+Variablen kleingeschrieben werden, die Namen von Unterabschnitten jedoch
+nicht.</p>
+</dd>
+<dt class="hdlist1" id="git-config---get-urlmatchNameURL"> <a class="anchor" href="de.html#git-config---get-urlmatchNameURL"></a>--get-urlmatch Name URL </dt>
+<dd>
+<p>Wenn ein zweiteiliger Name section.key angegeben wird, wird der Wert für
+section.&lt;URL&gt;.key zurückgegeben, dessen &lt;URL&gt;-Teil am besten zu der
+angegebenen URL passt (wenn kein solcher Schlüssel existiert, wird der Wert
+für section.key als Fallback verwendet). Wenn nur der Abschnitt als Name
+angegeben wird, geschieht das bei allen Schlüsseln in dem Abschnitt und sie
+werden aufgelistet. Falls kein Wert gefunden wird, liefert der Befehl den
+Fehlercode 1 zurück.</p>
+</dd>
+<dt class="hdlist1" id="git-config---global"> <a class="anchor" href="de.html#git-config---global"></a>--global </dt>
+<dd>
+<p>Bei Schreib-Optionen: schreibt in die globale <code>~/.gitconfig</code> Datei anstatt
+in die <code>.git/config</code> des Repositorys, schreibt in die
+<code>$XDG_CONFIG_HOME/git/config</code> Datei, wenn diese Datei existiert und die
+<code>~/.gitconfig</code> Datei nicht.</p>
+<div class="paragraph">
+<p>Bei Lese-Optionen: Liest nur aus der globalen <code>~/.gitconfig</code> und aus
+<code>$XDG_CONFIG_HOME/git/config</code>, statt aus allen verfügbaren Dateien.</p>
+</div>
+<div class="paragraph">
+<p>Siehe auch <a href="de.html#DATEIEN">[DATEIEN]</a>.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-config---system"> <a class="anchor" href="de.html#git-config---system"></a>--system </dt>
+<dd>
+<p>Bei Schreib-Optionen: schreibt in die systemweite <code>$(prefix)/etc/gitconfig</code>
+Datei, anstatt im Repository auf <code>.git/config</code>.</p>
+<div class="paragraph">
+<p>Bei Lese-Optionen: nur aus systemweitem <code>$(prefix)/etc/gitconfig</code> lesen,
+nicht aus allen verfügbaren Dateien.</p>
+</div>
+<div class="paragraph">
+<p>Siehe auch <a href="de.html#DATEIEN">[DATEIEN]</a>.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-config---local"> <a class="anchor" href="de.html#git-config---local"></a>--local </dt>
+<dd>
+<p>Bei Schreib-Optionen: Schreibt in die <code>.git/config</code> Datei des Repositorys.
+Dies entspricht dem Standardverhalten.</p>
+<div class="paragraph">
+<p>Bei Lese-Optionen: nur aus der Repository <code>.git/config</code> lesen, nicht aus
+allen verfügbaren Dateien.</p>
+</div>
+<div class="paragraph">
+<p>Siehe auch <a href="de.html#DATEIEN">[DATEIEN]</a>.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-config---worktree"> <a class="anchor" href="de.html#git-config---worktree"></a>--worktree </dt>
+<dd>
+<p>Analog zu <code>--local', außer dass `.git/config.worktree' gelesen oder
+geschrieben wird, sofern `extensions.worktreeConfig</code> vorhanden ist. Falls
+nicht, ist es identisch mit <code>--local</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-config--fKonfigurations-Datei"> <a class="anchor" href="de.html#git-config--fKonfigurations-Datei"></a>-f Konfigurations-Datei </dt>
+<dt class="hdlist1" id="git-config---fileKonfigurations-Datei"> <a class="anchor" href="de.html#git-config---fileKonfigurations-Datei"></a>--file Konfigurations-Datei </dt>
+<dd>
+<p>Verwendet die genannte Konfigurations-Datei anstelle jener, die in
+GIT_CONFIG festgelegt ist.</p>
+</dd>
+<dt class="hdlist1" id="git-config---blobBlob"> <a class="anchor" href="de.html#git-config---blobBlob"></a>--blob Blob </dt>
+<dd>
+<p>Analog zu <code>--file</code>, aber benutzt den genannten Blob anstelle einer
+Datei. Sie können z.B. <em>master:.gitmodules</em> verwenden, um Werte aus der
+Datei <em>.gitmodules</em> im Master-Branch zu lesen. Siehe den Abschnitt
+"REVISIONEN SPEZIFIZIEREN" in <a href='../gitrevisions/de.html'>gitrevisions[7]</a> für eine umfassende
+Liste von Schreibweisen für Blob-Namen.</p>
+</dd>
+<dt class="hdlist1" id="git-config---remove-section"> <a class="anchor" href="de.html#git-config---remove-section"></a>--remove-section </dt>
+<dd>
+<p>Entfernt den angegebenen Abschnitt aus der Konfigurations-Datei.</p>
+</dd>
+<dt class="hdlist1" id="git-config---rename-section"> <a class="anchor" href="de.html#git-config---rename-section"></a>--rename-section </dt>
+<dd>
+<p>Umbenennen des betreffenden Abschnitts auf einen neuen Namen.</p>
+</dd>
+<dt class="hdlist1" id="git-config---unset"> <a class="anchor" href="de.html#git-config---unset"></a>--unset </dt>
+<dd>
+<p>Löscht die Zeile, auf die der Schlüssel passt, aus der Konfigurations-Datei.</p>
+</dd>
+<dt class="hdlist1" id="git-config---unset-all"> <a class="anchor" href="de.html#git-config---unset-all"></a>--unset-all </dt>
+<dd>
+<p>Löscht alle Zeilen, auf die der Schlüssel passt, aus der
+Konfigurations-Datei.</p>
+</dd>
+<dt class="hdlist1" id="git-config--l"> <a class="anchor" href="de.html#git-config--l"></a>-l </dt>
+<dt class="hdlist1" id="git-config---list"> <a class="anchor" href="de.html#git-config---list"></a>--list </dt>
+<dd>
+<p>Listet alle in der Konfigurations-Datei gesetzten Variablen mit ihren Werten
+auf.</p>
+</dd>
+<dt class="hdlist1" id="git-config---typeltTypgt"> <a class="anchor" href="de.html#git-config---typeltTypgt"></a>--type &lt;Typ&gt; </dt>
+<dd>
+<p><em>git config</em> sorgt dafür, dass jede Eingabe oder Ausgabe unter der/den
+angegebenen Typ-Bedingung(en) gültig ist und wird ausgehende Werte in der
+zulässigen Form von `&lt;Typ&gt;`ausgeben.</p>
+<div class="paragraph">
+<p>Zulässige Werte von <code>&lt;Typ&gt;</code> enthalten:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>bool</em>: die Werte entweder als „wahr“ (true) oder „falsch“ (false)
+deklarieren.</p>
+</li>
+<li>
+<p><em>int</em>: die Werte als einfache Dezimalzahlen deklarieren. Ein optionales
+Suffix von <em>k</em>, <em>m</em> oder <em>g</em> bewirkt, dass der Wert der Eingabe mit 1024,
+1048576 oder 1073741824 multipliziert wird.</p>
+</li>
+<li>
+<p><em>bool-or-int</em>: entsprechend der obigen Beschreibung entweder nach <em>bool</em>
+oder <em>int</em> kanonisieren.</p>
+</li>
+<li>
+<p><em>path</em>: kanonisieren durch Hinzufügen einer führenden <code>~</code> zum Wert von
+<code>$HOME</code> und <code>~user</code> zum Home-Verzeichnis für den angegebenen
+Benutzer. Dieser Spezifizierer hat keine Auswirkung, wenn ein Wert gesetzt
+wird (aber Sie können <code>git config section.variable ~/</code> von der Kommandozeile
+aus benutzen, um Ihre Shell die Erweiterung durchführen zu lassen)</p>
+</li>
+<li>
+<p><em>expiry-date</em>: kanonisieren durch Konvertieren von einem fixen oder
+relativen Datumsstring in einen Zeitstempel. Diese Angabe hat keine
+Auswirkung beim Setzen des Wertes.</p>
+</li>
+<li>
+<p><em>color</em>: Wenn Sie einen Wert erhalten, kanonisieren Sie ihn, indem Sie ihn
+in eine ANSI-Farb-Escape-Sequenz konvertieren. Wenn ein Wert festgelegt
+wurde, so wird eine Überprüfung durchgeführt, um sicherzustellen, dass der
+angegebene Wert als ANSI-Farbe kanonisierbar ist, aber er wird so wie er ist
+ausgegeben.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1" id="git-config---bool"> <a class="anchor" href="de.html#git-config---bool"></a>--bool </dt>
+<dt class="hdlist1" id="git-config---int"> <a class="anchor" href="de.html#git-config---int"></a>--int </dt>
+<dt class="hdlist1" id="git-config---bool-or-int"> <a class="anchor" href="de.html#git-config---bool-or-int"></a>--bool-or-int </dt>
+<dt class="hdlist1" id="git-config---path"> <a class="anchor" href="de.html#git-config---path"></a>--path </dt>
+<dt class="hdlist1" id="git-config---expiry-date"> <a class="anchor" href="de.html#git-config---expiry-date"></a>--expiry-date </dt>
+<dd>
+<p>Historische Optionen zur Auswahl eines Typ-Bezeichners. Stattdessen sollte
+man besser <code>--type</code> wählen (siehe oben).</p>
+</dd>
+<dt class="hdlist1" id="git-config---no-type"> <a class="anchor" href="de.html#git-config---no-type"></a>--no-type </dt>
+<dd>
+<p>Setzt den zuvor eingestellten Typ-Bezeichner zurück, falls zuvor einer
+eingestellt war. Diese Option verlangt, dass <em>git config</em> die abgerufene
+Variable nicht kanonisiert.  <code>--no-type</code> hat keine Wirkung ohne
+<code>--type=&lt;type&gt;</code> oder <code>--&lt;type&gt;</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-config--z"> <a class="anchor" href="de.html#git-config--z"></a>-z </dt>
+<dt class="hdlist1" id="git-config---null"> <a class="anchor" href="de.html#git-config---null"></a>--null </dt>
+<dd>
+<p>Für alle Optionen, die Werte und/oder Schlüssel ausgeben, immer die Werte
+mit einem Null-Zeichen beenden (anstatt eines Zeilenumbruchs). Stattdessen
+sollte ein Zeilenumbruch als Trennzeichen zwischen Schlüssel und Wert
+verwendet werden. Dies ermöglicht z.B. ein sicheres Parsen der Ausgabe, ohne
+durch in den Werten enthaltene Zeilenumbrüche verwirrt zu werden.</p>
+</dd>
+<dt class="hdlist1" id="git-config---name-only"> <a class="anchor" href="de.html#git-config---name-only"></a>--name-only </dt>
+<dd>
+<p>Nur die Namen der Konfigurationsvariablen für <code>--list</code> oder <code>--get-regexp</code>
+ausgeben.</p>
+</dd>
+<dt class="hdlist1" id="git-config---show-origin"> <a class="anchor" href="de.html#git-config---show-origin"></a>--show-origin </dt>
+<dd>
+<p>Die Ausgabe aller abgefragten Konfigurationsoptionen mit dem Origin-Typ
+(Datei, Standardeingabe, Blob, Kommandozeile) und dem aktuellen Original
+(Konfigurationsdateipfad, Ref oder Blob-ID, falls zutreffend) erweitern.</p>
+</dd>
+<dt class="hdlist1" id="git-config---show-scope"> <a class="anchor" href="de.html#git-config---show-scope"></a>--show-scope </dt>
+<dd>
+<p>Vergleichbar mit <code>--show-origin</code> insoweit es die Ausgabe aller abgefragten
+Konfigurationsoptionen um den Rahmen dieses Wertes (lokal, global, System,
+Befehl) erweitert.</p>
+</dd>
+<dt class="hdlist1" id="git-config---get-colorboolNameStandardausgabe-ist-tty"> <a class="anchor" href="de.html#git-config---get-colorboolNameStandardausgabe-ist-tty"></a>--get-colorbool Name [Standardausgabe-ist-tty] </dt>
+<dd>
+<p>Finde die Farbeinstellung für <code>Name</code> (Beispielsweise <code>color.diff</code>)  und gib
+"true" oder "false" aus. <code>Standardausgabe-ist-tty</code> sollte entweder "true"
+oder "false" sein und wird in Betracht gezogen, wenn in der
+Konfigurationsdatei "auto" steht. Falls <code>Standardausgabe-ist-tty</code> fehlt,
+dann wird die Standardausgabe des Programmes selbst überprüft und gibt
+Status 0 zurück, falls Farbe verwendet wird, andernfalls wird Status 1
+zurückgegeben.  Wenn die Farbeinstellung für <code>Name</code> undefiniert ist,
+verwendet der Befehl <code>color.ui</code> als Fallback.</p>
+</dd>
+<dt class="hdlist1" id="git-config---get-colorNameStandard"> <a class="anchor" href="de.html#git-config---get-colorNameStandard"></a>--get-color Name [Standard] </dt>
+<dd>
+<p>Findet für <code>name</code> die konfigurierte Farbe (z.B. <code>color.diff.new</code>) und gibt
+sie als ANSI-Farb-Escape-Sequenz für die Standardausgabe aus.  Der optionale
+Parameter <code>default</code> wird stattdessen verwendet, wenn für <code>name</code> keine Farbe
+konfiguriert ist.</p>
+<div class="paragraph">
+<p><code>--type=color [--default=&lt;Vorgabe&gt;]</code> wird gegenüber <code>--get-color</code> bevorzugt
+(bitte aber beachten, dass <code>--get-color</code> den durch <code>--type=color</code>
+angehängten Zeilenumbruch auslässt).</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-config--e"> <a class="anchor" href="de.html#git-config--e"></a>-e </dt>
+<dt class="hdlist1" id="git-config---edit"> <a class="anchor" href="de.html#git-config---edit"></a>--edit </dt>
+<dd>
+<p>Öffnet einen Editor, um die angegebene Konfigurationsdatei zu ändern;
+entweder aus <code>--system</code>, <code>--global</code>, oder dem Repository (die
+Voreinstellung).</p>
+</dd>
+<dt class="hdlist1" id="git-config---no-includes"> <a class="anchor" href="de.html#git-config---no-includes"></a>--[no-]includes </dt>
+<dd>
+<p>Berücksichtigt <code>include.*</code> Direktiven in Konfigurationsdateien, wenn Werte
+nachgeschlagen werden. Standardeinstellung ist <code>off</code>, wenn eine bestimmte
+Datei angegeben wird (z.B. mit <code>--file</code>, <code>--global</code>, usw.) und <code>on</code>, wenn
+alle Konfigurationsdateien durchsucht werden.</p>
+</dd>
+<dt class="hdlist1" id="git-config---defaultltWertgt"> <a class="anchor" href="de.html#git-config---defaultltWertgt"></a>--default &lt;Wert&gt; </dt>
+<dd>
+<p>Wird mit <code>--get</code> benutzt. Wenn die angeforderte Variable nicht gefunden
+wird, dann wird &lt;Wert&gt; so eingesetzt als ob dieser der Variablen zugewiesen
+wurde.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_konfiguration"><a class="anchor" href="de.html#_konfiguration"></a>KONFIGURATION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>pager.config</code> wird nur bei der Auflistung der Konfiguration beachtet,
+d.h. bei der Verwendung von <code>--list</code> oder einem der <code>--get-*</code>, die mehrere
+Ergebnisse liefern können.  Die Voreinstellung ist die Verwendung eines
+Pagers.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="FILES"><a class="anchor" href="de.html#FILES"></a>DATEIEN</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Wenn nicht explizit mit <code>--file</code> verändert, gibt es vier Dateien, in welchen
+<em>git-config</em> nach Optionen sucht:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-config-prefixetcgitconfig"> <a class="anchor" href="de.html#git-config-prefixetcgitconfig"></a>$(prefix)/etc/gitconfig </dt>
+<dd>
+<p>Systemweite Konfigurationsdatei.</p>
+</dd>
+<dt class="hdlist1" id="git-config-XDGCONFIGHOMEgitconfig"> <a class="anchor" href="de.html#git-config-XDGCONFIGHOMEgitconfig"></a>$XDG_CONFIG_HOME/git/config </dt>
+<dd>
+<p>Zweite benutzerspezifische Konfigurationsdatei. Wenn $XDG_CONFIG_HOME nicht
+gesetzt oder leer ist, wird <code>$HOME/.config/git/config</code> verwendet. Jede
+einwertige Variable, die in dieser Datei gesetzt ist, wird mit dem
+überschrieben, was in <code>~/.gitconfig</code> steht.  Es empfiehlt sich, diese Datei
+nicht zu erstellen, wenn manchmal ältere Versionen von Git verwendet werden,
+da diese Datei erst seit relativ kurzer Zeit unterstützt wird.</p>
+</dd>
+<dt class="hdlist1" id="git-config-gitconfig"> <a class="anchor" href="de.html#git-config-gitconfig"></a>~/.gitconfig </dt>
+<dd>
+<p>Benutzerspezifische Konfigurationsdatei. Auch „globale“ Konfigurationsdatei
+genannt.</p>
+</dd>
+<dt class="hdlist1" id="git-config-GITDIRconfig"> <a class="anchor" href="de.html#git-config-GITDIRconfig"></a>$GIT_DIR/config </dt>
+<dd>
+<p>Spezifische Konfigurationsdatei für das Repository.</p>
+</dd>
+<dt class="hdlist1" id="git-config-GITDIRconfigworktree"> <a class="anchor" href="de.html#git-config-GITDIRconfigworktree"></a>$GIT_DIR/config.worktree </dt>
+<dd>
+<p>Diese Angabe ist optional und wird nur durchsucht, wenn
+<code>extensions.worktreeConfig</code> in $GIT_DIR/config vorhanden ist.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Falls keine weiteren Optionen gegeben werden, werden alle Leseoperationen
+auf allen verfügbaren Dateien ausgeführt. Wenn die globale oder die
+systemweite Konfigurationsdateien fehlen, werden sie ignoriert. Falls die
+Konfigurationsdatei des Repositorys nicht verfügbar oder lesbar ist, wird
+<em>git config</em> mit einem Fehlercode, der nicht null ist, beendet.  In beiden
+Fällen jedoch wird keine Fehlermeldung ausgegeben.</p>
+</div>
+<div class="paragraph">
+<p>Die Dateien werden in der oben angegebenen Reihenfolge gelesen, wobei der
+zuletzt gefundene Wert Vorrang vor früher gelesenen Werten hat.  Werden
+mehrere Werte ermittelt, dann kommen alle Werte eines Schlüssels aus allen
+Dateien zum Einsatz.</p>
+</div>
+<div class="paragraph">
+<p>Einzelne Konfigurationsparameter können beim Ausführen eines git-Befehls mit
+der Option <code>-c</code> überschrieben werden. Siehe <a href='../git/de.html'>git[1]</a> für weitere
+Details.</p>
+</div>
+<div class="paragraph">
+<p>Alle Schreiboptionen schreiben standardmäßig in die Konfigurationsdatei des
+Repositorys. Beachten Sie, dass dies auch Optionen wie <code>--replace-all</code> und
+<code>--unset</code> betrifft. <strong><em>git config</em> wird immer nur eine Datei zur gleichen
+Zeit ändern</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Sie können diese Regeln entweder mit Optionen auf der Kommandozeile oder
+durch Umgebungsvariablen überschreiben. Die Optionen <code>--global</code>, <code>--system</code>
+und <code>--worktree</code> beschränken die Datei auf die globale,  systemweite
+bzw. „pro-Worktree“-Datei. Die Umgebungsvariable <code>GIT_CONFIG</code> hat einen
+ähnlichen Effekt, aber Sie können jeden beliebigen Dateinamen angeben.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_environment"><a class="anchor" href="de.html#_environment"></a>ENVIRONMENT</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-config-GITCONFIG"> <a class="anchor" href="de.html#git-config-GITCONFIG"></a>GIT_CONFIG </dt>
+<dd>
+<p>Beziehe die Konfiguration aus der gegebenen Datei anstelle von
+.git/config. Verwenden der Option "--global" erzwingt dies zu
+~/.gitconfig. Das Verwenden der Option "--system" erzwingt dies zu
+${prefix}/etc/gitconfig.</p>
+</dd>
+<dt class="hdlist1" id="git-config-GITCONFIGNOSYSTEM"> <a class="anchor" href="de.html#git-config-GITCONFIGNOSYSTEM"></a>GIT_CONFIG_NOSYSTEM </dt>
+<dd>
+<p>Legt fest, ob die Leseeinstellungen aus der systemweiten Datei
+$(prefix)/etc/gitconfig übersprungen werden sollen. Siehe <a href='../git/de.html'>git[1]</a> für
+Einzelheiten.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Siehe auch <a href="de.html#DATEIEN">[DATEIEN]</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="EXAMPLES"><a class="anchor" href="de.html#EXAMPLES"></a>BEISPIELE</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Angenommen wird folgende .git/config-Datei:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>#
+# Dies ist die Konfigurationsdatei und
+# ein '#' oder ein ';' stellt einen
+# Kommentar dar.
+#
+
+; Kernvariablen
+[core]
+	; den Dateimodi nicht vertrauen
+	filemode = false
+
+; Unser diff-Algorithmus
+[diff]
+	external = /usr/local/bin/diff-wrapper
+	renames = true
+
+; Proxyeinstellungen
+[core]
+	gitproxy="proxy-Befehl" für kernel.org
+	gitproxy=default-proxy ; für den Rest
+
+; HTTP
+[http]
+	sslVerify
+[http "https://weak.example.com"]
+	sslVerify = false
+	cookieFile = /tmp/cookie.txt</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Sie können den Dateimodus auf "true" setzen mit</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>% git config core.filemode true</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Die hypothetischen Proxy-Befehlseinträge haben tatsächlich ein
+entsprechendes Anhängsel, um zu erkennen, auf welche URL sie sich
+beziehen. Hier erfahren Sie, wie Sie den Eintrag für kernel.org in "ssh"
+ändern können.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>% git config core.gitproxy '"ssh" for kernel.org' 'for kernel.org$'</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dies stellt sicher, dass nur das Schlüssel/Wertpaar für kernel.org ersetzt
+wird.</p>
+</div>
+<div class="paragraph">
+<p>Um den Eintrag für Umbenennungen zu löschen, verwenden Sie</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>% git config --unset diff.renames</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Falls Sie einen Eintrag für eine Multivar (Eine Variable mit mehreren
+Einträgen, wie core.gitproxy oben), löschen möchten, müssen Sie eine Regex
+für den Wert exakt einer Zeile angeben.</p>
+</div>
+<div class="paragraph">
+<p>Um den Wert für einen gegebenen Schlüssel abzufragen, benutzen Sie</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>% git config --get core.filemode</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>oder</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>% git config core.filemode</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>oder, um eine Multivar abzufragen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>% git config --get core.gitproxy "for kernel.org$"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Falls Sie alle Werte einer Multivar wissen möchten, verwenden Sie:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>% git config --get-all core.gitproxy</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wenn Sie gerne gefährlich leben, können Sie <strong>alle</strong> core.gitproxy-Einträge
+durch einem neuen ersetzen mit</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>% git config --replace-all core.gitproxy ssh</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wenn Sie jedoch wirklich nur eine Zeile für den Standardproxy verändern
+möchten, beispielsweise diejenige ohne ein Anhängsel "for &#8230;&#8203;", können Sie
+dies so tun:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>% git config core.gitproxy ssh '! for '</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Um tatsächlich nur Werte mit einem Ausrufezeichen abzugleichen, müssen Sie</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>% git config section.key value '[!]'</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Um einen neuen Proxy hinzuzufügen, ohne einen der vorhandenen Proxys zu
+ändern, verwenden Sie</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>% git config --add core.gitproxy '"proxy-command" for example.com'</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ein Beispiel, um angepasste Farbe der Konfigurationsdatei in Ihrem Script zu
+verwenden:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>#!/bin/sh
+WS=$(git config --get-color color.diff.whitespace "blue reverse")
+RESET=$(git config --get-color "" "reset")
+echo "${WS}Ihre Leerzeichen-Farbe oder invertiertes Blau${RESET}"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Für URLs in <code>https://weak.example.com</code> wird <code>http.sslVerify</code> auf <code>false</code>
+gesetzt, während es für alle anderen auf <code>true</code> gesetzt wird:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>% git config --type=bool --get-urlmatch http.sslverify https://good.example.com
+true
+% git config --type=bool --get-urlmatch http.sslverify https://weak.example.com
+false
+% git config --get-urlmatch http https://weak.example.com
+http.cookieFile /tmp/cookie.txt
+http.sslverify false</pre>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Missing <code>de/config.txt</code></p>
+</div>
+<div class="paragraph">
+<p>See original version for this content.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bugs"><a class="anchor" href="de.html#_bugs"></a>BUGS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Bei Verwendung der veralteten Syntax <code>[section.subsection]</code> führt die
+Änderung eines Wertes dazu, dass ein mehrzeiliger Schlüssel anstelle einer
+Änderung hinzugefügt wird, falls der Unterabschnitt mit mindestens einem
+Großbuchstaben angegeben wird. Wenn beispielsweise die Konfiguration wie
+folgt aussieht</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>  [section.subsection]
+    key = value1</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>und die Ausführung von <code>git config section.Subsection.key value2</code> ergibt</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>  [section.subsection]
+    key = value1
+    key = value2</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git"><a class="anchor" href="de.html#_git"></a>GIT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Teil der <a href='../git/de.html'>git[1]</a> Suite</p>
+</div>
+</div>
+</div>
+  </div>
+
+        </div>
+      </div>
+      <footer>
+  <div class="site-source">
+    <a href="https://git-scm.com/site">About this site</a><br>
+    Patches, suggestions, and comments are welcome.
+  </div>
+  <div class="sfc-member">
+    Git is a member of <a href="https://git-scm.com/sfc">Software Freedom Conservancy</a>
+  </div>
+</footer>
+<a href="de.html#top" class="no-js scrollToTop" id="scrollToTop" data-label="Scroll to top">
+  <img src="../../images/icons/chevron-up@2x.png" width="20" height="20" alt="scroll-to-top"/>
+</a>
+<script src="../../assets/application-e12a0e837db60213b777cd7a706e0741beed474d7e5b94a641979fc87ce0d2cc.js"></script>
+
+    </div>
+
+</body>
+</html>

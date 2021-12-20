@@ -1,0 +1,32 @@
+{
+  "name": "conventional-changelog-config-spec",
+  "version": "2.1.0",
+  "description": "a spec describing the config options supported by conventional-config for upstream tooling",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "standard",
+    "test": "npx mocha tests/*.test.js",
+    "release": "standard-version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/conventional-changelog/conventional-changelog-config-spec.git"
+  },
+  "keywords": [
+    "conventional-changelog",
+    "conventional",
+    "changelog",
+    "spec"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/conventional-changelog/conventional-changelog-config-spec/issues"
+  },
+  "homepage": "https://github.com/conventional-changelog/conventional-changelog-config-spec#readme",
+  "devDependencies": {
+    "ajv": "7.0.3",
+    "mocha": "8.1.3",
+    "standard": "14.3.4",
+    "standard-version": "9.1.0"
+  }
+}

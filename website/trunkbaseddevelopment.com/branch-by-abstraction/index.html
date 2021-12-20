@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Branch by Abstraction - Trunk Based Development</title>
+    <meta name="generator" content="Hugo 0.85.0" />
+
+    
+    <meta name="description" content="A portal on this practice">
+    
+    <link rel="canonical" href="index.html">
+    
+    <meta name="author" content="paul-hammant">
+    
+
+    <meta property="og:url" content="https://trunkbaseddevelopment.com/branch-by-abstraction/">
+    <meta property="og:title" content="Trunk Based Development">
+    <meta property="og:image" content="https://trunkbaseddevelopment.com/images/logo.png">
+    <meta name="apple-mobile-web-app-title" content="Trunk Based Development">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('../fonts/icon.eot');
+        src: url('../fonts/icon.eot')
+               format('embedded-opentype'),
+             url('../fonts/icon.woff')
+               format('woff'),
+             url('../fonts/icon.ttf')
+               format('truetype'),
+             url('../fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="../stylesheets/application.css">
+    <link rel="stylesheet" href="../stylesheets/temporary.css">
+    <link rel="stylesheet" href="../stylesheets/palettes.css">
+    <link rel="stylesheet" href="../stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu+Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <script src="../javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-blue palette-accent-light-blue">
+
+
+
+	
+	
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Trunk Based Development: Branch by Abstraction
+      </div>
+    </div>
+
+    
+
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <div class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="../images/logo.png">
+        </div>
+      
+      <div class="name">
+        <strong>Trunk Based Development</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      <hr>
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Introduction" href="../index.html">
+	
+	Introduction
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Context" href="../context/index.html">
+	
+	Context
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Five-minute overview" href="../5-min-overview/index.html">
+	
+	Five-minute overview
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Deciding factors" href="../deciding-factors/index.html">
+	
+	Deciding factors
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Version control system features" href="../vcs-features/index.html">
+	
+	Version control system features
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Version control system choices" href="../vcs-choices/index.html">
+	
+	Version control system choices
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Feature flags" href="../feature-flags/index.html">
+	
+	Feature flags
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a class="current" title="Branch by Abstraction" href="index.html">
+	
+	Branch by Abstraction
+</a>
+
+
+<ul id="scrollspy">
+</ul>
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Branch for release" href="../branch-for-release/index.html">
+	
+	Branch for release
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Release from trunk" href="../release-from-trunk/index.html">
+	
+	Release from trunk
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Styles and Trade-offs" href="../styles/index.html">
+	
+	Styles and Trade-offs
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Continuous Integration (CI)" href="../continuous-integration/index.html">
+	
+	Continuous Integration (CI)
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Committing straight to the trunk" href="../committing-straight-to-the-trunk/index.html">
+	
+	Committing straight to the trunk
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Short Lived Feature Branches" href="../short-lived-feature-branches/index.html">
+	
+	Short Lived Feature Branches
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Continuous Code Review" href="../continuous-review/index.html">
+	
+	Continuous Code Review
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Continuous Delivery (CD)" href="../continuous-delivery/index.html">
+	
+	Continuous Delivery (CD)
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Concurrent development of consecutive releases" href="../concurrent-development-of-consecutive-releases/index.html">
+	
+	Concurrent development of consecutive releases
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Application strangulation" href="../strangulation/index.html">
+	
+	Application strangulation
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Observed habits" href="../observed-habits/index.html">
+	
+	Observed habits
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="You&#39;re doing it wrong" href="../youre-doing-it-wrong/index.html">
+	
+	You&#39;re doing it wrong
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Alternative branching models" href="../alternative-branching-models/index.html">
+	
+	Alternative branching models
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Monorepos" href="../monorepos/index.html">
+	
+	Monorepos
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Expanding Contracting Monorepos" href="../expanding-contracting-monorepos/index.html">
+	
+	Expanding Contracting Monorepos
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Game Changers" href="../game-changers/index.html">
+	
+	Game Changers
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Publications" href="../publications/index.html">
+	
+	Publications
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Book on this topic" href="../book/index.html">
+	
+	Book on this topic
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Key to branch diagrams" href="../key/index.html">
+	
+	Key to branch diagrams
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Contributions" href="../contributions/index.html">
+	
+	Contributions
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+
+        <ul>
+
+          <li>
+            <a href="https://github.com/paul-hammant/tbd" target="_blank" title="See GitHub Repo">
+              Site Source on Github
+            </a>
+          </li>
+
+          <li>
+            <a href="https://github.com/paul-hammant/tbd/commit/7f6c170e3760e5ae5cb49fca37b73cfea475581d" target="_blank">
+              SHA-1 Published: 7f6c170e3760e5ae5cb49fca37b73cfea475581d
+            </a>
+          </li>
+          </li>
+<iframe id="buy" width='160' height='400' src='https://leanpub.com/trunk-based-development/embed' frameborder='0' allowtransparency='true'></iframe>
+          <li>
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1 style="color: white; padding: 32px 20px 72px; background-image:url(../images/LogoSlim.png); background-repeat: no-repeat; background-size: 100% auto"><span style="background-color: #5677fc">Branch by Abstraction </span></h1>
+
+			<p>Branch by Abstraction is a set-piece technique to effect a &lsquo;longer to complete&rsquo; change in the trunk. Say a developer
+(or a pair of developers), has a change that is going to take five days to complete. There could easily be pressure to
+create a branch for this - somewhere that can be unstable for a period of time before it completes (and gets merged
+back somewhere).</p>
+<p>There may be some aspect of repetition to the coding activities that makes it longer to complete. No matter, the
+change was predicted as being time-consuming, complex, destabilizing/disruptive to everyone else in the development team.</p>
+<p><strong>Rules:</strong></p>
+<ol>
+<li>There are also a lot of developers already depending on
+the code that is subject of the &lsquo;longer to complete&rsquo; change, and we do not want them to be slowed down in any way.</li>
+<li>No commit pushed to the shared repository should jeopardize the ability to go live.</li>
+</ol>
+<h2 id="ideal-steps">Ideal steps</h2>
+<p>For simplicity&rsquo;s sake, let us say there is code that is &lsquo;to be replaced&rsquo;, code &lsquo;to be introduced&rsquo;.</p>
+<ol>
+<li>Introduce an abstraction around the code that is to be replaced, and commit that for all to see.  If needed, this
+can take multiple commits. None of those are allowed to break the build, and all of them could be pushed to the shared
+repository in order, and as done.</li>
+<li>Write a second implementation of the abstraction for the to-be-introduced code, and commit that, but maybe as
+&lsquo;turned off&rsquo; within the trunk so that other developers are not depending on it yet. If needed, this can take multiple
+commits as above. The abstraction from #1 may also be occasionally tweaked, but must follow the same rule - do not
+break the build.</li>
+<li>Flip the software &lsquo;off&rsquo; switch to &lsquo;on&rsquo; for the rest of the team, and commit/push that.</li>
+<li>Remove the to-be-replaced implementation</li>
+<li>Remove the abstraction</li>
+</ol>
+<p>Hopefully, your team uses an IDE that can perform complex refactorings on sets on checkouts, in a way that running the build
+after each is an uneventful validation of the refactorings.</p>
+<h2 id="contrived-example">Contrived example</h2>
+<p>Let&rsquo;s talk about a car having its wheels upgraded. We should never forget that software engineering is
+nothing like conventional construction, and we want to ram that home. At least, it is nothing like conventional
+construction where we are not talking about a production line.</p>
+<h3 id="rules">Rules</h3>
+<ol>
+<li>Mechanics must be able to simultaneously work on the upholstery, engine, etc.</li>
+<li>The car must be drivable after every change.</li>
+</ol>
+<h3 id="steps">Steps</h3>
+<p>All steps are efficiently performed raised up on car jacks/lifts/ramps, before lowering the car to the ground again.</p>
+<ol>
+<li>One wheel is removed, put in a container that looks pretty much like a wheel (rotates around an axis,
+can bear weight) and replaced on the car. If driven this wheel functions exactly like the
+other three wheels.</li>
+<li>The wheel-like container gains a second better/desired/alternate wheel, within exactly the same
+physical space (magically). A switch is added inside the car to allow the choice of wheel to be switched conveniently</li>
+</ol>
+<ul>
+<li>perhaps only before the engine is started, though.</li>
+</ul>
+<ol start="3">
+<li>The same two operations (#1 and #2) are performed on the other three wheels. Or maybe #1 is done four times,
+followed by #2 four times. The Mechanics experience will guide which is most efficient.</li>
+<li>After determining that the new wheels are better, the old wheels are removed from the wheel-like containers
+and are sent for recycling.</li>
+<li>The wheel-like containers are also removed from the new wheels, either one by one or all four simultaneously.</li>
+</ol>
+<p>At any stage, when lowered from the jacks/lift/ramps, the car could have been driven (a &lsquo;ready to go-live&rsquo; metaphor).</p>
+<p><img src="cars.png" alt=""></p>
+<p>We said &lsquo;jacks&rsquo; above, because that&rsquo;s what mechanics use in real life. Software, however, does not follow the rules
+of gravity, or many of the costs of actual construction. With an IDE for a glove, a single finger could reposition
+the car in 3D space to allow easy replacement of the wheels.</p>
+<h2 id="software-example">Software example</h2>
+<p>A documented case is ThoughtWorks' Go CI-daemon. They changed an Object-Relational mapping library (for persistence),
+while not slowing down teammates development activities (rule 1), and not jeopardizing the ability to go live (rule 2).</p>
+<p>Going from &ldquo;iBatis&rdquo; to &ldquo;Hibernate&rdquo; for a bunch of reasons, was their plan.</p>
+<p>They:</p>
+<ol>
+<li>Introduced an abstraction around the classes/components using iBatis directly, and ensured that all
+classes/components indirectly referring to iBatis were changed to refer to the abstraction instead.</li>
+<li>Wrote a second implementation of the abstraction, introducing Hibernate to the codebase, perhaps tweaking the
+abstraction where needed.</li>
+<li>Did a tiny commit that turned on Hibernate for all teammates.</li>
+<li>Removed iBatis, then the abstraction and the on/off old/new switch.</li>
+</ol>
+<p>As it happens you could leave the abstraction in place, if your unit tests are able to benefit because of the
+possibility of another seam that can be mocked.</p>
+<h2 id="secondary-benefits">Secondary benefits</h2>
+<h3 id="cheaply-pause-and-resume-migrations">Cheaply pause and resume &lsquo;migrations&rsquo;</h3>
+<p>The migration from old to new can be paused and resumed later casually. This is because the build guards the
+second, incomplete, implementation. It does so merely because of a compile stage that turns the abstraction and somewhere
+between 1 to 2 implementation into object code.  If there are unit tests for the two alternates, then even more so.</p>
+<p>If on a real branch, the casual restart of the paused initiative is missing. There&rsquo;s possibly an exponential cost of
+restart given the elapsed time since the initiative was paused.</p>
+<p>Pause and resume is much more likely in an enterprise development organization that does not have limitless coffers.</p>
+<h3 id="cancellation-of-a-project-is-still-cheap">Cancellation of a project is still cheap</h3>
+<p>In the case of abandonment, deleting a real long running feature branch is cheaper, but deletion of a
+branch by abstraction <em>thing</em> is only incrementally more expensive.</p>
+<h2 id="not-a-panacea">Not a panacea</h2>
+<p>Branch by Abstraction does not suit all &lsquo;change&rsquo; situations.</p>
+<p>One is when you have got to support old APIs and previous releases for more than a short period of time.  I.e. when your
+dependent customers (or detached clients apps) can choose their own upgrade moment.</p>
+<p>Some years ago the KDE team was mulling their release 5.0 strategy, and wanting to remain parallel to changes in 4.0, so as not to make
+mistakes that they had done
+previously<span class="rref"><a class="inline-ref" style="border-bottom: 0" target="_blank" href="http://tech.slashdot.org/story/11/08/07/2128222/KDE-Frameworks-50-In-Development"><img style="padding: 0 0 0 3px; width: 16px; height: 14px" src="../images/ext.png" alt=""></a></span>. TODO: circle back.</p>
+<h2 id="dedicated-website-for-this-procedure">Dedicated website for this procedure</h2>
+<p>In early 2018, a Branch by abstraction was created to further drill into this concept<span class="rref"><a class="inline-ref" style="border-bottom: 0" target="_blank" href="https://www.branchbyabstraction.com"><img style="padding: 0 0 0 3px; width: 16px; height: 14px" src="../images/ext.png" alt=""></a></span>.</p>
+<h2 id="history">History</h2>
+<p>Teams employed Branch by Abstraction many years before it got its name (Stacy Curl named it in 2007), but it is
+unknown when the first implementation was. Before the adoption of BbA, teams <strong>had to</strong> make a branch for the
+big lengthy disruptive change, or do it with an incredible amount of choreography: &ldquo;hey everyone, take a week of
+vacation now&rdquo;.</p>
+<p>With the Branch by Abstraction technique, Trunk-Based Development was less likely to be temporarily or permanently
+abandoned for a multi-branch model.</p>
+<h1 id="references-elsewhere">References elsewhere</h1>
+<p><!-- raw HTML omitted -->show references<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+
+
+			<aside class="copyright" role="note">
+				&copy; 2017-2020: <a href="https://devops.paulhammant.com/">Paul Hammant</a>. With Contributions <a href="../contributions/index.html">from friends</a>.
+				Site built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				with
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme,
+				via <a href="https://netlify.com/">Netlify</a>. &nbsp;
+				<a href="https://github.com/paul-hammant/tbd/edit/master/content//_index.md">Contribute to this page</a>
+
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="../branch-for-release/index.html" title="Branch for release">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Branch for release
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="../feature-flags/index.html" title="Feature flags">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Feature flags
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = 'https:\/\/trunkbaseddevelopment.com\/';
+      var repo_id  = 'paul-hammant\/tbd';
+    
+    </script>
+
+    <script src="../javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+
+      var showHideRefs = document.getElementById("showHideRefs");
+      var refsElsewhereH1;
+      var refsTable;
+      if (showHideRefs) {
+          refsElsewhereH1 = document.getElementById("references-elsewhere");
+      }
+      if (showHideRefs) {
+          refsTable = refsElsewhereH1.nextElementSibling.nextElementSibling;
+          hideRefs();
+      }
+
+      function hideRefs() {
+          refsTable.style.display = "none";
+          showHideRefs.innerHTML = "show references";
+      }
+
+      function toggleRefs() {
+          if(refsTable.style.display == "block") {
+              hideRefs();
+          }
+          else {
+              refsTable.style.display = "block";
+              showHideRefs.innerHTML = "hide references";
+          }
+      }
+
+
+    </script>
+
+    
+      <script>
+        (function(i,s,o,g,r,a,m){
+          i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||
+          []).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;
+          m.parentNode.insertBefore(a,m)
+        })(window, document,
+          'script', '//www.google-analytics.com/analytics.js', 'ga');
+         
+        ga('create', 'UA-24415524-3', 'auto');
+        ga('set', 'anonymizeIp', true);
+        ga('send', 'pageview');
+         
+        var buttons = document.querySelectorAll('a');
+        Array.prototype.map.call(buttons, function(item) {
+          if (item.host != document.location.host) {
+            item.addEventListener('click', function() {
+              var action = item.getAttribute('data-action') || 'follow';
+              ga('send', 'event', 'outbound', action, item.href);
+            });
+          }
+        });
+         
+        var query = document.querySelector('.query');
+        query.addEventListener('blur', function() {
+          if (this.value) {
+            var path = document.location.pathname;
+            ga('send', 'pageview', path + '?q=' + this.value);
+          }
+        });
+      </script>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

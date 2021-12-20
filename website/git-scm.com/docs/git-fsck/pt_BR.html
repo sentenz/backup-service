@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49925874-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-49925874-3');
+  </script>
+
+  <meta charset='utf-8'>
+  <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Git - git-fsck Documentation</title>
+
+  <link href='../../favicon.ico' rel='shortcut icon' type='image/x-icon'>
+
+  <link rel="stylesheet" media="screen" href="../../assets/application-42b7b91ccf5cb92469695cf08b5da9e9230594f634cb88264f305d5bd54e477f.css" />
+  <script src="../../assets/modernize-b3ebe0c31c24f230dc62179d3e1030d2e57a53b1668d9382c0a27dbd44a94beb.js"></script>
+  <!--[if (gte IE 6)&(lte IE 8)]>
+  <script src="/javascripts/selectivizr-min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body id="documentation">
+
+  <div class="inner">
+    <header>
+
+  <a href="https://git-scm.com/"><img src="../../images/logo@2x.png" width="110" height="46" alt="Git" /></a>
+  <span id="tagline"></span>
+  <script type="text/javascript">
+    var taglines = ["fast-version-control","everything-is-local","distributed-even-if-your-workflow-isnt","local-branching-on-the-cheap","distributed-is-the-new-centralized"];
+    var tagline = taglines[Math.floor(Math.random() * taglines.length)];
+    document.getElementById('tagline').innerHTML = '--' + tagline;
+  </script>
+  <form id="search" action="https://git-scm.com/search/results">
+    <input id="search-text" name="search" placeholder="Search entire site..." autocomplete="off" type="text" />
+  </form>
+  <div id="search-results"></div>
+
+</header>
+
+  </div> <!-- .inner -->
+
+    <div class="inner">
+      <div id="content-wrapper">
+        <button class="sidebar-btn"></button>
+<aside class="sidebar" id="sidebar">
+  <nav>
+    <ul>
+      <li>
+        <a href="https://git-scm.com/about">About</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/about">Branching and Merging</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/small-and-fast">Small and Fast</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/distributed">Distributed</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/info-assurance">Data Assurance</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/staging-area">Staging Area</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/free-and-open-source">Free and Open Source</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/trademark">Trademark</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a class="active" href="https://git-scm.com/doc">Documentation</a>
+        <ul class="expanded">
+          <li>
+            <a class="active" href="../git-pack/pt_BR.html">Reference</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/book">Book</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/videos">Videos</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/doc/ext">External Links</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/downloads">Downloads</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/downloads/guis">GUI Clients</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/downloads/logos">Logos</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/community">Community</a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+
+        <div id="content">
+          
+  <div id='reference-version'>
+    <a class="dropdown-trigger" id="reference-languages-trigger" data-panel-id="l10n-versions-dropdown" href="pt_BR.html#">
+  Português (Brasil) ▾</a>
+<div class='dropdown-panel right' id='l10n-versions-dropdown'>
+  <header>Localized versions of <strong>git-fsck</strong> manual</header>
+  <ol class='reference-previous-versions'>
+      <li>
+        <a href="en.html"><span class="version">English</span>
+        </a>
+        </li>
+      <li>
+        <a href="pt_BR.html"><span class="version">Português (Brasil)</span>
+        </a>
+        </li>
+  </ol>
+  <footer>
+    Want to read in your language or fix typos?<br/> <a href="https://github.com/jnavila/git-manpages-l10n">You can help translate this page</a>.
+  </footer>
+</div>
+
+    <a class="dropdown-trigger" id="reference-topics-trigger" data-panel-id="topics-dropdown" href="pt_BR.html#">Topics ▾</a>
+<div class='dropdown-panel right' id='topics-dropdown'>
+  <div class='three-column'>
+    <div class='column-left'>
+      <h3 class='setup'>Setup and Config</h3>
+<ul class='unstyled'>
+  <li><a href="../git/pt_BR.html">git</a></li>
+  <li><a href="../git-config/pt_BR.html">config</a></li>
+  <li><a href="../git-help/pt_BR.html">help</a></li>
+  <li><a href="../git-bugreport/pt_BR.html">bugreport</a></li>
+</ul>
+
+      <h3 class='projects'>Getting and Creating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-init/pt_BR.html">init</a></li>
+  <li><a href="../git-clone/pt_BR.html">clone</a></li>
+</ul>
+
+      <h3 class='snapshotting'>Basic Snapshotting</h3>
+<ul class='unstyled'>
+  <li><a href="../git-add/pt_BR.html">add</a></li>
+  <li><a href="../git-status/pt_BR.html">status</a></li>
+  <li><a href="../git-diff/pt_BR.html">diff</a></li>
+  <li><a href="../git-commit/pt_BR.html">commit</a></li>
+  <li><a href="../git-notes/pt_BR.html">notes</a></li>
+  <li><a href="../git-restore/pt_BR.html">restore</a></li>
+  <li><a href="../git-reset/pt_BR.html">reset</a></li>
+  <li><a href="../git-rm/pt_BR.html">rm</a></li>
+  <li><a href="../git-mv/pt_BR.html">mv</a></li>
+</ul>
+
+      <h3 class='branching'>Branching and Merging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-branch/pt_BR.html">branch</a></li>
+  <li><a href="../git-checkout/pt_BR.html">checkout</a></li>
+  <li><a href="../git-switch/pt_BR.html">switch</a></li>
+  <li><a href="../git-merge/pt_BR.html">merge</a></li>
+  <li><a href="../git-mergetool/pt_BR.html">mergetool</a></li>
+  <li><a href="../git-log/pt_BR.html">log</a></li>
+  <li><a href="../git-stash/pt_BR.html">stash</a></li>
+  <li><a href="../git-tag/pt_BR.html">tag</a></li>
+  <li><a href="../git-worktree/pt_BR.html">worktree</a></li>
+</ul>
+
+      <h3 class='sharing'>Sharing and Updating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-fetch/pt_BR.html">fetch</a></li>
+  <li><a href="../git-pull/pt_BR.html">pull</a></li>
+  <li><a href="../git-push/pt_BR.html">push</a></li>
+  <li><a href="../git-remote/pt_BR.html">remote</a></li>
+  <li><a href="../git-submodule/pt_BR.html">submodule</a></li>
+</ul>
+
+    </div>
+    <div class='column-middle'>
+      <h3 class='inspection'>Inspection and Comparison</h3>
+<ul class='unstyled'>
+  <li><a href="../git-show/pt_BR.html">show</a></li>
+  <li><a href="../git-log/pt_BR.html">log</a></li>
+  <li><a href="../git-diff/pt_BR.html">diff</a></li>
+  <li><a href="../git-difftool/pt_BR.html">difftool</a></li>
+  <li><a href="../git-range-diff/pt_BR.html">range-diff</a></li>
+  <li><a href="../git-shortlog/pt_BR.html">shortlog</a></li>
+  <li><a href="../git-describe/pt_BR.html">describe</a></li>
+</ul>
+
+      <h3 class='patching'>Patching</h3>
+<ul class='unstyled'>
+  <li><a href="../git-apply/pt_BR.html">apply</a></li>
+  <li><a href="../git-cherry-pick/pt_BR.html">cherry-pick</a></li>
+  <li><a href="../git-diff/pt_BR.html">diff</a></li>
+  <li><a href="../git-rebase/pt_BR.html">rebase</a></li>
+  <li><a href="../git-revert/pt_BR.html">revert</a></li>
+</ul>
+
+      <h3 class='debugging'>Debugging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-bisect/pt_BR.html">bisect</a></li>
+  <li><a href="../git-blame/pt_BR.html">blame</a></li>
+  <li><a href="../git-grep/pt_BR.html">grep</a></li>
+</ul>
+
+      <h3 class='email'>Email</h3>
+<ul class='unstyled'>
+  <li><a href="../git-am/pt_BR.html">am</a></li>
+  <li><a href="../git-apply/pt_BR.html">apply</a></li>
+  <li><a href="../git-format-patch/pt_BR.html">format-patch</a></li>
+  <li><a href="../git-send-email/pt_BR.html">send-email</a></li>
+  <li><a href="../git-request-pull/pt_BR.html">request-pull</a></li>
+</ul>
+
+      <h3 class='external'>External Systems</h3>
+<ul class='unstyled'>
+  <li><a href="../git-svn/pt_BR.html">svn</a></li>
+  <li><a href="../git-fast-import/pt_BR.html">fast-import</a></li>
+</ul>
+
+      <h3 class='server-admin'>Server Admin</h3>
+<ul class='unstyled'>
+  <li><a href="../git-daemon/pt_BR.html">daemon</a></li>
+  <li><a href="../git-update-server-info/pt_BR.html">update-server-info</a></li>
+</ul>
+
+    </div>
+    <div class='column-right'>
+      <h3 class='guides'>Guides</h3>
+<ul class='unstyled'>
+  <li><a href="../gitattributes/pt_BR.html">gitattributes</a></li>
+  <li><a href="../gitcli/pt_BR.html">Command-line interface conventions</a></li>
+  <li><a href="../giteveryday/pt_BR.html">Everyday Git</a></li>
+  <li><a href="../gitfaq/pt_BR.html">Frequently Asked Questions (FAQ)</a></li>
+  <li><a href="../gitglossary/pt_BR.html">Glossary</a></li>
+  <li><a href="../githooks/pt_BR.html">Hooks</a></li>
+  <li><a href="../gitignore/pt_BR.html">gitignore</a></li>
+  <li><a href="../gitmodules/pt_BR.html">gitmodules</a></li>
+  <li><a href="../gitrevisions/pt_BR.html">Revisions</a></li>
+  <li><a href="../gitsubmodules/pt_BR.html">Submodules</a></li>
+  <li><a href="../gittutorial/pt_BR.html">Tutorial</a></li>
+  <li><a href="../gitworkflows/pt_BR.html">Workflows</a></li>
+  <li><a href="../git/ru.html#_guides">All guides...</a></li>
+</ul>
+
+      <h3 class='admin'>Administration</h3>
+<ul class='unstyled'>
+  <li><a href="../git-clean/pt_BR.html">clean</a></li>
+  <li><a href="../git-gc/pt_BR.html">gc</a></li>
+  <li><a class="active" href="pt_BR.html">fsck</a></li>
+  <li><a href="../git-reflog/pt_BR.html">reflog</a></li>
+  <li><a href="../git-filter-branch/pt_BR.html">filter-branch</a></li>
+  <li><a href="../git-instaweb/pt_BR.html">instaweb</a></li>
+  <li><a href="../git-archive/pt_BR.html">archive</a></li>
+  <li><a href="../git-bundle/pt_BR.html">bundle</a></li>
+</ul>
+
+      <h3 class='plumbing'>Plumbing Commands</h3>
+<ul class='unstyled'>
+  <li><a href="../git-cat-file/pt_BR.html">cat-file</a></li>
+  <li><a href="../git-check-ignore/pt_BR.html">check-ignore</a></li>
+  <li><a href="../git-checkout-index/pt_BR.html">checkout-index</a></li>
+  <li><a href="../git-commit-tree/pt_BR.html">commit-tree</a></li>
+  <li><a href="../git-count-objects/pt_BR.html">count-objects</a></li>
+  <li><a href="../git-diff-index/pt_BR.html">diff-index</a></li>
+  <li><a href="../git-for-each-ref/pt_BR.html">for-each-ref</a></li>
+  <li><a href="../git-hash-object/pt_BR.html">hash-object</a></li>
+  <li><a href="../git-ls-files/pt_BR.html">ls-files</a></li>
+  <li><a href="../git-ls-tree/pt_BR.html">ls-tree</a></li>
+  <li><a href="../git-merge-base/pt_BR.html">merge-base</a></li>
+  <li><a href="../git-read-tree/pt_BR.html">read-tree</a></li>
+  <li><a href="../git-rev-list/pt_BR.html">rev-list</a></li>
+  <li><a href="../git-rev-parse/pt_BR.html">rev-parse</a></li>
+  <li><a href="../git-show-ref/pt_BR.html">show-ref</a></li>
+  <li><a href="../git-symbolic-ref/pt_BR.html">symbolic-ref</a></li>
+  <li><a href="../git-update-index/pt_BR.html">update-index</a></li>
+  <li><a href="../git-update-ref/pt_BR.html">update-ref</a></li>
+  <li><a href="../git-verify-pack/pt_BR.html">verify-pack</a></li>
+  <li><a href="../git-write-tree/pt_BR.html">write-tree</a></li>
+</ul>
+
+    </div>
+  </div>
+</div>
+
+    <a class="dropdown-trigger" id="reference-versions-trigger" data-panel-id="previous-versions-dropdown" href="pt_BR.html#">
+      Latest version
+       ▾ </a>
+<span class="light d-flex">git-fsck last updated in 2.34.1</span>
+<div class='dropdown-panel left' id='previous-versions-dropdown'>
+  <header>Changes in the <strong>git-fsck</strong> manual</header>
+  <ol class='reference-previous-versions'>
+        <li class="no-change"><span>2.30.2 &rarr; 2.34.1 no changes</span></li>
+        <li>
+        <a href="2.30.1.html"><span class="version">2.30.1</span>
+          <span class="diff">
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">02/08/21</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.22.2 &rarr; 2.30.0 no changes</span></li>
+        <li>
+        <a href="2.22.1.html"><span class="version">2.22.1</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+          </span>
+          <em class="date">08/11/19</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.22.0.html"><span class="version">2.22.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">06/07/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.21.1 &rarr; 2.21.4 no changes</span></li>
+        <li>
+        <a href="2.21.0.html"><span class="version">2.21.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">02/24/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.19.1 &rarr; 2.20.5 no changes</span></li>
+        <li>
+        <a href="2.19.0.html"><span class="version">2.19.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">09/10/18</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.11.4 &rarr; 2.18.5 no changes</span></li>
+        <li>
+        <a href="2.10.5.html"><span class="version">2.10.5</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">09/22/17</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.9.5.html"><span class="version">2.9.5</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">07/30/17</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.7.6 &rarr; 2.8.6 no changes</span></li>
+        <li>
+        <a href="2.6.7.html"><span class="version">2.6.7</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">05/05/17</em>
+        </a>
+        </li>
+    <li>&nbsp;</li>
+    <!-- <li><a class="more" href="#">See more previous releases →</a></li> -->
+  </ol>
+  <footer>
+    <p>Check your version of git by running</p>
+    <code class="command">git --version</code>
+  </footer>
+</div>
+
+  </div>
+
+  <div id='main'>
+    <div class="sect1">
+<h2 id="_nome"><a class="anchor" href="pt_BR.html#_nome"></a>NOME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>git-fsck - Verifica a conectividade e a validade dos objetos no banco de
+dados</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_resumo"><a class="anchor" href="pt_BR.html#_resumo"></a>RESUMO</h2>
+<div class="sectionbody">
+<div class="verseblock">
+<pre class="content"><em>git fsck</em> [--tags] [--root] [--unreachable] [--cache] [--no-reflogs]
+	 [--[no-]full] [--strict] [--verbose] [--lost-found]
+	 [--[no-]dangling] [--[no-]progress] [--connectivity-only]
+	 [--[no-]name-objects] [&lt;objeto&gt;*]</pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_descrição"><a class="anchor" href="pt_BR.html#_descrição"></a>DESCRIÇÃO</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Verifica a conectividade e validade dos objetos em um banco de dados.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_opções"><a class="anchor" href="pt_BR.html#_opções"></a>OPÇÕES</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-fsck-ltobjetogt"> <a class="anchor" href="pt_BR.html#git-fsck-ltobjetogt"></a>&lt;objeto&gt; </dt>
+<dd>
+<p>Um objeto a ser tratado como a cabeça de um rastreamento de
+inacessibilidade.</p>
+<div class="paragraph">
+<p>Caso nenhum objeto seja informado, a predefinição do comando <em>git fsck</em>
+retorna para o arquivo do índice, todas as referências SHA-1 no espaço de
+nomes <code>refs</code> e todos os reflogs (a menos que a opção <code>--no-reflogs</code> seja
+utilizada) serão utilizados como cabeçalhos.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-fsck---unreachable"> <a class="anchor" href="pt_BR.html#git-fsck---unreachable"></a>--unreachable </dt>
+<dd>
+<p>Imprima os objetos que existam, porém que não sejam acessíveis a partir de
+nenhum dos nós de referência.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck---no-dangling"> <a class="anchor" href="pt_BR.html#git-fsck---no-dangling"></a>--[no-]dangling </dt>
+<dd>
+<p>Imprima os objetos que existam porém, que nunca são utilizados <em>diretamente</em>
+(predefinição).  <code>--no-dangling</code> pode ser utilizado para omitir esta
+informação na saída.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck---root"> <a class="anchor" href="pt_BR.html#git-fsck---root"></a>--root </dt>
+<dd>
+<p>Relatar os nós raiz.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck---tags"> <a class="anchor" href="pt_BR.html#git-fsck---tags"></a>--tags </dt>
+<dd>
+<p>Tags de relatório.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck---cache"> <a class="anchor" href="pt_BR.html#git-fsck---cache"></a>--cache </dt>
+<dd>
+<p>Considere qualquer objeto registrado no índice também como um nó principal
+para um rastreamento de inacessibilidade.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck---no-reflogs"> <a class="anchor" href="pt_BR.html#git-fsck---no-reflogs"></a>--no-reflogs </dt>
+<dd>
+<p>Para serem acessíveis, não considere que os commits sejam referenciados
+apenas por uma entrada em um "reflog".  Esta opção serve apenas para
+procurar commits que costumavam estar em um "ref", mas agora não estão mais,
+mas ainda assim em um reflog equivalente.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck---full"> <a class="anchor" href="pt_BR.html#git-fsck---full"></a>--full </dt>
+<dd>
+<p>Verifique não apenas os objetos em <code>GIT_OBJECT_DIRECTORY</code>
+(<code>$GIT_DIR/objects</code>), mas também os que forem encontrados nos conjuntos de
+objetos alternativos listados em <code>GIT_ALTERNATE_OBJECT_DIRECTORIES</code> ou
+<code>$GIT_DIR/objects/info/alternates</code>, nos arquivos Git encontrados em
+<code>$GIT_DIR/objects/pack</code> e nos pacotes dos subdiretórios correspondentes nos
+conjuntos dos objetos alternativos.  Esta é a predefinição agora; desative-o
+com <code>--no-full</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck---connectivity-only"> <a class="anchor" href="pt_BR.html#git-fsck---connectivity-only"></a>--connectivity-only </dt>
+<dd>
+<p>Verifique apenas a conectividade dos objetos acessíveis, certificando-se de
+que todos os objetos referenciados por uma tag, commit ou árvore acessível
+estejam presentes. Isso acelera a operação evitando a leitura completa das
+bolhas (embora ainda verifique caso existam as bolhas referenciadas). Isso
+detectará a corrupção nos commits e nas árvores, porém não fará nenhuma
+verificação semântica (como por exemplo, erros no formato). A corrupção nos
+objetos bolha não será detectada de forma alguma.</p>
+<div class="paragraph">
+<p>Tags, confirmações e árvores inacessíveis também serão acessadas para
+encontrar o topo dos segmentos pendentes na história. Use a opção
+<code>--no-dangling</code> caso não se importe com esta saída e queira acelerar um
+pouco as coisas ainda mais.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-fsck---strict"> <a class="anchor" href="pt_BR.html#git-fsck---strict"></a>--strict </dt>
+<dd>
+<p>Ative uma verificação mais rigorosa para capturar um modo do arquivo gravado
+em um conjunto de bits g+w, criado por versões mais antigas do Git.  Os
+repositórios existentes, incluindo o kernel do Linux, o próprio Git e o
+repositório esparso, possuem objetos antigos que acionam esta verificação. É
+recomendável verificar novos projetos com essa flag.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck---verbose"> <a class="anchor" href="pt_BR.html#git-fsck---verbose"></a>--verbose </dt>
+<dd>
+<p>Seja tagarela.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck---lost-found"> <a class="anchor" href="pt_BR.html#git-fsck---lost-found"></a>--lost-found </dt>
+<dd>
+<p>Dependendo do tipo, escreva os objetos pendentes em .git/lost-found/commit/
+ou .git/lost-found/other/.  O conteúdo será gravado no arquivo e não no nome
+do objeto caso o objeto seja uma bolha.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck---name-objects"> <a class="anchor" href="pt_BR.html#git-fsck---name-objects"></a>--name-objects </dt>
+<dd>
+<p>Ao exibir os nomes dos objetos acessíveis além do SHA-1 que descrevam <strong>como</strong>
+eles são acessíveis, é compatível com <a href='../git-rev-parse/pt_BR.html'>git-rev-parse[1]</a>,
+<code>HEAD@{1234567890}~25^2:src/</code> por exemplo.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck---no-progress"> <a class="anchor" href="pt_BR.html#git-fsck---no-progress"></a>--[no-]progress </dt>
+<dd>
+<p>A condição do progresso é relatado no fluxo de erro predefinido ao estar
+conectado em um terminal, a menos que as opções <code>--no-progress</code> ou
+<code>--verbose</code> sejam utilizados. A opção <code>--progress</code> impõem que a condição do
+progresso seja exibida mesmo que o fluxo de erro predefinido não esteja
+direcionado para um terminal.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuração"><a class="anchor" href="pt_BR.html#_configuração"></a>CONFIGURAÇÃO</h2>
+<div class="sectionbody">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Missing <code>pt_BR/config/fsck.txt</code></p>
+</div>
+<div class="paragraph">
+<p>See original version for this content.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_discussão"><a class="anchor" href="pt_BR.html#_discussão"></a>DISCUSSÃO</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>O git-fsck testa se o SHA-1 e a sanidade geral dos objetos, faz o
+rastreamento completo da acessibilidade resultante e todo o resto. Imprime
+qualquer corrupção encontrada (objetos ausentes ou incorretos) , se utilizar
+a opção <code>--unreachable</code>, também serão impressos os objetos que existem mas
+que não estão acessíveis a partir de nenhum dos nós principais (ou da
+predefinição mencionada acima).</p>
+</div>
+<div class="paragraph">
+<p>Você precisará encontrar quaisquer outros objetos corrompidos nos backups ou
+em outros arquivos (ou seja, remova-os e faça um <em>rsync</em> com outro site na
+esperança de que outra pessoa tenha uma cópia do objeto que você corrompeu).</p>
+</div>
+<div class="paragraph">
+<p>Caso core.commitGraph seja verdadeiro, o arquivo commit-graph também será
+inspecionado utilizando <em>git commit-graph verify</em>. See
+<a href='../git-commit-graph/pt_BR.html'>git-commit-graph[1]</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_diagnósticos_extraídos"><a class="anchor" href="pt_BR.html#_diagnósticos_extraídos"></a>Diagnósticos Extraídos</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-fsck-aguardarpeloscommitspendentes-potenciaiscabealhos-devidofaltadeinformaesdoscabealhos"> <a class="anchor" href="pt_BR.html#git-fsck-aguardarpeloscommitspendentes-potenciaiscabealhos-devidofaltadeinformaesdoscabealhos"></a>aguardar pelos commits pendentes - potenciais cabeçalhos - devido à falta de informações dos cabeçalhos </dt>
+<dd>
+<p>Você não especificou nenhum nó como cabeçalho, portanto não será possível
+diferenciar entre os commits sem origem e os nós raiz.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-diretriosemsha1emltdirgtem"> <a class="anchor" href="pt_BR.html#git-fsck-diretriosemsha1emltdirgtem"></a>diretório sem sha1 <em>&lt;dir&gt;</em> </dt>
+<dd>
+<p>O diretório que contém os objetos sha1 está ausente.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-unreachablelttipogtltobjetogt"> <a class="anchor" href="pt_BR.html#git-fsck-unreachablelttipogtltobjetogt"></a>unreachable &lt;tipo&gt; &lt;objeto&gt; </dt>
+<dd>
+<p>O objeto &lt;tipo&gt; &lt;objeto&gt;, na verdade, não tem referência direta ou indireta
+com nenhuma das árvores ou commits já vistos. Significa que há um outro nó
+na raiz que você ainda não está informando ou que a árvore está
+corrompida. Caso você ainda não tenha perdido um nó na raiz, também possa
+excluir os nós que estejam inacessíveis, pois eles não possam ser
+utilizados.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-missinglttipogtltobjetogt"> <a class="anchor" href="pt_BR.html#git-fsck-missinglttipogtltobjetogt"></a>missing &lt;tipo&gt; &lt;objeto&gt; </dt>
+<dd>
+<p>O objeto &lt;tipo&gt; &lt;objeto&gt;, tem referência mas não está presente no banco de
+dados.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-danglinglttipogtltobjetogt"> <a class="anchor" href="pt_BR.html#git-fsck-danglinglttipogtltobjetogt"></a>dangling &lt;tipo&gt; &lt;objeto&gt; </dt>
+<dd>
+<p>O &lt;tipo&gt; do objeto &lt;objeto&gt; está presente no banco de dados, mas nunca é
+utilizado <em>diretamente</em>. A dangling commit could be a root node.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-hashmismatchltobjetogt"> <a class="anchor" href="pt_BR.html#git-fsck-hashmismatchltobjetogt"></a>hash mismatch &lt;objeto&gt; </dt>
+<dd>
+<p>O banco de dados tem um objeto cujo hash não coincide com o valor do banco
+de dados do objeto.  Isso indica um sério problema na integridade dos dados.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_as_variáveis_do_ambiente"><a class="anchor" href="pt_BR.html#_as_variáveis_do_ambiente"></a>As Variáveis do Ambiente</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-fsck-GITOBJECTDIRECTORY"> <a class="anchor" href="pt_BR.html#git-fsck-GITOBJECTDIRECTORY"></a>GIT_OBJECT_DIRECTORY </dt>
+<dd>
+<p>utilize para especificar a raiz do banco de dados do objeto (geralmente
+<em>$GIT_DIR/objects</em>)</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-GITINDEXFILE"> <a class="anchor" href="pt_BR.html#git-fsck-GITINDEXFILE"></a>GIT_INDEX_FILE </dt>
+<dd>
+<p>utilizado para determinar o arquivo de índice do índice</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-GITALTERNATEOBJECTDIRECTORIES"> <a class="anchor" href="pt_BR.html#git-fsck-GITALTERNATEOBJECTDIRECTORIES"></a>GIT_ALTERNATE_OBJECT_DIRECTORIES </dt>
+<dd>
+<p>utilizado para determinar as raízes adicionais do banco de dados dos objetos
+(geralmente não definidos)</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git"><a class="anchor" href="pt_BR.html#_git"></a>GIT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Parte do conjunto <a href='../git/pt_BR.html'>git[1]</a></p>
+</div>
+</div>
+</div>
+  </div>
+
+        </div>
+      </div>
+      <footer>
+  <div class="site-source">
+    <a href="https://git-scm.com/site">About this site</a><br>
+    Patches, suggestions, and comments are welcome.
+  </div>
+  <div class="sfc-member">
+    Git is a member of <a href="https://git-scm.com/sfc">Software Freedom Conservancy</a>
+  </div>
+</footer>
+<a href="pt_BR.html#top" class="no-js scrollToTop" id="scrollToTop" data-label="Scroll to top">
+  <img src="../../images/icons/chevron-up@2x.png" width="20" height="20" alt="scroll-to-top"/>
+</a>
+<script src="../../assets/application-e12a0e837db60213b777cd7a706e0741beed474d7e5b94a641979fc87ce0d2cc.js"></script>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49925874-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-49925874-3');
+  </script>
+
+  <meta charset='utf-8'>
+  <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Git - git-bundle Documentation</title>
+
+  <link href='../../favicon.ico' rel='shortcut icon' type='image/x-icon'>
+
+  <link rel="stylesheet" media="screen" href="../../assets/application-42b7b91ccf5cb92469695cf08b5da9e9230594f634cb88264f305d5bd54e477f.css" />
+  <script src="../../assets/modernize-b3ebe0c31c24f230dc62179d3e1030d2e57a53b1668d9382c0a27dbd44a94beb.js"></script>
+  <!--[if (gte IE 6)&(lte IE 8)]>
+  <script src="/javascripts/selectivizr-min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body id="documentation">
+
+  <div class="inner">
+    <header>
+
+  <a href="https://git-scm.com/"><img src="../../images/logo@2x.png" width="110" height="46" alt="Git" /></a>
+  <span id="tagline"></span>
+  <script type="text/javascript">
+    var taglines = ["fast-version-control","everything-is-local","distributed-even-if-your-workflow-isnt","local-branching-on-the-cheap","distributed-is-the-new-centralized"];
+    var tagline = taglines[Math.floor(Math.random() * taglines.length)];
+    document.getElementById('tagline').innerHTML = '--' + tagline;
+  </script>
+  <form id="search" action="https://git-scm.com/search/results">
+    <input id="search-text" name="search" placeholder="Search entire site..." autocomplete="off" type="text" />
+  </form>
+  <div id="search-results"></div>
+
+</header>
+
+  </div> <!-- .inner -->
+
+    <div class="inner">
+      <div id="content-wrapper">
+        <button class="sidebar-btn"></button>
+<aside class="sidebar" id="sidebar">
+  <nav>
+    <ul>
+      <li>
+        <a href="https://git-scm.com/about">About</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/about">Branching and Merging</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/small-and-fast">Small and Fast</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/distributed">Distributed</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/info-assurance">Data Assurance</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/staging-area">Staging Area</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/free-and-open-source">Free and Open Source</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/trademark">Trademark</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a class="active" href="https://git-scm.com/doc">Documentation</a>
+        <ul class="expanded">
+          <li>
+            <a class="active" href="../git-pack/pt_BR.html">Reference</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/book">Book</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/videos">Videos</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/doc/ext">External Links</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/downloads">Downloads</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/downloads/guis">GUI Clients</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/downloads/logos">Logos</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/community">Community</a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+
+        <div id="content">
+          
+  <div id='reference-version'>
+    <a class="dropdown-trigger" id="reference-languages-trigger" data-panel-id="l10n-versions-dropdown" href="pt_BR.html#">
+  Português (Brasil) ▾</a>
+<div class='dropdown-panel right' id='l10n-versions-dropdown'>
+  <header>Localized versions of <strong>git-bundle</strong> manual</header>
+  <ol class='reference-previous-versions'>
+      <li>
+        <a href="en.html"><span class="version">English</span>
+        </a>
+        </li>
+      <li>
+        <a href="fr.html"><span class="version">Français</span>
+        </a>
+        </li>
+      <li>
+        <a href="pt_BR.html"><span class="version">Português (Brasil)</span>
+        </a>
+        </li>
+  </ol>
+  <footer>
+    Want to read in your language or fix typos?<br/> <a href="https://github.com/jnavila/git-manpages-l10n">You can help translate this page</a>.
+  </footer>
+</div>
+
+    <a class="dropdown-trigger" id="reference-topics-trigger" data-panel-id="topics-dropdown" href="pt_BR.html#">Topics ▾</a>
+<div class='dropdown-panel right' id='topics-dropdown'>
+  <div class='three-column'>
+    <div class='column-left'>
+      <h3 class='setup'>Setup and Config</h3>
+<ul class='unstyled'>
+  <li><a href="../git/pt_BR.html">git</a></li>
+  <li><a href="../git-config/pt_BR.html">config</a></li>
+  <li><a href="../git-help/pt_BR.html">help</a></li>
+  <li><a href="../git-bugreport/pt_BR.html">bugreport</a></li>
+</ul>
+
+      <h3 class='projects'>Getting and Creating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-init/pt_BR.html">init</a></li>
+  <li><a href="../git-clone/pt_BR.html">clone</a></li>
+</ul>
+
+      <h3 class='snapshotting'>Basic Snapshotting</h3>
+<ul class='unstyled'>
+  <li><a href="../git-add/pt_BR.html">add</a></li>
+  <li><a href="../git-status/pt_BR.html">status</a></li>
+  <li><a href="../git-diff/pt_BR.html">diff</a></li>
+  <li><a href="../git-commit/pt_BR.html">commit</a></li>
+  <li><a href="../git-notes/pt_BR.html">notes</a></li>
+  <li><a href="../git-restore/pt_BR.html">restore</a></li>
+  <li><a href="../git-reset/pt_BR.html">reset</a></li>
+  <li><a href="../git-rm/pt_BR.html">rm</a></li>
+  <li><a href="../git-mv/pt_BR.html">mv</a></li>
+</ul>
+
+      <h3 class='branching'>Branching and Merging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-branch/pt_BR.html">branch</a></li>
+  <li><a href="../git-checkout/pt_BR.html">checkout</a></li>
+  <li><a href="../git-switch/pt_BR.html">switch</a></li>
+  <li><a href="../git-merge/pt_BR.html">merge</a></li>
+  <li><a href="../git-mergetool/pt_BR.html">mergetool</a></li>
+  <li><a href="../git-log/pt_BR.html">log</a></li>
+  <li><a href="../git-stash/pt_BR.html">stash</a></li>
+  <li><a href="../git-tag/pt_BR.html">tag</a></li>
+  <li><a href="../git-worktree/pt_BR.html">worktree</a></li>
+</ul>
+
+      <h3 class='sharing'>Sharing and Updating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-fetch/pt_BR.html">fetch</a></li>
+  <li><a href="../git-pull/pt_BR.html">pull</a></li>
+  <li><a href="../git-push/pt_BR.html">push</a></li>
+  <li><a href="../git-remote/pt_BR.html">remote</a></li>
+  <li><a href="../git-submodule/pt_BR.html">submodule</a></li>
+</ul>
+
+    </div>
+    <div class='column-middle'>
+      <h3 class='inspection'>Inspection and Comparison</h3>
+<ul class='unstyled'>
+  <li><a href="../git-show/pt_BR.html">show</a></li>
+  <li><a href="../git-log/pt_BR.html">log</a></li>
+  <li><a href="../git-diff/pt_BR.html">diff</a></li>
+  <li><a href="../git-difftool/pt_BR.html">difftool</a></li>
+  <li><a href="../git-range-diff/pt_BR.html">range-diff</a></li>
+  <li><a href="../git-shortlog/pt_BR.html">shortlog</a></li>
+  <li><a href="../git-describe/pt_BR.html">describe</a></li>
+</ul>
+
+      <h3 class='patching'>Patching</h3>
+<ul class='unstyled'>
+  <li><a href="../git-apply/pt_BR.html">apply</a></li>
+  <li><a href="../git-cherry-pick/pt_BR.html">cherry-pick</a></li>
+  <li><a href="../git-diff/pt_BR.html">diff</a></li>
+  <li><a href="../git-rebase/pt_BR.html">rebase</a></li>
+  <li><a href="../git-revert/pt_BR.html">revert</a></li>
+</ul>
+
+      <h3 class='debugging'>Debugging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-bisect/pt_BR.html">bisect</a></li>
+  <li><a href="../git-blame/pt_BR.html">blame</a></li>
+  <li><a href="../git-grep/pt_BR.html">grep</a></li>
+</ul>
+
+      <h3 class='email'>Email</h3>
+<ul class='unstyled'>
+  <li><a href="../git-am/pt_BR.html">am</a></li>
+  <li><a href="../git-apply/pt_BR.html">apply</a></li>
+  <li><a href="../git-format-patch/pt_BR.html">format-patch</a></li>
+  <li><a href="../git-send-email/pt_BR.html">send-email</a></li>
+  <li><a href="../git-request-pull/pt_BR.html">request-pull</a></li>
+</ul>
+
+      <h3 class='external'>External Systems</h3>
+<ul class='unstyled'>
+  <li><a href="../git-svn/pt_BR.html">svn</a></li>
+  <li><a href="../git-fast-import/pt_BR.html">fast-import</a></li>
+</ul>
+
+      <h3 class='server-admin'>Server Admin</h3>
+<ul class='unstyled'>
+  <li><a href="../git-daemon/pt_BR.html">daemon</a></li>
+  <li><a href="../git-update-server-info/pt_BR.html">update-server-info</a></li>
+</ul>
+
+    </div>
+    <div class='column-right'>
+      <h3 class='guides'>Guides</h3>
+<ul class='unstyled'>
+  <li><a href="../gitattributes/pt_BR.html">gitattributes</a></li>
+  <li><a href="../gitcli/pt_BR.html">Command-line interface conventions</a></li>
+  <li><a href="../giteveryday/pt_BR.html">Everyday Git</a></li>
+  <li><a href="../gitfaq/pt_BR.html">Frequently Asked Questions (FAQ)</a></li>
+  <li><a href="../gitglossary/pt_BR.html">Glossary</a></li>
+  <li><a href="../githooks/pt_BR.html">Hooks</a></li>
+  <li><a href="../gitignore/pt_BR.html">gitignore</a></li>
+  <li><a href="../gitmodules/pt_BR.html">gitmodules</a></li>
+  <li><a href="../gitrevisions/pt_BR.html">Revisions</a></li>
+  <li><a href="../gitsubmodules/pt_BR.html">Submodules</a></li>
+  <li><a href="../gittutorial/pt_BR.html">Tutorial</a></li>
+  <li><a href="../gitworkflows/pt_BR.html">Workflows</a></li>
+  <li><a href="../git/ru.html#_guides">All guides...</a></li>
+</ul>
+
+      <h3 class='admin'>Administration</h3>
+<ul class='unstyled'>
+  <li><a href="../git-clean/pt_BR.html">clean</a></li>
+  <li><a href="../git-gc/pt_BR.html">gc</a></li>
+  <li><a href="../git-fsck/pt_BR.html">fsck</a></li>
+  <li><a href="../git-reflog/pt_BR.html">reflog</a></li>
+  <li><a href="../git-filter-branch/pt_BR.html">filter-branch</a></li>
+  <li><a href="../git-instaweb/pt_BR.html">instaweb</a></li>
+  <li><a href="../git-archive/pt_BR.html">archive</a></li>
+  <li><a class="active" href="pt_BR.html">bundle</a></li>
+</ul>
+
+      <h3 class='plumbing'>Plumbing Commands</h3>
+<ul class='unstyled'>
+  <li><a href="../git-cat-file/pt_BR.html">cat-file</a></li>
+  <li><a href="../git-check-ignore/pt_BR.html">check-ignore</a></li>
+  <li><a href="../git-checkout-index/pt_BR.html">checkout-index</a></li>
+  <li><a href="../git-commit-tree/pt_BR.html">commit-tree</a></li>
+  <li><a href="../git-count-objects/pt_BR.html">count-objects</a></li>
+  <li><a href="../git-diff-index/pt_BR.html">diff-index</a></li>
+  <li><a href="../git-for-each-ref/pt_BR.html">for-each-ref</a></li>
+  <li><a href="../git-hash-object/pt_BR.html">hash-object</a></li>
+  <li><a href="../git-ls-files/pt_BR.html">ls-files</a></li>
+  <li><a href="../git-ls-tree/pt_BR.html">ls-tree</a></li>
+  <li><a href="../git-merge-base/pt_BR.html">merge-base</a></li>
+  <li><a href="../git-read-tree/pt_BR.html">read-tree</a></li>
+  <li><a href="../git-rev-list/pt_BR.html">rev-list</a></li>
+  <li><a href="../git-rev-parse/pt_BR.html">rev-parse</a></li>
+  <li><a href="../git-show-ref/pt_BR.html">show-ref</a></li>
+  <li><a href="../git-symbolic-ref/pt_BR.html">symbolic-ref</a></li>
+  <li><a href="../git-update-index/pt_BR.html">update-index</a></li>
+  <li><a href="../git-update-ref/pt_BR.html">update-ref</a></li>
+  <li><a href="../git-verify-pack/pt_BR.html">verify-pack</a></li>
+  <li><a href="../git-write-tree/pt_BR.html">write-tree</a></li>
+</ul>
+
+    </div>
+  </div>
+</div>
+
+    <a class="dropdown-trigger" id="reference-versions-trigger" data-panel-id="previous-versions-dropdown" href="pt_BR.html#">
+      Latest version
+       ▾ </a>
+<span class="light d-flex">git-bundle last updated in 2.34.1</span>
+<div class='dropdown-panel left' id='previous-versions-dropdown'>
+  <header>Changes in the <strong>git-bundle</strong> manual</header>
+  <ol class='reference-previous-versions'>
+        <li class="no-change"><span>2.34.1 no changes</span></li>
+        <li>
+        <a href="2.34.0.html"><span class="version">2.34.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">11/15/21</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.33.1.html"><span class="version">2.33.1</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">10/12/21</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.29.1 &rarr; 2.33.0 no changes</span></li>
+        <li>
+        <a href="2.29.0.html"><span class="version">2.29.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">10/19/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.25.1 &rarr; 2.28.1 no changes</span></li>
+        <li>
+        <a href="2.25.0.html"><span class="version">2.25.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">01/13/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.18.1 &rarr; 2.24.4 no changes</span></li>
+        <li>
+        <a href="2.18.0.html"><span class="version">2.18.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">06/21/18</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.9.5 &rarr; 2.17.6 no changes</span></li>
+        <li>
+        <a href="2.8.6.html"><span class="version">2.8.6</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">07/30/17</em>
+        </a>
+        </li>
+    <li>&nbsp;</li>
+    <!-- <li><a class="more" href="#">See more previous releases →</a></li> -->
+  </ol>
+  <footer>
+    <p>Check your version of git by running</p>
+    <code class="command">git --version</code>
+  </footer>
+</div>
+
+  </div>
+
+  <div id='main'>
+    <div class="sect1">
+<h2 id="_nome"><a class="anchor" href="pt_BR.html#_nome"></a>NOME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>git-bundle - Mova os objetos e as refs através do arquivo</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_resumo"><a class="anchor" href="pt_BR.html#_resumo"></a>RESUMO</h2>
+<div class="sectionbody">
+<div class="verseblock">
+<pre class="content"><em>git bundle</em> create [-q | --quiet | --progress | --all-progress] [--all-progress-implied] &lt;arquivo&gt; &lt;git-rev-list-args&gt;
+<em>git bundle</em> verify [-q | --quiet] &lt;arquivo&gt;
+<em>git bundle</em> list-heads &lt;arquivo&gt; [&lt;refname&gt;&#8230;&#8203;]
+<em>git bundle</em> unbundle &lt;arquivo&gt; [&lt;refname&gt;&#8230;&#8203;]</pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_descrição"><a class="anchor" href="pt_BR.html#_descrição"></a>DESCRIÇÃO</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Alguns fluxos de trabalho requerem que um ou mais ramificações do
+desenvolvimento em uma máquina sejam replicadas em uma outra máquina, porém
+as duas máquinas não podem ser conectadas diretamente, portanto, os
+protocolos interativos do Git (git, ssh, http) não podem ser utilizados.</p>
+</div>
+<div class="paragraph">
+<p>O comando <em>git bundle</em> empacota os objetos e as referências em um arquivo na
+máquina de origem, que pode ser importado para um outro repositório
+utilizando o comando <em>git fetch</em>, <em>git pull</em> ou <em>git clone</em>, depois de mover
+o arquivo de alguma maneira (através do "sneakernet" por exemplo).</p>
+</div>
+<div class="paragraph">
+<p>Como não existe conexão direta entre os repositórios o usuário deve informar
+uma base para o pacote que é mantido pelo repositório no destino: o pacote
+assume que todos os objetos na base já estão no repositório no destino.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_opções"><a class="anchor" href="pt_BR.html#_opções"></a>OPÇÕES</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-bundle-createoptionsltarquivogtltgit-rev-list-argsgt"> <a class="anchor" href="pt_BR.html#git-bundle-createoptionsltarquivogtltgit-rev-list-argsgt"></a>create [options] &lt;arquivo&gt; &lt;git-rev-list-args&gt; </dt>
+<dd>
+<p>Utilize para criar um pacote chamado <em>arquivo</em>.  Isso requer a utilização
+dos argumentos <em>&lt;git-rev-list-args&gt;</em> para definir o conteúdo do pacote.
+<em>options</em> contém as opções específicas para o subcomando <em>git bundle
+create</em>.</p>
+</dd>
+<dt class="hdlist1" id="git-bundle-verifyltarquivogt"> <a class="anchor" href="pt_BR.html#git-bundle-verifyltarquivogt"></a>verify &lt;arquivo&gt; </dt>
+<dd>
+<p>Utilizado para verificar se um arquivo do pacote é válido e se será aplicado
+de forma limpa ao repositório atual.  Isso incluí as verificações no formato
+do pacote e também a que verificação dos pré-requisitos dos commits existam
+e estejam totalmente vinculados ao repositório atual.  O comando <em>git
+bundle</em> exibe uma lista dos commits que faltam, caso haja, e encerra com uma
+condição diferente de zero.</p>
+</dd>
+<dt class="hdlist1" id="git-bundle-list-headsltarquivogt"> <a class="anchor" href="pt_BR.html#git-bundle-list-headsltarquivogt"></a>list-heads &lt;arquivo&gt; </dt>
+<dd>
+<p>Lista as referências definidas no pacote.  Caso seja seguido por uma lista
+de referências, apenas as referências que coincidam com as informadas são
+exibidas.</p>
+</dd>
+<dt class="hdlist1" id="git-bundle-unbundleltarquivogt"> <a class="anchor" href="pt_BR.html#git-bundle-unbundleltarquivogt"></a>unbundle &lt;arquivo&gt; </dt>
+<dd>
+<p>Passa os objetos no pacote para o para armazenamento no repositório com o
+comando <em>git index-pack</em> e depois imprime os nomes de todas as referências
+que foram definidas. Se uma lista de referências for informada, apenas as
+referências que coincidam às da lista serão exibidas. Este comando é
+realmente "plumbing", feito para ser chamado apenas através do <em>git fetch</em>.</p>
+</dd>
+<dt class="hdlist1" id="git-bundle-ltgit-rev-list-argsgt"> <a class="anchor" href="pt_BR.html#git-bundle-ltgit-rev-list-argsgt"></a>&lt;git-rev-list-args&gt; </dt>
+<dd>
+<p>Uma lista de argumentos aceitáveis para o comando <em>git rev-parse</em> e <em>git
+rev-list</em> (contendo uma determinada referência, consulte ESPECIFICANDO AS
+REFERÊNCIAS logo abaixo), que determina quais os objetos e as referências
+específicas que serão transportados.  Por exemplo, <code>master~10..master</code> faz
+com que a referência principal seja empacotada juntamente com todos os
+objetos que foram adicionados desde o seu décimo commit ancestral.  Não há
+um limite explícito para a quantidade de referências e dos objetos que podem
+ser empacotados.</p>
+</dd>
+<dt class="hdlist1" id="git-bundle-ltrefnamegt82308203"> <a class="anchor" href="pt_BR.html#git-bundle-ltrefnamegt82308203"></a>[&lt;refname&gt;&#8230;&#8203;] </dt>
+<dd>
+<p>Uma lista de referências utilizadas para limitar as referências relatadas
+como disponíveis. É muito útil para ser utilizado com o <em>git fetch</em> que
+espera receber apenas as referências solicitadas e não necessariamente tudo
+no pacote (nesse caso, <em>git bundle</em> age como <em>git fetch-pack</em>).</p>
+</dd>
+<dt class="hdlist1" id="git-bundle---progress"> <a class="anchor" href="pt_BR.html#git-bundle---progress"></a>--progress </dt>
+<dd>
+<p>É predefinido que a condição geral do progresso seja relatada no fluxo de
+erros quando estiver conectado em um terminal, a menos que <code>-q</code> seja
+utilizado. Esta opção impõem a condição geral do progresso, mesmo que o
+fluxo de erro predefinido não seja direcionado para um terminal.</p>
+</dd>
+<dt class="hdlist1" id="git-bundle---all-progress"> <a class="anchor" href="pt_BR.html#git-bundle---all-progress"></a>--all-progress </dt>
+<dd>
+<p>Quando o <code>--stdout</code> é utilizado, o relatório do progresso é exibido durante
+as fases da contagem e da compactação dos objetos, porém inibido durante a
+fase de gravação. A razão é que em alguns casos, o fluxo da saída está
+diretamente vinculada a um outro comando que possa querer exibir a sua
+própria condição do progresso à medida que os dados do pacote vão sendo
+processados.  Esta opção é semelhante ao <code>--progress</code>, exceto que impõem
+também que um relatório do progresso seja feito na fase de gravação, mesmo
+que a opção <code>--stdout</code> seja utilizado.</p>
+</dd>
+<dt class="hdlist1" id="git-bundle---all-progress-implied"> <a class="anchor" href="pt_BR.html#git-bundle---all-progress-implied"></a>--all-progress-implied </dt>
+<dd>
+<p>Isso é utilizado para impor a opção <code>--all-progress</code> sempre que a exibição
+do progresso estiver ativo.  Ao contrário da opção <code>--all-progress</code>, esta
+opção por si só não impõem que a exibição do progresso seja exibida.</p>
+</dd>
+<dt class="hdlist1" id="git-bundle--q"> <a class="anchor" href="pt_BR.html#git-bundle--q"></a>-q </dt>
+<dt class="hdlist1" id="git-bundle---quiet"> <a class="anchor" href="pt_BR.html#git-bundle---quiet"></a>--quiet </dt>
+<dd>
+<p>Esta opção faz com que o comando não relate o seu progresso em meio ao fluxo
+de erros já predefinido.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_especificando_as_referências"><a class="anchor" href="pt_BR.html#_especificando_as_referências"></a>ESPECIFICANDO AS REFERÊNCIAS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>O comando <em>git bundle</em> apenas empacotará as referências que são exibidas
+através do comando <em>git show-ref</em>: isso inclui os cabeçalhos, tags e
+cabeçalhos remotos.  As referências como <code>master~1</code> não podem ser
+empacotadas porém são perfeitamente adequadas para definir a base.  Mais de
+uma referência pode ser empacotada assim como mais de uma base pode ser
+definida.  Os objetos empacotados são aqueles que não estão existentes na
+união das bases informadas.  Cada base pode ser definida de forma explicita
+(<code>^master~10</code> por exemplo) ou de forma implícita (<code>master~10..master</code>,
+<code>--since=10.days.ago master</code> por exemplo).</p>
+</div>
+<div class="paragraph">
+<p>É muito importante que a base utilizada seja mantida pelo destino.  É bom
+errar pelo excesso de zelo, fazendo com que o arquivo do pacote contenha os
+objetos já no destino, pois eles são ignorados durante a descompactação no
+destino.</p>
+</div>
+<div class="paragraph">
+<p>O comando <code>git clone</code> pode utilizar qualquer pacote criado sem os
+"refespecs" negativos (<code>new</code>, mas não <code>old..new</code> por exemplo).  Caso queira
+combinar o comando <code>git clone --mirror</code>, que incluiria os seus refs como
+<code>refs/remotes/*</code>, utilize <code>--all</code>.  Caso queira informar o mesmo conjunto de
+referências que um clone vindo direto do repositório da origem teria,
+utilize <code>--branches --tags</code> para o <code>&lt;git-rev-list-args&gt;</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exemplos"><a class="anchor" href="pt_BR.html#_exemplos"></a>EXEMPLOS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Suponha que você queira transferir o histórico de um repositório R1 na
+máquina A para outro repositório R2 na máquina B.  Por algum motivo, a
+conexão direta entre A e B não é permitida, mas podemos mover os dados de A
+para B através de algum mecanismo (CD , e-mail, etc.).  Porém queremos
+atualizar o R2 com o desenvolvimento feito na ramificação master em R1.</p>
+</div>
+<div class="paragraph">
+<p>Para inicializar o processo, você pode primeiro criar um pacote que não
+exista qualquer base. Você pode usar uma tag para ser lembrado até o último
+commit que for processado, serve para facilitar a atualização posterior do
+outro repositório com um pacote incremental:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>machineA$ cd R1
+machineA$ git bundle create file.bundle master
+machineA$ git tag -f lastR2bundle master</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Em seguida, você transfere <code>file.bundle</code> para a máquina no destino B. Como
+esse pacote não requer que nenhum objeto existente seja extraído, você pode
+criar um novo repositório na máquina B clonando a partir dele:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>machineB$ git clone -b master /home/me/tmp/file.bundle R2</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Isso irá definir um ponto remoto chamado "origin" (origem) no repositório
+que permite que você capture e extraia do pacote. O arquivo
+<code>$GIT_DIR/config</code> no R2 terá uma entrada como esta:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[remote "origin"]
+    url = /home/me/tmp/file.bundle
+    fetch = refs/heads/*:refs/remotes/origin/*</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Para atualizar o repositório <code>mine.git</code>, você pode capturar ou extrair após
+a reposição do pacote armazenado em <code>/home/me/tmp/file.bundle</code> com as
+atualizações incrementais.</p>
+</div>
+<div class="paragraph">
+<p>Depois de trabalhar um pouco mais no repositório original, você pode criar
+um pacote incremental para atualizar um outro repositório:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>machineA$ cd R1
+machineA$ git bundle create file.bundle lastR2bundle..master
+machineA$ git tag -f lastR2bundle master</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Em seguida, você transfere o pacote para uma outra máquina para substituir o
+<code>/home/me/tmp/file.bundle</code> e captura dele.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>machineB$ cd R2
+machineB$ git pull</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Caso saiba até qual commit do repositório nos destinatários pretendidos
+devem ter os objetos necessários, você poderá utilizar este conhecimento
+para definir a base, informando um ponto de corte para limitar as revisões e
+os objetos inclusos no pacote. O exemplo anterior utilizou a tag
+<code>lastR2bundle</code> para essa finalidade, porém é possível utilizar outras opções
+que você daria ao comando <a href='../git-log/pt_BR.html'>git-log[1]</a>. Aqui mais alguns exemplos:</p>
+</div>
+<div class="paragraph">
+<p>Você pode utilizar uma tag que esteja presente em ambos:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git bundle create mybundle v1.0.0..master</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Você pode utilizar uma base utilizando tempo como referência:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git bundle create mybundle --since=10.days master</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Você pode utilizar a quantidade dos commits:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git bundle create mybundle -10 master</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Você pode executar o comando <code>git-bundle verify</code> para ver se você consegue
+extrair de um pacote que criado com um fundamento:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git bundle verify mybundle</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Isso listará quais os commits você deve ter para extrair do pacote e
+encerrará com um erro caso você não os tenha.</p>
+</div>
+<div class="paragraph">
+<p>Um pacote do ponto de vista de um repositório do destinatário é como um
+repositório regular do qual ele captura ou extrai. Você pode, por exemplo,
+durante a captura é possível mapear quais são as referências:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git fetch mybundle master:localRef</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Você também pode ver quais são as referências que ela oferece:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git ls-remote mybundle</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git"><a class="anchor" href="pt_BR.html#_git"></a>GIT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Parte do conjunto <a href='../git/pt_BR.html'>git[1]</a></p>
+</div>
+</div>
+</div>
+  </div>
+
+        </div>
+      </div>
+      <footer>
+  <div class="site-source">
+    <a href="https://git-scm.com/site">About this site</a><br>
+    Patches, suggestions, and comments are welcome.
+  </div>
+  <div class="sfc-member">
+    Git is a member of <a href="https://git-scm.com/sfc">Software Freedom Conservancy</a>
+  </div>
+</footer>
+<a href="pt_BR.html#top" class="no-js scrollToTop" id="scrollToTop" data-label="Scroll to top">
+  <img src="../../images/icons/chevron-up@2x.png" width="20" height="20" alt="scroll-to-top"/>
+</a>
+<script src="../../assets/application-e12a0e837db60213b777cd7a706e0741beed474d7e5b94a641979fc87ce0d2cc.js"></script>
+
+    </div>
+
+</body>
+</html>

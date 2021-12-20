@@ -1,0 +1,2758 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49925874-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-49925874-3');
+  </script>
+
+  <meta charset='utf-8'>
+  <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Git - git Documentation</title>
+
+  <link href='../../favicon.ico' rel='shortcut icon' type='image/x-icon'>
+
+  <link rel="stylesheet" media="screen" href="../../assets/application-42b7b91ccf5cb92469695cf08b5da9e9230594f634cb88264f305d5bd54e477f.css" />
+  <script src="../../assets/modernize-b3ebe0c31c24f230dc62179d3e1030d2e57a53b1668d9382c0a27dbd44a94beb.js"></script>
+  <!--[if (gte IE 6)&(lte IE 8)]>
+  <script src="/javascripts/selectivizr-min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body id="documentation">
+
+  <div class="inner">
+    <header>
+
+  <a href="https://git-scm.com/"><img src="../../images/logo@2x.png" width="110" height="46" alt="Git" /></a>
+  <span id="tagline"></span>
+  <script type="text/javascript">
+    var taglines = ["fast-version-control","everything-is-local","distributed-even-if-your-workflow-isnt","local-branching-on-the-cheap","distributed-is-the-new-centralized"];
+    var tagline = taglines[Math.floor(Math.random() * taglines.length)];
+    document.getElementById('tagline').innerHTML = '--' + tagline;
+  </script>
+  <form id="search" action="https://git-scm.com/search/results">
+    <input id="search-text" name="search" placeholder="Search entire site..." autocomplete="off" type="text" />
+  </form>
+  <div id="search-results"></div>
+
+</header>
+
+  </div> <!-- .inner -->
+
+    <div class="inner">
+      <div id="content-wrapper">
+        <button class="sidebar-btn"></button>
+<aside class="sidebar" id="sidebar">
+  <nav>
+    <ul>
+      <li>
+        <a href="https://git-scm.com/about">About</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/about">Branching and Merging</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/small-and-fast">Small and Fast</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/distributed">Distributed</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/info-assurance">Data Assurance</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/staging-area">Staging Area</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/free-and-open-source">Free and Open Source</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/trademark">Trademark</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a class="active" href="https://git-scm.com/doc">Documentation</a>
+        <ul class="expanded">
+          <li>
+            <a class="active" href="../git-pack/pt_BR.html">Reference</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/book">Book</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/videos">Videos</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/doc/ext">External Links</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/downloads">Downloads</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/downloads/guis">GUI Clients</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/downloads/logos">Logos</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/community">Community</a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+
+        <div id="content">
+          
+  <div id='reference-version'>
+    <a class="dropdown-trigger" id="reference-languages-trigger" data-panel-id="l10n-versions-dropdown" href="pt_BR.html#">
+  Português (Brasil) ▾</a>
+<div class='dropdown-panel right' id='l10n-versions-dropdown'>
+  <header>Localized versions of <strong>git</strong> manual</header>
+  <ol class='reference-previous-versions'>
+      <li>
+        <a href="de.html"><span class="version">Deutsch</span>
+        </a>
+        </li>
+      <li>
+        <a href="en.html"><span class="version">English</span>
+        </a>
+        </li>
+      <li>
+        <a href="pt_BR.html"><span class="version">Português (Brasil)</span>
+        </a>
+        </li>
+  </ol>
+  <footer>
+    Want to read in your language or fix typos?<br/> <a href="https://github.com/jnavila/git-manpages-l10n">You can help translate this page</a>.
+  </footer>
+</div>
+
+    <a class="dropdown-trigger" id="reference-topics-trigger" data-panel-id="topics-dropdown" href="pt_BR.html#">Topics ▾</a>
+<div class='dropdown-panel right' id='topics-dropdown'>
+  <div class='three-column'>
+    <div class='column-left'>
+      <h3 class='setup'>Setup and Config</h3>
+<ul class='unstyled'>
+  <li><a class="active" href="pt_BR.html">git</a></li>
+  <li><a href="../git-config/pt_BR.html">config</a></li>
+  <li><a href="../git-help/pt_BR.html">help</a></li>
+  <li><a href="../git-bugreport/pt_BR.html">bugreport</a></li>
+</ul>
+
+      <h3 class='projects'>Getting and Creating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-init/pt_BR.html">init</a></li>
+  <li><a href="../git-clone/pt_BR.html">clone</a></li>
+</ul>
+
+      <h3 class='snapshotting'>Basic Snapshotting</h3>
+<ul class='unstyled'>
+  <li><a href="../git-add/pt_BR.html">add</a></li>
+  <li><a href="../git-status/pt_BR.html">status</a></li>
+  <li><a href="../git-diff/pt_BR.html">diff</a></li>
+  <li><a href="../git-commit/pt_BR.html">commit</a></li>
+  <li><a href="../git-notes/pt_BR.html">notes</a></li>
+  <li><a href="../git-restore/pt_BR.html">restore</a></li>
+  <li><a href="../git-reset/pt_BR.html">reset</a></li>
+  <li><a href="../git-rm/pt_BR.html">rm</a></li>
+  <li><a href="../git-mv/pt_BR.html">mv</a></li>
+</ul>
+
+      <h3 class='branching'>Branching and Merging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-branch/pt_BR.html">branch</a></li>
+  <li><a href="../git-checkout/pt_BR.html">checkout</a></li>
+  <li><a href="../git-switch/pt_BR.html">switch</a></li>
+  <li><a href="../git-merge/pt_BR.html">merge</a></li>
+  <li><a href="../git-mergetool/pt_BR.html">mergetool</a></li>
+  <li><a href="../git-log/pt_BR.html">log</a></li>
+  <li><a href="../git-stash/pt_BR.html">stash</a></li>
+  <li><a href="../git-tag/pt_BR.html">tag</a></li>
+  <li><a href="../git-worktree/pt_BR.html">worktree</a></li>
+</ul>
+
+      <h3 class='sharing'>Sharing and Updating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-fetch/pt_BR.html">fetch</a></li>
+  <li><a href="../git-pull/pt_BR.html">pull</a></li>
+  <li><a href="../git-push/pt_BR.html">push</a></li>
+  <li><a href="../git-remote/pt_BR.html">remote</a></li>
+  <li><a href="../git-submodule/pt_BR.html">submodule</a></li>
+</ul>
+
+    </div>
+    <div class='column-middle'>
+      <h3 class='inspection'>Inspection and Comparison</h3>
+<ul class='unstyled'>
+  <li><a href="../git-show/pt_BR.html">show</a></li>
+  <li><a href="../git-log/pt_BR.html">log</a></li>
+  <li><a href="../git-diff/pt_BR.html">diff</a></li>
+  <li><a href="../git-difftool/pt_BR.html">difftool</a></li>
+  <li><a href="../git-range-diff/pt_BR.html">range-diff</a></li>
+  <li><a href="../git-shortlog/pt_BR.html">shortlog</a></li>
+  <li><a href="../git-describe/pt_BR.html">describe</a></li>
+</ul>
+
+      <h3 class='patching'>Patching</h3>
+<ul class='unstyled'>
+  <li><a href="../git-apply/pt_BR.html">apply</a></li>
+  <li><a href="../git-cherry-pick/pt_BR.html">cherry-pick</a></li>
+  <li><a href="../git-diff/pt_BR.html">diff</a></li>
+  <li><a href="../git-rebase/pt_BR.html">rebase</a></li>
+  <li><a href="../git-revert/pt_BR.html">revert</a></li>
+</ul>
+
+      <h3 class='debugging'>Debugging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-bisect/pt_BR.html">bisect</a></li>
+  <li><a href="../git-blame/pt_BR.html">blame</a></li>
+  <li><a href="../git-grep/pt_BR.html">grep</a></li>
+</ul>
+
+      <h3 class='email'>Email</h3>
+<ul class='unstyled'>
+  <li><a href="../git-am/pt_BR.html">am</a></li>
+  <li><a href="../git-apply/pt_BR.html">apply</a></li>
+  <li><a href="../git-format-patch/pt_BR.html">format-patch</a></li>
+  <li><a href="../git-send-email/pt_BR.html">send-email</a></li>
+  <li><a href="../git-request-pull/pt_BR.html">request-pull</a></li>
+</ul>
+
+      <h3 class='external'>External Systems</h3>
+<ul class='unstyled'>
+  <li><a href="../git-svn/pt_BR.html">svn</a></li>
+  <li><a href="../git-fast-import/pt_BR.html">fast-import</a></li>
+</ul>
+
+      <h3 class='server-admin'>Server Admin</h3>
+<ul class='unstyled'>
+  <li><a href="../git-daemon/pt_BR.html">daemon</a></li>
+  <li><a href="../git-update-server-info/pt_BR.html">update-server-info</a></li>
+</ul>
+
+    </div>
+    <div class='column-right'>
+      <h3 class='guides'>Guides</h3>
+<ul class='unstyled'>
+  <li><a href="../gitattributes/pt_BR.html">gitattributes</a></li>
+  <li><a href="../gitcli/pt_BR.html">Command-line interface conventions</a></li>
+  <li><a href="../giteveryday/pt_BR.html">Everyday Git</a></li>
+  <li><a href="../gitfaq/pt_BR.html">Frequently Asked Questions (FAQ)</a></li>
+  <li><a href="../gitglossary/pt_BR.html">Glossary</a></li>
+  <li><a href="../githooks/pt_BR.html">Hooks</a></li>
+  <li><a href="../gitignore/pt_BR.html">gitignore</a></li>
+  <li><a href="../gitmodules/pt_BR.html">gitmodules</a></li>
+  <li><a href="../gitrevisions/pt_BR.html">Revisions</a></li>
+  <li><a href="../gitsubmodules/pt_BR.html">Submodules</a></li>
+  <li><a href="../gittutorial/pt_BR.html">Tutorial</a></li>
+  <li><a href="../gitworkflows/pt_BR.html">Workflows</a></li>
+  <li><a href="ru.html#_guides">All guides...</a></li>
+</ul>
+
+      <h3 class='admin'>Administration</h3>
+<ul class='unstyled'>
+  <li><a href="../git-clean/pt_BR.html">clean</a></li>
+  <li><a href="../git-gc/pt_BR.html">gc</a></li>
+  <li><a href="../git-fsck/pt_BR.html">fsck</a></li>
+  <li><a href="../git-reflog/pt_BR.html">reflog</a></li>
+  <li><a href="../git-filter-branch/pt_BR.html">filter-branch</a></li>
+  <li><a href="../git-instaweb/pt_BR.html">instaweb</a></li>
+  <li><a href="../git-archive/pt_BR.html">archive</a></li>
+  <li><a href="../git-bundle/pt_BR.html">bundle</a></li>
+</ul>
+
+      <h3 class='plumbing'>Plumbing Commands</h3>
+<ul class='unstyled'>
+  <li><a href="../git-cat-file/pt_BR.html">cat-file</a></li>
+  <li><a href="../git-check-ignore/pt_BR.html">check-ignore</a></li>
+  <li><a href="../git-checkout-index/pt_BR.html">checkout-index</a></li>
+  <li><a href="../git-commit-tree/pt_BR.html">commit-tree</a></li>
+  <li><a href="../git-count-objects/pt_BR.html">count-objects</a></li>
+  <li><a href="../git-diff-index/pt_BR.html">diff-index</a></li>
+  <li><a href="../git-for-each-ref/pt_BR.html">for-each-ref</a></li>
+  <li><a href="../git-hash-object/pt_BR.html">hash-object</a></li>
+  <li><a href="../git-ls-files/pt_BR.html">ls-files</a></li>
+  <li><a href="../git-ls-tree/pt_BR.html">ls-tree</a></li>
+  <li><a href="../git-merge-base/pt_BR.html">merge-base</a></li>
+  <li><a href="../git-read-tree/pt_BR.html">read-tree</a></li>
+  <li><a href="../git-rev-list/pt_BR.html">rev-list</a></li>
+  <li><a href="../git-rev-parse/pt_BR.html">rev-parse</a></li>
+  <li><a href="../git-show-ref/pt_BR.html">show-ref</a></li>
+  <li><a href="../git-symbolic-ref/pt_BR.html">symbolic-ref</a></li>
+  <li><a href="../git-update-index/pt_BR.html">update-index</a></li>
+  <li><a href="../git-update-ref/pt_BR.html">update-ref</a></li>
+  <li><a href="../git-verify-pack/pt_BR.html">verify-pack</a></li>
+  <li><a href="../git-write-tree/pt_BR.html">write-tree</a></li>
+</ul>
+
+    </div>
+  </div>
+</div>
+
+    <a class="dropdown-trigger" id="reference-versions-trigger" data-panel-id="previous-versions-dropdown" href="pt_BR.html#">
+      Latest version
+       ▾ </a>
+<span class="light d-flex">git last updated in 2.34.1</span>
+<div class='dropdown-panel left' id='previous-versions-dropdown'>
+  <header>Changes in the <strong>git</strong> manual</header>
+  <ol class='reference-previous-versions'>
+        <li class="no-change"><span>2.34.1 no changes</span></li>
+        <li>
+        <a href="2.34.0.html"><span class="version">2.34.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">11/15/21</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.33.1.html"><span class="version">2.33.1</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">10/12/21</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.33.0 no changes</span></li>
+        <li>
+        <a href="2.32.0.html"><span class="version">2.32.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">06/06/21</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.31.1 no changes</span></li>
+        <li>
+        <a href="2.31.0.html"><span class="version">2.31.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">03/15/21</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.30.1 &rarr; 2.30.2 no changes</span></li>
+        <li>
+        <a href="2.30.0.html"><span class="version">2.30.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">12/27/20</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.29.3.html"><span class="version">2.29.3</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">02/12/21</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.29.1 &rarr; 2.29.2 no changes</span></li>
+        <li>
+        <a href="2.29.0.html"><span class="version">2.29.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+          </span>
+          <em class="date">10/19/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.28.1 no changes</span></li>
+        <li>
+        <a href="2.28.0.html"><span class="version">2.28.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">07/27/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.27.1 no changes</span></li>
+        <li>
+        <a href="2.27.0.html"><span class="version">2.27.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+          </span>
+          <em class="date">06/01/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.26.1 &rarr; 2.26.3 no changes</span></li>
+        <li>
+        <a href="2.26.0.html"><span class="version">2.26.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">03/22/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.25.2 &rarr; 2.25.5 no changes</span></li>
+        <li>
+        <a href="2.25.1.html"><span class="version">2.25.1</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">02/17/20</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.25.0.html"><span class="version">2.25.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">01/13/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.23.1 &rarr; 2.24.4 no changes</span></li>
+        <li>
+        <a href="2.23.0.html"><span class="version">2.23.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+          </span>
+          <em class="date">08/16/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.22.2 &rarr; 2.22.5 no changes</span></li>
+        <li>
+        <a href="2.22.1.html"><span class="version">2.22.1</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">08/11/19</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.22.0.html"><span class="version">2.22.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+          </span>
+          <em class="date">06/07/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.20.1 &rarr; 2.21.4 no changes</span></li>
+        <li>
+        <a href="2.20.0.html"><span class="version">2.20.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">12/09/18</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.19.3 &rarr; 2.19.6 no changes</span></li>
+        <li>
+        <a href="2.19.2.html"><span class="version">2.19.2</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">11/21/18</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.19.1 no changes</span></li>
+        <li>
+        <a href="2.19.0.html"><span class="version">2.19.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">09/10/18</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.18.1 &rarr; 2.18.5 no changes</span></li>
+        <li>
+        <a href="2.18.0.html"><span class="version">2.18.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">06/21/18</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.17.1 &rarr; 2.17.6 no changes</span></li>
+        <li>
+        <a href="2.17.0.html"><span class="version">2.17.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">04/02/18</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.16.6.html"><span class="version">2.16.6</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">12/06/19</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.15.4.html"><span class="version">2.15.4</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+          </span>
+          <em class="date">12/06/19</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.14.6.html"><span class="version">2.14.6</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">12/06/19</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.13.7.html"><span class="version">2.13.7</span>
+          <span class="diff">
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">05/22/18</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.12.5.html"><span class="version">2.12.5</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">09/22/17</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.11.4.html"><span class="version">2.11.4</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+          </span>
+          <em class="date">09/22/17</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.10.5.html"><span class="version">2.10.5</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+          </span>
+          <em class="date">09/22/17</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.9.5.html"><span class="version">2.9.5</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">07/30/17</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.8.6.html"><span class="version">2.8.6</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">07/30/17</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.7.6.html"><span class="version">2.7.6</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+          </span>
+          <em class="date">07/30/17</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.6.7.html"><span class="version">2.6.7</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">05/05/17</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.5.6.html"><span class="version">2.5.6</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+          </span>
+          <em class="date">05/05/17</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.4.12.html"><span class="version">2.4.12</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">05/05/17</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.3.10.html"><span class="version">2.3.10</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">09/28/15</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.2.3.html"><span class="version">2.2.3</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">09/04/15</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.1.4.html"><span class="version">2.1.4</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">12/17/14</em>
+        </a>
+        </li>
+    <li>&nbsp;</li>
+    <!-- <li><a class="more" href="#">See more previous releases →</a></li> -->
+  </ol>
+  <footer>
+    <p>Check your version of git by running</p>
+    <code class="command">git --version</code>
+  </footer>
+</div>
+
+  </div>
+
+  <div id='main'>
+    <div class="sect1">
+<h2 id="_nome"><a class="anchor" href="pt_BR.html#_nome"></a>NOME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>git - o monitor de conteúdo estúpido</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_resumo"><a class="anchor" href="pt_BR.html#_resumo"></a>RESUMO</h2>
+<div class="sectionbody">
+<div class="verseblock">
+<pre class="content"><em>git</em> [--version] [--help] [-C &lt;caminho&gt;] [-c &lt;nome&gt;=&lt;valor&gt;]
+    [--exec-path[=&lt;caminho&gt;]] [--html-path] [--man-path] [--info-path]
+    [-p|--paginate|-P|--no-pager] [--no-replace-objects] [--bare]
+    [--git-dir=&lt;caminho&gt;] [--work-tree=&lt;caminho&gt;] [--namespace=&lt;nome&gt;]
+    [--super-prefix=&lt;caminho&gt;]
+    &lt;comando&gt; [&lt;args&gt;]</pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_descrição"><a class="anchor" href="pt_BR.html#_descrição"></a>DESCRIÇÃO</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>O Git é um sistema de controle de revisão distribuído, rápido, escalável e
+com um conjunto de comandos incomumente rico que oferece operações de alto
+nível e acesso completo aos seus recursos.</p>
+</div>
+<div class="paragraph">
+<p>Para começar, consulte <a href='../gittutorial/pt_BR.html'>gittutorial[7]</a> e depois
+<a href='../giteveryday/pt_BR.html'>giteveryday[7]</a> para conhecer um conjunto mínimo de comandos uteis.
+Para uma introdução mais aprofundada acesse o <a href="../user-manual/pt_BR.html">Manual
+do Usuário do Git</a>.</p>
+</div>
+<div class="paragraph">
+<p>Depois de dominar os conceitos básicos, é possível voltar para esta página
+para aprender quais os outros comandos o Git oferece.  É possível aprender
+mais sobre os comandos individuais do Git com o comando "git help
+nome-do-comando".  A página do manual <a href='../gitcli/pt_BR.html'>gitcli[7]</a> fornece uma visão
+geral da sintaxe de comandos da linha de comando.</p>
+</div>
+<div class="paragraph">
+<p>Uma cópia formatada e com hiperlink da documentação mais recente do Git pode
+ser visualizada em <a href="https://git.github.io/htmldocs/git.html" class="bare">https://git.github.io/htmldocs/git.html</a> ou
+<a href="../git-pack/pt_BR.html" class="bare">https://git-scm.com/docs</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_opções"><a class="anchor" href="pt_BR.html#_opções"></a>OPÇÕES</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git---version"> <a class="anchor" href="pt_BR.html#git---version"></a>--version </dt>
+<dd>
+<p>Imprime a versão do pacote Git exibindo a sua origem.</p>
+</dd>
+<dt class="hdlist1" id="git---help"> <a class="anchor" href="pt_BR.html#git---help"></a>--help </dt>
+<dd>
+<p>Imprime a sinopse e uma lista dos comandos mais usados. Caso a opção <code>--all</code>
+ou <code>-a</code> seja usada, todos os comandos disponíveis serão impressos. Caso um
+comando Git seja informado, esta opção exibirá a página do manual deste
+comando.</p>
+<div class="paragraph">
+<p>Outras opções estão disponíveis para controlar como a página do manual é
+exibida. Para mais informações, consulte <a href='../git-help/pt_BR.html'>git-help[1]</a>, pois o comando
+<code>git --help ...</code> é convertido internamente em <code>git help ...</code>.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git--Cltcaminhogt"> <a class="anchor" href="pt_BR.html#git--Cltcaminhogt"></a>-C &lt;caminho&gt; </dt>
+<dd>
+<p>Execute como se o git tivesse sido iniciado em <em>&lt;caminho&gt;</em> em vez do
+diretório de trabalho atual.  Quando várias opções <code>-C</code> são usadas, cada <code>-C
+&lt;caminho&gt;</code> não absoluto subsequente é interpretado com relação ao <code>-C
+&lt;caminho&gt;</code> anterior.  Se <em>&lt;caminho&gt;</em> estiver presente, porém vazio, por
+exemplo, <code>-C ""</code>, o diretório de trabalho atual permanecerá inalterado.</p>
+<div class="paragraph">
+<p>Esta opção afeta as opções que esperam o nome do caminho, como <code>--git-dir</code> e
+<code>work-tree</code>, pois as suas interpretações dos nomes dos caminhos seriam
+feitas em relação ao diretório de trabalho causado pela opção <code>-C</code>. Como,
+por exemplo, as seguintes invocações são equivalentes:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>git --git-dir=a.git --work-tree=b -C c status
+git --git-dir=c/a.git --work-tree=c/b status</pre>
+</div>
+</div>
+</dd>
+<dt class="hdlist1" id="git--cltnomegtltvalorgt"> <a class="anchor" href="pt_BR.html#git--cltnomegtltvalorgt"></a>-c &lt;nome&gt;=&lt;valor&gt; </dt>
+<dd>
+<p>Encaminhe um parâmetro de configuração para o comando O valor informado
+substituirá os valores dos arquivos de configuração.  Um <code>&lt;nome&gt;</code> é esperado
+no mesmo formato listado pelo comando <em>git config</em> (sub chaves separadas por
+pontos).</p>
+<div class="paragraph">
+<p>Note que ao omitir <code>=</code> no comando <code>git -c foo.bar ...</code> é permitido e define
+<code>foo.bar</code> com o valor booleano verdadeiro (assim como`[foo]bar` faria em um
+arquivo de configuração). Incluindo os iguais, porém com um valor vazio
+(como <code>git -c foo.bar= ...</code>) define <code>foo.bar</code> para a string vazia que <code>git
+config --type=bool</code> converterá para <code>false</code>.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git---exec-pathltcaminhogt"> <a class="anchor" href="pt_BR.html#git---exec-pathltcaminhogt"></a>--exec-path[=&lt;caminho&gt;] </dt>
+<dd>
+<p>O caminho para onde os seus principais programas Git estão instalados.  Isso
+também pode ser controlado configurando a variável de ambiente
+<code>GIT_EXEC_PATH</code>. Caso nenhum caminho seja informado, o <em>git</em> imprimirá a
+configuração atual e encerrará.</p>
+</dd>
+<dt class="hdlist1" id="git---html-path"> <a class="anchor" href="pt_BR.html#git---html-path"></a>--html-path </dt>
+<dd>
+<p>Imprima o caminho, sem barra, onde a documentação HTML do Git está instalada
+e encerre.</p>
+</dd>
+<dt class="hdlist1" id="git---man-path"> <a class="anchor" href="pt_BR.html#git---man-path"></a>--man-path </dt>
+<dd>
+<p>Imprima o manpath (consulte <code>man(1)</code>) para as páginas do manual desta versão
+do Git e encerre.</p>
+</dd>
+<dt class="hdlist1" id="git---info-path"> <a class="anchor" href="pt_BR.html#git---info-path"></a>--info-path </dt>
+<dd>
+<p>Imprima o caminho onde os arquivos Info que documentam esta versão do Git
+estão instalados e encerre.</p>
+</dd>
+<dt class="hdlist1" id="git--p"> <a class="anchor" href="pt_BR.html#git--p"></a>-p </dt>
+<dt class="hdlist1" id="git---paginate"> <a class="anchor" href="pt_BR.html#git---paginate"></a>--paginate </dt>
+<dd>
+<p>Canalize toda a saída para <em>less</em> (ou caso esteja definido, <code>$PAGER</code>) caso a
+saída padrão seja um terminal.  Isso substitui as opções de configuração
+<code>pager.&lt;cmd&gt;</code> (consulte a seção "Mecanismo de Configuração" abaixo).</p>
+</dd>
+<dt class="hdlist1" id="git--p"> <a class="anchor" href="pt_BR.html#git--p"></a>-p </dt>
+<dt class="hdlist1" id="git---no-pager"> <a class="anchor" href="pt_BR.html#git---no-pager"></a>--no-pager </dt>
+<dd>
+<p>Não canalize a saída do Git para um pager.</p>
+</dd>
+<dt class="hdlist1" id="git---git-dirltcaminhogt"> <a class="anchor" href="pt_BR.html#git---git-dirltcaminhogt"></a>--git-dir=&lt;caminho&gt; </dt>
+<dd>
+<p>Define o caminho para o repositório (o diretório ".git"). Isso também pode
+ser controlado pela configuração da variável de ambiente <code>GIT_DIR</code>. Pode ser
+um caminho absoluto ou relativo ao diretório de trabalho atual.</p>
+<div class="paragraph">
+<p>A especificação do local do diretório ".git" usando esta opção (ou a
+variável de ambiente <code>GIT_DIR</code>) desativa a descoberta do repositório que
+tenta localizar um diretório com o ".git" dentro (que é como o repositório e
+o nível mais alto da descoberta da árvore de trabalho) e informa ao Git que
+você está no nível mais alto da árvore de trabalho.  Caso não esteja no
+diretório no nível mais alto da árvore de trabalho, deve informar ao Git
+onde está este nível da árvore de trabalho, com a opção
+<code>--work-tree=&lt;caminho&gt;</code> (ou a variável de ambiente <code>GIT_WORK_TREE</code>)</p>
+</div>
+<div class="paragraph">
+<p>Caso queira executar o git como se tivesse sido iniciado em <code>&lt;caminho&gt;</code>,
+utilize <code>git -C &lt;caminho&gt;</code>.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git---work-treeltcaminhogt"> <a class="anchor" href="pt_BR.html#git---work-treeltcaminhogt"></a>--work-tree=&lt;caminho&gt; </dt>
+<dd>
+<p>Define o caminho para a árvore de trabalho. Pode ser um caminho absoluto ou
+relativo ao diretório de trabalho atual.  Também pode ser controlado atrvés
+da configuração da variável de ambiente <code>GIT_WORK_TREE</code> e da variável de
+configuração <code>core.worktree</code> (consulte <code>core.worktree</code> no
+<a href='../git-config/pt_BR.html'>git-config[1]</a> para uma discussão com mais detalhes).</p>
+</dd>
+<dt class="hdlist1" id="git---namespaceltcaminhogt"> <a class="anchor" href="pt_BR.html#git---namespaceltcaminhogt"></a>--namespace=&lt;caminho&gt; </dt>
+<dd>
+<p>Define o espaço de nomes no Git.  Para mais detalhes consulte
+<a href='../gitnamespaces/pt_BR.html'>gitnamespaces[7]</a>.  É o mesmo que configurar a variável de ambiente
+<code>GIT_NAMESPACE</code>.</p>
+</dd>
+<dt class="hdlist1" id="git---super-prefixltcaminhogt"> <a class="anchor" href="pt_BR.html#git---super-prefixltcaminhogt"></a>--super-prefix=&lt;caminho&gt; </dt>
+<dd>
+<p>Apenas para uso interno.  Set a prefix which gives a path from above a
+repository down to its root.  One use is to give submodules context about
+the superproject that invoked it.</p>
+</dd>
+<dt class="hdlist1" id="git---bare"> <a class="anchor" href="pt_BR.html#git---bare"></a>--bare </dt>
+<dd>
+<p>Trate o repositório como um repositório simples.  Caso o ambiente <code>GIT_DIR</code>
+não estiver definido, ele será definido no diretório de trabalho atual.</p>
+</dd>
+<dt class="hdlist1" id="git---no-replace-objects"> <a class="anchor" href="pt_BR.html#git---no-replace-objects"></a>--no-replace-objects </dt>
+<dd>
+<p>Não utilize substituições "ref" para substituir os objetos Git. Para mais
+informações consulte <a href='../git-replace/pt_BR.html'>git-replace[1]</a>.</p>
+</dd>
+<dt class="hdlist1" id="git---literal-pathspecs"> <a class="anchor" href="pt_BR.html#git---literal-pathspecs"></a>--literal-pathspecs </dt>
+<dd>
+<p>Trate os pathspecs literalmente (ou seja, sem "globbing", sem a magia do
+"pathspec").  É o mesmo que definir a variável de ambiente
+<code>GIT_LITERAL_PATHSPECS</code> como <code>1</code>.</p>
+</dd>
+<dt class="hdlist1" id="git---glob-pathspecs"> <a class="anchor" href="pt_BR.html#git---glob-pathspecs"></a>--glob-pathspecs </dt>
+<dd>
+<p>Adicione a magia <em>glob</em> para todos os <em>pathspec</em>. É como definir a variável
+de ambiente <code>GIT_GLOB_PATHSPECS</code> como <code>1</code>. A desativação do caractere
+curinga nos pathspecs individuais podem ser feitos utilizando a mágica do
+pathspec ": (literal)"</p>
+</dd>
+<dt class="hdlist1" id="git---noglob-pathspecs"> <a class="anchor" href="pt_BR.html#git---noglob-pathspecs"></a>--noglob-pathspecs </dt>
+<dd>
+<p>Adicione a magia <em>literal</em> a todos os "pathspec". É equivalente a definir a
+variável de ambiente <code>GIT_NOGLOB_PATHSPECS</code> para <code>1</code>. A ativação dos
+caracteres curinga nos "pathspecs" individuais podem ser feitos utilizando a
+mágica do pathspec ":(glob)"</p>
+</dd>
+<dt class="hdlist1" id="git---icase-pathspecs"> <a class="anchor" href="pt_BR.html#git---icase-pathspecs"></a>--icase-pathspecs </dt>
+<dd>
+<p>Adicione a magia <em>icase</em> em todos os pathspec. É como definir a variável de
+ambiente <code>GIT_ICASE_PATHSPECS</code> como <code>1</code>.</p>
+</dd>
+<dt class="hdlist1" id="git---no-optional-locks"> <a class="anchor" href="pt_BR.html#git---no-optional-locks"></a>--no-optional-locks </dt>
+<dd>
+<p>Não execute operações opcionais que exijam bloqueios. Isso é equivalente que
+definir o <code>GIT_OPTIONAL_LOCKS</code> como <code>0</code>.</p>
+</dd>
+<dt class="hdlist1" id="git---list-cmdsgroupgroup82308203"> <a class="anchor" href="pt_BR.html#git---list-cmdsgroupgroup82308203"></a>--list-cmds=group[,group&#8230;&#8203;] </dt>
+<dd>
+<p>Liste os comandos por grupo. Essa é uma opção interna/experimental e pode
+mudar ou ser removido no futuro. Os grupos compatíveis são: <code>builtins</code>,
+<code>parseopt</code> (comandos internos que utilizam <em>parse-options´), <code>main</code> (todos
+os comandos no diretório 'libexec</em>), <code>others</code> (todos os outros comandos no
+<code>$PATH</code> que possuem um prefixo git), <code>list- &lt;categoria&gt;</code> (consulte as
+categorias no <em>command-list.txt</em>), <code>nohelpers</code> (exclua os comandos
+auxiliares), <code>alias</code> e <code>config</code> (recupera a lista dos comandos da variável
+<code>completion.commands</code>)</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_os_comandos_do_git"><a class="anchor" href="pt_BR.html#_os_comandos_do_git"></a>OS COMANDOS DO GIT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Dividimos o Git em comandos de alto nível ("porcelana") e de baixo nível
+("encanamento").</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_comandos_de_alto_nível_porcelana"><a class="anchor" href="pt_BR.html#_comandos_de_alto_nível_porcelana"></a>Comandos de alto nível (porcelana)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Separamos os comandos porcelana nos comandos principais e em alguns
+utilitários auxiliares do usuário.</p>
+</div>
+<div class="sect2">
+<h3 id="_os_principais_comandos_porcelana"><a class="anchor" href="pt_BR.html#_os_principais_comandos_porcelana"></a>Os principais comandos porcelana</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-ahrefdocsgit-addptBRgit-add1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-addptBRgit-add1a"></a><a href='../git-add/pt_BR.html'>git-add[1]</a> </dt>
+<dd>
+<p>Adiciona o conteúdo dos arquivos ao índice.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-amptBRgit-am1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-amptBRgit-am1a"></a><a href='../git-am/pt_BR.html'>git-am[1]</a> </dt>
+<dd>
+<p>Aplica uma série de patches vindos de uma caixa de e-mails.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-archiveptBRgit-archive1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-archiveptBRgit-archive1a"></a><a href='../git-archive/pt_BR.html'>git-archive[1]</a> </dt>
+<dd>
+<p>Cria um histórico dos arquivos a partir de uma determinada árvore.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-bisectptBRgit-bisect1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-bisectptBRgit-bisect1a"></a><a href='../git-bisect/pt_BR.html'>git-bisect[1]</a> </dt>
+<dd>
+<p>Utilize a procura binária para localizar o commit que introduziu um bug.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-branchptBRgit-branch1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-branchptBRgit-branch1a"></a><a href='../git-branch/pt_BR.html'>git-branch[1]</a> </dt>
+<dd>
+<p>Lista, cria ou exclui os ramos.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-bundleptBRgit-bundle1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-bundleptBRgit-bundle1a"></a><a href='../git-bundle/pt_BR.html'>git-bundle[1]</a> </dt>
+<dd>
+<p>Mova os objetos e as refs através do histórico.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-checkoutptBRgit-checkout1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-checkoutptBRgit-checkout1a"></a><a href='../git-checkout/pt_BR.html'>git-checkout[1]</a> </dt>
+<dd>
+<p>Mova os ramos ou restaura os arquivos da árvores de trabalho.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-cherry-pickptBRgit-cherry-pick1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-cherry-pickptBRgit-cherry-pick1a"></a><a href='../git-cherry-pick/pt_BR.html'>git-cherry-pick[1]</a> </dt>
+<dd>
+<p>Aplica as mudanças introduzidas por alguns commits já existentes.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-citoolptBRgit-citool1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-citoolptBRgit-citool1a"></a><a href='../git-citool/pt_BR.html'>git-citool[1]</a> </dt>
+<dd>
+<p>Uma alternativa gráfica ao git-commit.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-cleanptBRgit-clean1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-cleanptBRgit-clean1a"></a><a href='../git-clean/pt_BR.html'>git-clean[1]</a> </dt>
+<dd>
+<p>Remove os arquivos da árvore de trabalho sem monitoramento.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-cloneptBRgit-clone1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-cloneptBRgit-clone1a"></a><a href='../git-clone/pt_BR.html'>git-clone[1]</a> </dt>
+<dd>
+<p>Clona um repositório em um novo diretório.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-commitptBRgit-commit1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-commitptBRgit-commit1a"></a><a href='../git-commit/pt_BR.html'>git-commit[1]</a> </dt>
+<dd>
+<p>Grava as alterações para o repositório.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-describeptBRgit-describe1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-describeptBRgit-describe1a"></a><a href='../git-describe/pt_BR.html'>git-describe[1]</a> </dt>
+<dd>
+<p>Dá a um objeto um nome em um formato legível para humanos com base em um
+"ref" disponível.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-diffptBRgit-diff1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-diffptBRgit-diff1a"></a><a href='../git-diff/pt_BR.html'>git-diff[1]</a> </dt>
+<dd>
+<p>Exiba as alterações entre os commits, o commit, árvore de trabalho, etc.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-fetchptBRgit-fetch1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-fetchptBRgit-fetch1a"></a><a href='../git-fetch/pt_BR.html'>git-fetch[1]</a> </dt>
+<dd>
+<p>Faz o download dos objetos e dos refs vindo de outro repositório.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-format-patchptBRgit-format-patch1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-format-patchptBRgit-format-patch1a"></a><a href='../git-format-patch/pt_BR.html'>git-format-patch[1]</a> </dt>
+<dd>
+<p>Prepara os patches para serem enviados por e-mail.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-gcptBRgit-gc1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-gcptBRgit-gc1a"></a><a href='../git-gc/pt_BR.html'>git-gc[1]</a> </dt>
+<dd>
+<p>Exclui os arquivos desnecessários e otimiza o repositório local.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-grepptBRgit-grep1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-grepptBRgit-grep1a"></a><a href='../git-grep/pt_BR.html'>git-grep[1]</a> </dt>
+<dd>
+<p>Imprima as linhas que coincidam com um padrão.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-guiptBRgit-gui1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-guiptBRgit-gui1a"></a><a href='../git-gui/pt_BR.html'>git-gui[1]</a> </dt>
+<dd>
+<p>Uma interface gráfica portátil para o Git.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-initptBRgit-init1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-initptBRgit-init1a"></a><a href='../git-init/pt_BR.html'>git-init[1]</a> </dt>
+<dd>
+<p>Cria um repositório vazio para o Git ou reinicializa um repositório já
+existente.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-logptBRgit-log1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-logptBRgit-log1a"></a><a href='../git-log/pt_BR.html'>git-log[1]</a> </dt>
+<dd>
+<p>Exibe os registros logs de um commit.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-mergeptBRgit-merge1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-mergeptBRgit-merge1a"></a><a href='../git-merge/pt_BR.html'>git-merge[1]</a> </dt>
+<dd>
+<p>Une dois ou mais históricos de desenvolvimento juntos.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-mvptBRgit-mv1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-mvptBRgit-mv1a"></a><a href='../git-mv/pt_BR.html'>git-mv[1]</a> </dt>
+<dd>
+<p>Move ou renomeia um arquivo, um diretório ou um link simbólico.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-notesptBRgit-notes1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-notesptBRgit-notes1a"></a><a href='../git-notes/pt_BR.html'>git-notes[1]</a> </dt>
+<dd>
+<p>Adiciona ou inspeciona as anotações dos objetos.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-pullptBRgit-pull1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-pullptBRgit-pull1a"></a><a href='../git-pull/pt_BR.html'>git-pull[1]</a> </dt>
+<dd>
+<p>Capture de e o integre com um outro repositório ou em um outro ramo local.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-pushptBRgit-push1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-pushptBRgit-push1a"></a><a href='../git-push/pt_BR.html'>git-push[1]</a> </dt>
+<dd>
+<p>Atualiza os refs remotos através da associação dos objetos.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-range-diffptBRgit-range-diff1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-range-diffptBRgit-range-diff1a"></a><a href='../git-range-diff/pt_BR.html'>git-range-diff[1]</a> </dt>
+<dd>
+<p>Compara os dois intervalos de um commit (duas versões de um ramo por
+exemplo).</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-rebaseptBRgit-rebase1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-rebaseptBRgit-rebase1a"></a><a href='../git-rebase/pt_BR.html'>git-rebase[1]</a> </dt>
+<dd>
+<p>Reaplica os commits no topo do outro cume da base.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-resetptBRgit-reset1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-resetptBRgit-reset1a"></a><a href='../git-reset/pt_BR.html'>git-reset[1]</a> </dt>
+<dd>
+<p>Redefine o HEAD atual para o para a condição determinada.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-restoreptBRgit-restore1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-restoreptBRgit-restore1a"></a><a href='../git-restore/pt_BR.html'>git-restore[1]</a> </dt>
+<dd>
+<p>Restaura as árvores de trabalho.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-revertptBRgit-revert1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-revertptBRgit-revert1a"></a><a href='../git-revert/pt_BR.html'>git-revert[1]</a> </dt>
+<dd>
+<p>Reverte alguns commits já existentes.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-rmptBRgit-rm1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-rmptBRgit-rm1a"></a><a href='../git-rm/pt_BR.html'>git-rm[1]</a> </dt>
+<dd>
+<p>Remove os arquivos da árvore de trabalho e do índice.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-shortlogptBRgit-shortlog1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-shortlogptBRgit-shortlog1a"></a><a href='../git-shortlog/pt_BR.html'>git-shortlog[1]</a> </dt>
+<dd>
+<p>Faça um resumo da saída do <em>git log</em>.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-showptBRgit-show1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-showptBRgit-show1a"></a><a href='../git-show/pt_BR.html'>git-show[1]</a> </dt>
+<dd>
+<p>Exiba os vários tipos de objetos.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-sparse-checkoutptBRgit-sparse-checkout1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-sparse-checkoutptBRgit-sparse-checkout1a"></a><a href='../git-sparse-checkout/pt_BR.html'>git-sparse-checkout[1]</a> </dt>
+<dd>
+<p>Alter e inicialize a averiguação esparsa.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-stashptBRgit-stash1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-stashptBRgit-stash1a"></a><a href='../git-stash/pt_BR.html'>git-stash[1]</a> </dt>
+<dd>
+<p>Armazene as alterações em um diretório fora do diretório de trabalho.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-statusptBRgit-status1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-statusptBRgit-status1a"></a><a href='../git-status/pt_BR.html'>git-status[1]</a> </dt>
+<dd>
+<p>Exiba a condição atual da árvore de trabalho.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-submoduleptBRgit-submodule1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-submoduleptBRgit-submodule1a"></a><a href='../git-submodule/pt_BR.html'>git-submodule[1]</a> </dt>
+<dd>
+<p>Inicializa, atualiza ou inspeciona submódulos.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-switchptBRgit-switch1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-switchptBRgit-switch1a"></a><a href='../git-switch/pt_BR.html'>git-switch[1]</a> </dt>
+<dd>
+<p>Alterna entre os ramos.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-tagptBRgit-tag1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-tagptBRgit-tag1a"></a><a href='../git-tag/pt_BR.html'>git-tag[1]</a> </dt>
+<dd>
+<p>Cria, lista, exclui ou verifica uma tag do objeto com assinatura GPG.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-worktreeptBRgit-worktree1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-worktreeptBRgit-worktree1a"></a><a href='../git-worktree/pt_BR.html'>git-worktree[1]</a> </dt>
+<dd>
+<p>Manipula as diversas árvores de trabalho.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgitkptBRgitk1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgitkptBRgitk1a"></a><a href='../gitk/pt_BR.html'>gitk[1]</a> </dt>
+<dd>
+<p>O navegador do repositório Git.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_comandos_auxiliares"><a class="anchor" href="pt_BR.html#_comandos_auxiliares"></a>Comandos Auxiliares</h3>
+<div class="paragraph">
+<p>Manipuladores:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-ahrefdocsgit-configptBRgit-config1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-configptBRgit-config1a"></a><a href='../git-config/pt_BR.html'>git-config[1]</a> </dt>
+<dd>
+<p>Obtém e define os repositórios ou as opções globais.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-fast-exportptBRgit-fast-export1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-fast-exportptBRgit-fast-export1a"></a><a href='../git-fast-export/pt_BR.html'>git-fast-export[1]</a> </dt>
+<dd>
+<p>Exportador de dados do Git.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-fast-importptBRgit-fast-import1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-fast-importptBRgit-fast-import1a"></a><a href='../git-fast-import/pt_BR.html'>git-fast-import[1]</a> </dt>
+<dd>
+<p>Estrutura para os importadores de dados rápidos do Git.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-filter-branchptBRgit-filter-branch1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-filter-branchptBRgit-filter-branch1a"></a><a href='../git-filter-branch/pt_BR.html'>git-filter-branch[1]</a> </dt>
+<dd>
+<p>Reescreve os ramos.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-mergetoolptBRgit-mergetool1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-mergetoolptBRgit-mergetool1a"></a><a href='../git-mergetool/pt_BR.html'>git-mergetool[1]</a> </dt>
+<dd>
+<p>Executa as ferramentas de resolução problemas para resolver os conflitos de
+mesclagem.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-pack-refsptBRgit-pack-refs1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-pack-refsptBRgit-pack-refs1a"></a><a href='../git-pack-refs/pt_BR.html'>git-pack-refs[1]</a> </dt>
+<dd>
+<p>Empacota os cabeçalhos e as tags para um acesso eficiente ao repositório.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-pruneptBRgit-prune1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-pruneptBRgit-prune1a"></a><a href='../git-prune/pt_BR.html'>git-prune[1]</a> </dt>
+<dd>
+<p>Corta todos os objetos fora de alcance do banco de dados de objetos.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-reflogptBRgit-reflog1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-reflogptBRgit-reflog1a"></a><a href='../git-reflog/pt_BR.html'>git-reflog[1]</a> </dt>
+<dd>
+<p>Gerencia as informações do reflog.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-remoteptBRgit-remote1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-remoteptBRgit-remote1a"></a><a href='../git-remote/pt_BR.html'>git-remote[1]</a> </dt>
+<dd>
+<p>Gerencia o conjunto de repositórios monitorados.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-repackptBRgit-repack1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-repackptBRgit-repack1a"></a><a href='../git-repack/pt_BR.html'>git-repack[1]</a> </dt>
+<dd>
+<p>Empacota os objetos não empacotados em um repositório.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-replaceptBRgit-replace1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-replaceptBRgit-replace1a"></a><a href='../git-replace/pt_BR.html'>git-replace[1]</a> </dt>
+<dd>
+<p>Cria, lista e exclui os refs para a reposição dos objetos.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Interrogadores:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-ahrefdocsgit-annotateptBRgit-annotate1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-annotateptBRgit-annotate1a"></a><a href='../git-annotate/pt_BR.html'>git-annotate[1]</a> </dt>
+<dd>
+<p>Anota as linhas com as informações do commit.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-blameptBRgit-blame1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-blameptBRgit-blame1a"></a><a href='../git-blame/pt_BR.html'>git-blame[1]</a> </dt>
+<dd>
+<p>Exibe quais foram as últimas modificações feitas em cada linha de um arquivo
+separados pela versão da revisão e do autor da modificação.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-bugreportptBRgit-bugreport1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-bugreportptBRgit-bugreport1a"></a><a href='../git-bugreport/pt_BR.html'>git-bugreport[1]</a> </dt>
+<dd>
+<p>Colete informações para que o usuário envie um relatório de erro.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-count-objectsptBRgit-count-objects1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-count-objectsptBRgit-count-objects1a"></a><a href='../git-count-objects/pt_BR.html'>git-count-objects[1]</a> </dt>
+<dd>
+<p>Conta a quantidade dos objetos que não foram empacotados e seu consumo no
+disco.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-difftoolptBRgit-difftool1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-difftoolptBRgit-difftool1a"></a><a href='../git-difftool/pt_BR.html'>git-difftool[1]</a> </dt>
+<dd>
+<p>Exibe as mudanças utilizando ferramentas diff tradicionais.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-fsckptBRgit-fsck1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-fsckptBRgit-fsck1a"></a><a href='../git-fsck/pt_BR.html'>git-fsck[1]</a> </dt>
+<dd>
+<p>Verifica a conectividade e validade dos objetos em um banco de dados.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-helpptBRgit-help1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-helpptBRgit-help1a"></a><a href='../git-help/pt_BR.html'>git-help[1]</a> </dt>
+<dd>
+<p>Exiba a informação de ajuda sobre o Git.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-instawebptBRgit-instaweb1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-instawebptBRgit-instaweb1a"></a><a href='../git-instaweb/pt_BR.html'>git-instaweb[1]</a> </dt>
+<dd>
+<p>Navegue instantaneamente no seu repositório de trabalho com o gitweb.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-merge-treeptBRgit-merge-tree1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-merge-treeptBRgit-merge-tree1a"></a><a href='../git-merge-tree/pt_BR.html'>git-merge-tree[1]</a> </dt>
+<dd>
+<p>Exiba as três maneiras de mesclagem sem mexer no índice.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-rerereptBRgit-rerere1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-rerereptBRgit-rerere1a"></a><a href='../git-rerere/pt_BR.html'>git-rerere[1]</a> </dt>
+<dd>
+<p>Reutilize uma resolução gravada das mesclagens conflitantes.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-show-branchptBRgit-show-branch1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-show-branchptBRgit-show-branch1a"></a><a href='../git-show-branch/pt_BR.html'>git-show-branch[1]</a> </dt>
+<dd>
+<p>Exiba os ramos e seus respectivos commits.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-verify-commitptBRgit-verify-commit1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-verify-commitptBRgit-verify-commit1a"></a><a href='../git-verify-commit/pt_BR.html'>git-verify-commit[1]</a> </dt>
+<dd>
+<p>Verifique a assinatura GPG dos commits.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-verify-tagptBRgit-verify-tag1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-verify-tagptBRgit-verify-tag1a"></a><a href='../git-verify-tag/pt_BR.html'>git-verify-tag[1]</a> </dt>
+<dd>
+<p>Verifique a assinatura GPG das tags.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-whatchangedptBRgit-whatchanged1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-whatchangedptBRgit-whatchanged1a"></a><a href='../git-whatchanged/pt_BR.html'>git-whatchanged[1]</a> </dt>
+<dd>
+<p>Exiba os registros logs com a diferença entre a introdução de cada commit.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgitwebptBRgitweb1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgitwebptBRgitweb1a"></a><a href='../gitweb/pt_BR.html'>gitweb[1]</a> </dt>
+<dd>
+<p>Interface web do Git (frontend web para os repositórios Git).</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_interagindo_com_os_outros"><a class="anchor" href="pt_BR.html#_interagindo_com_os_outros"></a>Interagindo com os outros</h3>
+<div class="paragraph">
+<p>Estes comandos são para interagir com um SCM externo e com as outras pessoas
+através de patch por e-mail.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-ahrefdocsgit-archimportptBRgit-archimport1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-archimportptBRgit-archimport1a"></a><a href='../git-archimport/pt_BR.html'>git-archimport[1]</a> </dt>
+<dd>
+<p>Importa um repositório GNU Arch no Git.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-cvsexportcommitptBRgit-cvsexportcommit1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-cvsexportcommitptBRgit-cvsexportcommit1a"></a><a href='../git-cvsexportcommit/pt_BR.html'>git-cvsexportcommit[1]</a> </dt>
+<dd>
+<p>Exporta um único commit para uma averiguação do CVS.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-cvsimportptBRgit-cvsimport1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-cvsimportptBRgit-cvsimport1a"></a><a href='../git-cvsimport/pt_BR.html'>git-cvsimport[1]</a> </dt>
+<dd>
+<p>Recupera os seus dados vindos de outros SCM que as pessoas adoram odiar.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-cvsserverptBRgit-cvsserver1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-cvsserverptBRgit-cvsserver1a"></a><a href='../git-cvsserver/pt_BR.html'>git-cvsserver[1]</a> </dt>
+<dd>
+<p>Um emulador de um servidor CVS para o Git.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-imap-sendptBRgit-imap-send1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-imap-sendptBRgit-imap-send1a"></a><a href='../git-imap-send/pt_BR.html'>git-imap-send[1]</a> </dt>
+<dd>
+<p>Envia uma coleção de patches da entrada padrão para um diretório IMAP.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-p4ptBRgit-p41a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-p4ptBRgit-p41a"></a><a href='../git-p4/pt_BR.html'>git-p4[1]</a> </dt>
+<dd>
+<p>Importa de e submete aos repositório Perforce.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-quiltimportptBRgit-quiltimport1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-quiltimportptBRgit-quiltimport1a"></a><a href='../git-quiltimport/pt_BR.html'>git-quiltimport[1]</a> </dt>
+<dd>
+<p>Aplica um conjunto de patches no ramo atual.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-request-pullptBRgit-request-pull1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-request-pullptBRgit-request-pull1a"></a><a href='../git-request-pull/pt_BR.html'>git-request-pull[1]</a> </dt>
+<dd>
+<p>Gera um resumo com as modificações pendentes.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-send-emailptBRgit-send-email1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-send-emailptBRgit-send-email1a"></a><a href='../git-send-email/pt_BR.html'>git-send-email[1]</a> </dt>
+<dd>
+<p>Envia uma coleção de patches como sendo e-mails.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-svnptBRgit-svn1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-svnptBRgit-svn1a"></a><a href='../git-svn/pt_BR.html'>git-svn[1]</a> </dt>
+<dd>
+<p>Operação bidirecional entre um repositório do Subversion e do Git.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_redefina_restaure_e_reverta"><a class="anchor" href="pt_BR.html#_redefina_restaure_e_reverta"></a>Redefina, restaure e reverta</h3>
+<div class="paragraph">
+<p>Existem três comandos com nomes semelhantes: <code>git reset</code>, <code>git restore</code> e o
+<code>git revert</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href='../git-revert/pt_BR.html'>git-revert[1]</a> trata de fazer um novo commit que reverte as
+alterações feitas por outros commit.</p>
+</li>
+<li>
+<p><a href='../git-restore/pt_BR.html'>git-restore[1]</a> trata da restauração dos arquivos na árvore de
+trabalho do índice ou de outro commit. Este comando não atualiza o seu
+ramo. O comando também pode ser usado para restaurar os arquivos no índice
+do outro commit.</p>
+</li>
+<li>
+<p><a href='../git-reset/pt_BR.html'>git-reset[1]</a> trata da atualização do seu ramo, movendo o topo para
+adicionar ou remover os commits do ramo. Esta operação altera o histórico do
+commit.</p>
+<div class="paragraph">
+<p>O comando <code>git reset</code> também pode ser usado para restaurar o índice,
+sobrepondo com <code>git restore</code>.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_comandos_de_baixo_nível_encanamento_plumbing"><a class="anchor" href="pt_BR.html#_comandos_de_baixo_nível_encanamento_plumbing"></a>Comandos de baixo nível (encanamento <em>plumbing</em>)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Embora o Git inclua a sua própria camada de porcelana, os seus comandos de
+baixo nível são suficientes para apoiar o desenvolvimento de porcelanas
+alternativas.  Os desenvolvedores destas porcelanas podem começar lendo
+sobre <a href='../git-update-index/pt_BR.html'>git-update-index[1]</a> e <a href='../git-read-tree/pt_BR.html'>git-read-tree[1]</a>.</p>
+</div>
+<div class="paragraph">
+<p>A interface (entrada, saída, conjunto de opções e as semânticas) para esses
+comandos de baixo nível deve ser muito mais estável que os comandos
+porcelana, porque estes comandos são principalmente para uso com um script.
+A interface para os comandos Porcelana, por outro lado, está sujeita a
+alterações para melhorar a experiência do usuário final.</p>
+</div>
+<div class="paragraph">
+<p>A descrição a seguir divide os comandos de baixo nível em comandos que
+manipulam os objetos (no repositório, índice e árvore de trabalho), comandos
+que interrogam, comparam objetos, comandos que movem objetos e suas
+referências entre os repositórios.</p>
+</div>
+<div class="sect2">
+<h3 id="_comandos_de_manipulação"><a class="anchor" href="pt_BR.html#_comandos_de_manipulação"></a>Comandos de manipulação</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-ahrefdocsgit-applyptBRgit-apply1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-applyptBRgit-apply1a"></a><a href='../git-apply/pt_BR.html'>git-apply[1]</a> </dt>
+<dd>
+<p>Aplique um patch nos arquivos e/ou ao índice.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-checkout-indexptBRgit-checkout-index1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-checkout-indexptBRgit-checkout-index1a"></a><a href='../git-checkout-index/pt_BR.html'>git-checkout-index[1]</a> </dt>
+<dd>
+<p>Copie os arquivos do índice para a árvore de trabalho.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-commit-graphptBRgit-commit-graph1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-commit-graphptBRgit-commit-graph1a"></a><a href='../git-commit-graph/pt_BR.html'>git-commit-graph[1]</a> </dt>
+<dd>
+<p>Escreve e verifica os arquivos <code>commit-graph</code> do Git.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-commit-treeptBRgit-commit-tree1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-commit-treeptBRgit-commit-tree1a"></a><a href='../git-commit-tree/pt_BR.html'>git-commit-tree[1]</a> </dt>
+<dd>
+<p>Cria um novo objeto commit.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-hash-objectptBRgit-hash-object1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-hash-objectptBRgit-hash-object1a"></a><a href='../git-hash-object/pt_BR.html'>git-hash-object[1]</a> </dt>
+<dd>
+<p>Calcula o ID do objeto e opcionalmente cria uma bolha vinda de um arquivo.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-index-packptBRgit-index-pack1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-index-packptBRgit-index-pack1a"></a><a href='../git-index-pack/pt_BR.html'>git-index-pack[1]</a> </dt>
+<dd>
+<p>Constrói um pacote índice do arquivo para um arquivo de pacote já existente.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-merge-fileptBRgit-merge-file1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-merge-fileptBRgit-merge-file1a"></a><a href='../git-merge-file/pt_BR.html'>git-merge-file[1]</a> </dt>
+<dd>
+<p>Execute a mesclagem de um arquivo de três vias.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-merge-indexptBRgit-merge-index1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-merge-indexptBRgit-merge-index1a"></a><a href='../git-merge-index/pt_BR.html'>git-merge-index[1]</a> </dt>
+<dd>
+<p>Execute uma mesclagem para os arquivos que precisam ser mesclados.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-mktagptBRgit-mktag1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-mktagptBRgit-mktag1a"></a><a href='../git-mktag/pt_BR.html'>git-mktag[1]</a> </dt>
+<dd>
+<p>Cria um objeto tag.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-mktreeptBRgit-mktree1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-mktreeptBRgit-mktree1a"></a><a href='../git-mktree/pt_BR.html'>git-mktree[1]</a> </dt>
+<dd>
+<p>Cria uma árvore-objeto de um texto com formatação <code>ls-tree</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-multi-pack-indexptBRgit-multi-pack-index1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-multi-pack-indexptBRgit-multi-pack-index1a"></a><a href='../git-multi-pack-index/pt_BR.html'>git-multi-pack-index[1]</a> </dt>
+<dd>
+<p>Escreve e verifica os diversos índices dos pacotes.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-pack-objectsptBRgit-pack-objects1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-pack-objectsptBRgit-pack-objects1a"></a><a href='../git-pack-objects/pt_BR.html'>git-pack-objects[1]</a> </dt>
+<dd>
+<p>Cria um histórico empacotado dos objetos.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-prune-packedptBRgit-prune-packed1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-prune-packedptBRgit-prune-packed1a"></a><a href='../git-prune-packed/pt_BR.html'>git-prune-packed[1]</a> </dt>
+<dd>
+<p>Remove os objetos extras que estejam atualmente nos arquivos empacotados.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-read-treeptBRgit-read-tree1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-read-treeptBRgit-read-tree1a"></a><a href='../git-read-tree/pt_BR.html'>git-read-tree[1]</a> </dt>
+<dd>
+<p>Lê a informação da árvore no índice.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-symbolic-refptBRgit-symbolic-ref1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-symbolic-refptBRgit-symbolic-ref1a"></a><a href='../git-symbolic-ref/pt_BR.html'>git-symbolic-ref[1]</a> </dt>
+<dd>
+<p>Lê, modifica e exclui os refs simbólicos.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-unpack-objectsptBRgit-unpack-objects1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-unpack-objectsptBRgit-unpack-objects1a"></a><a href='../git-unpack-objects/pt_BR.html'>git-unpack-objects[1]</a> </dt>
+<dd>
+<p>Desempacota os objetos de um arquivo empacotado.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-update-indexptBRgit-update-index1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-update-indexptBRgit-update-index1a"></a><a href='../git-update-index/pt_BR.html'>git-update-index[1]</a> </dt>
+<dd>
+<p>Registra o conteúdo de um arquivo na árvore de trabalho para o índice.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-update-refptBRgit-update-ref1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-update-refptBRgit-update-ref1a"></a><a href='../git-update-ref/pt_BR.html'>git-update-ref[1]</a> </dt>
+<dd>
+<p>Atualiza o nome do objeto armazenado em um "ref" de forma segura.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-write-treeptBRgit-write-tree1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-write-treeptBRgit-write-tree1a"></a><a href='../git-write-tree/pt_BR.html'>git-write-tree[1]</a> </dt>
+<dd>
+<p>Cria um objeto árvore com base no índice atual.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_comandos_de_interrogação"><a class="anchor" href="pt_BR.html#_comandos_de_interrogação"></a>Comandos de interrogação</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-ahrefdocsgit-cat-fileptBRgit-cat-file1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-cat-fileptBRgit-cat-file1a"></a><a href='../git-cat-file/pt_BR.html'>git-cat-file[1]</a> </dt>
+<dd>
+<p>Proporciona o conteúdo, o tipo e a informação sobre o tamanho dos objetos no
+repositório.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-cherryptBRgit-cherry1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-cherryptBRgit-cherry1a"></a><a href='../git-cherry/pt_BR.html'>git-cherry[1]</a> </dt>
+<dd>
+<p>Procura os commits que ainda serão aplicados ao "upstream".</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-diff-filesptBRgit-diff-files1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-diff-filesptBRgit-diff-files1a"></a><a href='../git-diff-files/pt_BR.html'>git-diff-files[1]</a> </dt>
+<dd>
+<p>Compara os arquivos na árvore de trabalho e no índice.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-diff-indexptBRgit-diff-index1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-diff-indexptBRgit-diff-index1a"></a><a href='../git-diff-index/pt_BR.html'>git-diff-index[1]</a> </dt>
+<dd>
+<p>Compara uma árvore com o diretório de trabalho ou índice.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-diff-treeptBRgit-diff-tree1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-diff-treeptBRgit-diff-tree1a"></a><a href='../git-diff-tree/pt_BR.html'>git-diff-tree[1]</a> </dt>
+<dd>
+<p>Compara o conteúdo e o modo das bolhas encontrados através de dois objetos
+da árvore.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-for-each-refptBRgit-for-each-ref1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-for-each-refptBRgit-for-each-ref1a"></a><a href='../git-for-each-ref/pt_BR.html'>git-for-each-ref[1]</a> </dt>
+<dd>
+<p>Informação de saída de cada "ref".</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-get-tar-commit-idptBRgit-get-tar-commit-id1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-get-tar-commit-idptBRgit-get-tar-commit-id1a"></a><a href='../git-get-tar-commit-id/pt_BR.html'>git-get-tar-commit-id[1]</a> </dt>
+<dd>
+<p>Extrai o ID do commit de um arquivo criado utilizando o <em>git-archive</em>.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-ls-filesptBRgit-ls-files1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-ls-filesptBRgit-ls-files1a"></a><a href='../git-ls-files/pt_BR.html'>git-ls-files[1]</a> </dt>
+<dd>
+<p>Exiba a informação sobre os arquivos no índice e na árvore de trabalho.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-ls-remoteptBRgit-ls-remote1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-ls-remoteptBRgit-ls-remote1a"></a><a href='../git-ls-remote/pt_BR.html'>git-ls-remote[1]</a> </dt>
+<dd>
+<p>Lista as referências em um repositório remoto.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-ls-treeptBRgit-ls-tree1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-ls-treeptBRgit-ls-tree1a"></a><a href='../git-ls-tree/pt_BR.html'>git-ls-tree[1]</a> </dt>
+<dd>
+<p>Lista o conteúdo de uma árvore de objetos.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-merge-baseptBRgit-merge-base1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-merge-baseptBRgit-merge-base1a"></a><a href='../git-merge-base/pt_BR.html'>git-merge-base[1]</a> </dt>
+<dd>
+<p>Localize os melhores ancestrais possíveis para fazer uma mesclagem.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-name-revptBRgit-name-rev1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-name-revptBRgit-name-rev1a"></a><a href='../git-name-rev/pt_BR.html'>git-name-rev[1]</a> </dt>
+<dd>
+<p>Localize os nomes simbólicos para os "revs" que foram informados.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-pack-redundantptBRgit-pack-redundant1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-pack-redundantptBRgit-pack-redundant1a"></a><a href='../git-pack-redundant/pt_BR.html'>git-pack-redundant[1]</a> </dt>
+<dd>
+<p>Localiza os arquivos "pack" que forem redundantes.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-rev-listptBRgit-rev-list1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-rev-listptBRgit-rev-list1a"></a><a href='../git-rev-list/pt_BR.html'>git-rev-list[1]</a> </dt>
+<dd>
+<p>Lista os objetos de commit em ordem cronológica reversa.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-rev-parseptBRgit-rev-parse1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-rev-parseptBRgit-rev-parse1a"></a><a href='../git-rev-parse/pt_BR.html'>git-rev-parse[1]</a> </dt>
+<dd>
+<p>Escolha e modele os parâmetros.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-show-indexptBRgit-show-index1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-show-indexptBRgit-show-index1a"></a><a href='../git-show-index/pt_BR.html'>git-show-index[1]</a> </dt>
+<dd>
+<p>Exiba o índice do arquivo empacotado.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-show-refptBRgit-show-ref1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-show-refptBRgit-show-ref1a"></a><a href='../git-show-ref/pt_BR.html'>git-show-ref[1]</a> </dt>
+<dd>
+<p>Lista as referências em um repositório local.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-unpack-fileptBRgit-unpack-file1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-unpack-fileptBRgit-unpack-file1a"></a><a href='../git-unpack-file/pt_BR.html'>git-unpack-file[1]</a> </dt>
+<dd>
+<p>Cria um arquivo temporário com conteúdos bolha.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-varptBRgit-var1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-varptBRgit-var1a"></a><a href='../git-var/pt_BR.html'>git-var[1]</a> </dt>
+<dd>
+<p>Exiba uma variável lógica local para o Git.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-verify-packptBRgit-verify-pack1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-verify-packptBRgit-verify-pack1a"></a><a href='../git-verify-pack/pt_BR.html'>git-verify-pack[1]</a> </dt>
+<dd>
+<p>Valide os arquivos empacotados do Git.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Em geral, os comandos de interrogação não tocam nos arquivos da árvore de
+trabalho.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sincronizando_os_repositórios"><a class="anchor" href="pt_BR.html#_sincronizando_os_repositórios"></a>Sincronizando os repositórios</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-ahrefdocsgit-daemonptBRgit-daemon1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-daemonptBRgit-daemon1a"></a><a href='../git-daemon/pt_BR.html'>git-daemon[1]</a> </dt>
+<dd>
+<p>Um servidor realmente simples para os repositórios Git.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-fetch-packptBRgit-fetch-pack1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-fetch-packptBRgit-fetch-pack1a"></a><a href='../git-fetch-pack/pt_BR.html'>git-fetch-pack[1]</a> </dt>
+<dd>
+<p>Recebe os objetos que faltam de um outro repositório.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-http-backendptBRgit-http-backend1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-http-backendptBRgit-http-backend1a"></a><a href='../git-http-backend/pt_BR.html'>git-http-backend[1]</a> </dt>
+<dd>
+<p>Implementação do lado do servidor do Git através do HTTP.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-send-packptBRgit-send-pack1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-send-packptBRgit-send-pack1a"></a><a href='../git-send-pack/pt_BR.html'>git-send-pack[1]</a> </dt>
+<dd>
+<p>impulsiona os objetos sob o protocolo Git de um outro repositório.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-update-server-infoptBRgit-update-server-info1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-update-server-infoptBRgit-update-server-info1a"></a><a href='../git-update-server-info/pt_BR.html'>git-update-server-info[1]</a> </dt>
+<dd>
+<p>Atualiza a informação auxiliar sobre o arquivo para ajudar os servidores
+burros.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>A seguir, são apresentados os comandos auxiliares utilizados acima; os
+usuários finais normalmente não os utilizam diretamente.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-ahrefdocsgit-http-fetchptBRgit-http-fetch1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-http-fetchptBRgit-http-fetch1a"></a><a href='../git-http-fetch/pt_BR.html'>git-http-fetch[1]</a> </dt>
+<dd>
+<p>Faz o download de um repositório remoto Git através do HTTP.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-http-pushptBRgit-http-push1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-http-pushptBRgit-http-push1a"></a><a href='../git-http-push/pt_BR.html'>git-http-push[1]</a> </dt>
+<dd>
+<p>Impulsiona (push) os objetos através do HTTP/DAV para um outro repositório.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-parse-remoteptBRgit-parse-remote1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-parse-remoteptBRgit-parse-remote1a"></a><a href='../git-parse-remote/pt_BR.html'>git-parse-remote[1]</a> </dt>
+<dd>
+<p>Rotinas para auxiliar na analise dos parâmetros de acesso ao repositório
+remoto.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-receive-packptBRgit-receive-pack1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-receive-packptBRgit-receive-pack1a"></a><a href='../git-receive-pack/pt_BR.html'>git-receive-pack[1]</a> </dt>
+<dd>
+<p>Receba o que é impulsionado ao repositório.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-shellptBRgit-shell1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-shellptBRgit-shell1a"></a><a href='../git-shell/pt_BR.html'>git-shell[1]</a> </dt>
+<dd>
+<p>Shell de login restrito para acesso somente com o SSH do Git.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-upload-archiveptBRgit-upload-archive1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-upload-archiveptBRgit-upload-archive1a"></a><a href='../git-upload-archive/pt_BR.html'>git-upload-archive[1]</a> </dt>
+<dd>
+<p>Envia um arquivo de volta ao <code>git-archive</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-upload-packptBRgit-upload-pack1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-upload-packptBRgit-upload-pack1a"></a><a href='../git-upload-pack/pt_BR.html'>git-upload-pack[1]</a> </dt>
+<dd>
+<p>Envia os objetos compactados para o <code>git-fetch-pack</code>.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_comandos_auxiliares_internos"><a class="anchor" href="pt_BR.html#_comandos_auxiliares_internos"></a>Comandos auxiliares internos</h3>
+<div class="paragraph">
+<p>Estes são comandos auxiliares internos usados por outros comandos; os
+usuários finais normalmente não os utilizam diretamente.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-ahrefdocsgit-check-attrptBRgit-check-attr1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-check-attrptBRgit-check-attr1a"></a><a href='../git-check-attr/pt_BR.html'>git-check-attr[1]</a> </dt>
+<dd>
+<p>Exiba a informação do <code>gitattributes</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-check-ignoreptBRgit-check-ignore1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-check-ignoreptBRgit-check-ignore1a"></a><a href='../git-check-ignore/pt_BR.html'>git-check-ignore[1]</a> </dt>
+<dd>
+<p>Depure o gitignore / exclua os arquivos.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-check-mailmapptBRgit-check-mailmap1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-check-mailmapptBRgit-check-mailmap1a"></a><a href='../git-check-mailmap/pt_BR.html'>git-check-mailmap[1]</a> </dt>
+<dd>
+<p>Exiba os nomes canônicos e os endereços de e-mail dos contatos.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-check-ref-formatptBRgit-check-ref-format1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-check-ref-formatptBRgit-check-ref-format1a"></a><a href='../git-check-ref-format/pt_BR.html'>git-check-ref-format[1]</a> </dt>
+<dd>
+<p>Certifique que um nome de uma referência está bem formado.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-columnptBRgit-column1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-columnptBRgit-column1a"></a><a href='../git-column/pt_BR.html'>git-column[1]</a> </dt>
+<dd>
+<p>Exiba os dados em colunas.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-credentialptBRgit-credential1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-credentialptBRgit-credential1a"></a><a href='../git-credential/pt_BR.html'>git-credential[1]</a> </dt>
+<dd>
+<p>Obtém e guarda as credenciais dos usuários.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-credential-cacheptBRgit-credential-cache1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-credential-cacheptBRgit-credential-cache1a"></a><a href='../git-credential-cache/pt_BR.html'>git-credential-cache[1]</a> </dt>
+<dd>
+<p>Auxiliar para armazenar as senhas temporariamente na memória.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-credential-storeptBRgit-credential-store1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-credential-storeptBRgit-credential-store1a"></a><a href='../git-credential-store/pt_BR.html'>git-credential-store[1]</a> </dt>
+<dd>
+<p>Auxiliar para armazenar as credenciais no disco.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-fmt-merge-msgptBRgit-fmt-merge-msg1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-fmt-merge-msgptBRgit-fmt-merge-msg1a"></a><a href='../git-fmt-merge-msg/pt_BR.html'>git-fmt-merge-msg[1]</a> </dt>
+<dd>
+<p>Gera uma mensagem de mesclagem do commit.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-interpret-trailersptBRgit-interpret-trailers1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-interpret-trailersptBRgit-interpret-trailers1a"></a><a href='../git-interpret-trailers/pt_BR.html'>git-interpret-trailers[1]</a> </dt>
+<dd>
+<p>Adiciona ou analisa as informações estruturadas nas mensagens do commit.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-mailinfoptBRgit-mailinfo1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-mailinfoptBRgit-mailinfo1a"></a><a href='../git-mailinfo/pt_BR.html'>git-mailinfo[1]</a> </dt>
+<dd>
+<p>Extrai a correção e o autor de uma única mensagem de e-mail.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-mailsplitptBRgit-mailsplit1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-mailsplitptBRgit-mailsplit1a"></a><a href='../git-mailsplit/pt_BR.html'>git-mailsplit[1]</a> </dt>
+<dd>
+<p>Programa simples para dividir o mbox UNIX.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-merge-one-fileptBRgit-merge-one-file1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-merge-one-fileptBRgit-merge-one-file1a"></a><a href='../git-merge-one-file/pt_BR.html'>git-merge-one-file[1]</a> </dt>
+<dd>
+<p>O programa assistente predefinido de ajuda para usar com o
+<code>git-merge-index</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-patch-idptBRgit-patch-id1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-patch-idptBRgit-patch-id1a"></a><a href='../git-patch-id/pt_BR.html'>git-patch-id[1]</a> </dt>
+<dd>
+<p>Compute um ID único para um patch.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-sh-i18nptBRgit-sh-i18n1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-sh-i18nptBRgit-sh-i18n1a"></a><a href='../git-sh-i18n/pt_BR.html'>git-sh-i18n[1]</a> </dt>
+<dd>
+<p>Código da configuração do i18n do Git para scripts shell.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-sh-setupptBRgit-sh-setup1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-sh-setupptBRgit-sh-setup1a"></a><a href='../git-sh-setup/pt_BR.html'>git-sh-setup[1]</a> </dt>
+<dd>
+<p>Código da configuração comum do script shell do Git.</p>
+</dd>
+<dt class="hdlist1" id="git-ahrefdocsgit-stripspaceptBRgit-stripspace1a"> <a class="anchor" href="pt_BR.html#git-ahrefdocsgit-stripspaceptBRgit-stripspace1a"></a><a href='../git-stripspace/pt_BR.html'>git-stripspace[1]</a> </dt>
+<dd>
+<p>Remove os espaços desnecessários.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_mecanismo_de_configuração"><a class="anchor" href="pt_BR.html#_mecanismo_de_configuração"></a>Mecanismo de Configuração</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>O Git utiliza um formato de texto simples para armazenar as personalizações
+por repositório e por usuário.  Tal arquivo de configuração pode ficar
+assim:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>#
+# Os caracteres '#' ou ';' indicam um comentário.
+#
+
+; variáveis principais
+[core]
+	; Não confie nos modos dos arquivos
+	filemode = false
+
+; identidade do usuário
+[user]
+	name = "Junio C Hamano"
+	email = "gitster@pobox.com"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Vários comandos são lidos no arquivo de configuração e ajustam a sua
+operação de acordo.  Para obter uma lista e mais detalhes sobre o mecanismo
+de configuração, consulte <a href='../git-config/pt_BR.html'>git-config[1]</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_terminologia_do_identificador"><a class="anchor" href="pt_BR.html#_terminologia_do_identificador"></a>Terminologia do Identificador</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-ltobjetogt"> <a class="anchor" href="pt_BR.html#git-ltobjetogt"></a>&lt;objeto&gt; </dt>
+<dd>
+<p>Indica o nome do objeto para qualquer tipo de objeto.</p>
+</dd>
+<dt class="hdlist1" id="git-ltblobgt"> <a class="anchor" href="pt_BR.html#git-ltblobgt"></a>&lt;blob&gt; </dt>
+<dd>
+<p>Indica um nome de um objeto bolha.</p>
+</dd>
+<dt class="hdlist1" id="git-ltrvoregt"> <a class="anchor" href="pt_BR.html#git-ltrvoregt"></a>&lt;árvore&gt; </dt>
+<dd>
+<p>Indica um nome de um objeto árvore.</p>
+</dd>
+<dt class="hdlist1" id="git-ltcommitgt"> <a class="anchor" href="pt_BR.html#git-ltcommitgt"></a>&lt;commit&gt; </dt>
+<dd>
+<p>Indica um nome de um objeto commit.</p>
+</dd>
+<dt class="hdlist1" id="git-lttree-ishgt"> <a class="anchor" href="pt_BR.html#git-lttree-ishgt"></a>&lt;tree-ish&gt; </dt>
+<dd>
+<p>Indica uma árvore, nome de um objeto commit ou tag.  Um comando que aceite
+um argumento &lt;commit-ish&gt; e queira operar em um objeto &lt;commit&gt;, porém
+remove a referência automaticamente dos objetos &lt;tag&gt; que apontem para um
+&lt;commit&gt;.</p>
+</dd>
+<dt class="hdlist1" id="git-ltcommit-ishgt"> <a class="anchor" href="pt_BR.html#git-ltcommit-ishgt"></a>&lt;commit-ish&gt; </dt>
+<dd>
+<p>Indica um nome do objeto commit ou tag.  Um comando que aceita um argumento
+&lt;commit-ish&gt; e queira operar em um objeto &lt;commit&gt;, porém remove a
+referência automaticamente dos objetos &lt;tag&gt; que apontem para um &lt;commit&gt;.</p>
+</dd>
+<dt class="hdlist1" id="git-lttipogt"> <a class="anchor" href="pt_BR.html#git-lttipogt"></a>&lt;tipo&gt; </dt>
+<dd>
+<p>Indica que um tipo do objeto seja necessário.  Atualmente um dos: <code>blob</code>,
+<code>tree</code>, <code>commit</code>, ou <code>tag</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-ltarquivogt"> <a class="anchor" href="pt_BR.html#git-ltarquivogt"></a>&lt;arquivo&gt; </dt>
+<dd>
+<p>Indica um nome do arquivo - quase sempre em relação à raiz da estrutura da
+árvore que o <code>GIT_INDEX_FILE</code> descreve.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_identificadores_simbólicos"><a class="anchor" href="pt_BR.html#_identificadores_simbólicos"></a>Identificadores Simbólicos</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Qualquer comando Git que aceite qualquer &lt;objeto&gt; também pode utilizar a
+seguinte notação simbólica:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-HEAD"> <a class="anchor" href="pt_BR.html#git-HEAD"></a>HEAD </dt>
+<dd>
+<p>indica o cabeçalho do ramo atual.</p>
+</dd>
+<dt class="hdlist1" id="git-lttaggt"> <a class="anchor" href="pt_BR.html#git-lttaggt"></a>&lt;tag&gt; </dt>
+<dd>
+<p>uma tag válida <em>nome</em> (como, por exemplo, uma referência <code>refs/tags/&lt;tag&gt;</code>).</p>
+</dd>
+<dt class="hdlist1" id="git-ltheadgt"> <a class="anchor" href="pt_BR.html#git-ltheadgt"></a>&lt;head&gt; </dt>
+<dd>
+<p>um cabeçalho válido <em>nome</em> (como, por exemplo, uma referência
+<code>refs/heads/&lt;head&gt;</code>).</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Para obter uma lista mais completa de maneiras de soletrar os nomes dos
+objetos, consulte a seção "DEFININDO AS REVISÕES" em
+<a href='../gitrevisions/pt_BR.html'>gitrevisions[7]</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_a_estrutura_dos_arquivosdiretórios"><a class="anchor" href="pt_BR.html#_a_estrutura_dos_arquivosdiretórios"></a>A Estrutura dos Arquivos/Diretórios</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Favor consultar o documento <a href='../gitrepository-layout/pt_BR.html'>gitrepository-layout[5]</a>.</p>
+</div>
+<div class="paragraph">
+<p>Para mais detalhes sobre cada gancho, consulte <a href='../githooks/pt_BR.html'>githooks[5]</a>.</p>
+</div>
+<div class="paragraph">
+<p>Os SCMs de alto nível podem fornecer e gerenciar informações adicionais no
+<code>$GIT_DIR</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_terminologia"><a class="anchor" href="pt_BR.html#_terminologia"></a>Terminologia</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Favor consultar <a href='../gitglossary/pt_BR.html'>gitglossary[7]</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_as_variáveis_do_ambiente"><a class="anchor" href="pt_BR.html#_as_variáveis_do_ambiente"></a>As Variáveis do Ambiente</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vários comandos Git usam as seguintes variáveis de ambiente:</p>
+</div>
+<div class="sect2">
+<h3 id="_o_repositório_git"><a class="anchor" href="pt_BR.html#_o_repositório_git"></a>O Repositório Git</h3>
+<div class="paragraph">
+<p>Essas variáveis de ambiente se aplicam a <em>todos</em> os comandos principais do
+Git. Nb: é importante notar que eles podem ser usados/substituídos pelo SCMS
+acima do Git, portanto, tenha cuidado caso esteja usando um front-end
+externo.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-codeGITINDEXFILEcode"> <a class="anchor" href="pt_BR.html#git-codeGITINDEXFILEcode"></a><code>GIT_INDEX_FILE</code> </dt>
+<dd>
+<p>Este ambiente permite a definição de um arquivo índice alternativo. Caso não
+seja definido, a predefinição do <code>$GIT_DIR/index</code> é utilizado.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITINDEXVERSIONcode"> <a class="anchor" href="pt_BR.html#git-codeGITINDEXVERSIONcode"></a><code>GIT_INDEX_VERSION</code> </dt>
+<dd>
+<p>Essa variável de ambiente permite a especificação de uma versão de índice
+para os novos repositórios.  Não afetará os arquivos de índice existentes.
+Por predefinição, a versão 2 ou 3 do arquivo de índice é utilizado. Para
+mais informações consulte <a href='../git-update-index/pt_BR.html'>git-update-index[1]</a>.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITOBJECTDIRECTORYcode"> <a class="anchor" href="pt_BR.html#git-codeGITOBJECTDIRECTORYcode"></a><code>GIT_OBJECT_DIRECTORY</code> </dt>
+<dd>
+<p>Caso o diretório de armazenamento dos objetos seja informado através desta
+variável de ambiente, os diretórios sha1 serão criados embaixo - caso
+contrário, o diretório predefinido <code>$GIT_DIR/objects</code> será utilizado.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITALTERNATEOBJECTDIRECTORIEScode"> <a class="anchor" href="pt_BR.html#git-codeGITALTERNATEOBJECTDIRECTORIEScode"></a><code>GIT_ALTERNATE_OBJECT_DIRECTORIES</code> </dt>
+<dd>
+<p>Devido à natureza imutável dos objetos Git, os objetos antigos podem ser
+arquivados em diretórios compartilhados com somente leitura apenas. Esta
+variável especifica uma lista ":" separada (no Windows ";") dos diretórios
+dos objetos Git que podem ser utilizados para localizar objetos Git. Os
+novos objetos não serão gravados nestes diretórios.</p>
+<div class="paragraph">
+<p>As entradas que começam com <code>"</code> (aspas duplas) serão interpretadas como
+caminhos entre as aspas no estilo C, removendo as aspas duplas iniciais e
+finais, respeitando as escapes da barra invertida. Como por exemplo, o valor
+<code>"path-with-\"-and-:-in-it":vanilla-path</code> possuí dois caminhos:
+<code>path-with-"-and-:-in-it</code> e <code>vanilla-path</code>.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-codeGITDIRcode"> <a class="anchor" href="pt_BR.html#git-codeGITDIRcode"></a><code>GIT_DIR</code> </dt>
+<dd>
+<p>Caso a variável de ambiente <code>GIT_DIR</code> esteja definida, ela definirá um
+caminho que será utilizado em vez do <code>.git</code> predefinido como sendo a base do
+repositório.  A opção da linha de comando <code>--git-dir</code> também define este
+valor.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITWORKTREEcode"> <a class="anchor" href="pt_BR.html#git-codeGITWORKTREEcode"></a><code>GIT_WORK_TREE</code> </dt>
+<dd>
+<p>Defina o caminho para a raiz da árvore de trabalho.  Isso também pode ser
+controlado pela opção da linha de comando <code>--work-tree</code> e pela variável de
+configuração <code>core.worktree</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITNAMESPACEcode"> <a class="anchor" href="pt_BR.html#git-codeGITNAMESPACEcode"></a><code>GIT_NAMESPACE</code> </dt>
+<dd>
+<p>Define o espaço de nomes no Git; para mais detalhes consulte
+<a href='../gitnamespaces/pt_BR.html'>gitnamespaces[7]</a>.  A opção da linha de comando <code>--namespace</code> também
+define este valor.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITCEILINGDIRECTORIEScode"> <a class="anchor" href="pt_BR.html#git-codeGITCEILINGDIRECTORIEScode"></a><code>GIT_CEILING_DIRECTORIES</code> </dt>
+<dd>
+<p>Essa deve ser uma lista separada por dois pontos com caminhos absolutos.
+Caso seja definido, é uma lista dos diretórios onde o Git não deve mudar de
+diretório (chdir) enquanto procura um diretório do repositório (útil para
+excluir os diretórios da rede com carregamento lento).  Ele não excluirá o
+diretório de trabalho atual, um <code>GIT_DIR</code> definido na linha de comandos ou
+no ambiente.  Normalmente, o Git precisa ler as entradas nesta lista e
+resolver qualquer link simbólico que possa estar presente para compará-las
+com o diretório atual.  No entanto, mesmo que esse acesso seja lento, você
+pode adicionar uma entrada vazia à lista para informar ao Git que as
+entradas subsequentes não são links simbólicos e não precisam ser
+resolvidos; como, por exemplo,
+<code>GIT_CEILING_DIRECTORIES=/maybe/symlink::/very/slow/non/symlink</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITDISCOVERYACROSSFILESYSTEMcode"> <a class="anchor" href="pt_BR.html#git-codeGITDISCOVERYACROSSFILESYSTEMcode"></a><code>GIT_DISCOVERY_ACROSS_FILESYSTEM</code> </dt>
+<dd>
+<p>Quando executado em um diretório que não possui o diretório do repositório
+".git", o Git tenta encontrar esse diretório nos diretórios pais para
+encontrar o cume da árvore de trabalho, porém, é predefinido que, ele não
+cruze os limites do sistema de arquivos.  Essa variável de ambiente pode ser
+configurada como <em>true</em> para dizer ao Git para não parar nos limites do
+sistema de arquivos.  Como o <code>GIT_CEILING_DIRECTORIES</code>, isso não afetará
+explicitamente um diretório do repositório definido através do <code>GIT_DIR</code> ou
+na linha de comando.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITCOMMONDIRcode"> <a class="anchor" href="pt_BR.html#git-codeGITCOMMONDIRcode"></a><code>GIT_COMMON_DIR</code> </dt>
+<dd>
+<p>Se essa variável estiver definida para um caminho, os arquivos que não são
+da árvore de trabalho, estão normalmente estão em $GIT_DIR e serão obtidos
+desse caminho. Os arquivos específicos da árvore de trabalho, como <code>HEAD</code> ou
+índice serão obtidos de $GIT_DIR. Para mais detalhes consulte
+<a href='../gitrepository-layout/pt_BR.html'>gitrepository-layout[5]</a> e <a href='../git-worktree/pt_BR.html'>git-worktree[1]</a>. Essa variável tem
+precedência mais baixa do que outras variáveis de caminho como
+<code>GIT_INDEX_FILE</code>, <code>GIT_OBJECT_DIRECTORY</code>&#8230;&#8203;</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITDEFAULTHASHcode"> <a class="anchor" href="pt_BR.html#git-codeGITDEFAULTHASHcode"></a><code>GIT_DEFAULT_HASH</code> </dt>
+<dd>
+<p>Caso esta variável esteja definida, o algoritmo hash predefinido para os
+novos repositórios será definido com este valor. Este valor é atualmente
+ignorado durante a clonagem; em vez disso, a configuração do repositório
+remoto é utilizada. O valor predefinido é <code>sha1</code>.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_os_commits_do_git"><a class="anchor" href="pt_BR.html#_os_commits_do_git"></a>Os Commits do Git</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-codeGITAUTHORNAMEcode"> <a class="anchor" href="pt_BR.html#git-codeGITAUTHORNAMEcode"></a><code>GIT_AUTHOR_NAME</code> </dt>
+<dd>
+<p>O endereço legível do endereço de e-mail utilizado na identidade do autor ao
+criar os commits, na tag dos objetos ou ao gravar os reflogs. Substitui as
+definições de configuração <code>user.name</code> e <code>author.name</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITAUTHOREMAILcode"> <a class="anchor" href="pt_BR.html#git-codeGITAUTHOREMAILcode"></a><code>GIT_AUTHOR_EMAIL</code> </dt>
+<dd>
+<p>O endereço de email utilizado na identidade do autor ao criar os commits, na
+marcação dos objetos ou ao gravar os reflogs. Substitui as definições da
+configuração <code>user.email</code> e <code>author.email</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITAUTHORDATEcode"> <a class="anchor" href="pt_BR.html#git-codeGITAUTHORDATEcode"></a><code>GIT_AUTHOR_DATE</code> </dt>
+<dd>
+<p>A data utilizada para a identidade do autor ao criar objetos commit ou tags
+ou quando escrever "reflogs". Para conhecer os formatos válidos, consulte
+<a href='../git-commit/pt_BR.html'>git-commit[1]</a>.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITCOMMITTERNAMEcode"> <a class="anchor" href="pt_BR.html#git-codeGITCOMMITTERNAMEcode"></a><code>GIT_COMMITTER_NAME</code> </dt>
+<dd>
+<p>O endereço legível do nome utilizado na identidade do autor do commit ao
+criar os commits, na tag dos objetos ou ao gravar os reflogs. Substitui as
+definições de configuração <code>user.name</code> e <code>committer.name</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITCOMMITTEREMAILcode"> <a class="anchor" href="pt_BR.html#git-codeGITCOMMITTEREMAILcode"></a><code>GIT_COMMITTER_EMAIL</code> </dt>
+<dd>
+<p>O endereço de email utilizado na identidade do autor ao criar os commits, na
+marcação dos objetos ou ao gravar os reflogs. Overrides the <code>user.email</code> and
+<code>committer.email</code> configuration settings.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITCOMMITTERDATEcode"> <a class="anchor" href="pt_BR.html#git-codeGITCOMMITTERDATEcode"></a><code>GIT_COMMITTER_DATE</code> </dt>
+<dd>
+<p>A data utilizada para a identidade de quem fez o commit durante a criação
+dos objetos as tags do commit ou ao gravar os reflogs. Para mais formatos
+válidos, consulte <a href='../git-commit/pt_BR.html'>git-commit[1]</a>.</p>
+</dd>
+<dt class="hdlist1" id="git-codeEMAILcode"> <a class="anchor" href="pt_BR.html#git-codeEMAILcode"></a><code>EMAIL</code> </dt>
+<dd>
+<p>O endereço de e-mail usado nas identidades do autor e do commit, caso
+nenhuma outra variável de ambiente ou da configuração relevante tiver sido
+definida.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_os_diffs_do_git"><a class="anchor" href="pt_BR.html#_os_diffs_do_git"></a>Os Diffs do Git</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-codeGITDIFFOPTScode"> <a class="anchor" href="pt_BR.html#git-codeGITDIFFOPTScode"></a><code>GIT_DIFF_OPTS</code> </dt>
+<dd>
+<p>A única opção válida é "--unified=??" ou "-u??" para definir o número de
+linhas de contexto mostradas quando um diff unificado for criado.  Isso tem
+precedência sobre qualquer valor da opção "-U" ou "--unified" passado na
+linha de comando diff do Git.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITEXTERNALDIFFcode"> <a class="anchor" href="pt_BR.html#git-codeGITEXTERNALDIFFcode"></a><code>GIT_EXTERNAL_DIFF</code> </dt>
+<dd>
+<p>Quando a variável de ambiente <code>GIT_EXTERNAL_DIFF</code> é configurada, o programa
+informado nele é chamado, em vez do "diff" descrito acima.  Para um caminho
+que é adicionado, removido ou modificado, a variável <code>GIT_EXTERNAL_DIFF</code> é
+chamado com 7 parâmetros:</p>
+<div class="literalblock">
+<div class="content">
+<pre>path old-file old-hex old-mode new-file new-hex new-mode</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>onde:</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-ltoldnewgt-file"> <a class="anchor" href="pt_BR.html#git-ltoldnewgt-file"></a>&lt;old|new&gt;-file </dt>
+<dd>
+<p>são os arquivos que <code>GIT_EXTERNAL_DIFF</code> pode utilizar para ler o
+conteúdo do &lt;antigo|novo&gt;,</p>
+</dd>
+<dt class="hdlist1" id="git-ltoldnewgt-hex"> <a class="anchor" href="pt_BR.html#git-ltoldnewgt-hex"></a>&lt;old|new&gt;-hex </dt>
+<dd>
+<p>são os hashes SHA-1 com 40 hexadecimais,</p>
+</dd>
+<dt class="hdlist1" id="git-ltoldnewgt-mode"> <a class="anchor" href="pt_BR.html#git-ltoldnewgt-mode"></a>&lt;old|new&gt;-mode </dt>
+<dd>
+<p>são a representação octais dos modos dos arquivos.</p>
+<div class="paragraph">
+<p>Os parâmetros do arquivo podem apontar para o arquivo de trabalho do usuário
+(<code>new-file</code> em "git-diff-files" por exemplo), <code>/dev/null</code> (<code>old-file</code> quando
+um novo arquivo for adicionado por exemplo) ou um arquivo temporário (um
+<code>arquivo antigo</code> no índice por exemplo).  A variável <code>GIT_EXTERNAL_DIFF</code> não
+deve se preocupar com o desvinculamento do arquivo temporário --- ele é
+removido quando a variável <code>GIT_EXTERNAL_DIFF</code> termina.</p>
+</div>
+<div class="paragraph">
+<p>Para um caminho que não foi mesclado, <code>GIT_EXTERNAL_DIFF</code> é chamado com 1
+parâmetro, &lt;caminho&gt;.</p>
+</div>
+<div class="paragraph">
+<p>Para cada caminho <code>GIT_EXTERNAL_DIFF</code> que é chamado, duas variáveis de
+ambiente,<code>GIT_DIFF_PATH_COUNTER</code> e <code>GIT_DIFF_PATH_TOTAL</code> são definidas.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-codeGITDIFFPATHCOUNTERcode"> <a class="anchor" href="pt_BR.html#git-codeGITDIFFPATHCOUNTERcode"></a><code>GIT_DIFF_PATH_COUNTER</code> </dt>
+<dd>
+<p>Um contador com base 1 incrementado por um em cada caminho.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITDIFFPATHTOTALcode"> <a class="anchor" href="pt_BR.html#git-codeGITDIFFPATHTOTALcode"></a><code>GIT_DIFF_PATH_TOTAL</code> </dt>
+<dd>
+<p>A quantidade total dos caminhos.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_outros"><a class="anchor" href="pt_BR.html#_outros"></a>Outros</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-codeGITMERGEVERBOSITYcode"> <a class="anchor" href="pt_BR.html#git-codeGITMERGEVERBOSITYcode"></a><code>GIT_MERGE_VERBOSITY</code> </dt>
+<dd>
+<p>Um número que controla a quantidade de saída demonstrada pela estratégia de
+mesclagem recursiva.  Substitui o <code>merge.verbosity</code>.  Consulte
+<a href='../git-merge/pt_BR.html'>git-merge[1]</a></p>
+</dd>
+<dt class="hdlist1" id="git-codeGITPAGERcode"> <a class="anchor" href="pt_BR.html#git-codeGITPAGERcode"></a><code>GIT_PAGER</code> </dt>
+<dd>
+<p>Essa variável de ambiente substitui o <code>$PAGER</code>. Caso esteja definido como
+uma string vazia ou com o valor "cat", o Git não iniciará um pager.
+Consulte também a opção <code>core.askPass</code> no <a href='../git-config/pt_BR.html'>git-config[1]</a>.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITPROGRESSDELAYcode"> <a class="anchor" href="pt_BR.html#git-codeGITPROGRESSDELAYcode"></a><code>GIT_PROGRESS_DELAY</code> </dt>
+<dd>
+<p>Um número que controla quantos segundos atrasar antes de mostrar os
+indicadores opcionais do progresso. A predefinição retorna para <code>2</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITEDITORcode"> <a class="anchor" href="pt_BR.html#git-codeGITEDITORcode"></a><code>GIT_EDITOR</code> </dt>
+<dd>
+<p>Essa variável de ambiente substitui o <code>$EDITOR</code> e o <code>$VISUAL</code>.  É usado por
+vários comandos Git quando, no modo interativo, um editor deve ser
+iniciado. Consulte também <a href='../git-var/pt_BR.html'>git-var[1]</a> e a opção <code>core.editor</code> no
+<a href='../git-config/pt_BR.html'>git-config[1]</a>.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITSSHcode"> <a class="anchor" href="pt_BR.html#git-codeGITSSHcode"></a><code>GIT_SSH</code> </dt>
+<dt class="hdlist1" id="git-codeGITSSHCOMMANDcode"> <a class="anchor" href="pt_BR.html#git-codeGITSSHCOMMANDcode"></a><code>GIT_SSH_COMMAND</code> </dt>
+<dd>
+<p>Caso alguma destas variáveis de ambiente esteja definida, o comando <em>git
+fetch</em> e o <em>git push</em> utilizarão o comando informado em vez do <em>ssh</em> quando
+precisarem se conectar com um sistema remoto.  Os parâmetros da linha de
+comando passados para o comando configurado, são determinados pela variante
+<em>ssh</em>.  Para mais detalhesm consulte a opção de configuração <code>ssh.variant</code>
+no <a href='../git-config/pt_BR.html'>git-config[1]</a>.</p>
+<div class="paragraph">
+<p>A variável <code>$GIT_SSH_COMMAND</code> tem precedência sobre a variável <code>$GIT_SSH</code>
+que é interpretado pelo shell, permite que argumentos adicionais sejam
+incluídos.  A variável <code>$GIT_SSH</code>, por outro lado, deve ser apenas o caminho
+para um programa (que pode ser um script shell do wrapper, caso as opções
+adicionais sejam necessárias).</p>
+</div>
+<div class="paragraph">
+<p>Geralmente é mais fácil configurar as opções desejadas através do seu
+arquivo pessoal <code>.ssh/config</code>.  Consulte a documentação do ssh para obter
+mais detalhes.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-codeGITSSHVARIANTcode"> <a class="anchor" href="pt_BR.html#git-codeGITSSHVARIANTcode"></a><code>GIT_SSH_VARIANT</code> </dt>
+<dd>
+<p>Se esta variável de ambiente estiver configurada, ela substitui a detecção
+automática do Git, caso <code>GIT_SSH</code>/<code>GIT_SSH_COMMAND</code>/<code>core.sshCommand</code> se
+refere ao OpenSSH, plink ou tortoiseplink. Esta variável substitui a
+configuração <code>ssh.variant</code> que serve ao mesmo propósito.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITASKPASScode"> <a class="anchor" href="pt_BR.html#git-codeGITASKPASScode"></a><code>GIT_ASKPASS</code> </dt>
+<dd>
+<p>Caso esta variável do ambiente esteja definida, os comandos Git que precisam
+obter as senhas ou as frases secretas (para a autenticação HTTP ou IMAP por
+exemplo) chamarão esse programa com um prompt adequado como argumento da
+linha de comando e irão ler a senha em seu STDOUT. Consulte também a opção
+<code>core.askPass</code> no <a href='../git-config/pt_BR.html'>git-config[1]</a>.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITTERMINALPROMPTcode"> <a class="anchor" href="pt_BR.html#git-codeGITTERMINALPROMPTcode"></a><code>GIT_TERMINAL_PROMPT</code> </dt>
+<dd>
+<p>Caso esta variável de ambiente esteja definida como <code>0</code>, o git não será
+solicitado no terminal (ao solicitar uma autenticação HTTP por exemplo).</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITCONFIGNOSYSTEMcode"> <a class="anchor" href="pt_BR.html#git-codeGITCONFIGNOSYSTEMcode"></a><code>GIT_CONFIG_NOSYSTEM</code> </dt>
+<dd>
+<p>Independente se você ignore as configurações de leitura do arquivo
+<code>$(prefix)/etc/gitconfig</code> do sistema.  Essa variável de ambiente pode ser
+usada junto com <code>$HOME</code> e o <code>$XDG_CONFIG_HOME</code> para criar um ambiente
+previsível para um script exigente, ou você pode configurá-la
+temporariamente para evitar o uso de um arquivo <code>/etc/gitconfig</code> com
+problemas, enquanto aguarda alguém com permissões suficientes para
+corrigi-lo.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITFLUSHcode"> <a class="anchor" href="pt_BR.html#git-codeGITFLUSHcode"></a><code>GIT_FLUSH</code> </dt>
+<dd>
+<p>Caso esta variável de ambiente estiver definida como "1", então os comandos
+como <em>git blame</em> (no modo incremental), <em>git rev-list</em>, <em>git log</em>,
+<em>git check-attr</em> e <em>git check-ignore</em> serão
+impor uma descarga do fluxo gerado depois que cada registro tenham sido
+esvaziado. Se essa
+variável for definida como <em>0</em>, a saída destes comandos será feita
+utilizando toda a E/S na memória intermédia (buffer).   Se essa variável de ambiente não
+seja definida, o Git escolherá a descarga em uma memória intermédia ou orientada no
+esvaziamento dos registros, para ver se o stdout parece ter sido redirecionado para um arquivo ou não.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITTRACEcode"> <a class="anchor" href="pt_BR.html#git-codeGITTRACEcode"></a><code>GIT_TRACE</code> </dt>
+<dd>
+<p>Ativa o rastreio geral das mensagens, como por exemplo expansão do
+pseudônimo, execução interna dos comandos e a execução externa dos comandos.</p>
+<div class="paragraph">
+<p>Caso esta variável esteja definida como <code>1</code>, <code>2</code> ou <code>true</code> (a comparação não
+diferencia as maiúsculas das minúsculas), as mensagens de rastreio serão
+impressas no stderr.</p>
+</div>
+<div class="paragraph">
+<p>Caso a variável seja configurada com um valor inteiro maior que 2 e menor
+que 10 (estritamente), o Git interpretará este valor como um descritor de
+arquivo aberto e tentará gravar as mensagens de monitoramento neste
+descritor do arquivo.</p>
+</div>
+<div class="paragraph">
+<p>Como alternativa, caso a variável estiver definida como um caminho absoluto
+(começando com um caractere <em>/</em>), o Git interpretará isso como um caminho do
+arquivo e tentará anexar as mensagens de rastreio nelas.</p>
+</div>
+<div class="paragraph">
+<p>Desativar a variável ou defini-la como vazia <em>0</em> ou <em>false</em> (não faz
+distinção entre maiúsculas e minúsculas) desativa as mensagens de
+monitoramento.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-codeGITTRACEFSMONITORcode"> <a class="anchor" href="pt_BR.html#git-codeGITTRACEFSMONITORcode"></a><code>GIT_TRACE_FSMONITOR</code> </dt>
+<dd>
+<p>Ativa as mensagens de rastreamento para a extensão do monitor do sistema de
+arquivos.  Consulte <code>GIT_TRACE</code> para conhecer opções de saída de rastreio
+disponíveis.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITTRACEPACKACCESScode"> <a class="anchor" href="pt_BR.html#git-codeGITTRACEPACKACCESScode"></a><code>GIT_TRACE_PACK_ACCESS</code> </dt>
+<dd>
+<p>Permite rastrear as mensagens para todos os acessos para qualquer
+pacote. Para cada acesso, é registrado o nome do arquivo do pacote e um
+<em>offset</em>. Pode ser útil para solucionar alguns problemas de desempenho
+relacionados ao pacote.  Consulte <code>GIT_TRACE</code> para conhecer opções de saída
+de rastreio disponíveis.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITTRACEPACKETcode"> <a class="anchor" href="pt_BR.html#git-codeGITTRACEPACKETcode"></a><code>GIT_TRACE_PACKET</code> </dt>
+<dd>
+<p>Ativa o rastreio das mensagens para todos os pacotes que entram ou saem de
+um determinado programa. Isso pode ajudar na depuração da negociação dos
+objetos ou de outros problemas de protocolo. O rastreamento é desativado em
+um pacote que comece com "PACK" (porém consulte <code>GIT_TRACE_PACKFILE</code>
+abaixo).  Consulte <code>GIT_TRACE</code> para conhecer opções de saída de rastreio
+disponíveis.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITTRACEPACKFILEcode"> <a class="anchor" href="pt_BR.html#git-codeGITTRACEPACKFILEcode"></a><code>GIT_TRACE_PACKFILE</code> </dt>
+<dd>
+<p>Permite o monitoramento dos arquivos dos pacotes enviados ou recebidos
+através de um determinado programa. Diferente de outras saídas monitoradas,
+esse monitoramento é literalmente: sem cabeçalhos e sem a citação dos dados
+binários. Você quase que certamente vai querer direcionar para um arquivo
+(<code>GIT_TRACE_PACKFILE=/tmp/my.pack</code> por exemplo) em vez de exibi-lo no
+terminal ou misturá-lo com uma outra saída monitorada.</p>
+<div class="paragraph">
+<p>Observe que atualmente isso é implementado apenas para o lado do cliente dos
+clones e das buscas.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-codeGITTRACEPERFORMANCEcode"> <a class="anchor" href="pt_BR.html#git-codeGITTRACEPERFORMANCEcode"></a><code>GIT_TRACE_PERFORMANCE</code> </dt>
+<dd>
+<p>Ativa as mensagens de rastreamento relacionadas ao desempenho, como por
+exemplo, o tempo total da execução de cada comando Git.  Consulte
+<code>GIT_TRACE</code> para conhecer opções de saída de rastreio disponíveis.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITTRACESETUPcode"> <a class="anchor" href="pt_BR.html#git-codeGITTRACESETUPcode"></a><code>GIT_TRACE_SETUP</code> </dt>
+<dd>
+<p>Permite que as mensagens de rastreamento imprimam o .git, a árvore de
+trabalho e o diretório de trabalho atual após o Git concluir a sua fase de
+configuração.  Consulte <code>GIT_TRACE</code> para conhecer opções de saída de
+rastreio disponíveis.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITTRACESHALLOWcode"> <a class="anchor" href="pt_BR.html#git-codeGITTRACESHALLOWcode"></a><code>GIT_TRACE_SHALLOW</code> </dt>
+<dd>
+<p>Ativa o rastreio das mensagens que podem ajudar na depuração da
+busca/clonagem dos repositórios rasos.  Consulte <code>GIT_TRACE</code> para conhecer
+opções de saída de rastreio disponíveis.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITTRACECURLcode"> <a class="anchor" href="pt_BR.html#git-codeGITTRACECURLcode"></a><code>GIT_TRACE_CURL</code> </dt>
+<dd>
+<p>Permite um rastreamento curl completo de todos os dados que foram recebidos
+e enviados, incluindo as informações descritivas, do protocolo de transporte
+git.  É semelhante a fazer curl <code>--trace-ascii</code> na linha de comando.
+Consulte <code>GIT_TRACE</code> para conhecer as opções  disponíveis geradas pelo
+rastreio.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITTRACECURLNODATAcode"> <a class="anchor" href="pt_BR.html#git-codeGITTRACECURLNODATAcode"></a><code>GIT_TRACE_CURL_NO_DATA</code> </dt>
+<dd>
+<p>Quando um rastreamento curl está ativado (consulte <code>GIT_TRACE_CURL</code> acima),
+não despeje os dados (ou seja, apenas despeje as linhas de informações e os
+cabeçalhos).</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITTRACE2code"> <a class="anchor" href="pt_BR.html#git-codeGITTRACE2code"></a><code>GIT_TRACE2</code> </dt>
+<dd>
+<p>Permite mensagens de rastreamento com mais detalhes través da biblioteca
+"trace2".  A saída do <code>GIT_TRACE2</code> é um formato simples de texto para
+facilitar a leitura das pessoas.</p>
+<div class="paragraph">
+<p>Caso esta variável esteja definida como <code>1</code>, <code>2</code> ou <code>true</code> (a comparação não
+diferencia as maiúsculas das minúsculas), as mensagens de rastreio serão
+impressas no stderr.</p>
+</div>
+<div class="paragraph">
+<p>Caso a variável seja configurada com um valor inteiro maior que 2 e menor
+que 10 (estritamente), o Git interpretará este valor como um descritor de
+arquivo aberto e tentará gravar as mensagens de monitoramento neste
+descritor do arquivo.</p>
+</div>
+<div class="paragraph">
+<p>Alternativamente, caso a variável esteja definida como um caminho absoluto
+(começando com um caractere <em>/</em>), Git interpretará isso como um caminho de
+arquivo e tentará anexar as mensagens de rastreamento a ela.  Caso o caminho
+já exista e for um diretório, as mensagens de rastreamento serão gravadas em
+arquivos (uma por processo) nesse diretório, nomeada de acordo com o último
+componente do SID e um contador opcional (para evitar colisões de nome de
+arquivo).</p>
+</div>
+<div class="paragraph">
+<p>Além disso, caso a variável esteja definida como
+<code>af_unix:[&lt;socket_type&gt;:]&lt;caminho-absoluto&gt;</code>, o Git tentará abrir o caminho
+como um soquete de domínio Unix.  O tipo de soquete pode ser <code>stream</code> ou
+<code>dgram</code>.</p>
+</div>
+<div class="paragraph">
+<p>Desativar a variável ou defini-la como vazia <em>0</em> ou <em>false</em> (não faz
+distinção entre maiúsculas e minúsculas) desativa as mensagens de
+monitoramento.</p>
+</div>
+<div class="paragraph">
+<p>Para mais detalhes, consulte <a href="../api-trace2/pt_BR.html">Trace2
+documentation</a>.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-codeGITTRACE2EVENTcode"> <a class="anchor" href="pt_BR.html#git-codeGITTRACE2EVENTcode"></a><code>GIT_TRACE2_EVENT</code> </dt>
+<dd>
+<p>Esta configuração registra um formato com base no JSON que é adequado para a
+interpretação da máquina.  Consulte <code>GIT_TRACE2</code> para conhecer as opções
+disponíveis para o monitoramento e o link:technical/api-trace2.html
+[documentação do Trace2] para obter todos os detalhes.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITTRACE2PERFcode"> <a class="anchor" href="pt_BR.html#git-codeGITTRACE2PERFcode"></a><code>GIT_TRACE2_PERF</code> </dt>
+<dd>
+<p>Além das mensagens texto disponíveis em <code>GIT_TRACE2</code>, esta configuração
+escreve o formato da base da coluna para compreender as regiões aninhadas.
+Consulte <code>GIT_TRACE2</code> para conhecer as opções disponíveis para o
+monitoramento e o link:technical/api-trace2.html [documentação do Trace2]
+para obter todos os detalhes.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITTRACEREDACTcode"> <a class="anchor" href="pt_BR.html#git-codeGITTRACEREDACTcode"></a><code>GIT_TRACE_REDACT</code> </dt>
+<dd>
+<p>É predefinido que quando o monitoramento seja ativado, o Git redita os
+valores dos cookies, o cabeçalho "Autorização:" e o cabeçalho "Autorização
+do proxy:". Defina esta variável como <code>0</code> para evitar esta redação.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITLITERALPATHSPECScode"> <a class="anchor" href="pt_BR.html#git-codeGITLITERALPATHSPECScode"></a><code>GIT_LITERAL_PATHSPECS</code> </dt>
+<dd>
+<p>Definir essa variável como <code>1</code> fará com que o Git trate todos os pathspecs
+de forma literal, e não como padrões glob. Como, por exemplo, a execução do
+<code>GIT_LITERAL_PATHSPECS=1 git log -- '*.c'</code> procurará pelos commits que tocam
+no caminho <code>*.c</code> e não nos caminhos que coincidem com o agrupamento
+<code>*.c</code>. Você pode querer isso caso esteja alimentando caminhos literais para
+o Git (como, por exemplo, os caminhos informados anteriormente a você pelo
+<code>git ls-tree</code>, <code>--raw</code>, saída do diff, etc).</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITGLOBPATHSPECScode"> <a class="anchor" href="pt_BR.html#git-codeGITGLOBPATHSPECScode"></a><code>GIT_GLOB_PATHSPECS</code> </dt>
+<dd>
+<p>Definir essa variável como <code>1</code> fará com que o Git trate todos os pathspecs
+como padrões "glob" (também informados como "glob" mágico).</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITNOGLOBPATHSPECScode"> <a class="anchor" href="pt_BR.html#git-codeGITNOGLOBPATHSPECScode"></a><code>GIT_NOGLOB_PATHSPECS</code> </dt>
+<dd>
+<p>Definir essa variável como <code>1</code> fará com que o Git trate todos os pathspecs
+como literal (também informados como mágica "literal").</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITICASEPATHSPECScode"> <a class="anchor" href="pt_BR.html#git-codeGITICASEPATHSPECScode"></a><code>GIT_ICASE_PATHSPECS</code> </dt>
+<dd>
+<p>Definir essa variável como <code>1</code> fará com que o Git trate todos os pathspecs
+como indiferente para maiúsculas e minúsculas.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITREFLOGACTIONcode"> <a class="anchor" href="pt_BR.html#git-codeGITREFLOGACTIONcode"></a><code>GIT_REFLOG_ACTION</code> </dt>
+<dd>
+<p>Quando uma "ref" é atualizada, são criadas as entradas do reflog para
+acompanhar a razão da "ref" ter sido atualizada (que geralmente é o nome do
+comando de alto nível que atualizou a "ref"), além dos valores antigos e
+novos da "ref".  Um comando Porcelana com script pode usar a função auxiliar
+<em>set_reflog_action</em> no comando <code>git sh setup</code> para definir o seu nome para
+essa variável quando é invocado como o comando de alto nível pelo usuário
+final, que será registrado no corpo do reflog.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITREFPARANOIAcode"> <a class="anchor" href="pt_BR.html#git-codeGITREFPARANOIAcode"></a><code>GIT_REF_PARANOIA</code> </dt>
+<dd>
+<p>Caso seja definido como <code>1</code>, inclua as referências quebradas ou com nomes
+incorretos ao se iterar sobre as listas das referências. Em um repositório
+normal, não corrompido, isso não faz nada. No entanto, habilitá-lo pode
+ajudar o git a detectar e abortar algumas operações na presença de
+referências quebradas. O Git define essa variável de forma automática
+durante a execução das operações destrutivas como <a href='../git-prune/pt_BR.html'>git-prune[1]</a>. Você
+não precisa configurá-lo sozinho, a menos que queira ser paranóico para
+garantir que uma operação toque em cada "ref" (caso esteja clonando um
+repositório para fazer uma cópia de segurança por exemplo).</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITALLOWPROTOCOLcode"> <a class="anchor" href="pt_BR.html#git-codeGITALLOWPROTOCOLcode"></a><code>GIT_ALLOW_PROTOCOL</code> </dt>
+<dd>
+<p>Caso seja definido como uma lista de protocolos separados por dois pontos,
+comporte-se como se a opção de configuração <code>protocol.allow</code> esteja definida
+como <code>never</code>, e cada um dos protocolos listados possua
+<code>protocol.&lt;nome&gt;.allow</code> definido como <code>always</code> (substituindo qualquer
+configuração já existente). Em outras palavras, qualquer protocolo não
+mencionado será proibido (ou seja, esta é uma lista de permissões e não uma
+lista negra). Consulte a descrição do <code>protocol.allow</code> no
+<a href='../git-config/pt_BR.html'>git-config[1]</a> para mais detalhes.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITPROTOCOLFROMUSERcode"> <a class="anchor" href="pt_BR.html#git-codeGITPROTOCOLFROMUSERcode"></a><code>GIT_PROTOCOL_FROM_USER</code> </dt>
+<dd>
+<p>Defina como <code>0</code> para evitar que os protocolos utilizados por
+<code>fetch/push/clone</code> sejam configurados por <code>user</code>.  É útil para restringir a
+inicialização recursiva do submódulo de um repositório não confiável ou para
+programas que alimentam as URLS potencialmente não confiáveis aos comandos
+git.  Para mais detalhes consulte <a href='../git-config/pt_BR.html'>git-config[1]</a>.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITPROTOCOLcode"> <a class="anchor" href="pt_BR.html#git-codeGITPROTOCOLcode"></a><code>GIT_PROTOCOL</code> </dt>
+<dd>
+<p>Apenas para utilização interna.  Used in handshaking the wire protocol.
+Contains a colon <em>:</em> separated list of keys with optional values
+<em>key[=value]</em>.  Presence of unknown keys and values must be ignored.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITOPTIONALLOCKScode"> <a class="anchor" href="pt_BR.html#git-codeGITOPTIONALLOCKScode"></a><code>GIT_OPTIONAL_LOCKS</code> </dt>
+<dd>
+<p>Caso seja definido como 0, o Git concluirá qualquer operação solicitada sem
+executar outra operação opcional onde se exija um bloqueio.  Como um efeito
+colateral isso impedirá que o comando <code>git status</code> atualize o índice por
+exemplo. É útil para os processos que estão em execução no segundo plano que
+não queiram causar contenção do bloqueio com as outras operações no
+repositório.  A predefinição retorna para <code>1</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-codeGITREDIRECTSTDINcode"> <a class="anchor" href="pt_BR.html#git-codeGITREDIRECTSTDINcode"></a><code>GIT_REDIRECT_STDIN</code> </dt>
+<dt class="hdlist1" id="git-codeGITREDIRECTSTDOUTcode"> <a class="anchor" href="pt_BR.html#git-codeGITREDIRECTSTDOUTcode"></a><code>GIT_REDIRECT_STDOUT</code> </dt>
+<dt class="hdlist1" id="git-codeGITREDIRECTSTDERRcode"> <a class="anchor" href="pt_BR.html#git-codeGITREDIRECTSTDERRcode"></a><code>GIT_REDIRECT_STDERR</code> </dt>
+<dd>
+<p>Apenas no Windows: permite redirecionar os identificadores predefinidos de
+<em>input/output/error</em> para os caminhos definidos através das variáveis do
+ambiente. Em particular isso é útil nos aplicativos "multi-threaded" onde a
+maneira canônica de encaminhar os identificadores predefinidos através do
+<code>CreateProcess()</code> não seja uma opção pois exigiria que os identificadores
+fossem marcados como herdáveis (e consequentemente <strong>todo</strong> processo gerado os
+herdaria, possivelmente fazendo o bloqueio das operações do Git). A intenção
+primária de utilização é utilizar os pipes informados para comunicação
+(<code>\\.\pipe\my-git-stdin-123</code> por exemplo).</p>
+<div class="paragraph">
+<p>Dois valores especiais são compatíveis: <code>off</code> simplesmente fechará o
+identificador predefinido correspondente e caso <code>GIT_REDIRECT_STDERR</code> seja
+<code>2&gt; &amp; 1</code>, a predefinição do erro será redirecionado para o mesmo
+identificador na saída padrão.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-codeGITPRINTSHA1ELLIPSIScodedescontinuado"> <a class="anchor" href="pt_BR.html#git-codeGITPRINTSHA1ELLIPSIScodedescontinuado"></a><code>GIT_PRINT_SHA1_ELLIPSIS</code> (descontinuado) </dt>
+<dd>
+<p>Caso seja definido como <code>yes</code>, imprima uma elipse seguido de um valor
+(abreviado) SHA-1.  Isso afeta as indicações dos HEADs desanexados
+(<a href='../git-checkout/pt_BR.html'>git-checkout[1]</a>) e a saída diff bruta (<a href='../git-diff/pt_BR.html'>git-diff[1]</a>).  A
+impressão de uma elipse nos casos mencionados não é mais considerada
+adequada e é provável que a compatibilidade seja removida em um futuro
+próximo (junto com a variável).</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_discussão"><a class="anchor" href="pt_BR.html#_discussão"></a>Discussão<a id="Discussão"></a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Mais detalhes estão disponíveis no
+<a href="../user-manual/pt_BR.html#git-concepts">capítulo dos conceitos do Git no manual
+do usuário</a> e <a href='../gitcore-tutorial/pt_BR.html'>gitcore-tutorial[7]</a>.</p>
+</div>
+<div class="paragraph">
+<p>Um projeto Git normalmente consiste em um diretório de trabalho com um
+subdiretório ".git" no ponto mais alto.  O diretório .git contém, entre
+outras coisas, um banco de dados dos objetos compactados representando o
+histórico completo do projeto, um arquivo para o "índice" que vincula este
+histórico ao conteúdo atual da árvore de trabalho e informa os ponteiros
+para este histórico, como as tags e os cabeçalhos do ramo.</p>
+</div>
+<div class="paragraph">
+<p>O banco de dados do objeto contém os objetos dos tipos da árvore principal:
+bolhas, que contêm os dados do arquivo; árvores, que apontam para as bolhas
+e as outras árvores para criar as hierarquias do diretório; e os commits,
+cada qual faz referência a uma única árvore e algum número do commit do pai.</p>
+</div>
+<div class="paragraph">
+<p>O commit, equivalente ao que os outros sistemas chamam do "conjunto de
+alterações" ou "versão", representa uma etapa no histórico do projeto e cada
+pai representa uma etapa anterior.  Os commits com mais de um pai
+representam as mesclagens das linhas independentes do desenvolvimento.</p>
+</div>
+<div class="paragraph">
+<p>Todos os objetos são nomeados pelo hash SHA-1 do seu conteúdo, normalmente
+gravados como uma sequência com 40 dígitos hexadecimais.  Tais nomes são
+globalmente únicos.  Todo o histórico que antecede a um commit pode ser
+comprovado assinando apenas este commit.  Um quarto tipo de objeto, a tag, é
+fornecida para esta finalidade.</p>
+</div>
+<div class="paragraph">
+<p>Quando criados pela primeira vez, os objetos são armazenados em arquivos
+individuais, porém, visando uma maior eficiência, podem ser compactados
+posteriormente em "pacotes de arquivos".</p>
+</div>
+<div class="paragraph">
+<p>Os Ponteiros informados chamados refs marcam os pontos interessantes na
+história.  Uma "ref" pode conter o nome SHA-1 de um objeto ou o nome de
+outra referência.  As referências com nomes que comecem com <code>ref/head/</code>
+contêm o nome SHA-1 do commit (ou "head") mais recente de um ramo em
+desenvolvimento.  Os nomes SHA-1 das tags de interesse são armazenados em
+<code>ref/tags/</code>.  Uma referência especial chamada <code>HEAD</code> contém o nome da
+ramificação com a averiguação do momento.</p>
+</div>
+<div class="paragraph">
+<p>O arquivo do índice é inicializado com uma lista de todos os caminhos e para
+cada caminho, um objeto bolha e um conjunto de atributos.  O objeto bolha
+representa o conteúdo do arquivo no cabeçalho do ramo atual.  Os atributos
+(hora da última alteração, tamanho, etc.) são obtidos do arquivo
+correspondente na árvore de trabalho.  As alterações subsequentes na árvore
+de trabalho podem ser encontradas comparando estes atributos.  O índice pode
+ser atualizado com um novo conteúdo e os novos commits podem ser criadas a
+partir do conteúdo armazenado no índice.</p>
+</div>
+<div class="paragraph">
+<p>O índice também é capaz de armazenar as várias entradas (chamadas de
+"estágios") para um determinado nome do caminho.  Esses estágios são
+utilizados para manter as várias versões não mescladas de um arquivo quando
+uma mesclagem está em andamento.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_documentação_adicional"><a class="anchor" href="pt_BR.html#_documentação_adicional"></a>DOCUMENTAÇÃO ADICIONAL</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Consulte as referências na seção "descrição" para começar a utilizar o Git.
+O seguinte tem provavelmente bem mais detalhes do que o necessário para um
+usuário iniciante.</p>
+</div>
+<div class="paragraph">
+<p>O <a href="../user-manual/pt_BR.html#git-concepts">capítulo de conceitos do Git do manual
+do usuário</a> e o <a href='../gitcore-tutorial/pt_BR.html'>gitcore-tutorial[7]</a> fornecem introduções à
+arquitetura subjacente do Git.</p>
+</div>
+<div class="paragraph">
+<p>Para obter uma visão geral das recomendações do fluxo de trabalho, consulte
+<a href='../gitworkflows/pt_BR.html'>gitworkflows[7]</a>.</p>
+</div>
+<div class="paragraph">
+<p>Para mais alguns exemplos úteis, consulte também o documento
+<a href="../howto-index/pt_BR.html">howto</a>.</p>
+</div>
+<div class="paragraph">
+<p>As entranhas estão documentadas no
+<a href="../api-index/pt_BR.html">Documentação da API do Git</a>.</p>
+</div>
+<div class="paragraph">
+<p>Os usuários que estiverem migrando do CVS também podem querer ler
+<a href='../gitcvs-migration/pt_BR.html'>gitcvs-migration[7]</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_autores"><a class="anchor" href="pt_BR.html#_autores"></a>Autores</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>O Git foi iniciado por Linus Torvalds e atualmente é mantido por Junio C
+Hamano. Várias contribuições vieram da lista de discussão do Git
+&lt;<a href="mailto:git@vger.kernel.org">git@vger.kernel.org</a>&gt;.  O <a href="http://www.openhub.net/p/git/contributors/summary" class="bare">http://www.openhub.net/p/git/contributors/summary</a>
+fornece uma lista mais completa de todos os colaboradores.</p>
+</div>
+<div class="paragraph">
+<p>Caso tenha um clone do <em>git.git</em>, a saída do <a href='../git-shortlog/pt_BR.html'>git-shortlog[1]</a> e do
+<a href='../git-blame/pt_BR.html'>git-blame[1]</a> pode exibir os autores para as partes específicas do
+projeto.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_reportando_um_erro"><a class="anchor" href="pt_BR.html#_reportando_um_erro"></a>Reportando um Erro</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Relate os erros na lista de discussão do Git &lt;<a href="mailto:git@vger.kernel.org">git@vger.kernel.org</a>&gt; onde o
+desenvolvimento e as principais manutenções são realizadas.  Você não
+precisa se inscrever na lista para enviar uma mensagem para lá.  Para os
+relatórios dos erros anteriores e outras discussões, consulte o arquivo da
+lista de discussão em <a href="https://lore.kernel.org/git" class="bare">https://lore.kernel.org/git</a>.</p>
+</div>
+<div class="paragraph">
+<p>Os problemas relevantes para a segurança devem ser divulgadas em particular
+na mailing list do Git Security &lt;<a href="mailto:git-security@googlegroups.com">git-security@googlegroups.com</a>&gt;.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_veja_também"><a class="anchor" href="pt_BR.html#_veja_também"></a>VEJA TAMBÉM</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href='../gittutorial/pt_BR.html'>gittutorial[7]</a>, <a href='../gittutorial-2/pt_BR.html'>gittutorial-2[7]</a>, <a href='../giteveryday/pt_BR.html'>giteveryday[7]</a>,
+<a href='../gitcvs-migration/pt_BR.html'>gitcvs-migration[7]</a>, <a href='../gitglossary/pt_BR.html'>gitglossary[7]</a>,
+<a href='../gitcore-tutorial/pt_BR.html'>gitcore-tutorial[7]</a>, <a href='../gitcli/pt_BR.html'>gitcli[7]</a>, <a href="../user-manual/pt_BR.html">O
+Manual do Usuário do Git</a>, <a href='../gitworkflows/pt_BR.html'>gitworkflows[7]</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git"><a class="anchor" href="pt_BR.html#_git"></a>GIT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Parte do conjunto <a href='pt_BR.html'>git[1]</a></p>
+</div>
+</div>
+</div>
+  </div>
+
+        </div>
+      </div>
+      <footer>
+  <div class="site-source">
+    <a href="https://git-scm.com/site">About this site</a><br>
+    Patches, suggestions, and comments are welcome.
+  </div>
+  <div class="sfc-member">
+    Git is a member of <a href="https://git-scm.com/sfc">Software Freedom Conservancy</a>
+  </div>
+</footer>
+<a href="pt_BR.html#top" class="no-js scrollToTop" id="scrollToTop" data-label="Scroll to top">
+  <img src="../../images/icons/chevron-up@2x.png" width="20" height="20" alt="scroll-to-top"/>
+</a>
+<script src="../../assets/application-e12a0e837db60213b777cd7a706e0741beed474d7e5b94a641979fc87ce0d2cc.js"></script>
+
+    </div>
+
+</body>
+</html>

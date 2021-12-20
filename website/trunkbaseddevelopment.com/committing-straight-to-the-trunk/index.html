@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Committing straight to the trunk - Trunk Based Development</title>
+    <meta name="generator" content="Hugo 0.85.0" />
+
+    
+    <meta name="description" content="A portal on this practice">
+    
+    <link rel="canonical" href="index.html">
+    
+    <meta name="author" content="paul-hammant">
+    
+
+    <meta property="og:url" content="https://trunkbaseddevelopment.com/committing-straight-to-the-trunk/">
+    <meta property="og:title" content="Trunk Based Development">
+    <meta property="og:image" content="https://trunkbaseddevelopment.com/images/logo.png">
+    <meta name="apple-mobile-web-app-title" content="Trunk Based Development">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('../fonts/icon.eot');
+        src: url('../fonts/icon.eot')
+               format('embedded-opentype'),
+             url('../fonts/icon.woff')
+               format('woff'),
+             url('../fonts/icon.ttf')
+               format('truetype'),
+             url('../fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="../stylesheets/application.css">
+    <link rel="stylesheet" href="../stylesheets/temporary.css">
+    <link rel="stylesheet" href="../stylesheets/palettes.css">
+    <link rel="stylesheet" href="../stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu+Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <script src="../javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-blue palette-accent-light-blue">
+
+
+
+	
+	
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Trunk Based Development: Committing straight to the trunk
+      </div>
+    </div>
+
+    
+
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <div class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="../images/logo.png">
+        </div>
+      
+      <div class="name">
+        <strong>Trunk Based Development</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      <hr>
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Introduction" href="../index.html">
+	
+	Introduction
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Context" href="../context/index.html">
+	
+	Context
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Five-minute overview" href="../5-min-overview/index.html">
+	
+	Five-minute overview
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Deciding factors" href="../deciding-factors/index.html">
+	
+	Deciding factors
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Version control system features" href="../vcs-features/index.html">
+	
+	Version control system features
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Version control system choices" href="../vcs-choices/index.html">
+	
+	Version control system choices
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Feature flags" href="../feature-flags/index.html">
+	
+	Feature flags
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Branch by Abstraction" href="../branch-by-abstraction/index.html">
+	
+	Branch by Abstraction
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Branch for release" href="../branch-for-release/index.html">
+	
+	Branch for release
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Release from trunk" href="../release-from-trunk/index.html">
+	
+	Release from trunk
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Styles and Trade-offs" href="../styles/index.html">
+	
+	Styles and Trade-offs
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Continuous Integration (CI)" href="../continuous-integration/index.html">
+	
+	Continuous Integration (CI)
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a class="current" title="Committing straight to the trunk" href="index.html">
+	
+	Committing straight to the trunk
+</a>
+
+
+<ul id="scrollspy">
+</ul>
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Short Lived Feature Branches" href="../short-lived-feature-branches/index.html">
+	
+	Short Lived Feature Branches
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Continuous Code Review" href="../continuous-review/index.html">
+	
+	Continuous Code Review
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Continuous Delivery (CD)" href="../continuous-delivery/index.html">
+	
+	Continuous Delivery (CD)
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Concurrent development of consecutive releases" href="../concurrent-development-of-consecutive-releases/index.html">
+	
+	Concurrent development of consecutive releases
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Application strangulation" href="../strangulation/index.html">
+	
+	Application strangulation
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Observed habits" href="../observed-habits/index.html">
+	
+	Observed habits
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="You&#39;re doing it wrong" href="../youre-doing-it-wrong/index.html">
+	
+	You&#39;re doing it wrong
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Alternative branching models" href="../alternative-branching-models/index.html">
+	
+	Alternative branching models
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Monorepos" href="../monorepos/index.html">
+	
+	Monorepos
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Expanding Contracting Monorepos" href="../expanding-contracting-monorepos/index.html">
+	
+	Expanding Contracting Monorepos
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Game Changers" href="../game-changers/index.html">
+	
+	Game Changers
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Publications" href="../publications/index.html">
+	
+	Publications
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Book on this topic" href="../book/index.html">
+	
+	Book on this topic
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Key to branch diagrams" href="../key/index.html">
+	
+	Key to branch diagrams
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Contributions" href="../contributions/index.html">
+	
+	Contributions
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+
+        <ul>
+
+          <li>
+            <a href="https://github.com/paul-hammant/tbd" target="_blank" title="See GitHub Repo">
+              Site Source on Github
+            </a>
+          </li>
+
+          <li>
+            <a href="https://github.com/paul-hammant/tbd/commit/7f6c170e3760e5ae5cb49fca37b73cfea475581d" target="_blank">
+              SHA-1 Published: 7f6c170e3760e5ae5cb49fca37b73cfea475581d
+            </a>
+          </li>
+          </li>
+<iframe id="buy" width='160' height='400' src='https://leanpub.com/trunk-based-development/embed' frameborder='0' allowtransparency='true'></iframe>
+          <li>
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1 style="color: white; padding: 32px 20px 72px; background-image:url(../images/LogoSlim.png); background-repeat: no-repeat; background-size: 100% auto"><span style="background-color: #5677fc">Committing straight to the trunk </span></h1>
+
+			<p>Some teams will choose to commit/push straight to the trunk. Most likely it is because they are a small team with each
+team member knowing what the others are up to. <strong>Their build is probably fast and relatively exhaustive</strong>, and they
+may well seldom experience a build breakage. If the build does break (post integration into trunk/master) then they most likely &lsquo;revert&rsquo; the
+commit straight away, possibly locking the trunk for a short period of time while that is performed. If the team is
+really small (say three or four), in which case the team might allow someone to fix the build quickly and commit that
+in order to get the build green again.</p>
+<p>In the 2000&rsquo;s many Trunk-Based Development teams might have numbered up to 100 committers. They may have been extremely
+rapid with their <code>reverts</code> (lock trunk, revert, kick off the CI daemon again, unlock trunk if green again). If there was no build-automation server, they would
+have performed check-in activities that 1997&rsquo;s C3 team<span class="rref"><a class="inline-ref" style="border-bottom: 0" target="_blank" href="https://en.wikipedia.org/wiki/Chrysler_Comprehensive_Compensation_System"><img style="padding: 0 0 0 3px; width: 16px; height: 14px" src="../images/ext.png" alt=""></a></span>
+would have recognized, because they wanted that human
+assurance that gated check-ins are all that is needed to keep the build green. Namely, developers holding an
+&ldquo;I/we are checking in now, nobody else should be&rdquo;. They run the full build after bringing their checkout up to date
+and commit/push if green. Indeed that ceremony is a key part of the <a href="../continuous-integration/index.html">Continuous Integration</a> advances
+and is now part of Agile generally, and Extreme Programming in particular. These days teams doing this practice are likely
+to be much smaller (say less than 16) because of the advent of alternatives (see below). That said, there are still some large teams
+working this way.</p>
+<h1 id="benefits">Benefits</h1>
+<p>It is easier to objectively verity the correctness of your commits yourself (optimally with a pair-programming partner), then commit/push at moments of convenience. That is, easier than pushing into a code-review system for approval from a teammates that risks being interruptive to their workflow. Indeed there is a greater likelihood that this this style or working becomes a flow of small commits into the trunk, with each of those being an incremental step forward, and perfectly able to go-live itself while the larger story/card remains incomplete.</p>
+<h1 id="challenges">Challenges</h1>
+<p>Committing (and pushing) straight to the trunk has a challenge. Principally, someone could commit/push code that breaks the build, and the server(s) setup to guard Continuous Integration don&rsquo;t catch that for some time after the commit is available for teammates to pull/sync to their dev-workstation for unrelated work.</p>
+<p>Risk mitigation is <strong>everyone</strong> running the full build (the same build the CI demon would do) before the commit/push, and only pushing to
+trunk if that passes. <strong>This is an essential integration activity</strong>. This is the habit of the XP teams from the end of the 90&rsquo;s, and there&rsquo;s
+no reason any team would dispense with that in the years since. Indeed, it is valuable for ALL branching models.</p>
+<p>If this is locked in as a team requirement, your new challenge is to keep the full build fast. Fast is say one minute, and slow is ten or above. Compile and pure unit tests (no threads, sockets, file IO) is where good builds focus their development effort. Any following &ldquo;integration test&rdquo; build steps that use threads, listen on sockets, or do significant file IO should be minimized as far as possible without reducing meaningful coverage. The best trick for that is changing some integration tests into pure unit tests, which isn&rsquo;t always easy.</p>
+<p>Some teams have revert policies for commits that land in trunk/master that are proven as &ldquo;broken&rdquo; later in CI. That could be an activity for a build-cop who&rsquo;s going to communicate with the dev team about locking the trunk to achieve that. Or it could be a bot activity and happen instantly, as Google do in-house (35K committers in one trunk).</p>
+<p>Some teams have some scripting in place to ensure that developers only pull/sync commits to their dev-workstations that CI has marked as passing. That could be as simple as keeping a commit ID (number or hash depending on your VCS tool) on a website somewhere, and writing a wrapper script for git-pull (or svn up) that ignores commits that happened after that one. Pushing back, with that way of working is harder in Git and Mercurial as they requires you to have pulled HEAD revison before you can push back. Subversion and Perforce don&rsquo;t have that limitation.</p>
+<h1 id="alternatives-to-committing-straight-to-the-trunk">Alternatives to committing straight to the trunk</h1>
+<p>That modern alternative that allows development teams to scale up without having a bottleneck around check-ins or increased risk of broken builds: <a href="../short-lived-feature-branches/index.html">Short-Lived Feature Branches</a>.</p>
+<p>There are also teams that send patches to review systems like Gerrit and Rietveld, instead of committing/pushing straight to trunk/master. Google pioneered this with their in-house Mondrian system in 2006, and Gerrit and Rietveld were made in the image of that. Facebook&rsquo;s Phabricator is another that came later. As well as code review, build-automation systems objectively verify the correctness of the proposed changes, leaving you with high confidence that the following merge/integration into trunk/master will yield a similar positive result when the same infrastructure kicks in later for CI purposes. It is important to note that the automation you attach to commits/pushes to non-trunk branches (or patch queue/review systems) is not Continuous Integration itself.</p>
+<p>These two alternatives, as well as committing straight to the trunk are compared in <a href="../styles/index.html">Styles and Trade-offs</a>.</p>
+
+
+			<aside class="copyright" role="note">
+				&copy; 2017-2020: <a href="https://devops.paulhammant.com/">Paul Hammant</a>. With Contributions <a href="../contributions/index.html">from friends</a>.
+				Site built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				with
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme,
+				via <a href="https://netlify.com/">Netlify</a>. &nbsp;
+				<a href="https://github.com/paul-hammant/tbd/edit/master/content//_index.md">Contribute to this page</a>
+
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="../short-lived-feature-branches/index.html" title="Short-Lived Feature Branches">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Short-Lived Feature Branches
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="../continuous-integration/index.html" title="Continuous Integration (CI)">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Continuous Integration (CI)
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = 'https:\/\/trunkbaseddevelopment.com\/';
+      var repo_id  = 'paul-hammant\/tbd';
+    
+    </script>
+
+    <script src="../javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+
+      var showHideRefs = document.getElementById("showHideRefs");
+      var refsElsewhereH1;
+      var refsTable;
+      if (showHideRefs) {
+          refsElsewhereH1 = document.getElementById("references-elsewhere");
+      }
+      if (showHideRefs) {
+          refsTable = refsElsewhereH1.nextElementSibling.nextElementSibling;
+          hideRefs();
+      }
+
+      function hideRefs() {
+          refsTable.style.display = "none";
+          showHideRefs.innerHTML = "show references";
+      }
+
+      function toggleRefs() {
+          if(refsTable.style.display == "block") {
+              hideRefs();
+          }
+          else {
+              refsTable.style.display = "block";
+              showHideRefs.innerHTML = "hide references";
+          }
+      }
+
+
+    </script>
+
+    
+      <script>
+        (function(i,s,o,g,r,a,m){
+          i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||
+          []).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;
+          m.parentNode.insertBefore(a,m)
+        })(window, document,
+          'script', '//www.google-analytics.com/analytics.js', 'ga');
+         
+        ga('create', 'UA-24415524-3', 'auto');
+        ga('set', 'anonymizeIp', true);
+        ga('send', 'pageview');
+         
+        var buttons = document.querySelectorAll('a');
+        Array.prototype.map.call(buttons, function(item) {
+          if (item.host != document.location.host) {
+            item.addEventListener('click', function() {
+              var action = item.getAttribute('data-action') || 'follow';
+              ga('send', 'event', 'outbound', action, item.href);
+            });
+          }
+        });
+         
+        var query = document.querySelector('.query');
+        query.addEventListener('blur', function() {
+          if (this.value) {
+            var path = document.location.pathname;
+            ga('send', 'pageview', path + '?q=' + this.value);
+          }
+        });
+      </script>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

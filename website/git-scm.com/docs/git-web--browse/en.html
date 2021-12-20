@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49925874-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-49925874-3');
+  </script>
+
+  <meta charset='utf-8'>
+  <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Git - git-web--browse Documentation</title>
+
+  <link href='../../favicon.ico' rel='shortcut icon' type='image/x-icon'>
+
+  <link rel="stylesheet" media="screen" href="../../assets/application-42b7b91ccf5cb92469695cf08b5da9e9230594f634cb88264f305d5bd54e477f.css" />
+  <script src="../../assets/modernize-b3ebe0c31c24f230dc62179d3e1030d2e57a53b1668d9382c0a27dbd44a94beb.js"></script>
+  <!--[if (gte IE 6)&(lte IE 8)]>
+  <script src="/javascripts/selectivizr-min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body id="documentation">
+
+  <div class="inner">
+    <header>
+
+  <a href="https://git-scm.com/"><img src="../../images/logo@2x.png" width="110" height="46" alt="Git" /></a>
+  <span id="tagline"></span>
+  <script type="text/javascript">
+    var taglines = ["fast-version-control","everything-is-local","distributed-even-if-your-workflow-isnt","local-branching-on-the-cheap","distributed-is-the-new-centralized"];
+    var tagline = taglines[Math.floor(Math.random() * taglines.length)];
+    document.getElementById('tagline').innerHTML = '--' + tagline;
+  </script>
+  <form id="search" action="https://git-scm.com/search/results">
+    <input id="search-text" name="search" placeholder="Search entire site..." autocomplete="off" type="text" />
+  </form>
+  <div id="search-results"></div>
+
+</header>
+
+  </div> <!-- .inner -->
+
+    <div class="inner">
+      <div id="content-wrapper">
+        <button class="sidebar-btn"></button>
+<aside class="sidebar" id="sidebar">
+  <nav>
+    <ul>
+      <li>
+        <a href="https://git-scm.com/about">About</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/about">Branching and Merging</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/small-and-fast">Small and Fast</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/distributed">Distributed</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/info-assurance">Data Assurance</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/staging-area">Staging Area</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/free-and-open-source">Free and Open Source</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/trademark">Trademark</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a class="active" href="https://git-scm.com/doc">Documentation</a>
+        <ul class="expanded">
+          <li>
+            <a class="active" href="../git-pack/pt_BR.html">Reference</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/book">Book</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/videos">Videos</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/doc/ext">External Links</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/downloads">Downloads</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/downloads/guis">GUI Clients</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/downloads/logos">Logos</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/community">Community</a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+
+        <div id="content">
+          
+  <div id='reference-version'>
+    <a class="dropdown-trigger" id="reference-languages-trigger" data-panel-id="l10n-versions-dropdown" href="en.html#">
+  English ▾</a>
+<div class='dropdown-panel right' id='l10n-versions-dropdown'>
+  <header>Localized versions of <strong>git-web--browse</strong> manual</header>
+  <ol class='reference-previous-versions'>
+      <li>
+        <a href="en.html"><span class="version">English</span>
+        </a>
+        </li>
+      <li>
+        <a href="pt_BR.html"><span class="version">Português (Brasil)</span>
+        </a>
+        </li>
+  </ol>
+  <footer>
+    Want to read in your language or fix typos?<br/> <a href="https://github.com/jnavila/git-manpages-l10n">You can help translate this page</a>.
+  </footer>
+</div>
+
+    <a class="dropdown-trigger" id="reference-topics-trigger" data-panel-id="topics-dropdown" href="en.html#">Topics ▾</a>
+<div class='dropdown-panel right' id='topics-dropdown'>
+  <div class='three-column'>
+    <div class='column-left'>
+      <h3 class='setup'>Setup and Config</h3>
+<ul class='unstyled'>
+  <li><a href="../git/ru.html">git</a></li>
+  <li><a href="../git-config/ru.html">config</a></li>
+  <li><a href="../git-help/ru.html">help</a></li>
+  <li><a href="../git-bugreport/ru.html">bugreport</a></li>
+</ul>
+
+      <h3 class='projects'>Getting and Creating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-init/ru.html">init</a></li>
+  <li><a href="../git-clone/ru.html">clone</a></li>
+</ul>
+
+      <h3 class='snapshotting'>Basic Snapshotting</h3>
+<ul class='unstyled'>
+  <li><a href="../git-add/ru.html">add</a></li>
+  <li><a href="../git-status/ru.html">status</a></li>
+  <li><a href="../git-diff/ru.html">diff</a></li>
+  <li><a href="../git-commit/ru.html">commit</a></li>
+  <li><a href="../git-notes/ru.html">notes</a></li>
+  <li><a href="../git-restore/ru.html">restore</a></li>
+  <li><a href="../git-reset/ru.html">reset</a></li>
+  <li><a href="../git-rm/ru.html">rm</a></li>
+  <li><a href="../git-mv/ru.html">mv</a></li>
+</ul>
+
+      <h3 class='branching'>Branching and Merging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-branch/ru.html">branch</a></li>
+  <li><a href="../git-checkout/ru.html">checkout</a></li>
+  <li><a href="../git-switch/ru.html">switch</a></li>
+  <li><a href="../git-merge/ru.html">merge</a></li>
+  <li><a href="../git-mergetool/ru.html">mergetool</a></li>
+  <li><a href="../git-log/ru.html">log</a></li>
+  <li><a href="../git-stash/ru.html">stash</a></li>
+  <li><a href="../git-tag/ru.html">tag</a></li>
+  <li><a href="../git-worktree/ru.html">worktree</a></li>
+</ul>
+
+      <h3 class='sharing'>Sharing and Updating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-fetch/ru.html">fetch</a></li>
+  <li><a href="../git-pull/ru.html">pull</a></li>
+  <li><a href="../git-push/ru.html">push</a></li>
+  <li><a href="../git-remote/ru.html">remote</a></li>
+  <li><a href="../git-submodule/ru.html">submodule</a></li>
+</ul>
+
+    </div>
+    <div class='column-middle'>
+      <h3 class='inspection'>Inspection and Comparison</h3>
+<ul class='unstyled'>
+  <li><a href="../git-show/ru.html">show</a></li>
+  <li><a href="../git-log/ru.html">log</a></li>
+  <li><a href="../git-diff/ru.html">diff</a></li>
+  <li><a href="../git-difftool/ru.html">difftool</a></li>
+  <li><a href="../git-range-diff/ru.html">range-diff</a></li>
+  <li><a href="../git-shortlog/ru.html">shortlog</a></li>
+  <li><a href="../git-describe/ru.html">describe</a></li>
+</ul>
+
+      <h3 class='patching'>Patching</h3>
+<ul class='unstyled'>
+  <li><a href="../git-apply/ru.html">apply</a></li>
+  <li><a href="../git-cherry-pick/ru.html">cherry-pick</a></li>
+  <li><a href="../git-diff/ru.html">diff</a></li>
+  <li><a href="../git-rebase/ru.html">rebase</a></li>
+  <li><a href="../git-revert/ru.html">revert</a></li>
+</ul>
+
+      <h3 class='debugging'>Debugging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-bisect/ru.html">bisect</a></li>
+  <li><a href="../git-blame/ru.html">blame</a></li>
+  <li><a href="../git-grep/ru.html">grep</a></li>
+</ul>
+
+      <h3 class='email'>Email</h3>
+<ul class='unstyled'>
+  <li><a href="../git-am/ru.html">am</a></li>
+  <li><a href="../git-apply/ru.html">apply</a></li>
+  <li><a href="../git-format-patch/ru.html">format-patch</a></li>
+  <li><a href="../git-send-email/ru.html">send-email</a></li>
+  <li><a href="../git-request-pull/ru.html">request-pull</a></li>
+</ul>
+
+      <h3 class='external'>External Systems</h3>
+<ul class='unstyled'>
+  <li><a href="../git-svn/ru.html">svn</a></li>
+  <li><a href="../git-fast-import/ru.html">fast-import</a></li>
+</ul>
+
+      <h3 class='server-admin'>Server Admin</h3>
+<ul class='unstyled'>
+  <li><a href="../git-daemon/ru.html">daemon</a></li>
+  <li><a href="../git-update-server-info/ru.html">update-server-info</a></li>
+</ul>
+
+    </div>
+    <div class='column-right'>
+      <h3 class='guides'>Guides</h3>
+<ul class='unstyled'>
+  <li><a href="../gitattributes/ru.html">gitattributes</a></li>
+  <li><a href="../gitcli/ru.html">Command-line interface conventions</a></li>
+  <li><a href="../giteveryday/ru.html">Everyday Git</a></li>
+  <li><a href="../gitfaq/ru.html">Frequently Asked Questions (FAQ)</a></li>
+  <li><a href="../gitglossary/zh_HANT.html">Glossary</a></li>
+  <li><a href="../githooks/ru.html">Hooks</a></li>
+  <li><a href="../gitignore/ru.html">gitignore</a></li>
+  <li><a href="../gitmodules/ru.html">gitmodules</a></li>
+  <li><a href="../gitrevisions/ru.html">Revisions</a></li>
+  <li><a href="../gitsubmodules/ru.html">Submodules</a></li>
+  <li><a href="../gittutorial/ru.html">Tutorial</a></li>
+  <li><a href="../gitworkflows/ru.html">Workflows</a></li>
+  <li><a href="../git/ru.html#_guides">All guides...</a></li>
+</ul>
+
+      <h3 class='admin'>Administration</h3>
+<ul class='unstyled'>
+  <li><a href="../git-clean/ru.html">clean</a></li>
+  <li><a href="../git-gc/ru.html">gc</a></li>
+  <li><a href="../git-fsck/ru.html">fsck</a></li>
+  <li><a href="../git-reflog/ru.html">reflog</a></li>
+  <li><a href="../git-filter-branch/ru.html">filter-branch</a></li>
+  <li><a href="../git-instaweb/ru.html">instaweb</a></li>
+  <li><a href="../git-archive/ru.html">archive</a></li>
+  <li><a href="../git-bundle/ru.html">bundle</a></li>
+</ul>
+
+      <h3 class='plumbing'>Plumbing Commands</h3>
+<ul class='unstyled'>
+  <li><a href="../git-cat-file/ru.html">cat-file</a></li>
+  <li><a href="../git-check-ignore/ru.html">check-ignore</a></li>
+  <li><a href="../git-checkout-index/ru.html">checkout-index</a></li>
+  <li><a href="../git-commit-tree/ru.html">commit-tree</a></li>
+  <li><a href="../git-count-objects/ru.html">count-objects</a></li>
+  <li><a href="../git-diff-index/ru.html">diff-index</a></li>
+  <li><a href="../git-for-each-ref/ru.html">for-each-ref</a></li>
+  <li><a href="../git-hash-object/ru.html">hash-object</a></li>
+  <li><a href="../git-ls-files/ru.html">ls-files</a></li>
+  <li><a href="../git-ls-tree/ru.html">ls-tree</a></li>
+  <li><a href="../git-merge-base/ru.html">merge-base</a></li>
+  <li><a href="../git-read-tree/ru.html">read-tree</a></li>
+  <li><a href="../rev-list.html">rev-list</a></li>
+  <li><a href="../git-rev-parse/ru.html">rev-parse</a></li>
+  <li><a href="../git-show-ref/ru.html">show-ref</a></li>
+  <li><a href="../git-symbolic-ref/ru.html">symbolic-ref</a></li>
+  <li><a href="../git-update-index/ru.html">update-index</a></li>
+  <li><a href="../git-update-ref/ru.html">update-ref</a></li>
+  <li><a href="../git-verify-pack/ru.html">verify-pack</a></li>
+  <li><a href="../git-write-tree/ru.html">write-tree</a></li>
+</ul>
+
+    </div>
+  </div>
+</div>
+
+    <a class="dropdown-trigger" id="reference-versions-trigger" data-panel-id="previous-versions-dropdown" href="en.html#">
+    Version 2.34.1
+ ▾ </a>
+<span class="light d-flex">git-web--browse last updated in 2.34.1</span>
+<div class='dropdown-panel left' id='previous-versions-dropdown'>
+  <header>Changes in the <strong>git-web--browse</strong> manual</header>
+  <ol class='reference-previous-versions'>
+        <li class="no-change"><span>2.22.1 &rarr; 2.34.1 no changes</span></li>
+        <li>
+        <a href="2.22.0.html"><span class="version">2.22.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">06/07/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.18.1 &rarr; 2.21.4 no changes</span></li>
+        <li>
+        <a href="2.18.0.html"><span class="version">2.18.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">06/21/18</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.10.5 &rarr; 2.17.6 no changes</span></li>
+        <li>
+        <a href="2.9.5.html"><span class="version">2.9.5</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">07/30/17</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.2.3 &rarr; 2.8.6 no changes</span></li>
+        <li>
+        <a href="2.1.4.html"><span class="version">2.1.4</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">12/17/14</em>
+        </a>
+        </li>
+    <li>&nbsp;</li>
+    <!-- <li><a class="more" href="#">See more previous releases →</a></li> -->
+  </ol>
+  <footer>
+    <p>Check your version of git by running</p>
+    <code class="command">git --version</code>
+  </footer>
+</div>
+
+  </div>
+
+  <div id='main'>
+    <div class="sect1">
+<h2 id="_name"><a class="anchor" href="en.html#_name"></a>NAME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>git-web&#8212;&#8203;browse - Git helper script to launch a web browser</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis"><a class="anchor" href="en.html#_synopsis"></a>SYNOPSIS</h2>
+<div class="sectionbody">
+<div class="verseblock">
+<pre class="content"><em>git web&#x2d;&#x2d;browse</em> [&lt;options&gt;] &lt;url|file&gt;&#8230;&#8203;</pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description"><a class="anchor" href="en.html#_description"></a>DESCRIPTION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This script tries, as much as possible, to display the URLs and FILEs
+that are passed as arguments, as HTML pages in new tabs on an already
+opened web browser.</p>
+</div>
+<div class="paragraph">
+<p>The following browsers (or commands) are currently supported:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>firefox (this is the default under X Window when not using KDE)</p>
+</li>
+<li>
+<p>iceweasel</p>
+</li>
+<li>
+<p>seamonkey</p>
+</li>
+<li>
+<p>iceape</p>
+</li>
+<li>
+<p>chromium (also supported as chromium-browser)</p>
+</li>
+<li>
+<p>google-chrome (also supported as chrome)</p>
+</li>
+<li>
+<p>konqueror (this is the default under KDE, see <em>Note about konqueror</em> below)</p>
+</li>
+<li>
+<p>opera</p>
+</li>
+<li>
+<p>w3m (this is the default outside graphical environments)</p>
+</li>
+<li>
+<p>elinks</p>
+</li>
+<li>
+<p>links</p>
+</li>
+<li>
+<p>lynx</p>
+</li>
+<li>
+<p>dillo</p>
+</li>
+<li>
+<p>open (this is the default under Mac OS X GUI)</p>
+</li>
+<li>
+<p>start (this is the default under MinGW)</p>
+</li>
+<li>
+<p>cygstart (this is the default under Cygwin)</p>
+</li>
+<li>
+<p>xdg-open</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Custom commands may also be specified.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_options"><a class="anchor" href="en.html#_options"></a>OPTIONS</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="Documentation/git-web--browse.txt--bltbrowsergt"> <a class="anchor" href="en.html#Documentation/git-web--browse.txt--bltbrowsergt"></a>-b &lt;browser&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-web--browse.txt---browserltbrowsergt"> <a class="anchor" href="en.html#Documentation/git-web--browse.txt---browserltbrowsergt"></a>--browser=&lt;browser&gt; </dt>
+<dd>
+<p>Use the specified browser. It must be in the list of supported
+browsers.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-web--browse.txt--tltbrowsergt"> <a class="anchor" href="en.html#Documentation/git-web--browse.txt--tltbrowsergt"></a>-t &lt;browser&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-web--browse.txt---toolltbrowsergt"> <a class="anchor" href="en.html#Documentation/git-web--browse.txt---toolltbrowsergt"></a>--tool=&lt;browser&gt; </dt>
+<dd>
+<p>Same as above.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-web--browse.txt--cltconfvargt"> <a class="anchor" href="en.html#Documentation/git-web--browse.txt--cltconfvargt"></a>-c &lt;conf.var&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-web--browse.txt---configltconfvargt"> <a class="anchor" href="en.html#Documentation/git-web--browse.txt---configltconfvargt"></a>--config=&lt;conf.var&gt; </dt>
+<dd>
+<p>CONF.VAR is looked up in the Git config files. If it&#8217;s set,
+then its value specifies the browser that should be used.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuration_variables"><a class="anchor" href="en.html#_configuration_variables"></a>CONFIGURATION VARIABLES</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_conf_var_from_c_option_and_web_browser"><a class="anchor" href="en.html#_conf_var_from_c_option_and_web_browser"></a>CONF.VAR (from -c option) and web.browser</h3>
+<div class="paragraph">
+<p>The web browser can be specified using a configuration variable passed
+with the -c (or --config) command-line option, or the <code>web.browser</code>
+configuration variable if the former is not used.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_browser_tool_path"><a class="anchor" href="en.html#_browser_tool_path"></a>browser.&lt;tool&gt;.path</h3>
+<div class="paragraph">
+<p>You can explicitly provide a full path to your preferred browser by
+setting the configuration variable <code>browser.&lt;tool&gt;.path</code>. For example,
+you can configure the absolute path to firefox by setting
+<em>browser.firefox.path</em>. Otherwise, <em>git web&#x2d;&#x2d;browse</em> assumes the tool
+is available in PATH.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_browser_tool_cmd"><a class="anchor" href="en.html#_browser_tool_cmd"></a>browser.&lt;tool&gt;.cmd</h3>
+<div class="paragraph">
+<p>When the browser, specified by options or configuration variables, is
+not among the supported ones, then the corresponding
+<code>browser.&lt;tool&gt;.cmd</code> configuration variable will be looked up. If this
+variable exists then <em>git web&#x2d;&#x2d;browse</em> will treat the specified tool
+as a custom command and will use a shell eval to run the command with
+the URLs passed as arguments.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_note_about_konqueror"><a class="anchor" href="en.html#_note_about_konqueror"></a>NOTE ABOUT KONQUEROR</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When <em>konqueror</em> is specified by a command-line option or a
+configuration variable, we launch <em>kfmclient</em> to try to open the HTML
+man page on an already opened konqueror in a new tab if possible.</p>
+</div>
+<div class="paragraph">
+<p>For consistency, we also try such a trick if <em>browser.konqueror.path</em> is
+set to something like <code>A_PATH_TO/konqueror</code>. That means we will try to
+launch <code>A_PATH_TO/kfmclient</code> instead.</p>
+</div>
+<div class="paragraph">
+<p>If you really want to use <em>konqueror</em>, then you can use something like
+the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>	[web]
+		browser = konq
+
+	[browser "konq"]
+		cmd = A_PATH_TO/konqueror</pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_note_about_git_config_global"><a class="anchor" href="en.html#_note_about_git_config_global"></a>Note about git-config --global</h3>
+<div class="paragraph">
+<p>Note that these configuration variables should probably be set using
+the <code>--global</code> flag, for example like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git config --global web.browser firefox</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>as they are probably more user specific than repository specific.
+See <a href='../git-config/ru.html'>git-config[1]</a> for more information about this.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git"><a class="anchor" href="en.html#_git"></a>GIT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Part of the <a href='../git/ru.html'>git[1]</a> suite</p>
+</div>
+</div>
+</div>
+  </div>
+
+        </div>
+      </div>
+      <footer>
+  <div class="site-source">
+    <a href="https://git-scm.com/site">About this site</a><br>
+    Patches, suggestions, and comments are welcome.
+  </div>
+  <div class="sfc-member">
+    Git is a member of <a href="https://git-scm.com/sfc">Software Freedom Conservancy</a>
+  </div>
+</footer>
+<a href="en.html#top" class="no-js scrollToTop" id="scrollToTop" data-label="Scroll to top">
+  <img src="../../images/icons/chevron-up@2x.png" width="20" height="20" alt="scroll-to-top"/>
+</a>
+<script src="../../assets/application-e12a0e837db60213b777cd7a706e0741beed474d7e5b94a641979fc87ce0d2cc.js"></script>
+
+    </div>
+
+</body>
+</html>

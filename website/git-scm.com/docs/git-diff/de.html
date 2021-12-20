@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49925874-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-49925874-3');
+  </script>
+
+  <meta charset='utf-8'>
+  <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Git - git-diff Documentation</title>
+
+  <link href='../../favicon.ico' rel='shortcut icon' type='image/x-icon'>
+
+  <link rel="stylesheet" media="screen" href="../../assets/application-42b7b91ccf5cb92469695cf08b5da9e9230594f634cb88264f305d5bd54e477f.css" />
+  <script src="../../assets/modernize-b3ebe0c31c24f230dc62179d3e1030d2e57a53b1668d9382c0a27dbd44a94beb.js"></script>
+  <!--[if (gte IE 6)&(lte IE 8)]>
+  <script src="/javascripts/selectivizr-min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body id="documentation">
+
+  <div class="inner">
+    <header>
+
+  <a href="https://git-scm.com/"><img src="../../images/logo@2x.png" width="110" height="46" alt="Git" /></a>
+  <span id="tagline"></span>
+  <script type="text/javascript">
+    var taglines = ["fast-version-control","everything-is-local","distributed-even-if-your-workflow-isnt","local-branching-on-the-cheap","distributed-is-the-new-centralized"];
+    var tagline = taglines[Math.floor(Math.random() * taglines.length)];
+    document.getElementById('tagline').innerHTML = '--' + tagline;
+  </script>
+  <form id="search" action="https://git-scm.com/search/results">
+    <input id="search-text" name="search" placeholder="Search entire site..." autocomplete="off" type="text" />
+  </form>
+  <div id="search-results"></div>
+
+</header>
+
+  </div> <!-- .inner -->
+
+    <div class="inner">
+      <div id="content-wrapper">
+        <button class="sidebar-btn"></button>
+<aside class="sidebar" id="sidebar">
+  <nav>
+    <ul>
+      <li>
+        <a href="https://git-scm.com/about">About</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/about">Branching and Merging</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/small-and-fast">Small and Fast</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/distributed">Distributed</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/info-assurance">Data Assurance</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/staging-area">Staging Area</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/free-and-open-source">Free and Open Source</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/trademark">Trademark</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a class="active" href="https://git-scm.com/doc">Documentation</a>
+        <ul class="expanded">
+          <li>
+            <a class="active" href="../git-pack/pt_BR.html">Reference</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/book">Book</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/videos">Videos</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/doc/ext">External Links</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/downloads">Downloads</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/downloads/guis">GUI Clients</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/downloads/logos">Logos</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/community">Community</a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+
+        <div id="content">
+          
+  <div id='reference-version'>
+    <a class="dropdown-trigger" id="reference-languages-trigger" data-panel-id="l10n-versions-dropdown" href="de.html#">
+  Deutsch ▾</a>
+<div class='dropdown-panel right' id='l10n-versions-dropdown'>
+  <header>Localized versions of <strong>git-diff</strong> manual</header>
+  <ol class='reference-previous-versions'>
+      <li>
+        <a href="de.html"><span class="version">Deutsch</span>
+        </a>
+        </li>
+      <li>
+        <a href="en.html"><span class="version">English</span>
+        </a>
+        </li>
+      <li>
+        <a href="fr.html"><span class="version">Français</span>
+        </a>
+        </li>
+      <li>
+        <a href="pt_BR.html"><span class="version">Português (Brasil)</span>
+        </a>
+        </li>
+  </ol>
+  <footer>
+    Want to read in your language or fix typos?<br/> <a href="https://github.com/jnavila/git-manpages-l10n">You can help translate this page</a>.
+  </footer>
+</div>
+
+    <a class="dropdown-trigger" id="reference-topics-trigger" data-panel-id="topics-dropdown" href="de.html#">Topics ▾</a>
+<div class='dropdown-panel right' id='topics-dropdown'>
+  <div class='three-column'>
+    <div class='column-left'>
+      <h3 class='setup'>Setup and Config</h3>
+<ul class='unstyled'>
+  <li><a href="../git/de.html">git</a></li>
+  <li><a href="../git-config/de.html">config</a></li>
+  <li><a href="../git-help/de.html">help</a></li>
+  <li><a href="../git-bugreport/de.html">bugreport</a></li>
+</ul>
+
+      <h3 class='projects'>Getting and Creating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-init/de.html">init</a></li>
+  <li><a href="../git-clone/de.html">clone</a></li>
+</ul>
+
+      <h3 class='snapshotting'>Basic Snapshotting</h3>
+<ul class='unstyled'>
+  <li><a href="../git-add/de.html">add</a></li>
+  <li><a href="../git-status/de.html">status</a></li>
+  <li><a class="active" href="de.html">diff</a></li>
+  <li><a href="../git-commit/de.html">commit</a></li>
+  <li><a href="../git-notes/de.html">notes</a></li>
+  <li><a href="../git-restore/de.html">restore</a></li>
+  <li><a href="../git-reset/de.html">reset</a></li>
+  <li><a href="../git-rm/de.html">rm</a></li>
+  <li><a href="../git-mv/de.html">mv</a></li>
+</ul>
+
+      <h3 class='branching'>Branching and Merging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-branch/de.html">branch</a></li>
+  <li><a href="../git-checkout/de.html">checkout</a></li>
+  <li><a href="../git-switch/de.html">switch</a></li>
+  <li><a href="../git-merge/de.html">merge</a></li>
+  <li><a href="../git-mergetool/de.html">mergetool</a></li>
+  <li><a href="../git-log/de.html">log</a></li>
+  <li><a href="../git-stash/de.html">stash</a></li>
+  <li><a href="../git-tag/de.html">tag</a></li>
+  <li><a href="../git-worktree/de.html">worktree</a></li>
+</ul>
+
+      <h3 class='sharing'>Sharing and Updating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-fetch/de.html">fetch</a></li>
+  <li><a href="../git-pull/de.html">pull</a></li>
+  <li><a href="../git-push/de.html">push</a></li>
+  <li><a href="../git-remote/de.html">remote</a></li>
+  <li><a href="../git-submodule/de.html">submodule</a></li>
+</ul>
+
+    </div>
+    <div class='column-middle'>
+      <h3 class='inspection'>Inspection and Comparison</h3>
+<ul class='unstyled'>
+  <li><a href="../git-show/de.html">show</a></li>
+  <li><a href="../git-log/de.html">log</a></li>
+  <li><a class="active" href="de.html">diff</a></li>
+  <li><a href="../git-difftool/de.html">difftool</a></li>
+  <li><a href="../git-range-diff/de.html">range-diff</a></li>
+  <li><a href="../git-shortlog/de.html">shortlog</a></li>
+  <li><a href="../git-describe/de.html">describe</a></li>
+</ul>
+
+      <h3 class='patching'>Patching</h3>
+<ul class='unstyled'>
+  <li><a href="../git-apply/de.html">apply</a></li>
+  <li><a href="../git-cherry-pick/de.html">cherry-pick</a></li>
+  <li><a class="active" href="de.html">diff</a></li>
+  <li><a href="../git-rebase/de.html">rebase</a></li>
+  <li><a href="../git-revert/de.html">revert</a></li>
+</ul>
+
+      <h3 class='debugging'>Debugging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-bisect/de.html">bisect</a></li>
+  <li><a href="../git-blame/de.html">blame</a></li>
+  <li><a href="../git-grep/de.html">grep</a></li>
+</ul>
+
+      <h3 class='email'>Email</h3>
+<ul class='unstyled'>
+  <li><a href="../git-am/de.html">am</a></li>
+  <li><a href="../git-apply/de.html">apply</a></li>
+  <li><a href="../git-format-patch/de.html">format-patch</a></li>
+  <li><a href="../git-send-email/de.html">send-email</a></li>
+  <li><a href="../git-request-pull/de.html">request-pull</a></li>
+</ul>
+
+      <h3 class='external'>External Systems</h3>
+<ul class='unstyled'>
+  <li><a href="../git-svn/de.html">svn</a></li>
+  <li><a href="../git-fast-import/de.html">fast-import</a></li>
+</ul>
+
+      <h3 class='server-admin'>Server Admin</h3>
+<ul class='unstyled'>
+  <li><a href="../git-daemon/de.html">daemon</a></li>
+  <li><a href="../git-update-server-info/de.html">update-server-info</a></li>
+</ul>
+
+    </div>
+    <div class='column-right'>
+      <h3 class='guides'>Guides</h3>
+<ul class='unstyled'>
+  <li><a href="../gitattributes/de.html">gitattributes</a></li>
+  <li><a href="../gitcli/de.html">Command-line interface conventions</a></li>
+  <li><a href="../giteveryday/de.html">Everyday Git</a></li>
+  <li><a href="../gitfaq/de.html">Frequently Asked Questions (FAQ)</a></li>
+  <li><a href="../gitglossary/de.html">Glossary</a></li>
+  <li><a href="../githooks/de.html">Hooks</a></li>
+  <li><a href="../gitignore/de.html">gitignore</a></li>
+  <li><a href="../gitmodules/de.html">gitmodules</a></li>
+  <li><a href="../gitrevisions/de.html">Revisions</a></li>
+  <li><a href="../gitsubmodules/de.html">Submodules</a></li>
+  <li><a href="../gittutorial/de.html">Tutorial</a></li>
+  <li><a href="../gitworkflows/de.html">Workflows</a></li>
+  <li><a href="../git/ru.html#_guides">All guides...</a></li>
+</ul>
+
+      <h3 class='admin'>Administration</h3>
+<ul class='unstyled'>
+  <li><a href="../git-clean/de.html">clean</a></li>
+  <li><a href="../git-gc/de.html">gc</a></li>
+  <li><a href="../git-fsck/de.html">fsck</a></li>
+  <li><a href="../git-reflog/de.html">reflog</a></li>
+  <li><a href="../git-filter-branch/de.html">filter-branch</a></li>
+  <li><a href="../git-instaweb/de.html">instaweb</a></li>
+  <li><a href="../git-archive/de.html">archive</a></li>
+  <li><a href="../git-bundle/de.html">bundle</a></li>
+</ul>
+
+      <h3 class='plumbing'>Plumbing Commands</h3>
+<ul class='unstyled'>
+  <li><a href="../git-cat-file/de.html">cat-file</a></li>
+  <li><a href="../git-check-ignore/de.html">check-ignore</a></li>
+  <li><a href="../git-checkout-index/de.html">checkout-index</a></li>
+  <li><a href="../git-commit-tree/de.html">commit-tree</a></li>
+  <li><a href="../git-count-objects/de.html">count-objects</a></li>
+  <li><a href="../git-diff-index/de.html">diff-index</a></li>
+  <li><a href="../git-for-each-ref/de.html">for-each-ref</a></li>
+  <li><a href="../git-hash-object/de.html">hash-object</a></li>
+  <li><a href="../git-ls-files/de.html">ls-files</a></li>
+  <li><a href="../git-ls-tree/de.html">ls-tree</a></li>
+  <li><a href="../git-merge-base/de.html">merge-base</a></li>
+  <li><a href="../git-read-tree/de.html">read-tree</a></li>
+  <li><a href="../git-rev-list/de.html">rev-list</a></li>
+  <li><a href="../git-rev-parse/de.html">rev-parse</a></li>
+  <li><a href="../git-show-ref/de.html">show-ref</a></li>
+  <li><a href="../git-symbolic-ref/de.html">symbolic-ref</a></li>
+  <li><a href="../git-update-index/de.html">update-index</a></li>
+  <li><a href="../git-update-ref/de.html">update-ref</a></li>
+  <li><a href="../git-verify-pack/de.html">verify-pack</a></li>
+  <li><a href="../git-write-tree/de.html">write-tree</a></li>
+</ul>
+
+    </div>
+  </div>
+</div>
+
+    <a class="dropdown-trigger" id="reference-versions-trigger" data-panel-id="previous-versions-dropdown" href="de.html#">
+      Latest version
+       ▾ </a>
+<span class="light d-flex">git-diff last updated in 2.34.1</span>
+<div class='dropdown-panel left' id='previous-versions-dropdown'>
+  <header>Changes in the <strong>git-diff</strong> manual</header>
+  <ol class='reference-previous-versions'>
+        <li class="no-change"><span>2.34.1 no changes</span></li>
+        <li>
+        <a href="2.34.0.html"><span class="version">2.34.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">11/15/21</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.33.1 no changes</span></li>
+        <li>
+        <a href="2.33.0.html"><span class="version">2.33.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">08/16/21</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.32.0.html"><span class="version">2.32.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">06/06/21</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.31.1 no changes</span></li>
+        <li>
+        <a href="2.31.0.html"><span class="version">2.31.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+          </span>
+          <em class="date">03/15/21</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.30.1 &rarr; 2.30.2 no changes</span></li>
+        <li>
+        <a href="2.30.0.html"><span class="version">2.30.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">12/27/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.29.1 &rarr; 2.29.3 no changes</span></li>
+        <li>
+        <a href="2.29.0.html"><span class="version">2.29.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">10/19/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.28.1 no changes</span></li>
+        <li>
+        <a href="2.28.0.html"><span class="version">2.28.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">07/27/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.25.2 &rarr; 2.27.1 no changes</span></li>
+        <li>
+        <a href="2.25.1.html"><span class="version">2.25.1</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">02/17/20</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.25.0.html"><span class="version">2.25.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">01/13/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.24.1 &rarr; 2.24.4 no changes</span></li>
+        <li>
+        <a href="2.24.0.html"><span class="version">2.24.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">11/04/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.22.1 &rarr; 2.23.4 no changes</span></li>
+        <li>
+        <a href="2.22.0.html"><span class="version">2.22.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">06/07/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.21.1 &rarr; 2.21.4 no changes</span></li>
+        <li>
+        <a href="2.21.0.html"><span class="version">2.21.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">02/24/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.20.1 &rarr; 2.20.5 no changes</span></li>
+        <li>
+        <a href="2.20.0.html"><span class="version">2.20.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">12/09/18</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.19.3 &rarr; 2.19.6 no changes</span></li>
+        <li>
+        <a href="2.19.2.html"><span class="version">2.19.2</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">11/21/18</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.19.1 no changes</span></li>
+        <li>
+        <a href="2.19.0.html"><span class="version">2.19.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">09/10/18</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.18.1 &rarr; 2.18.5 no changes</span></li>
+        <li>
+        <a href="2.18.0.html"><span class="version">2.18.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">06/21/18</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.17.1 &rarr; 2.17.6 no changes</span></li>
+        <li>
+        <a href="2.17.0.html"><span class="version">2.17.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+          </span>
+          <em class="date">04/02/18</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.16.6.html"><span class="version">2.16.6</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+          </span>
+          <em class="date">12/06/19</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.15.4.html"><span class="version">2.15.4</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">12/06/19</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.14.6.html"><span class="version">2.14.6</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">12/06/19</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.13.7.html"><span class="version">2.13.7</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">05/22/18</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.12.5.html"><span class="version">2.12.5</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">09/22/17</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.11.4.html"><span class="version">2.11.4</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">09/22/17</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.10.5 no changes</span></li>
+        <li>
+        <a href="2.9.5.html"><span class="version">2.9.5</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">07/30/17</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.8.6.html"><span class="version">2.8.6</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">07/30/17</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.7.6 no changes</span></li>
+        <li>
+        <a href="2.6.7.html"><span class="version">2.6.7</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">05/05/17</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.5.6.html"><span class="version">2.5.6</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+          </span>
+          <em class="date">05/05/17</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.4.12.html"><span class="version">2.4.12</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">05/05/17</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.3.10.html"><span class="version">2.3.10</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">09/28/15</em>
+        </a>
+        </li>
+    <li>&nbsp;</li>
+    <!-- <li><a class="more" href="#">See more previous releases →</a></li> -->
+  </ol>
+  <footer>
+    <p>Check your version of git by running</p>
+    <code class="command">git --version</code>
+  </footer>
+</div>
+
+  </div>
+
+  <div id='main'>
+    <div class="sect1">
+<h2 id="_name"><a class="anchor" href="de.html#_name"></a>NAME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>git-diff – Zeigt die Unterschiede zwischen Commits, Commit und
+Arbeitsbereich usw.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_übersicht"><a class="anchor" href="de.html#_übersicht"></a>ÜBERSICHT</h2>
+<div class="sectionbody">
+<div class="verseblock">
+<pre class="content"><em>git diff</em> [&lt;Optionen&gt;] [&lt;Commit&gt;] [--] [&lt;Pfad&gt;&#8230;&#8203;]
+<em>git diff</em> [&lt;Optionen&gt;] --cached [&lt;Commit&gt;] [--] [&lt;Pfad&gt;&#8230;&#8203;]
+<em>git diff</em> [&lt;Optionen&gt;] &lt;Commit&gt; [&lt;Commit&gt;&#8230;&#8203;] &lt;Commit&gt; [--] [&lt;Pfad&gt;&#8230;&#8203;]
+<em>git diff</em> [&lt;Optionen&gt;] &lt;Commit&gt;&#8230;&#8203;&lt;Commit&gt; [--] [&lt;Pfad&gt;&#8230;&#8203;]
+<em>git diff</em> [&lt;Optionen&gt;] &lt;Blob&gt; &lt;Blob&gt;
+<em>git diff</em> [&lt;Optionen&gt;] --no-index [--] &lt;Pfad&gt; &lt;Pfad&gt;</pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_beschreibung"><a class="anchor" href="de.html#_beschreibung"></a>BESCHREIBUNG</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Zeigt Änderungen zwischen dem Arbeitsbereich und dem Index oder einem
+Verzeichnisbaum, Änderungen zwischen dem Index und einem Verzeichnisbaum,
+Änderungen zwischen zwei Verzeichnisbäumen, Änderungen, die sich aus einem
+Merge ergeben, Änderungen zwischen zwei Blob-Objekten oder Änderungen
+zwischen zwei Dateien auf der Festplatte.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-diff-emgitdiffemltOptionengt--ltPfadgt82308203"> <a class="anchor" href="de.html#git-diff-emgitdiffemltOptionengt--ltPfadgt82308203"></a><em>git diff</em> [&lt;Optionen&gt;] [--] [&lt;Pfad&gt;&#8230;&#8203;] </dt>
+<dd>
+<p>Mit dieser Befehlssyntax können die Änderungen angezeigt werden, die Sie
+relativ zum Index vorgenommen haben (Staging-Area für den nächsten Commit).
+Mit anderen Worten, die Unterschiede sind das, was Sie Git mitteilen
+<em>könnten</em>, um es später zum Index hinzuzufügen, aber Sie haben es immer noch
+nicht getan.  Sie können diese Änderungen mit <a href='../git-add/de.html'>git-add[1]</a>
+bereitstellen (stagen).</p>
+</dd>
+<dt class="hdlist1" id="git-diff-emgitdiffemltOptionengt--no-index--ltPfadgtltPfadgt"> <a class="anchor" href="de.html#git-diff-emgitdiffemltOptionengt--no-index--ltPfadgtltPfadgt"></a><em>git diff</em> [&lt;Optionen&gt;] --no-index [--] &lt;Pfad&gt; &lt;Pfad&gt; </dt>
+<dd>
+<p>Diese Form dient dem Vergleich der beiden angegebenen Pfade auf dem
+Dateisystem.  Sie können die Option <code>--no-index</code> weglassen, wenn Sie den
+Befehl in einem von Git kontrollierten Arbeitsbereich ausführen und
+mindestens einer der Pfade außerhalb des Arbeitsbereichs liegt oder wenn Sie
+den Befehl außerhalb eines von Git kontrollierten Arbeitsbereichs
+ausführen. Diese Form impliziert die Option <code>--exit-code</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-emgitdiffemltOptionengt--cachedltCommitgt--ltPfadgt82308203"> <a class="anchor" href="de.html#git-diff-emgitdiffemltOptionengt--cachedltCommitgt--ltPfadgt82308203"></a><em>git diff</em> [&lt;Optionen&gt;] --cached [&lt;Commit&gt;] [--] [&lt;Pfad&gt;&#8230;&#8203;] </dt>
+<dd>
+<p>Auf diese Art können Sie sich die Änderungen ansehen, die Sie für den
+nächsten Commit, relativ zu dem angegebenen &lt;Commit&gt;, vorgenommen haben.
+Normalerweise werden Sie einen Vergleich mit dem letzten Commit sehen
+wollen. Wenn Sie also den &lt;Commit&gt; nicht angeben, wird standardmäßig HEAD
+verwendet.  Wenn HEAD nicht existiert (z.B. wegen noch nicht erstelltem
+Branch) und &lt;Commit&gt; nicht angegeben wird, zeigt dies alle Änderungen in der
+Staging-Area an.  --staged ist ein Synonym für --cached.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-emgitdiffemltOptionengtltCommitgt--ltPfadgt82308203"> <a class="anchor" href="de.html#git-diff-emgitdiffemltOptionengtltCommitgt--ltPfadgt82308203"></a><em>git diff</em> [&lt;Optionen&gt;] &lt;Commit&gt; [--] [&lt;Pfad&gt;&#8230;&#8203;] </dt>
+<dd>
+<p>Zeigt die Unterschiede zwischen dem Arbeitsbereich und dem angegebenen
+&lt;Commit&gt; an.  Sie können HEAD verwenden, um ihn mit dem letzten Commit zu
+vergleichen oder den Namen eines Branchs, um ihn mit der Spitze eines
+anderen Branchs zu vergleichen.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-emgitdiffemltOptionengtltCommitgtltCommitgt--ltPfadgt82308203"> <a class="anchor" href="de.html#git-diff-emgitdiffemltOptionengtltCommitgtltCommitgt--ltPfadgt82308203"></a><em>git diff</em> [&lt;Optionen&gt;] &lt;Commit&gt; &lt;Commit&gt; [--] [&lt;Pfad&gt;&#8230;&#8203;] </dt>
+<dd>
+<p>Zeigt die Änderungen zwischen zwei beliebigen &lt;Commit&gt;s an.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-emgitdiffemltOptionengtltCommitgtltCommitgt--ltPfadgt82308203"> <a class="anchor" href="de.html#git-diff-emgitdiffemltOptionengtltCommitgtltCommitgt--ltPfadgt82308203"></a><em>git diff</em> [&lt;Optionen&gt;] &lt;Commit&gt;..&lt;Commit&gt; [--] [&lt;Pfad&gt;&#8230;&#8203;] </dt>
+<dd>
+<p>Dieser Aufruf bewirkt das Gleiche wie der vorherige. Wird &lt;Commit&gt; auf einer
+Seite weggelassen, so wird HEAD genommen.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-emgitdiffemltOptionengtltCommitgtltCommitgt82308203ltCommitgt--ltPfadgt82308203"> <a class="anchor" href="de.html#git-diff-emgitdiffemltOptionengtltCommitgtltCommitgt82308203ltCommitgt--ltPfadgt82308203"></a><em>git diff</em> [&lt;Optionen&gt;] &lt;Commit&gt; [&lt;Commit&gt;&#8230;&#8203;] &lt;Commit&gt; [--] [&lt;Pfad&gt;&#8230;&#8203;] </dt>
+<dd>
+<p>In dieser Form können Sie die Ergebnisse eines Merge Commits betrachten.
+Der erste aufgelistete &lt;Commit&gt; muss der Merge selbst sein; die restlichen
+zwei oder mehr Commits sollten seine Eltern sein.  Ein praktischer Weg, den
+gewünschten Satz von Revisionen zu erzeugen, ist die Verwendung des Suffixs
+^@.  Wenn z.B. <code>master</code> einen Merge-Commit benennt, ergibt <code>git diff
+master master^@</code> das gleiche kombinierte Diff wie <code>git show master</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-emgitdiffemltOptionengtltCommitgtltCommitgt--ltPfadgt82308203"> <a class="anchor" href="de.html#git-diff-emgitdiffemltOptionengtltCommitgtltCommitgt--ltPfadgt82308203"></a><em>git diff</em> [&lt;Optionen&gt;] &lt;Commit&gt;...&lt;Commit&gt; [--] [&lt;Pfad&gt;&#8230;&#8203;] </dt>
+<dd>
+<p>Dieser Befehl zeigt die Änderungen auf dem Branch an, der den zweiten
+&lt;Commit&gt; enthält, beginnend mit einem gemeinsamen Vorfahren beider
+&lt;Commit&gt;s, bis zum zweiten &lt;Commit&gt;.  "git diff A...B" ist äquivalent zu
+"git diff $(git merge-base A B) B".  Sie können einen der beiden &lt;Commit&gt;s
+weglassen, wodurch stattdessen HEAD eingesetzt wird.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Für alle exotischen Anwendungsfälle, weisen wir darauf hin, dass alle
+&lt;Commit&gt;s in den vorstehenden Beschreibungen, mit Ausnahme der letzten
+beiden Varianten, die die "&#8230;&#8203;"-Notationen verwenden, beliebige
+&lt;„Verzeichnis-Bäume“&gt; sein können.</p>
+</div>
+<div class="paragraph">
+<p>Eine ausführlichere Liste, wie &lt;commit&gt; spezifiziert werden kann, findet
+sich in <a href='../gitrevisions/de.html'>gitrevisions[7]</a> im Abschnitt „REVISIONEN SPEZIFIZIEREN“.
+Allerdings vergleicht "diff" immer zwei Versionen (<em>Endpunkte</em>) miteinander
+und keine Bereiche. Die Bereichsnotationen ("&lt;commit&gt;&#8230;&#8203;&lt;commit&gt;" und
+"&lt;commit&gt;...&lt;commit&gt;") bezeichnen hier also keinen <em>Bereich</em> (Range) wie es
+im Abschnitt "BEREICHE FESTLEGEN" in <a href='../gitrevisions/de.html'>gitrevisions[7]</a> beschrieben
+ist.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-diff-emgitdiffemltoptionsgtltblobgtltblobgt"> <a class="anchor" href="de.html#git-diff-emgitdiffemltoptionsgtltblobgtltblobgt"></a><em>git diff</em> [&lt;options&gt;] &lt;blob&gt; &lt;blob&gt; </dt>
+<dd>
+<p>Auf diese Art lassen sich die Unterschiede zwischen den Rohinhalten zweier
+Blob-Objekte anzeigen.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_optionen"><a class="anchor" href="de.html#_optionen"></a>OPTIONEN</h2>
+<div class="sectionbody">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Missing <code>de/diff-options.txt</code></p>
+</div>
+<div class="paragraph">
+<p>See original version for this content.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-diff--1--base"> <a class="anchor" href="de.html#git-diff--1--base"></a>-1 --base </dt>
+<dt class="hdlist1" id="git-diff--2--ours"> <a class="anchor" href="de.html#git-diff--2--ours"></a>-2 --ours </dt>
+<dt class="hdlist1" id="git-diff--3--theirs"> <a class="anchor" href="de.html#git-diff--3--theirs"></a>-3 --theirs </dt>
+<dd>
+<p>Vergleicht den Arbeitsbereich mit der "Basis"-Version (<em>base</em>, Stufe #1),
+„unserer Branch“ (<em>ours</em>, Stufe #2) oder „deren Branch“ (<em>theirs</em>, Stufe
+#3).  Der Index enthält diese Stufen nur für nicht gemergte Einträge,
+d.h. bei der Auflösung von Konflikten.  Siehe dazu <a href='../git-read-tree/de.html'>git-read-tree[1]</a>
+Abschnitt „3-Wege-Merge“ für weitere Informationen.</p>
+</dd>
+<dt class="hdlist1" id="git-diff--0"> <a class="anchor" href="de.html#git-diff--0"></a>-0 </dt>
+<dd>
+<p>Lässt die Diff-Ausgabe für nicht gemergte Beiträge weg und zeigt nur
+"Unmerged" an.  Kann nur verwendet werden, wenn der Arbeitsbereich mit dem
+Index verglichen wird.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-ltPfadgt82308203"> <a class="anchor" href="de.html#git-diff-ltPfadgt82308203"></a>&lt;Pfad&gt;&#8230;&#8203; </dt>
+<dd>
+<p>Die &lt;Pfad&gt;-Parameter, sofern angegeben, werden verwendet, um das diff auf
+die benannten Pfade zu beschränken (auch Verzeichnisnamen können angegeben
+werden, um ein diff für alle Dateien darin zu erhalten).</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Missing <code>de/diff-format.txt</code></p>
+</div>
+<div class="paragraph">
+<p>See original version for this content.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_beispiele"><a class="anchor" href="de.html#_beispiele"></a>BEISPIELE</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-diff-DiverseMethodenzumberprfenihresArbeitsbereichs"> <a class="anchor" href="de.html#git-diff-DiverseMethodenzumberprfenihresArbeitsbereichs"></a>Diverse Methoden zum Überprüfen ihres Arbeitsbereichs </dt>
+<dd>
+<div class="listingblock">
+<div class="content">
+<pre>$ git diff            <b class="conum">(1)</b>
+$ git diff --cached   <b class="conum">(2)</b>
+$ git diff HEAD       <b class="conum">(3)</b></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>Änderungen im Arbeitsbereich, die noch nicht im Index für den nächsten
+Commit vorbereitet wurden.</p>
+</li>
+<li>
+<p>Änderungen zwischen dem Index und dem letzten Commit. Die Daten, die Sie
+committen würden, wenn Sie <code>git commit</code> ohne die Option <code>-a</code> ausführen.</p>
+</li>
+<li>
+<p>Änderungen zwischen dem Index und dem letzten Commit. Das würden Sie
+committen, wenn Sie "git commit -a" ausführen</p>
+</li>
+</ol>
+</div>
+</dd>
+<dt class="hdlist1" id="git-diff-VergleichenbeliebigerCommits"> <a class="anchor" href="de.html#git-diff-VergleichenbeliebigerCommits"></a>Vergleichen beliebiger Commits </dt>
+<dd>
+<div class="listingblock">
+<div class="content">
+<pre>$ git diff test            <b class="conum">(1)</b>
+$ git diff HEAD -- ./test  <b class="conum">(2)</b>
+$ git diff HEAD^ HEAD      <b class="conum">(3)</b></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>Statt die neuesten Version des aktuellen Branchs zu verwenden, wird die
+neueste Version der Branch „test“ verglichen.</p>
+</li>
+<li>
+<p>Anstatt mit der neuesten Version der Branch „test“ zu vergleichen, wird mit
+der neuesten Version (<em>HEAD</em>) der aktuellen Branch verglichen, allerdings
+ist der Vergleich auf die bezeichnete Datei (<em>./test</em>) beschränkt.</p>
+</li>
+<li>
+<p>Vergleicht die Version <strong>vor</strong> dem letzten Commit mit dem letzten Commit.</p>
+</li>
+</ol>
+</div>
+</dd>
+<dt class="hdlist1" id="git-diff-Branchesvergleichen"> <a class="anchor" href="de.html#git-diff-Branchesvergleichen"></a>Branches vergleichen </dt>
+<dd>
+<div class="listingblock">
+<div class="content">
+<pre>$ git diff topic master    <b class="conum">(1)</b>
+$ git diff topic..master   <b class="conum">(2)</b>
+$ git diff topic...master  <b class="conum">(3)</b></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>Vergleich zwischen den neuesten Versionen der <em>topic</em> und der <em>master</em>
+Branch.</p>
+</li>
+<li>
+<p>Wie oben.</p>
+</li>
+<li>
+<p>Änderungen, die am Branch <em>master</em> seit Start des Branch <em>topic</em> vorgenommen
+wurden.</p>
+</li>
+</ol>
+</div>
+</dd>
+<dt class="hdlist1" id="git-diff-DieemdiffemAusgabeeinschrnken"> <a class="anchor" href="de.html#git-diff-DieemdiffemAusgabeeinschrnken"></a>Die <em>diff</em> Ausgabe einschränken </dt>
+<dd>
+<div class="listingblock">
+<div class="content">
+<pre>$ git diff --diff-filter=MRC            <b class="conum">(1)</b>
+$ git diff --name-status                <b class="conum">(2)</b>
+$ git diff arch/i386 include/asm-i386   <b class="conum">(3)</b></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>Zeigt nur die Änderung, Umbenennung und Kopie, aber keine Löschung oder
+Hinzufügung.</p>
+</li>
+<li>
+<p>Zeigt nur Namen und die Art der Änderung, nicht aber die tatsächliche
+Ausgabe von diff.</p>
+</li>
+<li>
+<p>Schränkt den Vergleich auf das benannte Unterverzeichnis ein.</p>
+</li>
+</ol>
+</div>
+</dd>
+<dt class="hdlist1" id="git-diff-Manipulationmungingderemdiffem-Ausgabe"> <a class="anchor" href="de.html#git-diff-Manipulationmungingderemdiffem-Ausgabe"></a>Manipulation (munging) der <em>diff</em>-Ausgabe </dt>
+<dd>
+<div class="listingblock">
+<div class="content">
+<pre>$ git diff --find-copies-harder -B -C  <b class="conum">(1)</b>
+$ git diff -R                          <b class="conum">(2)</b></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>Führt weitere Iterationen durch um Umbenennungen, Kopien und komplett
+neugeschriebene Teile zu finden (sehr zeitaufwendig!).</p>
+</li>
+<li>
+<p>Ausgabe in umgekehrter Reihenfolge.</p>
+</li>
+</ol>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_siehe_auch"><a class="anchor" href="de.html#_siehe_auch"></a>SIEHE AUCH</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>diff(1), <a href='../git-difftool/de.html'>git-difftool[1]</a>, <a href='../git-log/de.html'>git-log[1]</a>,
+<a href='../gitdiffcore/de.html'>gitdiffcore[7]</a>, <a href='../git-format-patch/de.html'>git-format-patch[1]</a>, <a href='../git-apply/de.html'>git-apply[1]</a>,
+<a href='../git-show/de.html'>git-show[1]</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git"><a class="anchor" href="de.html#_git"></a>GIT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Teil der <a href='../git/de.html'>git[1]</a> Suite</p>
+</div>
+</div>
+</div>
+  </div>
+
+        </div>
+      </div>
+      <footer>
+  <div class="site-source">
+    <a href="https://git-scm.com/site">About this site</a><br>
+    Patches, suggestions, and comments are welcome.
+  </div>
+  <div class="sfc-member">
+    Git is a member of <a href="https://git-scm.com/sfc">Software Freedom Conservancy</a>
+  </div>
+</footer>
+<a href="de.html#top" class="no-js scrollToTop" id="scrollToTop" data-label="Scroll to top">
+  <img src="../../images/icons/chevron-up@2x.png" width="20" height="20" alt="scroll-to-top"/>
+</a>
+<script src="../../assets/application-e12a0e837db60213b777cd7a706e0741beed474d7e5b94a641979fc87ce0d2cc.js"></script>
+
+    </div>
+
+</body>
+</html>

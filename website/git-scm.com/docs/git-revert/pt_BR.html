@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49925874-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-49925874-3');
+  </script>
+
+  <meta charset='utf-8'>
+  <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Git - git-revert Documentation</title>
+
+  <link href='../../favicon.ico' rel='shortcut icon' type='image/x-icon'>
+
+  <link rel="stylesheet" media="screen" href="../../assets/application-42b7b91ccf5cb92469695cf08b5da9e9230594f634cb88264f305d5bd54e477f.css" />
+  <script src="../../assets/modernize-b3ebe0c31c24f230dc62179d3e1030d2e57a53b1668d9382c0a27dbd44a94beb.js"></script>
+  <!--[if (gte IE 6)&(lte IE 8)]>
+  <script src="/javascripts/selectivizr-min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body id="documentation">
+
+  <div class="inner">
+    <header>
+
+  <a href="https://git-scm.com/"><img src="../../images/logo@2x.png" width="110" height="46" alt="Git" /></a>
+  <span id="tagline"></span>
+  <script type="text/javascript">
+    var taglines = ["fast-version-control","everything-is-local","distributed-even-if-your-workflow-isnt","local-branching-on-the-cheap","distributed-is-the-new-centralized"];
+    var tagline = taglines[Math.floor(Math.random() * taglines.length)];
+    document.getElementById('tagline').innerHTML = '--' + tagline;
+  </script>
+  <form id="search" action="https://git-scm.com/search/results">
+    <input id="search-text" name="search" placeholder="Search entire site..." autocomplete="off" type="text" />
+  </form>
+  <div id="search-results"></div>
+
+</header>
+
+  </div> <!-- .inner -->
+
+    <div class="inner">
+      <div id="content-wrapper">
+        <button class="sidebar-btn"></button>
+<aside class="sidebar" id="sidebar">
+  <nav>
+    <ul>
+      <li>
+        <a href="https://git-scm.com/about">About</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/about">Branching and Merging</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/small-and-fast">Small and Fast</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/distributed">Distributed</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/info-assurance">Data Assurance</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/staging-area">Staging Area</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/free-and-open-source">Free and Open Source</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/trademark">Trademark</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a class="active" href="https://git-scm.com/doc">Documentation</a>
+        <ul class="expanded">
+          <li>
+            <a class="active" href="../git-pack/pt_BR.html">Reference</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/book">Book</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/videos">Videos</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/doc/ext">External Links</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/downloads">Downloads</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/downloads/guis">GUI Clients</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/downloads/logos">Logos</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/community">Community</a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+
+        <div id="content">
+          
+  <div id='reference-version'>
+    <a class="dropdown-trigger" id="reference-languages-trigger" data-panel-id="l10n-versions-dropdown" href="pt_BR.html#">
+  Português (Brasil) ▾</a>
+<div class='dropdown-panel right' id='l10n-versions-dropdown'>
+  <header>Localized versions of <strong>git-revert</strong> manual</header>
+  <ol class='reference-previous-versions'>
+      <li>
+        <a href="en.html"><span class="version">English</span>
+        </a>
+        </li>
+      <li>
+        <a href="pt_BR.html"><span class="version">Português (Brasil)</span>
+        </a>
+        </li>
+  </ol>
+  <footer>
+    Want to read in your language or fix typos?<br/> <a href="https://github.com/jnavila/git-manpages-l10n">You can help translate this page</a>.
+  </footer>
+</div>
+
+    <a class="dropdown-trigger" id="reference-topics-trigger" data-panel-id="topics-dropdown" href="pt_BR.html#">Topics ▾</a>
+<div class='dropdown-panel right' id='topics-dropdown'>
+  <div class='three-column'>
+    <div class='column-left'>
+      <h3 class='setup'>Setup and Config</h3>
+<ul class='unstyled'>
+  <li><a href="../git/pt_BR.html">git</a></li>
+  <li><a href="../git-config/pt_BR.html">config</a></li>
+  <li><a href="../git-help/pt_BR.html">help</a></li>
+  <li><a href="../git-bugreport/pt_BR.html">bugreport</a></li>
+</ul>
+
+      <h3 class='projects'>Getting and Creating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-init/pt_BR.html">init</a></li>
+  <li><a href="../git-clone/pt_BR.html">clone</a></li>
+</ul>
+
+      <h3 class='snapshotting'>Basic Snapshotting</h3>
+<ul class='unstyled'>
+  <li><a href="../git-add/pt_BR.html">add</a></li>
+  <li><a href="../git-status/pt_BR.html">status</a></li>
+  <li><a href="../git-diff/pt_BR.html">diff</a></li>
+  <li><a href="../git-commit/pt_BR.html">commit</a></li>
+  <li><a href="../git-notes/pt_BR.html">notes</a></li>
+  <li><a href="../git-restore/pt_BR.html">restore</a></li>
+  <li><a href="../git-reset/pt_BR.html">reset</a></li>
+  <li><a href="../git-rm/pt_BR.html">rm</a></li>
+  <li><a href="../git-mv/pt_BR.html">mv</a></li>
+</ul>
+
+      <h3 class='branching'>Branching and Merging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-branch/pt_BR.html">branch</a></li>
+  <li><a href="../git-checkout/pt_BR.html">checkout</a></li>
+  <li><a href="../git-switch/pt_BR.html">switch</a></li>
+  <li><a href="../git-merge/pt_BR.html">merge</a></li>
+  <li><a href="../git-mergetool/pt_BR.html">mergetool</a></li>
+  <li><a href="../git-log/pt_BR.html">log</a></li>
+  <li><a href="../git-stash/pt_BR.html">stash</a></li>
+  <li><a href="../git-tag/pt_BR.html">tag</a></li>
+  <li><a href="../git-worktree/pt_BR.html">worktree</a></li>
+</ul>
+
+      <h3 class='sharing'>Sharing and Updating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-fetch/pt_BR.html">fetch</a></li>
+  <li><a href="../git-pull/pt_BR.html">pull</a></li>
+  <li><a href="../git-push/pt_BR.html">push</a></li>
+  <li><a href="../git-remote/pt_BR.html">remote</a></li>
+  <li><a href="../git-submodule/pt_BR.html">submodule</a></li>
+</ul>
+
+    </div>
+    <div class='column-middle'>
+      <h3 class='inspection'>Inspection and Comparison</h3>
+<ul class='unstyled'>
+  <li><a href="../git-show/pt_BR.html">show</a></li>
+  <li><a href="../git-log/pt_BR.html">log</a></li>
+  <li><a href="../git-diff/pt_BR.html">diff</a></li>
+  <li><a href="../git-difftool/pt_BR.html">difftool</a></li>
+  <li><a href="../git-range-diff/pt_BR.html">range-diff</a></li>
+  <li><a href="../git-shortlog/pt_BR.html">shortlog</a></li>
+  <li><a href="../git-describe/pt_BR.html">describe</a></li>
+</ul>
+
+      <h3 class='patching'>Patching</h3>
+<ul class='unstyled'>
+  <li><a href="../git-apply/pt_BR.html">apply</a></li>
+  <li><a href="../git-cherry-pick/pt_BR.html">cherry-pick</a></li>
+  <li><a href="../git-diff/pt_BR.html">diff</a></li>
+  <li><a href="../git-rebase/pt_BR.html">rebase</a></li>
+  <li><a class="active" href="pt_BR.html">revert</a></li>
+</ul>
+
+      <h3 class='debugging'>Debugging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-bisect/pt_BR.html">bisect</a></li>
+  <li><a href="../git-blame/pt_BR.html">blame</a></li>
+  <li><a href="../git-grep/pt_BR.html">grep</a></li>
+</ul>
+
+      <h3 class='email'>Email</h3>
+<ul class='unstyled'>
+  <li><a href="../git-am/pt_BR.html">am</a></li>
+  <li><a href="../git-apply/pt_BR.html">apply</a></li>
+  <li><a href="../git-format-patch/pt_BR.html">format-patch</a></li>
+  <li><a href="../git-send-email/pt_BR.html">send-email</a></li>
+  <li><a href="../git-request-pull/pt_BR.html">request-pull</a></li>
+</ul>
+
+      <h3 class='external'>External Systems</h3>
+<ul class='unstyled'>
+  <li><a href="../git-svn/pt_BR.html">svn</a></li>
+  <li><a href="../git-fast-import/pt_BR.html">fast-import</a></li>
+</ul>
+
+      <h3 class='server-admin'>Server Admin</h3>
+<ul class='unstyled'>
+  <li><a href="../git-daemon/pt_BR.html">daemon</a></li>
+  <li><a href="../git-update-server-info/pt_BR.html">update-server-info</a></li>
+</ul>
+
+    </div>
+    <div class='column-right'>
+      <h3 class='guides'>Guides</h3>
+<ul class='unstyled'>
+  <li><a href="../gitattributes/pt_BR.html">gitattributes</a></li>
+  <li><a href="../gitcli/pt_BR.html">Command-line interface conventions</a></li>
+  <li><a href="../giteveryday/pt_BR.html">Everyday Git</a></li>
+  <li><a href="../gitfaq/pt_BR.html">Frequently Asked Questions (FAQ)</a></li>
+  <li><a href="../gitglossary/pt_BR.html">Glossary</a></li>
+  <li><a href="../githooks/pt_BR.html">Hooks</a></li>
+  <li><a href="../gitignore/pt_BR.html">gitignore</a></li>
+  <li><a href="../gitmodules/pt_BR.html">gitmodules</a></li>
+  <li><a href="../gitrevisions/pt_BR.html">Revisions</a></li>
+  <li><a href="../gitsubmodules/pt_BR.html">Submodules</a></li>
+  <li><a href="../gittutorial/pt_BR.html">Tutorial</a></li>
+  <li><a href="../gitworkflows/pt_BR.html">Workflows</a></li>
+  <li><a href="../git/ru.html#_guides">All guides...</a></li>
+</ul>
+
+      <h3 class='admin'>Administration</h3>
+<ul class='unstyled'>
+  <li><a href="../git-clean/pt_BR.html">clean</a></li>
+  <li><a href="../git-gc/pt_BR.html">gc</a></li>
+  <li><a href="../git-fsck/pt_BR.html">fsck</a></li>
+  <li><a href="../git-reflog/pt_BR.html">reflog</a></li>
+  <li><a href="../git-filter-branch/pt_BR.html">filter-branch</a></li>
+  <li><a href="../git-instaweb/pt_BR.html">instaweb</a></li>
+  <li><a href="../git-archive/pt_BR.html">archive</a></li>
+  <li><a href="../git-bundle/pt_BR.html">bundle</a></li>
+</ul>
+
+      <h3 class='plumbing'>Plumbing Commands</h3>
+<ul class='unstyled'>
+  <li><a href="../git-cat-file/pt_BR.html">cat-file</a></li>
+  <li><a href="../git-check-ignore/pt_BR.html">check-ignore</a></li>
+  <li><a href="../git-checkout-index/pt_BR.html">checkout-index</a></li>
+  <li><a href="../git-commit-tree/pt_BR.html">commit-tree</a></li>
+  <li><a href="../git-count-objects/pt_BR.html">count-objects</a></li>
+  <li><a href="../git-diff-index/pt_BR.html">diff-index</a></li>
+  <li><a href="../git-for-each-ref/pt_BR.html">for-each-ref</a></li>
+  <li><a href="../git-hash-object/pt_BR.html">hash-object</a></li>
+  <li><a href="../git-ls-files/pt_BR.html">ls-files</a></li>
+  <li><a href="../git-ls-tree/pt_BR.html">ls-tree</a></li>
+  <li><a href="../git-merge-base/pt_BR.html">merge-base</a></li>
+  <li><a href="../git-read-tree/pt_BR.html">read-tree</a></li>
+  <li><a href="../git-rev-list/pt_BR.html">rev-list</a></li>
+  <li><a href="../git-rev-parse/pt_BR.html">rev-parse</a></li>
+  <li><a href="../git-show-ref/pt_BR.html">show-ref</a></li>
+  <li><a href="../git-symbolic-ref/pt_BR.html">symbolic-ref</a></li>
+  <li><a href="../git-update-index/pt_BR.html">update-index</a></li>
+  <li><a href="../git-update-ref/pt_BR.html">update-ref</a></li>
+  <li><a href="../git-verify-pack/pt_BR.html">verify-pack</a></li>
+  <li><a href="../git-write-tree/pt_BR.html">write-tree</a></li>
+</ul>
+
+    </div>
+  </div>
+</div>
+
+    <a class="dropdown-trigger" id="reference-versions-trigger" data-panel-id="previous-versions-dropdown" href="pt_BR.html#">
+      Latest version
+       ▾ </a>
+<span class="light d-flex">git-revert last updated in 2.34.1</span>
+<div class='dropdown-panel left' id='previous-versions-dropdown'>
+  <header>Changes in the <strong>git-revert</strong> manual</header>
+  <ol class='reference-previous-versions'>
+        <li class="no-change"><span>2.30.1 &rarr; 2.34.1 no changes</span></li>
+        <li>
+        <a href="2.30.0.html"><span class="version">2.30.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">12/27/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.27.1 &rarr; 2.29.3 no changes</span></li>
+        <li>
+        <a href="2.27.0.html"><span class="version">2.27.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">06/01/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.23.1 &rarr; 2.26.3 no changes</span></li>
+        <li>
+        <a href="2.23.0.html"><span class="version">2.23.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">08/16/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.22.1 &rarr; 2.22.5 no changes</span></li>
+        <li>
+        <a href="2.22.0.html"><span class="version">2.22.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">06/07/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.10.5 &rarr; 2.21.4 no changes</span></li>
+        <li>
+        <a href="2.9.5.html"><span class="version">2.9.5</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">07/30/17</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.8.6 no changes</span></li>
+        <li>
+        <a href="2.7.6.html"><span class="version">2.7.6</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">07/30/17</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.6.7.html"><span class="version">2.6.7</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">05/05/17</em>
+        </a>
+        </li>
+    <li>&nbsp;</li>
+    <!-- <li><a class="more" href="#">See more previous releases →</a></li> -->
+  </ol>
+  <footer>
+    <p>Check your version of git by running</p>
+    <code class="command">git --version</code>
+  </footer>
+</div>
+
+  </div>
+
+  <div id='main'>
+    <div class="sect1">
+<h2 id="_nome"><a class="anchor" href="pt_BR.html#_nome"></a>NOME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>git-revert - Reverte alguns commits existentes</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_resumo"><a class="anchor" href="pt_BR.html#_resumo"></a>RESUMO</h2>
+<div class="sectionbody">
+<div class="verseblock">
+<pre class="content"><em>git revert</em> [--[no-]edit] [-n] [-m parent-number] [-s] [-S[&lt;keyid&gt;]] &lt;commit&gt;&#8230;&#8203;
+<em>git revert</em> (--continue | --skip | --abort | --quit)</pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_descrição"><a class="anchor" href="pt_BR.html#_descrição"></a>DESCRIÇÃO</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Dado um ou mais commits já existentes, reverta as alterações introduzidas
+pelos patches relacionados e registre alguns novos commits que registram
+neles.  Isso requer que a sua árvore de trabalho esteja limpa (nenhuma
+alteração a partir do commit <code>HEAD</code>).</p>
+</div>
+<div class="paragraph">
+<p>Nota: <em>git revert</em> é utilizado para registrar alguns commits novos para
+reverter o efeito de alguns commits anteriores (geralmente apenas um com
+problema).  Caso queira descartar todos os commits das alterações que não
+foram aplicados no seu diretório de trabalho, você deve consultar
+<a href='../git-reset/pt_BR.html'>git-reset[1]</a>, em particular a opção <code>--hard</code>.  Caso queira extrair
+arquivos específicos da maneira que eles estavam em um outro commit, você
+deve consutar <a href='../git-restore/pt_BR.html'>git-restore[1]</a>, principalmente a opção
+<code>--source</code>. Tenha cuidado com ambas alternativas pois elas descartam
+qualquer modificação não aplicada no seu diretório de trabalho.</p>
+</div>
+<div class="paragraph">
+<p>Para as diferenças entre os três comandos consulte "Redefinir, restaurar e
+reverter" em <a href='../git/pt_BR.html'>git[1]</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_opções"><a class="anchor" href="pt_BR.html#_opções"></a>OPÇÕES</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-revert-ltcommitgt82308203"> <a class="anchor" href="pt_BR.html#git-revert-ltcommitgt82308203"></a>&lt;commit&gt;&#8230;&#8203; </dt>
+<dd>
+<p>Commits que serão revertidos.  Para obter uma lista mais completa das
+maneiras de como soletrar os nomes dos commits, consulte
+<a href='../gitrevisions/pt_BR.html'>gitrevisions[7]</a>  Um conjunto de commits também podem ser informados
+porém nenhuma travessia é feita por padrão, consulte <a href='../git-rev-list/pt_BR.html'>git-rev-list[1]</a>
+e a sua opção <code>--no-walk</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-revert--e"> <a class="anchor" href="pt_BR.html#git-revert--e"></a>-e </dt>
+<dt class="hdlist1" id="git-revert---edit"> <a class="anchor" href="pt_BR.html#git-revert---edit"></a>--edit </dt>
+<dd>
+<p>Com esta opção, o comando <em>git revert</em> permitirá a edição da mensagem do
+commit antes de fazer a reversão do commit. Esta é a predefinição caso
+execute o comando em um terminal.</p>
+</dd>
+<dt class="hdlist1" id="git-revert--mparent-number"> <a class="anchor" href="pt_BR.html#git-revert--mparent-number"></a>-m parent-number </dt>
+<dt class="hdlist1" id="git-revert---mainlineparent-number"> <a class="anchor" href="pt_BR.html#git-revert---mainlineparent-number"></a>--mainline parent-number </dt>
+<dd>
+<p>Geralmente, você não pode reverter uma mesclagem porque não sabe qual o lado
+da mesclagem deve ser considerado a linha principal.  Esta opção determina o
+número do pai (começando em 1) da linha principal e permite que a reversão
+reverta a alteração em relação ao pai informado.</p>
+<div class="paragraph">
+<p>A reversão da mesclagem de um commit declara que você nunca vai querer que
+as alterações na árvore sejam trazidas pela mesclagem.  Como resultado, as
+mesclagens posteriores trarão apenas as alterações na árvore introduzidas
+pelos commits que não sejam os ancestrais da mesclagem revertida
+anteriormente.  Isso pode ou não ser o que você queira.</p>
+</div>
+<div class="paragraph">
+<p>Consulte o <a href="https://git-scm.com/docs/howto/revert-a-faulty-merge/pt_BR">Como fazer um
+<em>revert-a-faulty-merge</em></a> para mais detalhes.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-revert---no-edit"> <a class="anchor" href="pt_BR.html#git-revert---no-edit"></a>--no-edit </dt>
+<dd>
+<p>Com esta opção, o comando <em>git revert</em> não iniciará o editor das mensagens
+do commit.</p>
+</dd>
+<dt class="hdlist1" id="git-revert---cleanupltmodogt"> <a class="anchor" href="pt_BR.html#git-revert---cleanupltmodogt"></a>--cleanup=&lt;modo&gt; </dt>
+<dd>
+<p>Essa opção define como a mensagem de commit sera limpa antes de ser
+encaminhada para o maquinário de commit. Para mais detalhes consulte
+<a href='../git-commit/pt_BR.html'>git-commit[1]</a>. Em particular, caso o valor <em>&lt;mode&gt;</em> tenha um valor
+de tesoura <code>scissors</code>, a tesoura será anexada a <code>MERGE_MSG</code> antes de ser
+repassada no caso de um conflito.</p>
+</dd>
+<dt class="hdlist1" id="git-revert--n"> <a class="anchor" href="pt_BR.html#git-revert--n"></a>-n </dt>
+<dt class="hdlist1" id="git-revert---no-commit"> <a class="anchor" href="pt_BR.html#git-revert---no-commit"></a>--no-commit </dt>
+<dd>
+<p>Geralmente, o comando cria automaticamente alguns commits com mensagens no
+registro log informando quais commits foram revertidos.  Esta opção aplica
+as alterações necessárias para reverter os commits informados para a sua
+árvore de trabalho e o índice, mas não faz os commits.  Além disso, quando
+esta opção é utilizada, o seu índice não precisa coincidir ao HEAD do
+commit.  A reversão é feita na condição inicial do seu índice.</p>
+<div class="paragraph">
+<p>Isso é útil durante ao reverter o efeito de um ou mais commits no seu
+índice, em uma linha.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-revert--Sltkeyidgt"> <a class="anchor" href="pt_BR.html#git-revert--Sltkeyidgt"></a>-S[&lt;keyid&gt;] </dt>
+<dt class="hdlist1" id="git-revert---gpg-signltkeyidgt"> <a class="anchor" href="pt_BR.html#git-revert---gpg-signltkeyidgt"></a>--gpg-sign[=&lt;keyid&gt;] </dt>
+<dt class="hdlist1" id="git-revert---no-gpg-sign"> <a class="anchor" href="pt_BR.html#git-revert---no-gpg-sign"></a>--no-gpg-sign </dt>
+<dd>
+<p>Commits assinados com o GPG O argumento <code>keyid</code> é opcional e a predefinição
+retorna para a identidade de quem fez o commit; caso seja utilizado, deve
+estar anexado a opção e sem espaço. A opção <code>--no-gpg-sign</code> é útil para
+revogar a variável de configuração <code>commit.gpgSign</code> e a anterior
+<code>--gpg-sign</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-revert--s"> <a class="anchor" href="pt_BR.html#git-revert--s"></a>-s </dt>
+<dt class="hdlist1" id="git-revert---signoff"> <a class="anchor" href="pt_BR.html#git-revert---signoff"></a>--signoff </dt>
+<dd>
+<p>Adicione uma linha de assinatura no final da mensagem do commit.  Para mais
+informações, consulte a opção <em>signoff</em> em <a href='../git-commit/pt_BR.html'>git-commit[1]</a>.</p>
+</dd>
+<dt class="hdlist1" id="git-revert---strategyltestratgiagt"> <a class="anchor" href="pt_BR.html#git-revert---strategyltestratgiagt"></a>--strategy=&lt;estratégia&gt; </dt>
+<dd>
+<p>Use a estratégia de mesclagem fornecida. Deve ser usado apenas uma vez.
+Veja a seção MERGE STRATEGIES em <a href='../git-merge/pt_BR.html'>git-merge[1]</a> para detalhes.</p>
+</dd>
+<dt class="hdlist1" id="git-revert--Xltopogt"> <a class="anchor" href="pt_BR.html#git-revert--Xltopogt"></a>-X&lt;opção&gt; </dt>
+<dt class="hdlist1" id="git-revert---strategy-optionltopogt"> <a class="anchor" href="pt_BR.html#git-revert---strategy-optionltopogt"></a>--strategy-option=&lt;opção&gt; </dt>
+<dd>
+<p>Encaminhe a um opção específica até a estratégia de mesclagem.  Para mais
+detalhes, consulte <a href='../git-merge/pt_BR.html'>git-merge[1]</a>.</p>
+</dd>
+<dt class="hdlist1" id="git-revert---rerere-autoupdate"> <a class="anchor" href="pt_BR.html#git-revert---rerere-autoupdate"></a>--rerere-autoupdate </dt>
+<dt class="hdlist1" id="git-revert---no-rerere-autoupdate"> <a class="anchor" href="pt_BR.html#git-revert---no-rerere-autoupdate"></a>--no-rerere-autoupdate </dt>
+<dd>
+<p>Permita que o mecanismo "rerere" atualize o índice com o resultado da
+resolução automática de conflitos, caso seja possível.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sequencer_subcomandos"><a class="anchor" href="pt_BR.html#_sequencer_subcomandos"></a>SEQUENCER SUBCOMANDOS</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-revert---continue"> <a class="anchor" href="pt_BR.html#git-revert---continue"></a>--continue </dt>
+<dd>
+<p>Continue a operação em andamento utilizando as informações existentes em
+<code>.git/sequencer</code>.  Pode ser utilizado para continuar após a resolução dos
+conflitos em uma falha na seleção ou reversão da escolha seletiva.</p>
+</dd>
+<dt class="hdlist1" id="git-revert---skip"> <a class="anchor" href="pt_BR.html#git-revert---skip"></a>--skip </dt>
+<dd>
+<p>Ignore o commit atual e continue com o restante da sequência.</p>
+</dd>
+<dt class="hdlist1" id="git-revert---quit"> <a class="anchor" href="pt_BR.html#git-revert---quit"></a>--quit </dt>
+<dd>
+<p>Esqueça a operação atual em andamento.  Pode ser utilizado para limpar a
+condição do sequenciador após uma falha na seleção ou reversão de uma
+escolha seletiva.</p>
+</dd>
+<dt class="hdlist1" id="git-revert---abort"> <a class="anchor" href="pt_BR.html#git-revert---abort"></a>--abort </dt>
+<dd>
+<p>Cancele a operação e retorne a condição pré-sequência.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exemplos"><a class="anchor" href="pt_BR.html#_exemplos"></a>EXEMPLOS</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-revert-codegitrevertHEAD3code"> <a class="anchor" href="pt_BR.html#git-revert-codegitrevertHEAD3code"></a><code>git revert HEAD~3</code> </dt>
+<dd>
+<p>Reverta as alterações informadas pelo quarto último commit no HEAD e crie um
+novo commit com as alterações revertidas.</p>
+</dd>
+<dt class="hdlist1" id="git-revert-codegitrevert-nmaster5master2code"> <a class="anchor" href="pt_BR.html#git-revert-codegitrevert-nmaster5master2code"></a><code>git revert -n master~5..master~2</code> </dt>
+<dd>
+<p>Reverta as alterações feitas pelos commits do quinto último commit no master
+(incluso) para o terceiro último commit no master (incluso), porém não crie
+nenhum commit com as alterações revertidas. A reversão altera apenas a
+árvore de trabalho e o índice.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_veja_também"><a class="anchor" href="pt_BR.html#_veja_também"></a>VEJA TAMBÉM</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href='../git-cherry-pick/pt_BR.html'>git-cherry-pick[1]</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git"><a class="anchor" href="pt_BR.html#_git"></a>GIT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Parte do conjunto <a href='../git/pt_BR.html'>git[1]</a></p>
+</div>
+</div>
+</div>
+  </div>
+
+        </div>
+      </div>
+      <footer>
+  <div class="site-source">
+    <a href="https://git-scm.com/site">About this site</a><br>
+    Patches, suggestions, and comments are welcome.
+  </div>
+  <div class="sfc-member">
+    Git is a member of <a href="https://git-scm.com/sfc">Software Freedom Conservancy</a>
+  </div>
+</footer>
+<a href="pt_BR.html#top" class="no-js scrollToTop" id="scrollToTop" data-label="Scroll to top">
+  <img src="../../images/icons/chevron-up@2x.png" width="20" height="20" alt="scroll-to-top"/>
+</a>
+<script src="../../assets/application-e12a0e837db60213b777cd7a706e0741beed474d7e5b94a641979fc87ce0d2cc.js"></script>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49925874-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-49925874-3');
+  </script>
+
+  <meta charset='utf-8'>
+  <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Git - git-http-backend Documentation</title>
+
+  <link href='../../favicon.ico' rel='shortcut icon' type='image/x-icon'>
+
+  <link rel="stylesheet" media="screen" href="../../assets/application-42b7b91ccf5cb92469695cf08b5da9e9230594f634cb88264f305d5bd54e477f.css" />
+  <script src="../../assets/modernize-b3ebe0c31c24f230dc62179d3e1030d2e57a53b1668d9382c0a27dbd44a94beb.js"></script>
+  <!--[if (gte IE 6)&(lte IE 8)]>
+  <script src="/javascripts/selectivizr-min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body id="documentation">
+
+  <div class="inner">
+    <header>
+
+  <a href="https://git-scm.com/"><img src="../../images/logo@2x.png" width="110" height="46" alt="Git" /></a>
+  <span id="tagline"></span>
+  <script type="text/javascript">
+    var taglines = ["fast-version-control","everything-is-local","distributed-even-if-your-workflow-isnt","local-branching-on-the-cheap","distributed-is-the-new-centralized"];
+    var tagline = taglines[Math.floor(Math.random() * taglines.length)];
+    document.getElementById('tagline').innerHTML = '--' + tagline;
+  </script>
+  <form id="search" action="https://git-scm.com/search/results">
+    <input id="search-text" name="search" placeholder="Search entire site..." autocomplete="off" type="text" />
+  </form>
+  <div id="search-results"></div>
+
+</header>
+
+  </div> <!-- .inner -->
+
+    <div class="inner">
+      <div id="content-wrapper">
+        <button class="sidebar-btn"></button>
+<aside class="sidebar" id="sidebar">
+  <nav>
+    <ul>
+      <li>
+        <a href="https://git-scm.com/about">About</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/about">Branching and Merging</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/small-and-fast">Small and Fast</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/distributed">Distributed</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/info-assurance">Data Assurance</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/staging-area">Staging Area</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/free-and-open-source">Free and Open Source</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/trademark">Trademark</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a class="active" href="https://git-scm.com/doc">Documentation</a>
+        <ul class="expanded">
+          <li>
+            <a class="active" href="../git-pack/pt_BR.html">Reference</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/book">Book</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/videos">Videos</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/doc/ext">External Links</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/downloads">Downloads</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/downloads/guis">GUI Clients</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/downloads/logos">Logos</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/community">Community</a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+
+        <div id="content">
+          
+  <div id='reference-version'>
+    <a class="dropdown-trigger" id="reference-languages-trigger" data-panel-id="l10n-versions-dropdown" href="pt_BR.html#">
+  Português (Brasil) ▾</a>
+<div class='dropdown-panel right' id='l10n-versions-dropdown'>
+  <header>Localized versions of <strong>git-http-backend</strong> manual</header>
+  <ol class='reference-previous-versions'>
+      <li>
+        <a href="en.html"><span class="version">English</span>
+        </a>
+        </li>
+      <li>
+        <a href="pt_BR.html"><span class="version">Português (Brasil)</span>
+        </a>
+        </li>
+  </ol>
+  <footer>
+    Want to read in your language or fix typos?<br/> <a href="https://github.com/jnavila/git-manpages-l10n">You can help translate this page</a>.
+  </footer>
+</div>
+
+    <a class="dropdown-trigger" id="reference-topics-trigger" data-panel-id="topics-dropdown" href="pt_BR.html#">Topics ▾</a>
+<div class='dropdown-panel right' id='topics-dropdown'>
+  <div class='three-column'>
+    <div class='column-left'>
+      <h3 class='setup'>Setup and Config</h3>
+<ul class='unstyled'>
+  <li><a href="../git/pt_BR.html">git</a></li>
+  <li><a href="../git-config/pt_BR.html">config</a></li>
+  <li><a href="../git-help/pt_BR.html">help</a></li>
+  <li><a href="../git-bugreport/pt_BR.html">bugreport</a></li>
+</ul>
+
+      <h3 class='projects'>Getting and Creating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-init/pt_BR.html">init</a></li>
+  <li><a href="../git-clone/pt_BR.html">clone</a></li>
+</ul>
+
+      <h3 class='snapshotting'>Basic Snapshotting</h3>
+<ul class='unstyled'>
+  <li><a href="../git-add/pt_BR.html">add</a></li>
+  <li><a href="../git-status/pt_BR.html">status</a></li>
+  <li><a href="../git-diff/pt_BR.html">diff</a></li>
+  <li><a href="../git-commit/pt_BR.html">commit</a></li>
+  <li><a href="../git-notes/pt_BR.html">notes</a></li>
+  <li><a href="../git-restore/pt_BR.html">restore</a></li>
+  <li><a href="../git-reset/pt_BR.html">reset</a></li>
+  <li><a href="../git-rm/pt_BR.html">rm</a></li>
+  <li><a href="../git-mv/pt_BR.html">mv</a></li>
+</ul>
+
+      <h3 class='branching'>Branching and Merging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-branch/pt_BR.html">branch</a></li>
+  <li><a href="../git-checkout/pt_BR.html">checkout</a></li>
+  <li><a href="../git-switch/pt_BR.html">switch</a></li>
+  <li><a href="../git-merge/pt_BR.html">merge</a></li>
+  <li><a href="../git-mergetool/pt_BR.html">mergetool</a></li>
+  <li><a href="../git-log/pt_BR.html">log</a></li>
+  <li><a href="../git-stash/pt_BR.html">stash</a></li>
+  <li><a href="../git-tag/pt_BR.html">tag</a></li>
+  <li><a href="../git-worktree/pt_BR.html">worktree</a></li>
+</ul>
+
+      <h3 class='sharing'>Sharing and Updating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-fetch/pt_BR.html">fetch</a></li>
+  <li><a href="../git-pull/pt_BR.html">pull</a></li>
+  <li><a href="../git-push/pt_BR.html">push</a></li>
+  <li><a href="../git-remote/pt_BR.html">remote</a></li>
+  <li><a href="../git-submodule/pt_BR.html">submodule</a></li>
+</ul>
+
+    </div>
+    <div class='column-middle'>
+      <h3 class='inspection'>Inspection and Comparison</h3>
+<ul class='unstyled'>
+  <li><a href="../git-show/pt_BR.html">show</a></li>
+  <li><a href="../git-log/pt_BR.html">log</a></li>
+  <li><a href="../git-diff/pt_BR.html">diff</a></li>
+  <li><a href="../git-difftool/pt_BR.html">difftool</a></li>
+  <li><a href="../git-range-diff/pt_BR.html">range-diff</a></li>
+  <li><a href="../git-shortlog/pt_BR.html">shortlog</a></li>
+  <li><a href="../git-describe/pt_BR.html">describe</a></li>
+</ul>
+
+      <h3 class='patching'>Patching</h3>
+<ul class='unstyled'>
+  <li><a href="../git-apply/pt_BR.html">apply</a></li>
+  <li><a href="../git-cherry-pick/pt_BR.html">cherry-pick</a></li>
+  <li><a href="../git-diff/pt_BR.html">diff</a></li>
+  <li><a href="../git-rebase/pt_BR.html">rebase</a></li>
+  <li><a href="../git-revert/pt_BR.html">revert</a></li>
+</ul>
+
+      <h3 class='debugging'>Debugging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-bisect/pt_BR.html">bisect</a></li>
+  <li><a href="../git-blame/pt_BR.html">blame</a></li>
+  <li><a href="../git-grep/pt_BR.html">grep</a></li>
+</ul>
+
+      <h3 class='email'>Email</h3>
+<ul class='unstyled'>
+  <li><a href="../git-am/pt_BR.html">am</a></li>
+  <li><a href="../git-apply/pt_BR.html">apply</a></li>
+  <li><a href="../git-format-patch/pt_BR.html">format-patch</a></li>
+  <li><a href="../git-send-email/pt_BR.html">send-email</a></li>
+  <li><a href="../git-request-pull/pt_BR.html">request-pull</a></li>
+</ul>
+
+      <h3 class='external'>External Systems</h3>
+<ul class='unstyled'>
+  <li><a href="../git-svn/pt_BR.html">svn</a></li>
+  <li><a href="../git-fast-import/pt_BR.html">fast-import</a></li>
+</ul>
+
+      <h3 class='server-admin'>Server Admin</h3>
+<ul class='unstyled'>
+  <li><a href="../git-daemon/pt_BR.html">daemon</a></li>
+  <li><a href="../git-update-server-info/pt_BR.html">update-server-info</a></li>
+</ul>
+
+    </div>
+    <div class='column-right'>
+      <h3 class='guides'>Guides</h3>
+<ul class='unstyled'>
+  <li><a href="../gitattributes/pt_BR.html">gitattributes</a></li>
+  <li><a href="../gitcli/pt_BR.html">Command-line interface conventions</a></li>
+  <li><a href="../giteveryday/pt_BR.html">Everyday Git</a></li>
+  <li><a href="../gitfaq/pt_BR.html">Frequently Asked Questions (FAQ)</a></li>
+  <li><a href="../gitglossary/pt_BR.html">Glossary</a></li>
+  <li><a href="../githooks/pt_BR.html">Hooks</a></li>
+  <li><a href="../gitignore/pt_BR.html">gitignore</a></li>
+  <li><a href="../gitmodules/pt_BR.html">gitmodules</a></li>
+  <li><a href="../gitrevisions/pt_BR.html">Revisions</a></li>
+  <li><a href="../gitsubmodules/pt_BR.html">Submodules</a></li>
+  <li><a href="../gittutorial/pt_BR.html">Tutorial</a></li>
+  <li><a href="../gitworkflows/pt_BR.html">Workflows</a></li>
+  <li><a href="../git/ru.html#_guides">All guides...</a></li>
+</ul>
+
+      <h3 class='admin'>Administration</h3>
+<ul class='unstyled'>
+  <li><a href="../git-clean/pt_BR.html">clean</a></li>
+  <li><a href="../git-gc/pt_BR.html">gc</a></li>
+  <li><a href="../git-fsck/pt_BR.html">fsck</a></li>
+  <li><a href="../git-reflog/pt_BR.html">reflog</a></li>
+  <li><a href="../git-filter-branch/pt_BR.html">filter-branch</a></li>
+  <li><a href="../git-instaweb/pt_BR.html">instaweb</a></li>
+  <li><a href="../git-archive/pt_BR.html">archive</a></li>
+  <li><a href="../git-bundle/pt_BR.html">bundle</a></li>
+</ul>
+
+      <h3 class='plumbing'>Plumbing Commands</h3>
+<ul class='unstyled'>
+  <li><a href="../git-cat-file/pt_BR.html">cat-file</a></li>
+  <li><a href="../git-check-ignore/pt_BR.html">check-ignore</a></li>
+  <li><a href="../git-checkout-index/pt_BR.html">checkout-index</a></li>
+  <li><a href="../git-commit-tree/pt_BR.html">commit-tree</a></li>
+  <li><a href="../git-count-objects/pt_BR.html">count-objects</a></li>
+  <li><a href="../git-diff-index/pt_BR.html">diff-index</a></li>
+  <li><a href="../git-for-each-ref/pt_BR.html">for-each-ref</a></li>
+  <li><a href="../git-hash-object/pt_BR.html">hash-object</a></li>
+  <li><a href="../git-ls-files/pt_BR.html">ls-files</a></li>
+  <li><a href="../git-ls-tree/pt_BR.html">ls-tree</a></li>
+  <li><a href="../git-merge-base/pt_BR.html">merge-base</a></li>
+  <li><a href="../git-read-tree/pt_BR.html">read-tree</a></li>
+  <li><a href="../git-rev-list/pt_BR.html">rev-list</a></li>
+  <li><a href="../git-rev-parse/pt_BR.html">rev-parse</a></li>
+  <li><a href="../git-show-ref/pt_BR.html">show-ref</a></li>
+  <li><a href="../git-symbolic-ref/pt_BR.html">symbolic-ref</a></li>
+  <li><a href="../git-update-index/pt_BR.html">update-index</a></li>
+  <li><a href="../git-update-ref/pt_BR.html">update-ref</a></li>
+  <li><a href="../git-verify-pack/pt_BR.html">verify-pack</a></li>
+  <li><a href="../git-write-tree/pt_BR.html">write-tree</a></li>
+</ul>
+
+    </div>
+  </div>
+</div>
+
+    <a class="dropdown-trigger" id="reference-versions-trigger" data-panel-id="previous-versions-dropdown" href="pt_BR.html#">
+      Latest version
+       ▾ </a>
+<span class="light d-flex">git-http-backend last updated in 2.34.1</span>
+<div class='dropdown-panel left' id='previous-versions-dropdown'>
+  <header>Changes in the <strong>git-http-backend</strong> manual</header>
+  <ol class='reference-previous-versions'>
+        <li class="no-change"><span>2.34.1 no changes</span></li>
+        <li>
+        <a href="2.34.0.html"><span class="version">2.34.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+          </span>
+          <em class="date">11/15/21</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.22.1 &rarr; 2.33.1 no changes</span></li>
+        <li>
+        <a href="2.22.0.html"><span class="version">2.22.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">06/07/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.10.5 &rarr; 2.21.4 no changes</span></li>
+        <li>
+        <a href="2.9.5.html"><span class="version">2.9.5</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">07/30/17</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.5.6 &rarr; 2.8.6 no changes</span></li>
+        <li>
+        <a href="2.4.12.html"><span class="version">2.4.12</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">05/05/17</em>
+        </a>
+        </li>
+    <li>&nbsp;</li>
+    <!-- <li><a class="more" href="#">See more previous releases →</a></li> -->
+  </ol>
+  <footer>
+    <p>Check your version of git by running</p>
+    <code class="command">git --version</code>
+  </footer>
+</div>
+
+  </div>
+
+  <div id='main'>
+    <div class="sect1">
+<h2 id="_nome"><a class="anchor" href="pt_BR.html#_nome"></a>NOME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>git-http-backend - Implementação do servidor do Git sobre HTTP</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_resumo"><a class="anchor" href="pt_BR.html#_resumo"></a>RESUMO</h2>
+<div class="sectionbody">
+<div class="verseblock">
+<pre class="content"><em>git http-backend</em></pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_descrição"><a class="anchor" href="pt_BR.html#_descrição"></a>DESCRIÇÃO</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Um simples programa CGI para servir o conteúdo de um repositório Git para os
+clientes Git acessando o repositório nos protocolos http:// e https://.  O
+programa suporta a busca de clientes utilizando o protocolo HTTP inteligente
+e o protocolo HTTP antigo compatível com as versões anteriores, bem como os
+clientes impulsionando através do protocolo HTTP inteligente.</p>
+</div>
+<div class="paragraph">
+<p>Verifica se o diretório possui o arquivo mágico "git-daemon-export-ok" e se
+recusará a exportar qualquer diretório Git que não tenha sido explicitamente
+marcado para exportação (a menos que a variável ambiental
+<code>GIT_HTTP_EXPORT_ALL</code> esteja definida) .</p>
+</div>
+<div class="paragraph">
+<p>É predefinido que apenas o serviço <code>upload-pack</code> esteja ativo, o que atende
+aos clientes <em>git fetch-pack</em> e <em>git ls-remote</em>, que são chamados através do
+comando <em>git fetch</em>, <em>git pull</em> e <em>git clone</em> .  Caso o cliente seja
+autenticado, o serviço <code>receive-pack</code> é ativado, que oferece o <em>git
+send-pack</em> aos clientes, que é chamado a partir do comando <em>git push</em>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_serviços"><a class="anchor" href="pt_BR.html#_serviços"></a>SERVIÇOS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Estes serviços podem ser ativados/desativados usando o arquivo de
+configuração por repositório:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-http-backend-httpgetanyfile"> <a class="anchor" href="pt_BR.html#git-http-backend-httpgetanyfile"></a>http.getanyfile </dt>
+<dd>
+<p>Isso atende aos clientes Git anteriores à versão 1.6.6 que não conseguem
+utilizar o serviço do pacote de upload.  Quando ativado, os clientes podem
+ler qualquer arquivo no repositório, incluindo os objetos que não são mais
+acessíveis a partir de um ramo, mas ainda estão presentes.  É predefinido
+que esteja ativo, porém um repositório pode desativá-lo definindo este item
+de configuração como <code>false</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-http-backend-httpuploadpack"> <a class="anchor" href="pt_BR.html#git-http-backend-httpuploadpack"></a>http.uploadpack </dt>
+<dd>
+<p>Isso serve aos clientes <em>git fetch-pack</em> e <em>git ls-remote</em>.  A predefinição
+é estar sempre ativo, porém um repositório pode desativá-lo ao definir este
+item de configuração como <code>false</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-http-backend-httpreceivepack"> <a class="anchor" href="pt_BR.html#git-http-backend-httpreceivepack"></a>http.receivepack </dt>
+<dd>
+<p>Serve aos clientes o <em>git send-pack</em>, permitindo impulsionamento "push".  É
+predefinido que esteja inativo para os usuários anônimos e ativado para os
+usuários autenticados através do servidor da web.  Pode ser inativado caso
+este item seja definido como <code>false</code> ou ativado para todos os usuários,
+incluindo os usuários anônimos, caso seja definido como <code>true</code>.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tradução_de_url"><a class="anchor" href="pt_BR.html#_tradução_de_url"></a>TRADUÇÃO DE URL</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Para determinar a localização do repositório no disco, o comando <em>git
+http-backend</em> concatena as variáveis do ambiente <code>PATH_INFO</code>, que são
+definidas automaticamente através do servidor web, e o <code>GIT_PROJECT_ROOT</code>,
+que deve ser definido manualmente na configuração do servidor da web.  Caso
+o <code>GIT_PROJECT_ROOT</code> não esteja definido, o comando <em>git http-backend</em>
+exibirá o <code>PATH_TRANSLATED</code>, que também é definido automaticamente através
+do servidor web.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exemplos"><a class="anchor" href="pt_BR.html#_exemplos"></a>EXEMPLOS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Todos os exemplos a seguir mapeiam o <code>http://$hostname/git/foo/bar.git</code> para
+<code>/var/www/git/foo/bar.git</code>.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-http-backend-Apache2x"> <a class="anchor" href="pt_BR.html#git-http-backend-Apache2x"></a>Apache 2.x </dt>
+<dd>
+<p>Certifique-se que o <em>mod_cgi</em>, <em>mod_alias</em> e <em>mod_env</em> estejam ativos,
+defina o <code>GIT_PROJECT_ROOT</code> (ou <em>DocumentRoot</em>) adequadamente e crie um
+"ScriptAlias" para o CGI:</p>
+<div class="listingblock">
+<div class="content">
+<pre>SetEnv GIT_PROJECT_ROOT /var/www/git
+SetEnv GIT_HTTP_EXPORT_ALL
+ScriptAlias /git/ /usr/libexec/git-core/git-http-backend/</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Para habilitar o acesso de leitura anônima, porém com acesso de gravação
+autenticado, exija a autorização para o anúncio da "ref" inicial (que
+detectamos como um "push" por meio do parâmetro "service" na cadeia de
+consulta) e a própria chamada do pacote de recebimento:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>RewriteCond %{QUERY_STRING} service=git-receive-pack [OR]
+RewriteCond %{REQUEST_URI} /git-receive-pack$
+RewriteRule ^/git/ - [E=AUTHREQUIRED:yes]
+
+&lt;LocationMatch "^/git/"&gt;
+	Order Deny,Allow
+	Deny from env=AUTHREQUIRED
+
+	AuthType Basic
+	AuthName "Git Access"
+	Require group committers
+	Satisfy Any
+	...
+&lt;/LocationMatch&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Caso não tenha o <code>mod_rewrite</code> disponível para coincidir com o texto sob
+consulta é suficiente apenas para proteger o próprio` git-receive-pack`,
+como:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;LocationMatch "^/git/.*/git-receive-pack$"&gt;
+	AuthType Basic
+	AuthName "Acesso Git"
+	Require group committers
+	...
+&lt;/LocationMatch&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Nesse modo, o servidor não solicitará uma autenticação até que o cliente
+realmente inicie a fase de negociação do objeto impulsionado (push) e não
+durante o contato inicial.  Por este motivo, você também deve ativar a opção
+da configuração <code>http.receivepack</code> em qualquer repositório que aceite um
+impulsionamento "push". O comportamento predefinido, caso a variável
+<code>http.receivepack</code> não esteja definida, é rejeitar qualquer impulsionamento
+"push" feito pelos usuários não autenticados; a solicitação inicial
+reportará, <em>403 Proibido</em> ao cliente, sem qualquer chance para uma
+autenticação.</p>
+</div>
+<div class="paragraph">
+<p>Para exigir a autenticação para ambas as leituras e gravações, utilize uma
+diretiva local ao redor do repositório ou um dos seus diretórios upstream:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;Location /git/private&gt;
+	AuthType Basic
+	AuthName "Acesso Git Privado"
+	Require group committers
+	...
+&lt;/Location&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Para veicular o gitweb na mesma URL, utilize um <em>ScriptAliasMatch</em> apenas
+para ss URLs que o <em>git http-backend</em> pode manipular e encaminhe o restante
+para o gitweb:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>ScriptAliasMatch \
+	"(?x)^/git/(.*/(HEAD | \
+			info/refs | \
+			objects/(info/[^/]+ | \
+				 [0-9a-f]{2}/[0-9a-f]{38} | \
+				 pack/pack-[0-9a-f]{40}\.(pack|idx)) | \
+			git-(upload|receive)-pack))$" \
+	/usr/libexec/git-core/git-http-backend/$1
+
+ScriptAlias /git/ /var/www/cgi-bin/gitweb.cgi/</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Para servir os vários repositórios vindos de diferentes
+<a href='../gitnamespaces/pt_BR.html'>gitnamespaces[7]</a> em um único repositório:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>SetEnvIf Request_URI "^/git/([^/]*)" GIT_NAMESPACE=$1
+ScriptAliasMatch ^/git/[^/]*(.*) /usr/libexec/git-core/git-http-backend/storage.git$1</pre>
+</div>
+</div>
+</dd>
+<dt class="hdlist1" id="git-http-backend-Apacheestticoacelerado2x"> <a class="anchor" href="pt_BR.html#git-http-backend-Apacheestticoacelerado2x"></a>Apache estático acelerado 2.x </dt>
+<dd>
+<p>Semelhante ao anterior, porém o Apache pode ser usado para retornar arquivos
+estáticos armazenados no disco.  Isso pode ser mais eficiente em muitos
+sistemas, pois o Apache pode solicitar ao kernel que copie o conteúdo do
+arquivo do sistema de arquivos diretamente para a rede:</p>
+<div class="listingblock">
+<div class="content">
+<pre>SetEnv GIT_PROJECT_ROOT /var/www/git
+
+AliasMatch ^/git/(.*/objects/[0-9a-f]{2}/[0-9a-f]{38})$          /var/www/git/$1
+AliasMatch ^/git/(.*/objects/pack/pack-[0-9a-f]{40}.(pack|idx))$ /var/www/git/$1
+ScriptAlias /git/ /usr/libexec/git-core/git-http-backend/</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pode ser combinado com a configuração do gitweb:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>SetEnv GIT_PROJECT_ROOT /var/www/git
+
+AliasMatch ^/git/(.*/objects/[0-9a-f]{2}/[0-9a-f]{38})$          /var/www/git/$1
+AliasMatch ^/git/(.*/objects/pack/pack-[0-9a-f]{40}.(pack|idx))$ /var/www/git/$1
+ScriptAliasMatch \
+	"(?x)^/git/(.*/(HEAD | \
+			info/refs | \
+			objects/info/[^/]+ | \
+			git-(upload|receive)-pack))$" \
+	/usr/libexec/git-core/git-http-backend/$1
+ScriptAlias /git/ /var/www/cgi-bin/gitweb.cgi/</pre>
+</div>
+</div>
+</dd>
+<dt class="hdlist1" id="git-http-backend-Lighttpd"> <a class="anchor" href="pt_BR.html#git-http-backend-Lighttpd"></a>Lighttpd </dt>
+<dd>
+<p>Certifique-se de que <code>mod_cgi</code>, <code>mod_alias</code>, <code>mod_auth</code>, <code>mod_setenv</code>
+estejam carregados, então defina a variável <code>GIT_PROJECT_ROOT</code> adequadamente
+e redirecione todas as solicitações para o CGI:</p>
+<div class="listingblock">
+<div class="content">
+<pre>alias.url += ( "/git" =&gt; "/usr/lib/git-core/git-http-backend" )
+$HTTP["url"] =~ "^/git" {
+	cgi.assign = ("" =&gt; "")
+	setenv.add-environment = (
+		"GIT_PROJECT_ROOT" =&gt; "/var/www/git",
+		"GIT_HTTP_EXPORT_ALL" =&gt; ""
+	)
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Para ativar o acesso de leitura anônima porém o acesso de gravação
+autenticado:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$HTTP["querystring"] =~ "service=git-receive-pack" {
+	include "git-auth.conf"
+}
+$HTTP["url"] =~ "^/git/.*/git-receive-pack$" {
+	include "git-auth.conf"
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>onde o <code>git-auth.conf</code> se parece com:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>auth.require = (
+	"/" =&gt; (
+		"method" =&gt; "basic",
+		"realm" =&gt; "Acesso Git",
+		"require" =&gt; "valid-user"
+	       )
+)
+# ...and set up auth.backend here</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Para exigir a autenticação tanto para leituras quanto para gravações:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$HTTP["url"] =~ "^/git/private" {
+	include "git-auth.conf"
+}</pre>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_variáveis_do_ambiente"><a class="anchor" href="pt_BR.html#_variáveis_do_ambiente"></a>VARIÁVEIS DO AMBIENTE</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>O <em>git http-backend</em> conta com as variáveis do ambiente <code>CGI</code> definidas pelo
+servidor da Web que está sendo invocado, incluindo:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>PATH_INFO</code> (caso <code>GIT_PROJECT_ROOT</code> seja definido, caso contrário utilize
+<code>PATH_TRANSLATED</code>)</p>
+</li>
+<li>
+<p>REMOTE_USER</p>
+</li>
+<li>
+<p>REMOTE_ADDR</p>
+</li>
+<li>
+<p>CONTENT_TYPE</p>
+</li>
+<li>
+<p>QUERY_STRING</p>
+</li>
+<li>
+<p>REQUEST_METHOD</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A variável de ambiente <code>GIT_HTTP_EXPORT_ALL</code> pode ser passada para o comando
+<em>git-http-backend</em> para ignorar a verificação do arquivo
+"git-daemon-export-ok" em cada repositório antes de permitir a exportação
+desse repositório.</p>
+</div>
+<div class="paragraph">
+<p>A variável de ambiente <code>GIT_HTTP_MAX_REQUEST_BUFFER</code> (ou a variável de
+configuração <code>http.maxRequestBuffer</code>) pode ser configurada para alterar a
+maior solicitação de negociação "ref" que o git será capaz de manipular
+durante uma busca; qualquer busca que exija um buffer maior não terá êxito.
+Normalmente, esse valor não precisa ser alterado, mas pode ser útil caso
+você esteja buscando um repositório com uma quantidade de refs extremamente
+grande.  O valor pode ser definido como uma unidade (<code>100M</code> para 100
+megabytes por exemplo). O valor predefinido é de 10 megabytes.</p>
+</div>
+<div class="paragraph">
+<p>A estrutura define o <code>GIT_COMMITTER_NAME</code> como <em>$REMOTE_USER</em> e
+<code>GIT_COMMITTER_EMAIL</code> como <em>${REMOTE_USER}@http.${REMOTE_ADDR}</em>,
+garantindo que quaisquer reflogs que forem criados através do comando
+<em>git-receive-pack</em> contenham algumas informações de identificação do ramo
+remoto do usuário que executou o push.</p>
+</div>
+<div class="paragraph">
+<p>Todas as variáveis do ambiente <code>CGI</code> estão disponíveis para cada um dos
+ganchos invocados pelo comando <em>git-receive-pack</em>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git"><a class="anchor" href="pt_BR.html#_git"></a>GIT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Parte do conjunto <a href='../git/pt_BR.html'>git[1]</a></p>
+</div>
+</div>
+</div>
+  </div>
+
+        </div>
+      </div>
+      <footer>
+  <div class="site-source">
+    <a href="https://git-scm.com/site">About this site</a><br>
+    Patches, suggestions, and comments are welcome.
+  </div>
+  <div class="sfc-member">
+    Git is a member of <a href="https://git-scm.com/sfc">Software Freedom Conservancy</a>
+  </div>
+</footer>
+<a href="pt_BR.html#top" class="no-js scrollToTop" id="scrollToTop" data-label="Scroll to top">
+  <img src="../../images/icons/chevron-up@2x.png" width="20" height="20" alt="scroll-to-top"/>
+</a>
+<script src="../../assets/application-e12a0e837db60213b777cd7a706e0741beed474d7e5b94a641979fc87ce0d2cc.js"></script>
+
+    </div>
+
+</body>
+</html>

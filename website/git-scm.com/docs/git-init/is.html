@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49925874-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-49925874-3');
+  </script>
+
+  <meta charset='utf-8'>
+  <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Git - git-init Documentation</title>
+
+  <link href='../../favicon.ico' rel='shortcut icon' type='image/x-icon'>
+
+  <link rel="stylesheet" media="screen" href="../../assets/application-42b7b91ccf5cb92469695cf08b5da9e9230594f634cb88264f305d5bd54e477f.css" />
+  <script src="../../assets/modernize-b3ebe0c31c24f230dc62179d3e1030d2e57a53b1668d9382c0a27dbd44a94beb.js"></script>
+  <!--[if (gte IE 6)&(lte IE 8)]>
+  <script src="/javascripts/selectivizr-min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body id="documentation">
+
+  <div class="inner">
+    <header>
+
+  <a href="https://git-scm.com/"><img src="../../images/logo@2x.png" width="110" height="46" alt="Git" /></a>
+  <span id="tagline"></span>
+  <script type="text/javascript">
+    var taglines = ["fast-version-control","everything-is-local","distributed-even-if-your-workflow-isnt","local-branching-on-the-cheap","distributed-is-the-new-centralized"];
+    var tagline = taglines[Math.floor(Math.random() * taglines.length)];
+    document.getElementById('tagline').innerHTML = '--' + tagline;
+  </script>
+  <form id="search" action="https://git-scm.com/search/results">
+    <input id="search-text" name="search" placeholder="Search entire site..." autocomplete="off" type="text" />
+  </form>
+  <div id="search-results"></div>
+
+</header>
+
+  </div> <!-- .inner -->
+
+    <div class="inner">
+      <div id="content-wrapper">
+        <button class="sidebar-btn"></button>
+<aside class="sidebar" id="sidebar">
+  <nav>
+    <ul>
+      <li>
+        <a href="https://git-scm.com/about">About</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/about">Branching and Merging</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/small-and-fast">Small and Fast</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/distributed">Distributed</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/info-assurance">Data Assurance</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/staging-area">Staging Area</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/free-and-open-source">Free and Open Source</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/trademark">Trademark</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a class="active" href="https://git-scm.com/doc">Documentation</a>
+        <ul class="expanded">
+          <li>
+            <a class="active" href="../git-pack/pt_BR.html">Reference</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/book">Book</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/videos">Videos</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/doc/ext">External Links</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/downloads">Downloads</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/downloads/guis">GUI Clients</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/downloads/logos">Logos</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/community">Community</a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+
+        <div id="content">
+          
+  <div id='reference-version'>
+    <a class="dropdown-trigger" id="reference-languages-trigger" data-panel-id="l10n-versions-dropdown" href="is.html#">
+  Íslenska ▾</a>
+<div class='dropdown-panel right' id='l10n-versions-dropdown'>
+  <header>Localized versions of <strong>git-init</strong> manual</header>
+  <ol class='reference-previous-versions'>
+      <li>
+        <a href="de.html"><span class="version">Deutsch</span>
+        </a>
+        </li>
+      <li>
+        <a href="en.html"><span class="version">English</span>
+        </a>
+        </li>
+      <li>
+        <a href="fr.html"><span class="version">Français</span>
+        </a>
+        </li>
+      <li>
+        <a href="is.html"><span class="version">Íslenska</span>
+        </a>
+        </li>
+      <li>
+        <a href="ja.html"><span class="version">日本語</span>
+        </a>
+        </li>
+      <li>
+        <a href="pt_BR.html"><span class="version">Português (Brasil)</span>
+        </a>
+        </li>
+      <li>
+        <a href="ro.html"><span class="version">Română</span>
+        </a>
+        </li>
+      <li>
+        <a href="zh_HANS-CN.html"><span class="version">简体中文</span>
+        </a>
+        </li>
+      <li>
+        <a href="zh_HANT.html"><span class="version">繁體中文</span>
+        </a>
+        </li>
+  </ol>
+  <footer>
+    Want to read in your language or fix typos?<br/> <a href="https://github.com/jnavila/git-manpages-l10n">You can help translate this page</a>.
+  </footer>
+</div>
+
+    <a class="dropdown-trigger" id="reference-topics-trigger" data-panel-id="topics-dropdown" href="is.html#">Topics ▾</a>
+<div class='dropdown-panel right' id='topics-dropdown'>
+  <div class='three-column'>
+    <div class='column-left'>
+      <h3 class='setup'>Setup and Config</h3>
+<ul class='unstyled'>
+  <li><a href="../git/is.html">git</a></li>
+  <li><a href="../git-config/is.html">config</a></li>
+  <li><a href="../git-help/is.html">help</a></li>
+  <li><a href="../git-bugreport/is.html">bugreport</a></li>
+</ul>
+
+      <h3 class='projects'>Getting and Creating Projects</h3>
+<ul class='unstyled'>
+  <li><a class="active" href="is.html">init</a></li>
+  <li><a href="../git-clone/is.html">clone</a></li>
+</ul>
+
+      <h3 class='snapshotting'>Basic Snapshotting</h3>
+<ul class='unstyled'>
+  <li><a href="../git-add/is.html">add</a></li>
+  <li><a href="../git-status/is.html">status</a></li>
+  <li><a href="../git-diff/is.html">diff</a></li>
+  <li><a href="../git-commit/is.html">commit</a></li>
+  <li><a href="../git-notes/is.html">notes</a></li>
+  <li><a href="../git-restore/is.html">restore</a></li>
+  <li><a href="../git-reset/is.html">reset</a></li>
+  <li><a href="../git-rm/is.html">rm</a></li>
+  <li><a href="../git-mv/is.html">mv</a></li>
+</ul>
+
+      <h3 class='branching'>Branching and Merging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-branch/is.html">branch</a></li>
+  <li><a href="../git-checkout/is.html">checkout</a></li>
+  <li><a href="../git-switch/is.html">switch</a></li>
+  <li><a href="../git-merge/is.html">merge</a></li>
+  <li><a href="../git-mergetool/is.html">mergetool</a></li>
+  <li><a href="../git-log/is.html">log</a></li>
+  <li><a href="../git-stash/is.html">stash</a></li>
+  <li><a href="../git-tag/is.html">tag</a></li>
+  <li><a href="../git-worktree/is.html">worktree</a></li>
+</ul>
+
+      <h3 class='sharing'>Sharing and Updating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-fetch/is.html">fetch</a></li>
+  <li><a href="../git-pull/is.html">pull</a></li>
+  <li><a href="../git-push/is.html">push</a></li>
+  <li><a href="../git-remote/is.html">remote</a></li>
+  <li><a href="../git-submodule/is.html">submodule</a></li>
+</ul>
+
+    </div>
+    <div class='column-middle'>
+      <h3 class='inspection'>Inspection and Comparison</h3>
+<ul class='unstyled'>
+  <li><a href="../git-show/is.html">show</a></li>
+  <li><a href="../git-log/is.html">log</a></li>
+  <li><a href="../git-diff/is.html">diff</a></li>
+  <li><a href="../git-difftool/is.html">difftool</a></li>
+  <li><a href="../git-range-diff/is.html">range-diff</a></li>
+  <li><a href="../git-shortlog/is.html">shortlog</a></li>
+  <li><a href="../git-describe/is.html">describe</a></li>
+</ul>
+
+      <h3 class='patching'>Patching</h3>
+<ul class='unstyled'>
+  <li><a href="../git-apply/is.html">apply</a></li>
+  <li><a href="../git-cherry-pick/is.html">cherry-pick</a></li>
+  <li><a href="../git-diff/is.html">diff</a></li>
+  <li><a href="../git-rebase/is.html">rebase</a></li>
+  <li><a href="../git-revert/is.html">revert</a></li>
+</ul>
+
+      <h3 class='debugging'>Debugging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-bisect/is.html">bisect</a></li>
+  <li><a href="../git-blame/is.html">blame</a></li>
+  <li><a href="../git-grep/is.html">grep</a></li>
+</ul>
+
+      <h3 class='email'>Email</h3>
+<ul class='unstyled'>
+  <li><a href="../git-am/is.html">am</a></li>
+  <li><a href="../git-apply/is.html">apply</a></li>
+  <li><a href="../git-format-patch/is.html">format-patch</a></li>
+  <li><a href="../git-send-email/is.html">send-email</a></li>
+  <li><a href="../git-request-pull/is.html">request-pull</a></li>
+</ul>
+
+      <h3 class='external'>External Systems</h3>
+<ul class='unstyled'>
+  <li><a href="../git-svn/is.html">svn</a></li>
+  <li><a href="../git-fast-import/is.html">fast-import</a></li>
+</ul>
+
+      <h3 class='server-admin'>Server Admin</h3>
+<ul class='unstyled'>
+  <li><a href="../git-daemon/is.html">daemon</a></li>
+  <li><a href="../git-update-server-info/is.html">update-server-info</a></li>
+</ul>
+
+    </div>
+    <div class='column-right'>
+      <h3 class='guides'>Guides</h3>
+<ul class='unstyled'>
+  <li><a href="../gitattributes/is.html">gitattributes</a></li>
+  <li><a href="../gitcli/is.html">Command-line interface conventions</a></li>
+  <li><a href="../giteveryday/is.html">Everyday Git</a></li>
+  <li><a href="../gitfaq/is.html">Frequently Asked Questions (FAQ)</a></li>
+  <li><a href="../gitglossary/is.html">Glossary</a></li>
+  <li><a href="../githooks/is.html">Hooks</a></li>
+  <li><a href="../gitignore/is.html">gitignore</a></li>
+  <li><a href="../gitmodules/is.html">gitmodules</a></li>
+  <li><a href="../gitrevisions/is.html">Revisions</a></li>
+  <li><a href="../gitsubmodules/is.html">Submodules</a></li>
+  <li><a href="../gittutorial/is.html">Tutorial</a></li>
+  <li><a href="../gitworkflows/is.html">Workflows</a></li>
+  <li><a href="../git/ru.html#_guides">All guides...</a></li>
+</ul>
+
+      <h3 class='admin'>Administration</h3>
+<ul class='unstyled'>
+  <li><a href="../git-clean/is.html">clean</a></li>
+  <li><a href="../git-gc/is.html">gc</a></li>
+  <li><a href="../git-fsck/is.html">fsck</a></li>
+  <li><a href="../git-reflog/is.html">reflog</a></li>
+  <li><a href="../git-filter-branch/is.html">filter-branch</a></li>
+  <li><a href="../git-instaweb/is.html">instaweb</a></li>
+  <li><a href="../git-archive/is.html">archive</a></li>
+  <li><a href="../git-bundle/is.html">bundle</a></li>
+</ul>
+
+      <h3 class='plumbing'>Plumbing Commands</h3>
+<ul class='unstyled'>
+  <li><a href="../git-cat-file/is.html">cat-file</a></li>
+  <li><a href="../git-check-ignore/is.html">check-ignore</a></li>
+  <li><a href="../git-checkout-index/is.html">checkout-index</a></li>
+  <li><a href="../git-commit-tree/is.html">commit-tree</a></li>
+  <li><a href="../git-count-objects/is.html">count-objects</a></li>
+  <li><a href="../git-diff-index/is.html">diff-index</a></li>
+  <li><a href="../git-for-each-ref/is.html">for-each-ref</a></li>
+  <li><a href="../git-hash-object/is.html">hash-object</a></li>
+  <li><a href="../git-ls-files/is.html">ls-files</a></li>
+  <li><a href="../git-ls-tree/is.html">ls-tree</a></li>
+  <li><a href="../git-merge-base/is.html">merge-base</a></li>
+  <li><a href="../git-read-tree/is.html">read-tree</a></li>
+  <li><a href="../git-rev-list/is.html">rev-list</a></li>
+  <li><a href="../git-rev-parse/is.html">rev-parse</a></li>
+  <li><a href="../git-show-ref/is.html">show-ref</a></li>
+  <li><a href="../git-symbolic-ref/is.html">symbolic-ref</a></li>
+  <li><a href="../git-update-index/is.html">update-index</a></li>
+  <li><a href="../git-update-ref/is.html">update-ref</a></li>
+  <li><a href="../git-verify-pack/is.html">verify-pack</a></li>
+  <li><a href="../git-write-tree/is.html">write-tree</a></li>
+</ul>
+
+    </div>
+  </div>
+</div>
+
+    <a class="dropdown-trigger" id="reference-versions-trigger" data-panel-id="previous-versions-dropdown" href="is.html#">
+      Latest version
+       ▾ </a>
+<span class="light d-flex">git-init last updated in 2.34.1</span>
+<div class='dropdown-panel left' id='previous-versions-dropdown'>
+  <header>Changes in the <strong>git-init</strong> manual</header>
+  <ol class='reference-previous-versions'>
+        <li class="no-change"><span>2.30.1 &rarr; 2.34.1 no changes</span></li>
+        <li>
+        <a href="2.30.0.html"><span class="version">2.30.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">12/27/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.29.1 &rarr; 2.29.3 no changes</span></li>
+        <li>
+        <a href="2.29.0.html"><span class="version">2.29.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">10/19/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.28.1 no changes</span></li>
+        <li>
+        <a href="2.28.0.html"><span class="version">2.28.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">07/27/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.27.1 no changes</span></li>
+        <li>
+        <a href="2.27.0.html"><span class="version">2.27.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">06/01/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.21.1 &rarr; 2.26.3 no changes</span></li>
+        <li>
+        <a href="2.21.0.html"><span class="version">2.21.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">02/24/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.13.7 &rarr; 2.20.5 no changes</span></li>
+        <li>
+        <a href="2.12.5.html"><span class="version">2.12.5</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">09/22/17</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.10.5 &rarr; 2.11.4 no changes</span></li>
+        <li>
+        <a href="2.9.5.html"><span class="version">2.9.5</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">07/30/17</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.5.6 &rarr; 2.8.6 no changes</span></li>
+        <li>
+        <a href="2.4.12.html"><span class="version">2.4.12</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">05/05/17</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.3.10 no changes</span></li>
+        <li>
+        <a href="2.2.3.html"><span class="version">2.2.3</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">09/04/15</em>
+        </a>
+        </li>
+    <li>&nbsp;</li>
+    <!-- <li><a class="more" href="#">See more previous releases →</a></li> -->
+  </ol>
+  <footer>
+    <p>Check your version of git by running</p>
+    <code class="command">git --version</code>
+  </footer>
+</div>
+
+  </div>
+
+  <div id='main'>
+    <div class="sect1">
+<h2 id="_nafn"><a class="anchor" href="is.html#_nafn"></a>NAFN</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>git-init - Búa til tóma Git hirslu eða endurfrumstilla hirslu sem er til</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_samantekt"><a class="anchor" href="is.html#_samantekt"></a>SAMANTEKT</h2>
+<div class="sectionbody">
+<div class="verseblock">
+<pre class="content"><em>git init</em> [-q | --quiet] [--bare] [--template=&lt;sniðmótaskrá&gt;]
+	  [--separate-git-dir &lt;git skrá&gt;] [--object-format=&lt;snið&gt;]
+          [-b &lt;nafn greinar&gt; | --initial-branch=&lt;nafn greinar&gt;]
+	  [--shared[=&lt;leyfi&gt;]] [directory]</pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_útskýring"><a class="anchor" href="is.html#_útskýring"></a>ÚTSKÝRING</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Þessi skipun býr til tóma Git hirslu - í raun <code>.git</code> skrá með undirskrám fyrir <code>objects</code> (viðföng), <code>refs/heads</code> (tilvísanir/hausar), <code>refs/tags</code> (tilvísanir/merki), og sniðmátsskjöl. Upphafsgrein án innleggja verður búin til (sjá <code>--initial-branch</code> valmöguleikann hér að neðan fyrir heiti hennar).</p>
+</div>
+<div class="paragraph">
+<p>Ef <code>$GIT_DIR</code> umhverfisbreytan er uppgefin þá tilgreinir hún slóð til þess að nota í staðinn fyrir <code>./.git</code> fyrir grunnbyggingu hirslunnar.</p>
+</div>
+<div class="paragraph">
+<p>Ef viðfangageymslan er tilgreind með <code>$GIT_OBJECT_DIRECTORY</code>(viðföng skrá) umhverfisbreytunni þá eru SHA-1 öryggisskrárnar búnar til þar undir - annars er frumstillt skrá samkvæmt <code>$GIT_DIR/objects</code> (skrá viðföng) notuð.</p>
+</div>
+<div class="paragraph">
+<p>Að framkvæma <em>git init</em> í hirslu sem þegar er til er öruggt. Það mun ekki skrifa yfir það sem þegar er í hirslunni. Helsta ástæðan fyrir því að endurframkvæma <em>git init</em> er til þess að taka með sniðmát sem nýlega hefur verið bætt við (eða til þess að færa hirsluna á nýjan stað ef --separate-git-dir (aðskilinn git skrá) er gefið upp).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_valmöguleikar"><a class="anchor" href="is.html#_valmöguleikar"></a>VALMÖGULEIKAR</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-init--q"> <a class="anchor" href="is.html#git-init--q"></a>-q </dt>
+<dt class="hdlist1" id="git-init---quiet"> <a class="anchor" href="is.html#git-init---quiet"></a>--quiet </dt>
+<dd>
+<p>Prenta einungis villu- og varnaðarboð; allt annað frálag er þaggað.</p>
+</dd>
+<dt class="hdlist1" id="git-init---bare"> <a class="anchor" href="is.html#git-init---bare"></a>--bare </dt>
+<dd>
+<p>Búa til nakta hirslu. Ef <code>GIT_DIR</code>(git skrá) umhverfisbreytan er ekki tilgreind er hirslan búin til í núgildandi vinnuskrá.</p>
+</dd>
+<dt class="hdlist1" id="git-init---object-formatltsnigt"> <a class="anchor" href="is.html#git-init---object-formatltsnigt"></a>--object-format=&lt;snið&gt; </dt>
+<dd>
+<p>Gefa upp snið viðkomandi viðfangs (reikniforskrift mylnuskrár) fyrir hirsluna. Gild gildi eru <em>sha1</em> og (ef virkt) <em>sha256</em>. Forstillingin er <em>sha1</em>.</p>
+<div class="paragraph">
+<p>ÞESSI VALMÖGULEIKI ER Á TILRAUNASTIGI! SHA-256-stuðningur er á tilraunastigi og enn á frumstigi. Hirsla sem hefur SHA-256 er almennt ekki fær um að deila vinnu með "venjulegum" SHA-1-hirslum. Til dæmis ætti að gera ráð fyrir því að innviðaskjalasnið Git sem tengjast SHA-256 geti breyst þannig að þau verði ekki samhæfanleg aftur í tímann. Notaðu `--object-format=sha256`einungis í prófunum.</p>
+</div>
+</dd>
+</dl>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-init---templateltsnimtskrgt"> <a class="anchor" href="is.html#git-init---templateltsnimtskrgt"></a>--template=&lt;sniðmót_skrá&gt; </dt>
+<dd>
+<p>Tilgreina skrána sem geymir þau sniðmót sem verða notuð. (Sjá "SNIÐMÁTASKRÁ" hlutann hér að neðan.)</p>
+</dd>
+<dt class="hdlist1" id="git-init---separate-git-dirltgitskrgt"> <a class="anchor" href="is.html#git-init---separate-git-dirltgitskrgt"></a>--separate-git-dir=&lt;git skrá&gt; </dt>
+<dd>
+<p>Í stað þess að frumstilla hrisluna sem skrá sem annað hvort <code>$GIT_DIR</code> eða <code>./.git/</code>, búa til textaskrá þar sem inniheldur slóðina til hinnar raunverulegu hirslu. Þessi skrá virkar eins og táknrænn Git hlekkur til skrárinnar sem er ómeðvitaður um skráasafnið.</p>
+<div class="paragraph">
+<p>Ef þetta er endurfrumstilling verður hirslan færð eftir tilgreindri slóð.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-init--bltnafngreinargt"> <a class="anchor" href="is.html#git-init--bltnafngreinargt"></a>-b &lt;nafn greinar&gt; </dt>
+<dt class="hdlist1" id="git-init---initial-branchltnafngreinargt"> <a class="anchor" href="is.html#git-init---initial-branchltnafngreinargt"></a>--initial-branch= &lt;nafn greinar&gt; </dt>
+<dd>
+<p>Notaðu tiltekið nafn fyrir upphafsgrein hinnar nýsköpuðu hirslu. Ef ekkert er tilgreint, nota sjálfgefið nafn (sem er <code>master</code> eins og er, en það gæti breyst í framtíðinni; hægt er að breyta sjálfgefnu nafni með stillingabreytunni <code>init.defaultBranch</code>).</p>
+</dd>
+<dt class="hdlist1" id="git-init---sharedfalsetrueumaskgroupallworldeverybody0xxx"> <a class="anchor" href="is.html#git-init---sharedfalsetrueumaskgroupallworldeverybody0xxx"></a>--shared[=(false|true|umask|group|all|world|everybody|0xxx)] </dt>
+<dd>
+<p>Tilgreina að Git hirslunni muni verða deilt meðal fjölmargra notenda. Þetta leyfir notendum sem tilheyra sama hópi að ýta gögnum inn í þá hirslu. Þegar þessi tilgreining er til staðar er stillingabreytan "core.sharedRepository" (kjarni deild hirsla) stillt þannig að skjöl og skrár undir <code>$GIT_DIR</code> (git skrá) eru búnar til með umbeðnum leyfum. Þegar þessi tilgreining er ekki til staðar notar Git leyfi sem koma frá umask(2) (leyfasetningar skjala).</p>
+<div class="paragraph">
+<p>Valmöguleikinn getur haft eftirfarandi gildi, frumstilltur á <em>group</em> (hópur) ef engin gildi eru gefin:</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-init-emumaskemeaemfalseem"> <a class="anchor" href="is.html#git-init-emumaskemeaemfalseem"></a><em>umask</em> (eða <em>false</em>) </dt>
+<dd>
+<p>Nota leyfi frá umask(2) (leyfasetningar skjala). Þetta er frumstillingin þegar <code>--shared</code> (deildur) er ekki uppgefinn.</p>
+</dd>
+<dt class="hdlist1" id="git-init-emgroupemeaemtrueem"> <a class="anchor" href="is.html#git-init-emgroupemeaemtrueem"></a><em>group</em> (eða <em>true</em>) </dt>
+<dd>
+<p>Gera hirsluna hópskrifanlega (og g+sx þar sem git hópurinn er mögulega ekki aðalhópur allra notenda). Þetta er notað til þess að losa um leyfisgildi umask(2) (leyfasetningar skjala) gildis sem annars vegar er öruggt. Athugaðu að umask gildið er enn virkt fyrir leyfi sem ná yfir önnur gögn (t.d. ef umask er <em>0022</em>, mun það að nota <em>group</em> (hópur) ekki fjarlægja lesréttindi annarra notenda sem eru ekki í hópnum). Sjá <em>0xxx</em> fyrir hvernig á nákvæmlega að stilla leyfi hirslunnar.</p>
+</dd>
+<dt class="hdlist1" id="git-init-emallemeaemworldemeaemeverybodyem"> <a class="anchor" href="is.html#git-init-emallemeaemworldemeaemeverybodyem"></a><em>all</em> (eða <em>world</em> eða <em>everybody</em>) </dt>
+<dd>
+<p>Sama og <em>group</em>, en gerir hirsluna lesanlega fyrir alla notendur.</p>
+</dd>
+<dt class="hdlist1" id="git-init-em0xxxem"> <a class="anchor" href="is.html#git-init-em0xxxem"></a><em>0xxx</em> </dt>
+<dd>
+<p><em>0xxx</em> er áttundartala og hvert skjal fylgir fyrirkomulaginu <em>0xxx</em>. <em>0xxx</em> tekur ekki tilliti til gildis umask(2) (leyfasetningar skjala) sem tilgreint er af notanda (og ekki einungis víkka leyfi eins og <em>group</em> (hópur) og <em>all</em> (allir) gera). <em>0640</em> býr til hirslu sem er lesanleg af hóp, en ekki skrifanleg af hóp eða opin öðrum. <em>0660</em> mun búa til hirslu sem er lesanleg og skrifanleg fyrir núverandi notanada og hóp, en lokuð öllum öðrum.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Í deildum hirslum er stillingarvalmöguleikinn <code>receive.denyNonFastForwards</code>(viðtaka neita ekki framspóla) forstilltur sem gildur svo að þú getur ekki ýtt gögnum sem ekki framspóla inn í hana með þvingunum.</p>
+</div>
+<div class="paragraph">
+<p>Ef þú gefur upp <em>skrá</em>, verður skipunin framkvæmd í henni. Ef skráin er ekki til verður hún búin til.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sniðmótaskrá"><a class="anchor" href="is.html#_sniðmótaskrá"></a>SNIÐMÓTASKRÁ</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Skjöl og skrár í sniðmótaskránni sem hafa ekki nafn sem byrjar á punkti verða afrituð yfir í <code>$GIT_DIR</code>(git skrá) eftir að hún er búin til.</p>
+</div>
+<div class="paragraph">
+<p>Sniðmótaskráin verður eitt af eftirtöldu (í röð):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>breytan sem gefin er með <code>--template</code> (sniðmót) valmöguleikanum;</p>
+</li>
+<li>
+<p>innihald <code>$GIT_TEMPLATE_DIR</code>(git sniðmót skrá) umhverfisbreytunnar;</p>
+</li>
+<li>
+<p>stillingabreytan <code>init.templateDir</code> (frumstilla sniðmót skrá); eða</p>
+</li>
+<li>
+<p>forstillta sniðmótaskráin: <code>/usr/share/git-core/templates</code> (notandi deila git-kjarni sniðmót).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Forstillta sniðmótaskráin hefur einhverjar undirskrár, tillögur um "exclude patterns" (hunsunarmynstur) (see <a href='../gitignore/is.html'>gitignore[5]</a> (hlekk-git git-hunsa), og dæmi um krækjuskjöl.</p>
+</div>
+<div class="paragraph">
+<p>Krækjudæmin eru öll forstillt sem óvirk. TIl þess að virkja eitt af krækjudæmunum þarf að endurnefna það með því að fjarlægja <code>.sample</code> (dæmi) viðskeytið.</p>
+</div>
+<div class="paragraph">
+<p>Sjá <a href='../githooks/is.html'>githooks[5]</a> (hlekk-git git-krækjur) fyrir frekari upplýsingar um það hvernig á að hrinda krækjum í framkvæmd.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_dæmi"><a class="anchor" href="is.html#_dæmi"></a>DÆMI</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-init-StofnanjaGithirslufyrirforskriftargrunnsemegarertil"> <a class="anchor" href="is.html#git-init-StofnanjaGithirslufyrirforskriftargrunnsemegarertil"></a>Stofna nýja Git hirslu fyrir forskriftargrunn sem þegar er til </dt>
+<dd>
+<div class="listingblock">
+<div class="content">
+<pre>$ cd /slóð/til/míns/forskriftargrunns
+$ git init      <b class="conum">(1)</b>
+$ git add .     <b class="conum">(2)</b>
+$ git commit    <b class="conum">(3)</b></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>Býr til skrána /slóð/til/míns/forskriftargrunns/.git.</p>
+</li>
+<li>
+<p>Bæta öllum skrám sem eru til í atriðaskrána.</p>
+</li>
+<li>
+<p>Bóka ósnerta stöðu sem fyrsta innlegg í sögunni.</p>
+</li>
+</ol>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git"><a class="anchor" href="is.html#_git"></a>GIT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Hluti af <a href='../git/is.html'>git[1]</a> fylkingunni</p>
+</div>
+</div>
+</div>
+  </div>
+
+        </div>
+      </div>
+      <footer>
+  <div class="site-source">
+    <a href="https://git-scm.com/site">About this site</a><br>
+    Patches, suggestions, and comments are welcome.
+  </div>
+  <div class="sfc-member">
+    Git is a member of <a href="https://git-scm.com/sfc">Software Freedom Conservancy</a>
+  </div>
+</footer>
+<a href="is.html#top" class="no-js scrollToTop" id="scrollToTop" data-label="Scroll to top">
+  <img src="../../images/icons/chevron-up@2x.png" width="20" height="20" alt="scroll-to-top"/>
+</a>
+<script src="../../assets/application-e12a0e837db60213b777cd7a706e0741beed474d7e5b94a641979fc87ce0d2cc.js"></script>
+
+    </div>
+
+</body>
+</html>

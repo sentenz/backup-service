@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49925874-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-49925874-3');
+  </script>
+
+  <meta charset='utf-8'>
+  <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Git - multi-pack-index Documentation</title>
+
+  <link href='../../favicon.ico' rel='shortcut icon' type='image/x-icon'>
+
+  <link rel="stylesheet" media="screen" href="../../assets/application-42b7b91ccf5cb92469695cf08b5da9e9230594f634cb88264f305d5bd54e477f.css" />
+  <script src="../../assets/modernize-b3ebe0c31c24f230dc62179d3e1030d2e57a53b1668d9382c0a27dbd44a94beb.js"></script>
+  <!--[if (gte IE 6)&(lte IE 8)]>
+  <script src="/javascripts/selectivizr-min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body id="documentation">
+
+  <div class="inner">
+    <header>
+
+  <a href="https://git-scm.com/"><img src="../../images/logo@2x.png" width="110" height="46" alt="Git" /></a>
+  <span id="tagline"></span>
+  <script type="text/javascript">
+    var taglines = ["fast-version-control","everything-is-local","distributed-even-if-your-workflow-isnt","local-branching-on-the-cheap","distributed-is-the-new-centralized"];
+    var tagline = taglines[Math.floor(Math.random() * taglines.length)];
+    document.getElementById('tagline').innerHTML = '--' + tagline;
+  </script>
+  <form id="search" action="https://git-scm.com/search/results">
+    <input id="search-text" name="search" placeholder="Search entire site..." autocomplete="off" type="text" />
+  </form>
+  <div id="search-results"></div>
+
+</header>
+
+  </div> <!-- .inner -->
+
+    <div class="inner">
+      <div id="content-wrapper">
+        <button class="sidebar-btn"></button>
+<aside class="sidebar" id="sidebar">
+  <nav>
+    <ul>
+      <li>
+        <a href="https://git-scm.com/about">About</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/about">Branching and Merging</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/small-and-fast">Small and Fast</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/distributed">Distributed</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/info-assurance">Data Assurance</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/staging-area">Staging Area</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/free-and-open-source">Free and Open Source</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/trademark">Trademark</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a class="active" href="https://git-scm.com/doc">Documentation</a>
+        <ul class="expanded">
+          <li>
+            <a class="active" href="../git-pack/pt_BR.html">Reference</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/book">Book</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/videos">Videos</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/doc/ext">External Links</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/downloads">Downloads</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/downloads/guis">GUI Clients</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/downloads/logos">Logos</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/community">Community</a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+
+        <div id="content">
+          
+  <div id='reference-version'>
+    <a class="dropdown-trigger" id="reference-languages-trigger" data-panel-id="l10n-versions-dropdown" href="2.34.0.html#">
+  English ▾</a>
+<div class='dropdown-panel right' id='l10n-versions-dropdown'>
+  <header>Localized versions of <strong>multi-pack-index</strong> manual</header>
+  <ol class='reference-previous-versions'>
+      <li>
+        <a href="en.html"><span class="version">English</span>
+        </a>
+        </li>
+  </ol>
+  <footer>
+    Want to read in your language or fix typos?<br/> <a href="https://github.com/jnavila/git-manpages-l10n">You can help translate this page</a>.
+  </footer>
+</div>
+
+    <a class="dropdown-trigger" id="reference-topics-trigger" data-panel-id="topics-dropdown" href="2.34.0.html#">Topics ▾</a>
+<div class='dropdown-panel right' id='topics-dropdown'>
+  <div class='three-column'>
+    <div class='column-left'>
+      <h3 class='setup'>Setup and Config</h3>
+<ul class='unstyled'>
+  <li><a href="../git/ru.html">git</a></li>
+  <li><a href="../git-config/ru.html">config</a></li>
+  <li><a href="../git-help/ru.html">help</a></li>
+  <li><a href="../git-bugreport/ru.html">bugreport</a></li>
+</ul>
+
+      <h3 class='projects'>Getting and Creating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-init/ru.html">init</a></li>
+  <li><a href="../git-clone/ru.html">clone</a></li>
+</ul>
+
+      <h3 class='snapshotting'>Basic Snapshotting</h3>
+<ul class='unstyled'>
+  <li><a href="../git-add/ru.html">add</a></li>
+  <li><a href="../git-status/ru.html">status</a></li>
+  <li><a href="../git-diff/ru.html">diff</a></li>
+  <li><a href="../git-commit/ru.html">commit</a></li>
+  <li><a href="../git-notes/ru.html">notes</a></li>
+  <li><a href="../git-restore/ru.html">restore</a></li>
+  <li><a href="../git-reset/ru.html">reset</a></li>
+  <li><a href="../git-rm/ru.html">rm</a></li>
+  <li><a href="../git-mv/ru.html">mv</a></li>
+</ul>
+
+      <h3 class='branching'>Branching and Merging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-branch/ru.html">branch</a></li>
+  <li><a href="../git-checkout/ru.html">checkout</a></li>
+  <li><a href="../git-switch/ru.html">switch</a></li>
+  <li><a href="../git-merge/ru.html">merge</a></li>
+  <li><a href="../git-mergetool/ru.html">mergetool</a></li>
+  <li><a href="../git-log/ru.html">log</a></li>
+  <li><a href="../git-stash/ru.html">stash</a></li>
+  <li><a href="../git-tag/ru.html">tag</a></li>
+  <li><a href="../git-worktree/ru.html">worktree</a></li>
+</ul>
+
+      <h3 class='sharing'>Sharing and Updating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-fetch/ru.html">fetch</a></li>
+  <li><a href="../git-pull/ru.html">pull</a></li>
+  <li><a href="../git-push/ru.html">push</a></li>
+  <li><a href="../git-remote/ru.html">remote</a></li>
+  <li><a href="../git-submodule/ru.html">submodule</a></li>
+</ul>
+
+    </div>
+    <div class='column-middle'>
+      <h3 class='inspection'>Inspection and Comparison</h3>
+<ul class='unstyled'>
+  <li><a href="../git-show/ru.html">show</a></li>
+  <li><a href="../git-log/ru.html">log</a></li>
+  <li><a href="../git-diff/ru.html">diff</a></li>
+  <li><a href="../git-difftool/ru.html">difftool</a></li>
+  <li><a href="../git-range-diff/ru.html">range-diff</a></li>
+  <li><a href="../git-shortlog/ru.html">shortlog</a></li>
+  <li><a href="../git-describe/ru.html">describe</a></li>
+</ul>
+
+      <h3 class='patching'>Patching</h3>
+<ul class='unstyled'>
+  <li><a href="../git-apply/ru.html">apply</a></li>
+  <li><a href="../git-cherry-pick/ru.html">cherry-pick</a></li>
+  <li><a href="../git-diff/ru.html">diff</a></li>
+  <li><a href="../git-rebase/ru.html">rebase</a></li>
+  <li><a href="../git-revert/ru.html">revert</a></li>
+</ul>
+
+      <h3 class='debugging'>Debugging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-bisect/ru.html">bisect</a></li>
+  <li><a href="../git-blame/ru.html">blame</a></li>
+  <li><a href="../git-grep/ru.html">grep</a></li>
+</ul>
+
+      <h3 class='email'>Email</h3>
+<ul class='unstyled'>
+  <li><a href="../git-am/ru.html">am</a></li>
+  <li><a href="../git-apply/ru.html">apply</a></li>
+  <li><a href="../git-format-patch/ru.html">format-patch</a></li>
+  <li><a href="../git-send-email/ru.html">send-email</a></li>
+  <li><a href="../git-request-pull/ru.html">request-pull</a></li>
+</ul>
+
+      <h3 class='external'>External Systems</h3>
+<ul class='unstyled'>
+  <li><a href="../git-svn/ru.html">svn</a></li>
+  <li><a href="../git-fast-import/ru.html">fast-import</a></li>
+</ul>
+
+      <h3 class='server-admin'>Server Admin</h3>
+<ul class='unstyled'>
+  <li><a href="../git-daemon/ru.html">daemon</a></li>
+  <li><a href="../git-update-server-info/ru.html">update-server-info</a></li>
+</ul>
+
+    </div>
+    <div class='column-right'>
+      <h3 class='guides'>Guides</h3>
+<ul class='unstyled'>
+  <li><a href="../gitattributes/ru.html">gitattributes</a></li>
+  <li><a href="../gitcli/ru.html">Command-line interface conventions</a></li>
+  <li><a href="../giteveryday/ru.html">Everyday Git</a></li>
+  <li><a href="../gitfaq/ru.html">Frequently Asked Questions (FAQ)</a></li>
+  <li><a href="../gitglossary/zh_HANT.html">Glossary</a></li>
+  <li><a href="../githooks/ru.html">Hooks</a></li>
+  <li><a href="../gitignore/ru.html">gitignore</a></li>
+  <li><a href="../gitmodules/ru.html">gitmodules</a></li>
+  <li><a href="../gitrevisions/ru.html">Revisions</a></li>
+  <li><a href="../gitsubmodules/ru.html">Submodules</a></li>
+  <li><a href="../gittutorial/ru.html">Tutorial</a></li>
+  <li><a href="../gitworkflows/ru.html">Workflows</a></li>
+  <li><a href="../git/ru.html#_guides">All guides...</a></li>
+</ul>
+
+      <h3 class='admin'>Administration</h3>
+<ul class='unstyled'>
+  <li><a href="../git-clean/ru.html">clean</a></li>
+  <li><a href="../git-gc/ru.html">gc</a></li>
+  <li><a href="../git-fsck/ru.html">fsck</a></li>
+  <li><a href="../git-reflog/ru.html">reflog</a></li>
+  <li><a href="../git-filter-branch/ru.html">filter-branch</a></li>
+  <li><a href="../git-instaweb/ru.html">instaweb</a></li>
+  <li><a href="../git-archive/ru.html">archive</a></li>
+  <li><a href="../git-bundle/ru.html">bundle</a></li>
+</ul>
+
+      <h3 class='plumbing'>Plumbing Commands</h3>
+<ul class='unstyled'>
+  <li><a href="../git-cat-file/ru.html">cat-file</a></li>
+  <li><a href="../git-check-ignore/ru.html">check-ignore</a></li>
+  <li><a href="../git-checkout-index/ru.html">checkout-index</a></li>
+  <li><a href="../git-commit-tree/ru.html">commit-tree</a></li>
+  <li><a href="../git-count-objects/ru.html">count-objects</a></li>
+  <li><a href="../git-diff-index/ru.html">diff-index</a></li>
+  <li><a href="../git-for-each-ref/ru.html">for-each-ref</a></li>
+  <li><a href="../git-hash-object/ru.html">hash-object</a></li>
+  <li><a href="../git-ls-files/ru.html">ls-files</a></li>
+  <li><a href="../git-ls-tree/ru.html">ls-tree</a></li>
+  <li><a href="../git-merge-base/ru.html">merge-base</a></li>
+  <li><a href="../git-read-tree/ru.html">read-tree</a></li>
+  <li><a href="../rev-list.html">rev-list</a></li>
+  <li><a href="../git-rev-parse/ru.html">rev-parse</a></li>
+  <li><a href="../git-show-ref/ru.html">show-ref</a></li>
+  <li><a href="../git-symbolic-ref/ru.html">symbolic-ref</a></li>
+  <li><a href="../git-update-index/ru.html">update-index</a></li>
+  <li><a href="../git-update-ref/ru.html">update-ref</a></li>
+  <li><a href="../git-verify-pack/ru.html">verify-pack</a></li>
+  <li><a href="../git-write-tree/ru.html">write-tree</a></li>
+</ul>
+
+    </div>
+  </div>
+</div>
+
+    <a class="dropdown-trigger" id="reference-versions-trigger" data-panel-id="previous-versions-dropdown" href="2.34.0.html#">
+    Version 2.34.1
+ ▾ </a>
+<span class="light d-flex">multi-pack-index last updated in 2.34.1</span>
+<div class='dropdown-panel left' id='previous-versions-dropdown'>
+  <header>Changes in the <strong>multi-pack-index</strong> manual</header>
+  <ol class='reference-previous-versions'>
+        <li class="no-change"><span>2.34.1 no changes</span></li>
+        <li>
+        <a href="2.34.0.html"><span class="version">2.34.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">11/15/21</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.33.0 &rarr; 2.33.1 no changes</span></li>
+        <li>
+        <a href="2.32.0.html"><span class="version">2.32.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">06/06/21</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.30.1 &rarr; 2.31.1 no changes</span></li>
+        <li>
+        <a href="2.30.0.html"><span class="version">2.30.0</span>
+          <span class="diff">
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">12/27/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.25.1 &rarr; 2.29.3 no changes</span></li>
+        <li>
+        <a href="2.25.0.html"><span class="version">2.25.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">01/13/20</em>
+        </a>
+        </li>
+    <li>&nbsp;</li>
+    <!-- <li><a class="more" href="#">See more previous releases →</a></li> -->
+  </ol>
+  <footer>
+    <p>Check your version of git by running</p>
+    <code class="command">git --version</code>
+  </footer>
+</div>
+
+  </div>
+
+  <div id='main'>
+    <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Git object directory contains a <em>pack</em> directory containing
+packfiles (with suffix ".pack") and pack-indexes (with suffix
+".idx"). The pack-indexes provide a way to lookup objects and
+navigate to their offset within the pack, but these must come
+in pairs with the packfiles. This pairing depends on the file
+names, as the pack-index differs only in suffix with its pack-
+file. While the pack-indexes provide fast lookup per packfile,
+this performance degrades as the number of packfiles increases,
+because abbreviations need to inspect every packfile and we are
+more likely to have a miss on our most-recently-used packfile.
+For some large repositories, repacking into a single packfile
+is not feasible due to storage space or excessive repack times.</p>
+</div>
+<div class="paragraph">
+<p>The multi-pack-index (MIDX for short) stores a list of objects
+and their offsets into multiple packfiles. It contains:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A list of packfile names.</p>
+</li>
+<li>
+<p>A sorted list of object IDs.</p>
+</li>
+<li>
+<p>A list of metadata for the ith object ID including:</p>
+</li>
+<li>
+<p>A value j referring to the jth packfile.</p>
+</li>
+<li>
+<p>An offset within the jth packfile for the object.</p>
+</li>
+<li>
+<p>If large offsets are required, we use another list of large
+offsets similar to version 2 pack-indexes.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Thus, we can provide O(log N) lookup time for any number
+of packfiles.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_design_details"><a class="anchor" href="2.34.0.html#_design_details"></a>Design Details</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>The MIDX is stored in a file named <em>multi-pack-index</em> in the
+.git/objects/pack directory. This could be stored in the pack
+directory of an alternate. It refers only to packfiles in that
+same directory.</p>
+</li>
+<li>
+<p>The core.multiPackIndex config setting must be on (which is the
+default) to consume MIDX files.  Setting it to <code>false</code> prevents
+Git from reading a MIDX file, even if one exists.</p>
+</li>
+<li>
+<p>The file format includes parameters for the object ID hash
+function, so a future change of hash algorithm does not require
+a change in format.</p>
+</li>
+<li>
+<p>The MIDX keeps only one record per object ID. If an object appears
+in multiple packfiles, then the MIDX selects the copy in the
+preferred packfile, otherwise selecting from the most-recently
+modified packfile.</p>
+</li>
+<li>
+<p>If there exist packfiles in the pack directory not registered in
+the MIDX, then those packfiles are loaded into the <code>packed_git</code>
+list and <code>packed_git_mru</code> cache.</p>
+</li>
+<li>
+<p>The pack-indexes (.idx files) remain in the pack directory so we
+can delete the MIDX file, set core.midx to false, or downgrade
+without any loss of information.</p>
+</li>
+<li>
+<p>The MIDX file format uses a chunk-based approach (similar to the
+commit-graph file) that allows optional data to be added.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_future_work"><a class="anchor" href="2.34.0.html#_future_work"></a>Future Work</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>The multi-pack-index allows many packfiles, especially in a context
+where repacking is expensive (such as a very large repo), or
+unexpected maintenance time is unacceptable (such as a high-demand
+build machine). However, the multi-pack-index needs to be rewritten
+in full every time. We can extend the format to be incremental, so
+writes are fast. By storing a small "tip" multi-pack-index that
+points to large "base" MIDX files, we can keep writes fast while
+still reducing the number of binary searches required for object
+lookups.</p>
+</li>
+<li>
+<p>If the multi-pack-index is extended to store a "stable object order"
+(a function Order(hash) = integer that is constant for a given hash,
+even as the multi-pack-index is updated) then MIDX bitmaps could be
+updated independently of the MIDX.</p>
+</li>
+<li>
+<p>Packfiles can be marked as "special" using empty files that share
+the initial name but replace ".pack" with ".keep" or ".promisor".
+We can add an optional chunk of data to the multi-pack-index that
+records flags of information about the packfiles. This allows new
+states, such as <em>repacked</em> or <em>redeltified</em>, that can help with
+pack maintenance in a multi-pack environment. It may also be
+helpful to organize packfiles by object type (commit, tree, blob,
+etc.) and use this metadata to help that maintenance.</p>
+</li>
+<li>
+<p>The partial clone feature records special "promisor" packs that
+may point to objects that are not stored locally, but available
+on request to a server. The multi-pack-index does not currently
+track these promisor packs.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_related_links"><a class="anchor" href="2.34.0.html#_related_links"></a>Related Links</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>[0] <a href="https://bugs.chromium.org/p/git/issues/detail?id=6" class="bare">https://bugs.chromium.org/p/git/issues/detail?id=6</a>
+    Chromium work item for: Multi-Pack Index (MIDX)</p>
+</div>
+<div class="paragraph">
+<p>[1] <a href="https://lore.kernel.org/git/20180107181459.222909-1-dstolee@microsoft.com/" class="bare">https://lore.kernel.org/git/20180107181459.222909-1-dstolee@microsoft.com/</a>
+    An earlier RFC for the multi-pack-index feature</p>
+</div>
+<div class="paragraph">
+<p>[2] <a href="https://lore.kernel.org/git/alpine.DEB.2.20.1803091557510.23109@alexmv-linux/" class="bare">https://lore.kernel.org/git/alpine.DEB.2.20.1803091557510.23109@alexmv-linux/</a>
+    Git Merge 2018 Contributor&#8217;s summit notes (includes discussion of MIDX)</p>
+</div>
+</div>
+</div>
+  </div>
+
+        </div>
+      </div>
+      <footer>
+  <div class="site-source">
+    <a href="https://git-scm.com/site">About this site</a><br>
+    Patches, suggestions, and comments are welcome.
+  </div>
+  <div class="sfc-member">
+    Git is a member of <a href="https://git-scm.com/sfc">Software Freedom Conservancy</a>
+  </div>
+</footer>
+<a href="2.34.0.html#top" class="no-js scrollToTop" id="scrollToTop" data-label="Scroll to top">
+  <img src="../../images/icons/chevron-up@2x.png" width="20" height="20" alt="scroll-to-top"/>
+</a>
+<script src="../../assets/application-e12a0e837db60213b777cd7a706e0741beed474d7e5b94a641979fc87ce0d2cc.js"></script>
+
+    </div>
+
+</body>
+</html>

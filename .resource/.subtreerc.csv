@@ -1,0 +1,5 @@
+Local Folder Path,git url,branch name
+repository/github/google/styleguide,https://github.com/google/styleguide.git,gh-pages
+repository/github/conventional-changelog/commitlint,https://github.com/conventional-changelog/commitlint.git,master
+repository/github/conventional-changelog/conventional-changelog,https://github.com/conventional-changelog/conventional-changelog.git,master
+repository/github/conventional-changelog/conventional-changelog-config-spec,https://github.com/conventional-changelog/conventional-changelog-config-spec.git,master

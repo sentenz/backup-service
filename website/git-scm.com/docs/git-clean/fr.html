@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49925874-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-49925874-3');
+  </script>
+
+  <meta charset='utf-8'>
+  <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Git - git-clean Documentation</title>
+
+  <link href='../../favicon.ico' rel='shortcut icon' type='image/x-icon'>
+
+  <link rel="stylesheet" media="screen" href="../../assets/application-42b7b91ccf5cb92469695cf08b5da9e9230594f634cb88264f305d5bd54e477f.css" />
+  <script src="../../assets/modernize-b3ebe0c31c24f230dc62179d3e1030d2e57a53b1668d9382c0a27dbd44a94beb.js"></script>
+  <!--[if (gte IE 6)&(lte IE 8)]>
+  <script src="/javascripts/selectivizr-min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body id="documentation">
+
+  <div class="inner">
+    <header>
+
+  <a href="https://git-scm.com/"><img src="../../images/logo@2x.png" width="110" height="46" alt="Git" /></a>
+  <span id="tagline"></span>
+  <script type="text/javascript">
+    var taglines = ["fast-version-control","everything-is-local","distributed-even-if-your-workflow-isnt","local-branching-on-the-cheap","distributed-is-the-new-centralized"];
+    var tagline = taglines[Math.floor(Math.random() * taglines.length)];
+    document.getElementById('tagline').innerHTML = '--' + tagline;
+  </script>
+  <form id="search" action="https://git-scm.com/search/results">
+    <input id="search-text" name="search" placeholder="Search entire site..." autocomplete="off" type="text" />
+  </form>
+  <div id="search-results"></div>
+
+</header>
+
+  </div> <!-- .inner -->
+
+    <div class="inner">
+      <div id="content-wrapper">
+        <button class="sidebar-btn"></button>
+<aside class="sidebar" id="sidebar">
+  <nav>
+    <ul>
+      <li>
+        <a href="https://git-scm.com/about">About</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/about">Branching and Merging</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/small-and-fast">Small and Fast</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/distributed">Distributed</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/info-assurance">Data Assurance</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/staging-area">Staging Area</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/free-and-open-source">Free and Open Source</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/trademark">Trademark</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a class="active" href="https://git-scm.com/doc">Documentation</a>
+        <ul class="expanded">
+          <li>
+            <a class="active" href="../git-pack/pt_BR.html">Reference</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/book">Book</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/videos">Videos</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/doc/ext">External Links</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/downloads">Downloads</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/downloads/guis">GUI Clients</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/downloads/logos">Logos</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/community">Community</a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+
+        <div id="content">
+          
+  <div id='reference-version'>
+    <a class="dropdown-trigger" id="reference-languages-trigger" data-panel-id="l10n-versions-dropdown" href="fr.html#">
+  Français ▾</a>
+<div class='dropdown-panel right' id='l10n-versions-dropdown'>
+  <header>Localized versions of <strong>git-clean</strong> manual</header>
+  <ol class='reference-previous-versions'>
+      <li>
+        <a href="en.html"><span class="version">English</span>
+        </a>
+        </li>
+      <li>
+        <a href="fr.html"><span class="version">Français</span>
+        </a>
+        </li>
+      <li>
+        <a href="pt_BR.html"><span class="version">Português (Brasil)</span>
+        </a>
+        </li>
+  </ol>
+  <footer>
+    Want to read in your language or fix typos?<br/> <a href="https://github.com/jnavila/git-manpages-l10n">You can help translate this page</a>.
+  </footer>
+</div>
+
+    <a class="dropdown-trigger" id="reference-topics-trigger" data-panel-id="topics-dropdown" href="fr.html#">Topics ▾</a>
+<div class='dropdown-panel right' id='topics-dropdown'>
+  <div class='three-column'>
+    <div class='column-left'>
+      <h3 class='setup'>Setup and Config</h3>
+<ul class='unstyled'>
+  <li><a href="../git/fr.html">git</a></li>
+  <li><a href="../git-config/fr.html">config</a></li>
+  <li><a href="../git-help/fr.html">help</a></li>
+  <li><a href="../git-bugreport/fr.html">bugreport</a></li>
+</ul>
+
+      <h3 class='projects'>Getting and Creating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-init/fr.html">init</a></li>
+  <li><a href="../git-clone/fr.html">clone</a></li>
+</ul>
+
+      <h3 class='snapshotting'>Basic Snapshotting</h3>
+<ul class='unstyled'>
+  <li><a href="../git-add/fr.html">add</a></li>
+  <li><a href="../git-status/fr.html">status</a></li>
+  <li><a href="../git-diff/fr.html">diff</a></li>
+  <li><a href="../git-commit/fr.html">commit</a></li>
+  <li><a href="../git-notes/fr.html">notes</a></li>
+  <li><a href="../git-restore/fr.html">restore</a></li>
+  <li><a href="../git-reset/fr.html">reset</a></li>
+  <li><a href="../git-rm/fr.html">rm</a></li>
+  <li><a href="../git-mv/fr.html">mv</a></li>
+</ul>
+
+      <h3 class='branching'>Branching and Merging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-branch/fr.html">branch</a></li>
+  <li><a href="../git-checkout/fr.html">checkout</a></li>
+  <li><a href="../git-switch/fr.html">switch</a></li>
+  <li><a href="../git-merge/fr.html">merge</a></li>
+  <li><a href="../git-mergetool/fr.html">mergetool</a></li>
+  <li><a href="../git-log/fr.html">log</a></li>
+  <li><a href="../git-stash/fr.html">stash</a></li>
+  <li><a href="../git-tag/fr.html">tag</a></li>
+  <li><a href="../git-worktree/fr.html">worktree</a></li>
+</ul>
+
+      <h3 class='sharing'>Sharing and Updating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-fetch/fr.html">fetch</a></li>
+  <li><a href="../git-pull/fr.html">pull</a></li>
+  <li><a href="../git-push/fr.html">push</a></li>
+  <li><a href="../git-remote/fr.html">remote</a></li>
+  <li><a href="../git-submodule/fr.html">submodule</a></li>
+</ul>
+
+    </div>
+    <div class='column-middle'>
+      <h3 class='inspection'>Inspection and Comparison</h3>
+<ul class='unstyled'>
+  <li><a href="../git-show/fr.html">show</a></li>
+  <li><a href="../git-log/fr.html">log</a></li>
+  <li><a href="../git-diff/fr.html">diff</a></li>
+  <li><a href="../git-difftool/fr.html">difftool</a></li>
+  <li><a href="../git-range-diff/fr.html">range-diff</a></li>
+  <li><a href="../git-shortlog/fr.html">shortlog</a></li>
+  <li><a href="../git-describe/fr.html">describe</a></li>
+</ul>
+
+      <h3 class='patching'>Patching</h3>
+<ul class='unstyled'>
+  <li><a href="../git-apply/fr.html">apply</a></li>
+  <li><a href="../git-cherry-pick/fr.html">cherry-pick</a></li>
+  <li><a href="../git-diff/fr.html">diff</a></li>
+  <li><a href="../git-rebase/fr.html">rebase</a></li>
+  <li><a href="../git-revert/fr.html">revert</a></li>
+</ul>
+
+      <h3 class='debugging'>Debugging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-bisect/fr.html">bisect</a></li>
+  <li><a href="../git-blame/fr.html">blame</a></li>
+  <li><a href="../git-grep/fr.html">grep</a></li>
+</ul>
+
+      <h3 class='email'>Email</h3>
+<ul class='unstyled'>
+  <li><a href="../git-am/fr.html">am</a></li>
+  <li><a href="../git-apply/fr.html">apply</a></li>
+  <li><a href="../git-format-patch/fr.html">format-patch</a></li>
+  <li><a href="../git-send-email/fr.html">send-email</a></li>
+  <li><a href="../git-request-pull/fr.html">request-pull</a></li>
+</ul>
+
+      <h3 class='external'>External Systems</h3>
+<ul class='unstyled'>
+  <li><a href="../git-svn/fr.html">svn</a></li>
+  <li><a href="../git-fast-import/fr.html">fast-import</a></li>
+</ul>
+
+      <h3 class='server-admin'>Server Admin</h3>
+<ul class='unstyled'>
+  <li><a href="../git-daemon/fr.html">daemon</a></li>
+  <li><a href="../git-update-server-info/fr.html">update-server-info</a></li>
+</ul>
+
+    </div>
+    <div class='column-right'>
+      <h3 class='guides'>Guides</h3>
+<ul class='unstyled'>
+  <li><a href="../gitattributes/fr.html">gitattributes</a></li>
+  <li><a href="../gitcli/fr.html">Command-line interface conventions</a></li>
+  <li><a href="../giteveryday/fr.html">Everyday Git</a></li>
+  <li><a href="../gitfaq/fr.html">Frequently Asked Questions (FAQ)</a></li>
+  <li><a href="../gitglossary/fr.html">Glossary</a></li>
+  <li><a href="../githooks/fr.html">Hooks</a></li>
+  <li><a href="../gitignore/fr.html">gitignore</a></li>
+  <li><a href="../gitmodules/fr.html">gitmodules</a></li>
+  <li><a href="../gitrevisions/fr.html">Revisions</a></li>
+  <li><a href="../gitsubmodules/fr.html">Submodules</a></li>
+  <li><a href="../gittutorial/fr.html">Tutorial</a></li>
+  <li><a href="../gitworkflows/fr.html">Workflows</a></li>
+  <li><a href="../git/ru.html#_guides">All guides...</a></li>
+</ul>
+
+      <h3 class='admin'>Administration</h3>
+<ul class='unstyled'>
+  <li><a class="active" href="fr.html">clean</a></li>
+  <li><a href="../git-gc/fr.html">gc</a></li>
+  <li><a href="../git-fsck/fr.html">fsck</a></li>
+  <li><a href="../git-reflog/fr.html">reflog</a></li>
+  <li><a href="../git-filter-branch/fr.html">filter-branch</a></li>
+  <li><a href="../git-instaweb/fr.html">instaweb</a></li>
+  <li><a href="../git-archive/fr.html">archive</a></li>
+  <li><a href="../git-bundle/fr.html">bundle</a></li>
+</ul>
+
+      <h3 class='plumbing'>Plumbing Commands</h3>
+<ul class='unstyled'>
+  <li><a href="../git-cat-file/fr.html">cat-file</a></li>
+  <li><a href="../git-check-ignore/fr.html">check-ignore</a></li>
+  <li><a href="../git-checkout-index/fr.html">checkout-index</a></li>
+  <li><a href="../git-commit-tree/fr.html">commit-tree</a></li>
+  <li><a href="../git-count-objects/fr.html">count-objects</a></li>
+  <li><a href="../git-diff-index/fr.html">diff-index</a></li>
+  <li><a href="../git-for-each-ref/fr.html">for-each-ref</a></li>
+  <li><a href="../git-hash-object/fr.html">hash-object</a></li>
+  <li><a href="../git-ls-files/fr.html">ls-files</a></li>
+  <li><a href="../git-ls-tree/fr.html">ls-tree</a></li>
+  <li><a href="../git-merge-base/fr.html">merge-base</a></li>
+  <li><a href="../git-read-tree/fr.html">read-tree</a></li>
+  <li><a href="../git-rev-list/fr.html">rev-list</a></li>
+  <li><a href="../git-rev-parse/fr.html">rev-parse</a></li>
+  <li><a href="../git-show-ref/fr.html">show-ref</a></li>
+  <li><a href="../git-symbolic-ref/fr.html">symbolic-ref</a></li>
+  <li><a href="../git-update-index/fr.html">update-index</a></li>
+  <li><a href="../git-update-ref/fr.html">update-ref</a></li>
+  <li><a href="../git-verify-pack/fr.html">verify-pack</a></li>
+  <li><a href="../git-write-tree/fr.html">write-tree</a></li>
+</ul>
+
+    </div>
+  </div>
+</div>
+
+    <a class="dropdown-trigger" id="reference-versions-trigger" data-panel-id="previous-versions-dropdown" href="fr.html#">
+      Latest version
+       ▾ </a>
+<span class="light d-flex">git-clean last updated in 2.34.1</span>
+<div class='dropdown-panel left' id='previous-versions-dropdown'>
+  <header>Changes in the <strong>git-clean</strong> manual</header>
+  <ol class='reference-previous-versions'>
+        <li class="no-change"><span>2.24.1 &rarr; 2.34.1 no changes</span></li>
+        <li>
+        <a href="2.24.0.html"><span class="version">2.24.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">11/04/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.23.1 &rarr; 2.23.4 no changes</span></li>
+        <li>
+        <a href="2.23.0.html"><span class="version">2.23.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">08/16/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.22.1 &rarr; 2.22.5 no changes</span></li>
+        <li>
+        <a href="2.22.0.html"><span class="version">2.22.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">06/07/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.10.5 &rarr; 2.21.4 no changes</span></li>
+        <li>
+        <a href="2.9.5.html"><span class="version">2.9.5</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">07/30/17</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.8.6 no changes</span></li>
+        <li>
+        <a href="2.7.6.html"><span class="version">2.7.6</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">07/30/17</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.4.12 &rarr; 2.6.7 no changes</span></li>
+        <li>
+        <a href="2.3.10.html"><span class="version">2.3.10</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">09/28/15</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.2.3.html"><span class="version">2.2.3</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">09/04/15</em>
+        </a>
+        </li>
+    <li>&nbsp;</li>
+    <!-- <li><a class="more" href="#">See more previous releases →</a></li> -->
+  </ol>
+  <footer>
+    <p>Check your version of git by running</p>
+    <code class="command">git --version</code>
+  </footer>
+</div>
+
+  </div>
+
+  <div id='main'>
+    <div class="sect1">
+<h2 id="_nom"><a class="anchor" href="fr.html#_nom"></a>NOM</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>git-clean - Supprime les fichiers non suivis de l&#8217;arbre de travail</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis"><a class="anchor" href="fr.html#_synopsis"></a>SYNOPSIS</h2>
+<div class="sectionbody">
+<div class="verseblock">
+<pre class="content"><em>git clean</em> [-d] [-f] [-i] [-n] [-q] [-e &lt;motif&gt;] [-x | -X] [--] &lt;chemins&gt;&#8230;&#8203;</pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description"><a class="anchor" href="fr.html#_description"></a>DESCRIPTION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Nettoie l&#8217;arbre de travail en supprimant récursivement les fichiers qui ne sont pas sous contrôle de version, en commençant par le répertoire courant.</p>
+</div>
+<div class="paragraph">
+<p>Normalement, seuls les fichiers inconnus de Git sont supprimés, mais si l&#8217;option <code>-x</code> est spécifiée, les fichiers ignorés sont également supprimés. Cela peut, par exemple, être utile pour supprimer tous les produits de construction.</p>
+</div>
+<div class="paragraph">
+<p>Si des arguments optionnels <code>&lt;chemin&gt;...</code> sont donnés, seuls ces chemins sont affectés.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_options"><a class="anchor" href="fr.html#_options"></a>OPTIONS</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-clean--d"> <a class="anchor" href="fr.html#git-clean--d"></a>-d </dt>
+<dd>
+<p>Normalement, lorsque aucun &lt;chemin&gt; n&#8217;est spécifié, git clean ne fera pas de récursion dans les répertoires non suivis pour éviter de supprimer trop de choses. Spécifiez -d pour qu&#8217;il fasse une récursion dans de tels répertoires également. Si des chemins sont spécifiés, -d n&#8217;est pas pertinent ; tous les fichiers non suivis correspondant aux chemins spécifiés (avec des exceptions pour les répertoires git imbriqués mentionnés sous <code>--force</code>) seront supprimés.</p>
+</dd>
+<dt class="hdlist1" id="git-clean--f"> <a class="anchor" href="fr.html#git-clean--f"></a>-f </dt>
+<dt class="hdlist1" id="git-clean---force"> <a class="anchor" href="fr.html#git-clean---force"></a>--force </dt>
+<dd>
+<p>Si la variable de configuration de Git clean.requireForce n&#8217;est pas définie à false, <em>git clean</em> refusera de supprimer des fichiers ou des répertoires à moins qu&#8217;on lui fournisse -f ou -i. Git refusera de modifier les dépôts git imbriqués non suivis (répertoires avec un sous-répertoire .git) à moins qu&#8217;un second -f soit fourni.</p>
+</dd>
+<dt class="hdlist1" id="git-clean--i"> <a class="anchor" href="fr.html#git-clean--i"></a>-i </dt>
+<dt class="hdlist1" id="git-clean---interactive"> <a class="anchor" href="fr.html#git-clean---interactive"></a>--interactive </dt>
+<dd>
+<p>Montrer ce qui serait fait et nettoyer les fichiers de manière interactive. Voir "Mode interactif" pour plus de détails.</p>
+</dd>
+<dt class="hdlist1" id="git-clean--n"> <a class="anchor" href="fr.html#git-clean--n"></a>-n </dt>
+<dt class="hdlist1" id="git-clean---dry-run"> <a class="anchor" href="fr.html#git-clean---dry-run"></a>--dry-run </dt>
+<dd>
+<p>Ne rien supprimer effectivement, montrer juste ce qui serait fait.</p>
+</dd>
+<dt class="hdlist1" id="git-clean--q"> <a class="anchor" href="fr.html#git-clean--q"></a>-q </dt>
+<dt class="hdlist1" id="git-clean---quiet"> <a class="anchor" href="fr.html#git-clean---quiet"></a>--quiet </dt>
+<dd>
+<p>Mode silencieux, ne signaler que les erreurs, mais pas les fichiers qui ont été supprimés avec succès.</p>
+</dd>
+<dt class="hdlist1" id="git-clean--eltmotifgt"> <a class="anchor" href="fr.html#git-clean--eltmotifgt"></a>-e &lt;motif&gt; </dt>
+<dt class="hdlist1" id="git-clean---excludeltmotifgt"> <a class="anchor" href="fr.html#git-clean---excludeltmotifgt"></a>--exclude=&lt;motif&gt; </dt>
+<dd>
+<p>Utiliser le motif d&#8217;exclusion donné en plus des règles d&#8217;ignorance standard (voir <a href='../gitignore/fr.html'>gitignore[5]</a>).</p>
+</dd>
+<dt class="hdlist1" id="git-clean--x"> <a class="anchor" href="fr.html#git-clean--x"></a>-x </dt>
+<dd>
+<p>Ne pas utiliser les règles d&#8217;ignorance standard (voir <a href='../gitignore/fr.html'>gitignore[5]</a>), mais utiliser quand même les règles d&#8217;ignorance données avec les options <code>-e</code> de la ligne de commande. Cela permet de supprimer tous les fichiers non suivis, y compris les produits de construction. Ceci peut être utilisé (éventuellement en conjonction avec <em>git restore</em> ou <em>git reset</em>) pour créer un répertoire de travail vierge pour tester une construction propre.</p>
+</dd>
+<dt class="hdlist1" id="git-clean--X"> <a class="anchor" href="fr.html#git-clean--X"></a>-X </dt>
+<dd>
+<p>Supprimer uniquement les fichiers ignorés par Git. Cela peut être utile pour tout reconstruire à partir de zéro, mais conserver les fichiers créés manuellement.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_mode_interactif"><a class="anchor" href="fr.html#_mode_interactif"></a>Mode interactif</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Quand la commande entre en mode interactif, elle affiche les fichiers et répertoires à supprimer, puis entre en boucle de commande interactive.</p>
+</div>
+<div class="paragraph">
+<p>La boucle de commande affiche la liste des sous-commandes disponibles et affiche le prompt « What now&gt; » (Que faire maintenant). En général, lorsque le prompt se termine par un <em>&gt;</em> unique, vous ne pouvez choisir qu&#8217;une seule des propositions et appuyer Entrée, comme cela :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    *** Commands ***
+	1: clean                2: filter by pattern    3: select by numbers
+	4: ask each             5: quit                 6: help
+    What now&gt; 1</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Vous pouvez indiquer <code>c</code> ou <code>clean</code> ci-dessus, à condition que le choix soit unique.</p>
+</div>
+<div class="paragraph">
+<p>La boucle de commande principale propose 6 sous-commandes.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-clean-clean"> <a class="anchor" href="fr.html#git-clean-clean"></a>clean </dt>
+<dd>
+<p>Commencer à nettoyer les fichiers et les répertoires, puis quitter.</p>
+</dd>
+<dt class="hdlist1" id="git-clean-filtrerparmotif"> <a class="anchor" href="fr.html#git-clean-filtrerparmotif"></a>filtrer par motif </dt>
+<dd>
+<p>Cette commande affiche les fichiers et répertoires à supprimer et émet une invite "Input ignore patterns&gt;&gt;". Vous pouvez saisir des motifs séparés par des espaces pour exclure les fichiers et les répertoires de la suppression. Par exemple, "*.c *.h" exclura de la suppression les fichiers se terminant par ".c" et ".h". Lorsque vous êtes satisfait du résultat filtré, appuyez sur ENTER (vide) pour revenir au menu principal.</p>
+</dd>
+<dt class="hdlist1" id="git-clean-slectionnerparnumros"> <a class="anchor" href="fr.html#git-clean-slectionnerparnumros"></a>sélectionner par numéros </dt>
+<dd>
+<p>Affiche les fichiers et les répertoires à supprimer et un prompt "Slect items to delete&gt;&gt;". Quand le prompt se termine par un double <em>&gt;</em>, comme ceci, vous pouvez sélectionner plus d&#8217;une option, concaténées avec des espaces ou des virgules. Vous pouvez aussi indiquer des intervalles. Par exemple "2-5 7,9" pour choisir 2, 3, 4, 5, 7 et 9 dans la liste. Si le second nombre d&#8217;un intervalle est absent, tous les items restants sont sélectionnés. Par ex. "7-" choisit 7, 8 et 9 dans la liste. Vous pouvez indiquer <em>*</em> pour tout sélectionner. Enfin, quand le resultat filtré est satisfaisant, pressez ENTRÉE (vide) pour retourner au menu principal.</p>
+</dd>
+<dt class="hdlist1" id="git-clean-demanderpourchacun"> <a class="anchor" href="fr.html#git-clean-demanderpourchacun"></a>demander pour chacun </dt>
+<dd>
+<p>Cela va commencer à nettoyer, et vous devez confirmer un par un afin de supprimer les éléments. Veuillez noter que cette action n&#8217;est pas aussi efficace que les deux actions précédentes.</p>
+</dd>
+<dt class="hdlist1" id="git-clean-quitter"> <a class="anchor" href="fr.html#git-clean-quitter"></a>quitter </dt>
+<dd>
+<p>Cela vous permet d&#8217;arrêter sans faire le ménage.</p>
+</dd>
+<dt class="hdlist1" id="git-clean-aide"> <a class="anchor" href="fr.html#git-clean-aide"></a>aide </dt>
+<dd>
+<p>Afficher une brève utilisation de git-clean interactif.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_voir_aussi"><a class="anchor" href="fr.html#_voir_aussi"></a>VOIR AUSSI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href='../gitignore/fr.html'>gitignore[5]</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git"><a class="anchor" href="fr.html#_git"></a>GIT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Fait partie de la suite <a href='../git/fr.html'>git[1]</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_traduction"><a class="anchor" href="fr.html#_traduction"></a>TRADUCTION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cette  page de manuel a été traduite par Jean-Noël Avila &lt;jn.avila AT free DOT fr&gt; et les membres du projet git-manpages-l10n. Veuillez signaler toute erreur de traduction par un rapport de bogue sur le site <a href="https://github.com/jnavila/git-manpages-l10n" class="bare">https://github.com/jnavila/git-manpages-l10n</a> .</p>
+</div>
+</div>
+</div>
+  </div>
+
+        </div>
+      </div>
+      <footer>
+  <div class="site-source">
+    <a href="https://git-scm.com/site">About this site</a><br>
+    Patches, suggestions, and comments are welcome.
+  </div>
+  <div class="sfc-member">
+    Git is a member of <a href="https://git-scm.com/sfc">Software Freedom Conservancy</a>
+  </div>
+</footer>
+<a href="fr.html#top" class="no-js scrollToTop" id="scrollToTop" data-label="Scroll to top">
+  <img src="../../images/icons/chevron-up@2x.png" width="20" height="20" alt="scroll-to-top"/>
+</a>
+<script src="../../assets/application-e12a0e837db60213b777cd7a706e0741beed474d7e5b94a641979fc87ce0d2cc.js"></script>
+
+    </div>
+
+</body>
+</html>

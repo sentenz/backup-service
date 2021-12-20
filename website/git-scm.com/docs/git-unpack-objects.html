@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49925874-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-49925874-3');
+  </script>
+
+  <meta charset='utf-8'>
+  <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Git - git-unpack-objects Documentation</title>
+
+  <link href='../favicon.ico' rel='shortcut icon' type='image/x-icon'>
+
+  <link rel="stylesheet" media="screen" href="../assets/application-42b7b91ccf5cb92469695cf08b5da9e9230594f634cb88264f305d5bd54e477f.css" />
+  <script src="../assets/modernize-b3ebe0c31c24f230dc62179d3e1030d2e57a53b1668d9382c0a27dbd44a94beb.js"></script>
+  <!--[if (gte IE 6)&(lte IE 8)]>
+  <script src="/javascripts/selectivizr-min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body id="documentation">
+
+  <div class="inner">
+    <header>
+
+  <a href="https://git-scm.com/"><img src="../images/logo@2x.png" width="110" height="46" alt="Git" /></a>
+  <span id="tagline"></span>
+  <script type="text/javascript">
+    var taglines = ["fast-version-control","everything-is-local","distributed-even-if-your-workflow-isnt","local-branching-on-the-cheap","distributed-is-the-new-centralized"];
+    var tagline = taglines[Math.floor(Math.random() * taglines.length)];
+    document.getElementById('tagline').innerHTML = '--' + tagline;
+  </script>
+  <form id="search" action="https://git-scm.com/search/results">
+    <input id="search-text" name="search" placeholder="Search entire site..." autocomplete="off" type="text" />
+  </form>
+  <div id="search-results"></div>
+
+</header>
+
+  </div> <!-- .inner -->
+
+    <div class="inner">
+      <div id="content-wrapper">
+        <button class="sidebar-btn"></button>
+<aside class="sidebar" id="sidebar">
+  <nav>
+    <ul>
+      <li>
+        <a href="https://git-scm.com/about">About</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/about">Branching and Merging</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/small-and-fast">Small and Fast</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/distributed">Distributed</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/info-assurance">Data Assurance</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/staging-area">Staging Area</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/free-and-open-source">Free and Open Source</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/trademark">Trademark</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a class="active" href="https://git-scm.com/doc">Documentation</a>
+        <ul class="expanded">
+          <li>
+            <a class="active" href="git-pack/pt_BR.html">Reference</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/book">Book</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/videos">Videos</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/doc/ext">External Links</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/downloads">Downloads</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/downloads/guis">GUI Clients</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/downloads/logos">Logos</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/community">Community</a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+
+        <div id="content">
+          
+  <div id='reference-version'>
+    <a class="dropdown-trigger" id="reference-languages-trigger" data-panel-id="l10n-versions-dropdown" href="git-unpack-objects/de.html#">
+  English ▾</a>
+<div class='dropdown-panel right' id='l10n-versions-dropdown'>
+  <header>Localized versions of <strong>git-unpack-objects</strong> manual</header>
+  <ol class='reference-previous-versions'>
+      <li>
+        <a href="git-unpack-objects/en.html"><span class="version">English</span>
+        </a>
+        </li>
+      <li>
+        <a href="git-unpack-objects/pt_BR.html"><span class="version">Português (Brasil)</span>
+        </a>
+        </li>
+  </ol>
+  <footer>
+    Want to read in your language or fix typos?<br/> <a href="https://github.com/jnavila/git-manpages-l10n">You can help translate this page</a>.
+  </footer>
+</div>
+
+    <a class="dropdown-trigger" id="reference-topics-trigger" data-panel-id="topics-dropdown" href="git-unpack-objects/de.html#">Topics ▾</a>
+<div class='dropdown-panel right' id='topics-dropdown'>
+  <div class='three-column'>
+    <div class='column-left'>
+      <h3 class='setup'>Setup and Config</h3>
+<ul class='unstyled'>
+  <li><a href="git/ru.html">git</a></li>
+  <li><a href="git-config/ru.html">config</a></li>
+  <li><a href="git-help/ru.html">help</a></li>
+  <li><a href="git-bugreport/ru.html">bugreport</a></li>
+</ul>
+
+      <h3 class='projects'>Getting and Creating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="git-init/ru.html">init</a></li>
+  <li><a href="git-clone/ru.html">clone</a></li>
+</ul>
+
+      <h3 class='snapshotting'>Basic Snapshotting</h3>
+<ul class='unstyled'>
+  <li><a href="git-add/ru.html">add</a></li>
+  <li><a href="git-status/ru.html">status</a></li>
+  <li><a href="git-diff/ru.html">diff</a></li>
+  <li><a href="git-commit/ru.html">commit</a></li>
+  <li><a href="git-notes/ru.html">notes</a></li>
+  <li><a href="git-restore/ru.html">restore</a></li>
+  <li><a href="git-reset/ru.html">reset</a></li>
+  <li><a href="git-rm/ru.html">rm</a></li>
+  <li><a href="git-mv/ru.html">mv</a></li>
+</ul>
+
+      <h3 class='branching'>Branching and Merging</h3>
+<ul class='unstyled'>
+  <li><a href="git-branch/ru.html">branch</a></li>
+  <li><a href="git-checkout/ru.html">checkout</a></li>
+  <li><a href="git-switch/ru.html">switch</a></li>
+  <li><a href="git-merge/ru.html">merge</a></li>
+  <li><a href="git-mergetool/ru.html">mergetool</a></li>
+  <li><a href="git-log/ru.html">log</a></li>
+  <li><a href="git-stash/ru.html">stash</a></li>
+  <li><a href="git-tag/ru.html">tag</a></li>
+  <li><a href="git-worktree/ru.html">worktree</a></li>
+</ul>
+
+      <h3 class='sharing'>Sharing and Updating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="git-fetch/ru.html">fetch</a></li>
+  <li><a href="git-pull/ru.html">pull</a></li>
+  <li><a href="git-push/ru.html">push</a></li>
+  <li><a href="git-remote/ru.html">remote</a></li>
+  <li><a href="git-submodule/ru.html">submodule</a></li>
+</ul>
+
+    </div>
+    <div class='column-middle'>
+      <h3 class='inspection'>Inspection and Comparison</h3>
+<ul class='unstyled'>
+  <li><a href="git-show/ru.html">show</a></li>
+  <li><a href="git-log/ru.html">log</a></li>
+  <li><a href="git-diff/ru.html">diff</a></li>
+  <li><a href="git-difftool/ru.html">difftool</a></li>
+  <li><a href="git-range-diff/ru.html">range-diff</a></li>
+  <li><a href="git-shortlog/ru.html">shortlog</a></li>
+  <li><a href="git-describe/ru.html">describe</a></li>
+</ul>
+
+      <h3 class='patching'>Patching</h3>
+<ul class='unstyled'>
+  <li><a href="git-apply/ru.html">apply</a></li>
+  <li><a href="git-cherry-pick/ru.html">cherry-pick</a></li>
+  <li><a href="git-diff/ru.html">diff</a></li>
+  <li><a href="git-rebase/ru.html">rebase</a></li>
+  <li><a href="git-revert/ru.html">revert</a></li>
+</ul>
+
+      <h3 class='debugging'>Debugging</h3>
+<ul class='unstyled'>
+  <li><a href="git-bisect/ru.html">bisect</a></li>
+  <li><a href="git-blame/ru.html">blame</a></li>
+  <li><a href="git-grep/ru.html">grep</a></li>
+</ul>
+
+      <h3 class='email'>Email</h3>
+<ul class='unstyled'>
+  <li><a href="git-am/ru.html">am</a></li>
+  <li><a href="git-apply/ru.html">apply</a></li>
+  <li><a href="git-format-patch/ru.html">format-patch</a></li>
+  <li><a href="git-send-email/ru.html">send-email</a></li>
+  <li><a href="git-request-pull/ru.html">request-pull</a></li>
+</ul>
+
+      <h3 class='external'>External Systems</h3>
+<ul class='unstyled'>
+  <li><a href="git-svn/ru.html">svn</a></li>
+  <li><a href="git-fast-import/ru.html">fast-import</a></li>
+</ul>
+
+      <h3 class='server-admin'>Server Admin</h3>
+<ul class='unstyled'>
+  <li><a href="git-daemon/ru.html">daemon</a></li>
+  <li><a href="git-update-server-info/ru.html">update-server-info</a></li>
+</ul>
+
+    </div>
+    <div class='column-right'>
+      <h3 class='guides'>Guides</h3>
+<ul class='unstyled'>
+  <li><a href="gitattributes/ru.html">gitattributes</a></li>
+  <li><a href="gitcli/ru.html">Command-line interface conventions</a></li>
+  <li><a href="giteveryday/ru.html">Everyday Git</a></li>
+  <li><a href="gitfaq/ru.html">Frequently Asked Questions (FAQ)</a></li>
+  <li><a href="gitglossary/zh_HANT.html">Glossary</a></li>
+  <li><a href="githooks/ru.html">Hooks</a></li>
+  <li><a href="gitignore/ru.html">gitignore</a></li>
+  <li><a href="gitmodules/ru.html">gitmodules</a></li>
+  <li><a href="gitrevisions/ru.html">Revisions</a></li>
+  <li><a href="gitsubmodules/ru.html">Submodules</a></li>
+  <li><a href="gittutorial/ru.html">Tutorial</a></li>
+  <li><a href="gitworkflows/ru.html">Workflows</a></li>
+  <li><a href="git/ru.html#_guides">All guides...</a></li>
+</ul>
+
+      <h3 class='admin'>Administration</h3>
+<ul class='unstyled'>
+  <li><a href="git-clean/ru.html">clean</a></li>
+  <li><a href="git-gc/ru.html">gc</a></li>
+  <li><a href="git-fsck/ru.html">fsck</a></li>
+  <li><a href="git-reflog/ru.html">reflog</a></li>
+  <li><a href="git-filter-branch/ru.html">filter-branch</a></li>
+  <li><a href="git-instaweb/ru.html">instaweb</a></li>
+  <li><a href="git-archive/ru.html">archive</a></li>
+  <li><a href="git-bundle/ru.html">bundle</a></li>
+</ul>
+
+      <h3 class='plumbing'>Plumbing Commands</h3>
+<ul class='unstyled'>
+  <li><a href="git-cat-file/ru.html">cat-file</a></li>
+  <li><a href="git-check-ignore/ru.html">check-ignore</a></li>
+  <li><a href="git-checkout-index/ru.html">checkout-index</a></li>
+  <li><a href="git-commit-tree/ru.html">commit-tree</a></li>
+  <li><a href="git-count-objects/ru.html">count-objects</a></li>
+  <li><a href="git-diff-index/ru.html">diff-index</a></li>
+  <li><a href="git-for-each-ref/ru.html">for-each-ref</a></li>
+  <li><a href="git-hash-object/ru.html">hash-object</a></li>
+  <li><a href="git-ls-files/ru.html">ls-files</a></li>
+  <li><a href="git-ls-tree/ru.html">ls-tree</a></li>
+  <li><a href="git-merge-base/ru.html">merge-base</a></li>
+  <li><a href="git-read-tree/ru.html">read-tree</a></li>
+  <li><a href="rev-list.html">rev-list</a></li>
+  <li><a href="git-rev-parse/ru.html">rev-parse</a></li>
+  <li><a href="git-show-ref/ru.html">show-ref</a></li>
+  <li><a href="git-symbolic-ref/ru.html">symbolic-ref</a></li>
+  <li><a href="git-update-index/ru.html">update-index</a></li>
+  <li><a href="git-update-ref/ru.html">update-ref</a></li>
+  <li><a href="git-verify-pack/ru.html">verify-pack</a></li>
+  <li><a href="git-write-tree/ru.html">write-tree</a></li>
+</ul>
+
+    </div>
+  </div>
+</div>
+
+    <a class="dropdown-trigger" id="reference-versions-trigger" data-panel-id="previous-versions-dropdown" href="git-unpack-objects/de.html#">
+    Version 2.34.1
+ ▾ </a>
+<span class="light d-flex">git-unpack-objects last updated in 2.34.1</span>
+<div class='dropdown-panel left' id='previous-versions-dropdown'>
+  <header>Changes in the <strong>git-unpack-objects</strong> manual</header>
+  <ol class='reference-previous-versions'>
+        <li class="no-change"><span>2.12.5 &rarr; 2.34.1 no changes</span></li>
+        <li>
+        <a href="git-unpack-objects/2.11.4.html"><span class="version">2.11.4</span>
+          <span class="diff">
+              <img src="../images/icons/green-dot.png" />
+              <img src="../images/icons/green-dot.png" />
+              <img src="../images/icons/green-dot.png" />
+              <img src="../images/icons/grey-dot.png" />
+              <img src="../images/icons/grey-dot.png" />
+              <img src="../images/icons/grey-dot.png" />
+              <img src="../images/icons/grey-dot.png" />
+              <img src="../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">09/22/17</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.7.6 &rarr; 2.10.5 no changes</span></li>
+        <li>
+        <a href="git-unpack-objects/2.6.7.html"><span class="version">2.6.7</span>
+          <span class="diff">
+              <img src="../images/icons/green-dot.png" />
+              <img src="../images/icons/red-dot.png" />
+              <img src="../images/icons/grey-dot.png" />
+              <img src="../images/icons/grey-dot.png" />
+              <img src="../images/icons/grey-dot.png" />
+              <img src="../images/icons/grey-dot.png" />
+              <img src="../images/icons/grey-dot.png" />
+              <img src="../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">05/05/17</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.5.6 no changes</span></li>
+        <li>
+        <a href="git-unpack-objects/2.4.12.html"><span class="version">2.4.12</span>
+          <span class="diff">
+              <img src="../images/icons/green-dot.png" />
+              <img src="../images/icons/green-dot.png" />
+              <img src="../images/icons/green-dot.png" />
+              <img src="../images/icons/red-dot.png" />
+              <img src="../images/icons/red-dot.png" />
+              <img src="../images/icons/red-dot.png" />
+              <img src="../images/icons/grey-dot.png" />
+              <img src="../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">05/05/17</em>
+        </a>
+        </li>
+    <li>&nbsp;</li>
+    <!-- <li><a class="more" href="#">See more previous releases →</a></li> -->
+  </ol>
+  <footer>
+    <p>Check your version of git by running</p>
+    <code class="command">git --version</code>
+  </footer>
+</div>
+
+  </div>
+
+  <div id='main'>
+    <div class="sect1">
+<h2 id="_name"><a class="anchor" href="git-unpack-objects/de.html#_name"></a>NAME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>git-unpack-objects - Unpack objects from a packed archive</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis"><a class="anchor" href="git-unpack-objects/de.html#_synopsis"></a>SYNOPSIS</h2>
+<div class="sectionbody">
+<div class="verseblock">
+<pre class="content"><em>git unpack-objects</em> [-n] [-q] [-r] [--strict]</pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description"><a class="anchor" href="git-unpack-objects/de.html#_description"></a>DESCRIPTION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Read a packed archive (.pack) from the standard input, expanding
+the objects contained within and writing them into the repository in
+"loose" (one object per file) format.</p>
+</div>
+<div class="paragraph">
+<p>Objects that already exist in the repository will <strong>not</strong> be unpacked
+from the packfile.  Therefore, nothing will be unpacked if you use
+this command on a packfile that exists within the target repository.</p>
+</div>
+<div class="paragraph">
+<p>See <a href='git-repack/de.html'>git-repack[1]</a> for options to generate
+new packs and replace existing ones.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_options"><a class="anchor" href="git-unpack-objects/de.html#_options"></a>OPTIONS</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="Documentation/git-unpack-objects.txt--n"> <a class="anchor" href="git-unpack-objects/de.html#Documentation/git-unpack-objects.txt--n"></a>-n </dt>
+<dd>
+<p>       Dry run.  Check the pack file without actually unpacking
+the objects.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-unpack-objects.txt--q"> <a class="anchor" href="git-unpack-objects/de.html#Documentation/git-unpack-objects.txt--q"></a>-q </dt>
+<dd>
+<p>The command usually shows percentage progress.  This
+flag suppresses it.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-unpack-objects.txt--r"> <a class="anchor" href="git-unpack-objects/de.html#Documentation/git-unpack-objects.txt--r"></a>-r </dt>
+<dd>
+<p>When unpacking a corrupt packfile, the command dies at
+the first corruption.  This flag tells it to keep going
+and make the best effort to recover as many objects as
+possible.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-unpack-objects.txt---strict"> <a class="anchor" href="git-unpack-objects/de.html#Documentation/git-unpack-objects.txt---strict"></a>--strict </dt>
+<dd>
+<p>Don&#8217;t write objects with broken content or links.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-unpack-objects.txt---max-input-sizeltsizegt"> <a class="anchor" href="git-unpack-objects/de.html#Documentation/git-unpack-objects.txt---max-input-sizeltsizegt"></a>--max-input-size=&lt;size&gt; </dt>
+<dd>
+<p>Die, if the pack is larger than &lt;size&gt;.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git"><a class="anchor" href="git-unpack-objects/de.html#_git"></a>GIT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Part of the <a href='git/ru.html'>git[1]</a> suite</p>
+</div>
+</div>
+</div>
+  </div>
+
+        </div>
+      </div>
+      <footer>
+  <div class="site-source">
+    <a href="https://git-scm.com/site">About this site</a><br>
+    Patches, suggestions, and comments are welcome.
+  </div>
+  <div class="sfc-member">
+    Git is a member of <a href="https://git-scm.com/sfc">Software Freedom Conservancy</a>
+  </div>
+</footer>
+<a href="git-unpack-objects/de.html#top" class="no-js scrollToTop" id="scrollToTop" data-label="Scroll to top">
+  <img src="../images/icons/chevron-up@2x.png" width="20" height="20" alt="scroll-to-top"/>
+</a>
+<script src="../assets/application-e12a0e837db60213b777cd7a706e0741beed474d7e5b94a641979fc87ce0d2cc.js"></script>
+
+    </div>
+
+</body>
+</html>

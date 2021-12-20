@@ -1,0 +1,2502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49925874-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-49925874-3');
+  </script>
+
+  <meta charset='utf-8'>
+  <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Git - git-rebase Documentation</title>
+
+  <link href='../../favicon.ico' rel='shortcut icon' type='image/x-icon'>
+
+  <link rel="stylesheet" media="screen" href="../../assets/application-42b7b91ccf5cb92469695cf08b5da9e9230594f634cb88264f305d5bd54e477f.css" />
+  <script src="../../assets/modernize-b3ebe0c31c24f230dc62179d3e1030d2e57a53b1668d9382c0a27dbd44a94beb.js"></script>
+  <!--[if (gte IE 6)&(lte IE 8)]>
+  <script src="/javascripts/selectivizr-min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body id="documentation">
+
+  <div class="inner">
+    <header>
+
+  <a href="https://git-scm.com/"><img src="../../images/logo@2x.png" width="110" height="46" alt="Git" /></a>
+  <span id="tagline"></span>
+  <script type="text/javascript">
+    var taglines = ["fast-version-control","everything-is-local","distributed-even-if-your-workflow-isnt","local-branching-on-the-cheap","distributed-is-the-new-centralized"];
+    var tagline = taglines[Math.floor(Math.random() * taglines.length)];
+    document.getElementById('tagline').innerHTML = '--' + tagline;
+  </script>
+  <form id="search" action="https://git-scm.com/search/results">
+    <input id="search-text" name="search" placeholder="Search entire site..." autocomplete="off" type="text" />
+  </form>
+  <div id="search-results"></div>
+
+</header>
+
+  </div> <!-- .inner -->
+
+    <div class="inner">
+      <div id="content-wrapper">
+        <button class="sidebar-btn"></button>
+<aside class="sidebar" id="sidebar">
+  <nav>
+    <ul>
+      <li>
+        <a href="https://git-scm.com/about">About</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/about">Branching and Merging</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/small-and-fast">Small and Fast</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/distributed">Distributed</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/info-assurance">Data Assurance</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/staging-area">Staging Area</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/free-and-open-source">Free and Open Source</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/trademark">Trademark</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a class="active" href="https://git-scm.com/doc">Documentation</a>
+        <ul class="expanded">
+          <li>
+            <a class="active" href="../git-pack/pt_BR.html">Reference</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/book">Book</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/videos">Videos</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/doc/ext">External Links</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/downloads">Downloads</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/downloads/guis">GUI Clients</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/downloads/logos">Logos</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/community">Community</a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+
+        <div id="content">
+          
+  <div id='reference-version'>
+    <a class="dropdown-trigger" id="reference-languages-trigger" data-panel-id="l10n-versions-dropdown" href="pt_BR.html#">
+  Português (Brasil) ▾</a>
+<div class='dropdown-panel right' id='l10n-versions-dropdown'>
+  <header>Localized versions of <strong>git-rebase</strong> manual</header>
+  <ol class='reference-previous-versions'>
+      <li>
+        <a href="en.html"><span class="version">English</span>
+        </a>
+        </li>
+      <li>
+        <a href="pt_BR.html"><span class="version">Português (Brasil)</span>
+        </a>
+        </li>
+  </ol>
+  <footer>
+    Want to read in your language or fix typos?<br/> <a href="https://github.com/jnavila/git-manpages-l10n">You can help translate this page</a>.
+  </footer>
+</div>
+
+    <a class="dropdown-trigger" id="reference-topics-trigger" data-panel-id="topics-dropdown" href="pt_BR.html#">Topics ▾</a>
+<div class='dropdown-panel right' id='topics-dropdown'>
+  <div class='three-column'>
+    <div class='column-left'>
+      <h3 class='setup'>Setup and Config</h3>
+<ul class='unstyled'>
+  <li><a href="../git/pt_BR.html">git</a></li>
+  <li><a href="../git-config/pt_BR.html">config</a></li>
+  <li><a href="../git-help/pt_BR.html">help</a></li>
+  <li><a href="../git-bugreport/pt_BR.html">bugreport</a></li>
+</ul>
+
+      <h3 class='projects'>Getting and Creating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-init/pt_BR.html">init</a></li>
+  <li><a href="../git-clone/pt_BR.html">clone</a></li>
+</ul>
+
+      <h3 class='snapshotting'>Basic Snapshotting</h3>
+<ul class='unstyled'>
+  <li><a href="../git-add/pt_BR.html">add</a></li>
+  <li><a href="../git-status/pt_BR.html">status</a></li>
+  <li><a href="../git-diff/pt_BR.html">diff</a></li>
+  <li><a href="../git-commit/pt_BR.html">commit</a></li>
+  <li><a href="../git-notes/pt_BR.html">notes</a></li>
+  <li><a href="../git-restore/pt_BR.html">restore</a></li>
+  <li><a href="../git-reset/pt_BR.html">reset</a></li>
+  <li><a href="../git-rm/pt_BR.html">rm</a></li>
+  <li><a href="../git-mv/pt_BR.html">mv</a></li>
+</ul>
+
+      <h3 class='branching'>Branching and Merging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-branch/pt_BR.html">branch</a></li>
+  <li><a href="../git-checkout/pt_BR.html">checkout</a></li>
+  <li><a href="../git-switch/pt_BR.html">switch</a></li>
+  <li><a href="../git-merge/pt_BR.html">merge</a></li>
+  <li><a href="../git-mergetool/pt_BR.html">mergetool</a></li>
+  <li><a href="../git-log/pt_BR.html">log</a></li>
+  <li><a href="../git-stash/pt_BR.html">stash</a></li>
+  <li><a href="../git-tag/pt_BR.html">tag</a></li>
+  <li><a href="../git-worktree/pt_BR.html">worktree</a></li>
+</ul>
+
+      <h3 class='sharing'>Sharing and Updating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-fetch/pt_BR.html">fetch</a></li>
+  <li><a href="../git-pull/pt_BR.html">pull</a></li>
+  <li><a href="../git-push/pt_BR.html">push</a></li>
+  <li><a href="../git-remote/pt_BR.html">remote</a></li>
+  <li><a href="../git-submodule/pt_BR.html">submodule</a></li>
+</ul>
+
+    </div>
+    <div class='column-middle'>
+      <h3 class='inspection'>Inspection and Comparison</h3>
+<ul class='unstyled'>
+  <li><a href="../git-show/pt_BR.html">show</a></li>
+  <li><a href="../git-log/pt_BR.html">log</a></li>
+  <li><a href="../git-diff/pt_BR.html">diff</a></li>
+  <li><a href="../git-difftool/pt_BR.html">difftool</a></li>
+  <li><a href="../git-range-diff/pt_BR.html">range-diff</a></li>
+  <li><a href="../git-shortlog/pt_BR.html">shortlog</a></li>
+  <li><a href="../git-describe/pt_BR.html">describe</a></li>
+</ul>
+
+      <h3 class='patching'>Patching</h3>
+<ul class='unstyled'>
+  <li><a href="../git-apply/pt_BR.html">apply</a></li>
+  <li><a href="../git-cherry-pick/pt_BR.html">cherry-pick</a></li>
+  <li><a href="../git-diff/pt_BR.html">diff</a></li>
+  <li><a class="active" href="pt_BR.html">rebase</a></li>
+  <li><a href="../git-revert/pt_BR.html">revert</a></li>
+</ul>
+
+      <h3 class='debugging'>Debugging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-bisect/pt_BR.html">bisect</a></li>
+  <li><a href="../git-blame/pt_BR.html">blame</a></li>
+  <li><a href="../git-grep/pt_BR.html">grep</a></li>
+</ul>
+
+      <h3 class='email'>Email</h3>
+<ul class='unstyled'>
+  <li><a href="../git-am/pt_BR.html">am</a></li>
+  <li><a href="../git-apply/pt_BR.html">apply</a></li>
+  <li><a href="../git-format-patch/pt_BR.html">format-patch</a></li>
+  <li><a href="../git-send-email/pt_BR.html">send-email</a></li>
+  <li><a href="../git-request-pull/pt_BR.html">request-pull</a></li>
+</ul>
+
+      <h3 class='external'>External Systems</h3>
+<ul class='unstyled'>
+  <li><a href="../git-svn/pt_BR.html">svn</a></li>
+  <li><a href="../git-fast-import/pt_BR.html">fast-import</a></li>
+</ul>
+
+      <h3 class='server-admin'>Server Admin</h3>
+<ul class='unstyled'>
+  <li><a href="../git-daemon/pt_BR.html">daemon</a></li>
+  <li><a href="../git-update-server-info/pt_BR.html">update-server-info</a></li>
+</ul>
+
+    </div>
+    <div class='column-right'>
+      <h3 class='guides'>Guides</h3>
+<ul class='unstyled'>
+  <li><a href="../gitattributes/pt_BR.html">gitattributes</a></li>
+  <li><a href="../gitcli/pt_BR.html">Command-line interface conventions</a></li>
+  <li><a href="../giteveryday/pt_BR.html">Everyday Git</a></li>
+  <li><a href="../gitfaq/pt_BR.html">Frequently Asked Questions (FAQ)</a></li>
+  <li><a href="../gitglossary/pt_BR.html">Glossary</a></li>
+  <li><a href="../githooks/pt_BR.html">Hooks</a></li>
+  <li><a href="../gitignore/pt_BR.html">gitignore</a></li>
+  <li><a href="../gitmodules/pt_BR.html">gitmodules</a></li>
+  <li><a href="../gitrevisions/pt_BR.html">Revisions</a></li>
+  <li><a href="../gitsubmodules/pt_BR.html">Submodules</a></li>
+  <li><a href="../gittutorial/pt_BR.html">Tutorial</a></li>
+  <li><a href="../gitworkflows/pt_BR.html">Workflows</a></li>
+  <li><a href="../git/ru.html#_guides">All guides...</a></li>
+</ul>
+
+      <h3 class='admin'>Administration</h3>
+<ul class='unstyled'>
+  <li><a href="../git-clean/pt_BR.html">clean</a></li>
+  <li><a href="../git-gc/pt_BR.html">gc</a></li>
+  <li><a href="../git-fsck/pt_BR.html">fsck</a></li>
+  <li><a href="../git-reflog/pt_BR.html">reflog</a></li>
+  <li><a href="../git-filter-branch/pt_BR.html">filter-branch</a></li>
+  <li><a href="../git-instaweb/pt_BR.html">instaweb</a></li>
+  <li><a href="../git-archive/pt_BR.html">archive</a></li>
+  <li><a href="../git-bundle/pt_BR.html">bundle</a></li>
+</ul>
+
+      <h3 class='plumbing'>Plumbing Commands</h3>
+<ul class='unstyled'>
+  <li><a href="../git-cat-file/pt_BR.html">cat-file</a></li>
+  <li><a href="../git-check-ignore/pt_BR.html">check-ignore</a></li>
+  <li><a href="../git-checkout-index/pt_BR.html">checkout-index</a></li>
+  <li><a href="../git-commit-tree/pt_BR.html">commit-tree</a></li>
+  <li><a href="../git-count-objects/pt_BR.html">count-objects</a></li>
+  <li><a href="../git-diff-index/pt_BR.html">diff-index</a></li>
+  <li><a href="../git-for-each-ref/pt_BR.html">for-each-ref</a></li>
+  <li><a href="../git-hash-object/pt_BR.html">hash-object</a></li>
+  <li><a href="../git-ls-files/pt_BR.html">ls-files</a></li>
+  <li><a href="../git-ls-tree/pt_BR.html">ls-tree</a></li>
+  <li><a href="../git-merge-base/pt_BR.html">merge-base</a></li>
+  <li><a href="../git-read-tree/pt_BR.html">read-tree</a></li>
+  <li><a href="../git-rev-list/pt_BR.html">rev-list</a></li>
+  <li><a href="../git-rev-parse/pt_BR.html">rev-parse</a></li>
+  <li><a href="../git-show-ref/pt_BR.html">show-ref</a></li>
+  <li><a href="../git-symbolic-ref/pt_BR.html">symbolic-ref</a></li>
+  <li><a href="../git-update-index/pt_BR.html">update-index</a></li>
+  <li><a href="../git-update-ref/pt_BR.html">update-ref</a></li>
+  <li><a href="../git-verify-pack/pt_BR.html">verify-pack</a></li>
+  <li><a href="../git-write-tree/pt_BR.html">write-tree</a></li>
+</ul>
+
+    </div>
+  </div>
+</div>
+
+    <a class="dropdown-trigger" id="reference-versions-trigger" data-panel-id="previous-versions-dropdown" href="pt_BR.html#">
+      Latest version
+       ▾ </a>
+<span class="light d-flex">git-rebase last updated in 2.34.1</span>
+<div class='dropdown-panel left' id='previous-versions-dropdown'>
+  <header>Changes in the <strong>git-rebase</strong> manual</header>
+  <ol class='reference-previous-versions'>
+        <li class="no-change"><span>2.34.1 no changes</span></li>
+        <li>
+        <a href="2.34.0.html"><span class="version">2.34.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">11/15/21</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.33.1.html"><span class="version">2.33.1</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">10/12/21</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.33.0 no changes</span></li>
+        <li>
+        <a href="2.32.0.html"><span class="version">2.32.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">06/06/21</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.31.1 no changes</span></li>
+        <li>
+        <a href="2.31.0.html"><span class="version">2.31.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">03/15/21</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.30.1 &rarr; 2.30.2 no changes</span></li>
+        <li>
+        <a href="2.30.0.html"><span class="version">2.30.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">12/27/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.29.1 &rarr; 2.29.3 no changes</span></li>
+        <li>
+        <a href="2.29.0.html"><span class="version">2.29.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">10/19/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.28.1 no changes</span></li>
+        <li>
+        <a href="2.28.0.html"><span class="version">2.28.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">07/27/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.27.1 no changes</span></li>
+        <li>
+        <a href="2.27.0.html"><span class="version">2.27.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">06/01/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.26.1 &rarr; 2.26.3 no changes</span></li>
+        <li>
+        <a href="2.26.0.html"><span class="version">2.26.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">03/22/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.25.1 &rarr; 2.25.5 no changes</span></li>
+        <li>
+        <a href="2.25.0.html"><span class="version">2.25.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">01/13/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.24.1 &rarr; 2.24.4 no changes</span></li>
+        <li>
+        <a href="2.24.0.html"><span class="version">2.24.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">11/04/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.23.1 &rarr; 2.23.4 no changes</span></li>
+        <li>
+        <a href="2.23.0.html"><span class="version">2.23.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">08/16/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.22.1 &rarr; 2.22.5 no changes</span></li>
+        <li>
+        <a href="2.22.0.html"><span class="version">2.22.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">06/07/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.21.1 &rarr; 2.21.4 no changes</span></li>
+        <li>
+        <a href="2.21.0.html"><span class="version">2.21.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">02/24/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.20.1 &rarr; 2.20.5 no changes</span></li>
+        <li>
+        <a href="2.20.0.html"><span class="version">2.20.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">12/09/18</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.19.3 &rarr; 2.19.6 no changes</span></li>
+        <li>
+        <a href="2.19.2.html"><span class="version">2.19.2</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">11/21/18</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.19.1 no changes</span></li>
+        <li>
+        <a href="2.19.0.html"><span class="version">2.19.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">09/10/18</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.18.1 &rarr; 2.18.5 no changes</span></li>
+        <li>
+        <a href="2.18.0.html"><span class="version">2.18.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+          </span>
+          <em class="date">06/21/18</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.17.1 &rarr; 2.17.6 no changes</span></li>
+        <li>
+        <a href="2.17.0.html"><span class="version">2.17.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">04/02/18</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.16.6.html"><span class="version">2.16.6</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">12/06/19</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.15.4.html"><span class="version">2.15.4</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">12/06/19</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.14.6.html"><span class="version">2.14.6</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">12/06/19</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.13.7.html"><span class="version">2.13.7</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">05/22/18</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.12.5.html"><span class="version">2.12.5</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">09/22/17</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.10.5 &rarr; 2.11.4 no changes</span></li>
+        <li>
+        <a href="2.9.5.html"><span class="version">2.9.5</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">07/30/17</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.8.6.html"><span class="version">2.8.6</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">07/30/17</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.7.6 no changes</span></li>
+        <li>
+        <a href="2.6.7.html"><span class="version">2.6.7</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">05/05/17</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.5.6 no changes</span></li>
+        <li>
+        <a href="2.4.12.html"><span class="version">2.4.12</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">05/05/17</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.3.10.html"><span class="version">2.3.10</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">09/28/15</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.2.3.html"><span class="version">2.2.3</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">09/04/15</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.1.4.html"><span class="version">2.1.4</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">12/17/14</em>
+        </a>
+        </li>
+    <li>&nbsp;</li>
+    <!-- <li><a class="more" href="#">See more previous releases →</a></li> -->
+  </ol>
+  <footer>
+    <p>Check your version of git by running</p>
+    <code class="command">git --version</code>
+  </footer>
+</div>
+
+  </div>
+
+  <div id='main'>
+    <div class="sect1">
+<h2 id="_nome"><a class="anchor" href="pt_BR.html#_nome"></a>NOME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>git-rebase - Reaplique os commits em cima do topo de outra base</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_resumo"><a class="anchor" href="pt_BR.html#_resumo"></a>RESUMO</h2>
+<div class="sectionbody">
+<div class="verseblock">
+<pre class="content"><em>git rebase</em> [-i | --interactive] [&lt;opções&gt;] [--exec &lt;cmd&gt;]
+	[--onto &lt;nova-base&gt; | --keep-base] [&lt;upstream&gt; [&lt;ramo&gt;]]
+<em>git rebase</em> [-i | --interactive] [&lt;opções&gt;] [--exec &lt;cmd&gt;] [--onto &lt;nova-base&gt;]
+	--root [&lt;ramo&gt;]
+<em>git rebase</em> (--continue | --skip | --abort | --quit | --edit-todo | --show-current-patch)</pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_descrição"><a class="anchor" href="pt_BR.html#_descrição"></a>DESCRIÇÃO</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Caso o &lt;ramo&gt; seja utilizado, o comando <em>git rebase</em> executará um <code>git
+switch &lt;ramo&gt;</code> automaticamente antes de fazer qualquer outra coisa.  Caso
+contrário, ele permanecerá no ramo atual.</p>
+</div>
+<div class="paragraph">
+<p>Caso o <code>&lt;upstream&gt;</code> não seja definido, as opções "upstream" configuradas em
+<code>branch.&lt;nome&gt;.remote</code> e no <code>branch.&lt;nome&gt;.merge</code> serão utilizadas (para
+mais detalhes consulte <a href='../git-config/pt_BR.html'>git-config[1]</a>), assim como será assumida a
+opção <code>--fork-point</code>.  Caso você não esteja atualmente em nenhuma
+ramificação ou se a ramificação atual não tiver um "upstream" configurado, o
+"rebase" será cancelado.</p>
+</div>
+<div class="paragraph">
+<p>Todas as alterações feitas através de commits no ramo atual, mas que não
+estão na &lt;upstream&gt;, são salvas em uma área temporária.  Este é o mesmo
+conjunto dos commits que seriam exibidos por <code>git log &lt;upstream&gt;..HEAD</code>; ou
+pelo comando <code>git log 'fork_point'..HEAD</code>, caso <code>--fork-point</code> esteja ativo
+(veja a descrição em <code>--fork-point</code> abaixo); ou através do <code>git log HEAD</code>,
+caso a opção <code>--root</code> for seja utilizada.</p>
+</div>
+<div class="paragraph">
+<p>A ramificação atual é redefinida para &lt;upstream&gt; ou &lt;newbase&gt; caso a opção
+<code>--onto</code> seja utilizada.  Isso tem exatamente o mesmo efeito que <code>git reset
+--hard &lt;upstream&gt;</code> (ou &lt;newbase&gt;).  O <code>ORIG_HEAD</code> está definido para apontar
+no cume do ramo antes da redefinição.</p>
+</div>
+<div class="paragraph">
+<p>Os commits que foram salvos anteriormente na área temporária são reaplicadas
+no ramo atual, uma por uma e em ordem. Observe que quaisquer commits no
+<code>HEAD</code> que introduzam as mesmas alterações textuais que um commit no
+<code>HEAD</code>.. <code>&lt;upstream&gt;</code> são omitidas (ou seja, um patch já aceito na inicial
+com uma mensagem de commit ou carimbo de data e hora diferente, serão
+ignorados).</p>
+</div>
+<div class="paragraph">
+<p>É possível que uma falha da mesclagem impeça que este processo seja
+completamente automático.  Você terá que resolver qualquer falha da
+mesclagem e executar o comando <code>git rebase --continue</code>.  Outra opção é
+ignorar o commit que causou a falha da mesclagem com o comando <code>git rebase
+--skip</code>.  Para verificar o &lt;ramo&gt; original e remover os arquivos de trabalho
+<em>.git/rebase-apply</em>, utilize o comando <code>git rebase --abort</code>.</p>
+</div>
+<div class="paragraph">
+<p>Suponha que o seguinte histórico exista e que o ramo atual seja "topic":</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>          A---B---C topic
+         /
+    D---E---F---G master</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A partir deste ponto, o resultado de um dos seguintes comandos:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>git rebase master
+git rebase master topic</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>seria:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>                  A'--B'--C' topic
+                 /
+    D---E---F---G master</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>OBSERVAÇÃO:</strong> Este último formulário é apenas uma abreviação de <code>git checkout topic</code>
+seguido por <code>git rebase master</code>. Quando a reconstrução (rebase) sair do <code>topic</code> será
+mantido o ramo que foi averiguado.</p>
+</div>
+<div class="paragraph">
+<p>Caso a ramificação upstream já contiver uma alteração que você fez (porque
+você enviou um patch que foi aplicado na upstream por exemplo), então este
+commit será ignorado. Por exemplo, executando o comando <code>git rebase master</code>
+no histórico a seguir (onde <code>A'</code> e <code>A</code> introduzem o mesmo conjunto de
+alterações, mas possuem informações diferentes de quem fez o commit):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>          A---B---C topic
+         /
+    D---E---A'---F master</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>vai resultar em:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>                   B'---C' topic
+                  /
+    D---E---A'---F master</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Aqui está como você transplantaria um ramo do tópico com base em um ramo
+para outro, para fingir que você bifurcou o ramo do tópico deste último
+ramo, utilizando <code>rebase --onto</code>.</p>
+</div>
+<div class="paragraph">
+<p>Primeiro, vamos supor que o seu <em>tópico</em> seja baseado no ramo <em>next</em>.  Por
+exemplo, um recurso desenvolvido em <em>topic</em> depende de algumas
+funcionalidades encontradas em <em>next</em>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    o---o---o---o---o  master
+         \
+          o---o---o---o---o  next
+                           \
+                            o---o---o  topic</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Queremos criar um <em>tópico</em> bifurcado no ramo <em>master</em>; porque a
+funcionalidade da qual o <em>tópico</em> depende foi mesclado na ramificação
+<em>master</em> mais estável. Queremos que a nossa árvore fique assim:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    o---o---o---o---o  master
+        |            \
+        |             o'--o'--o'  topic
+         \
+          o---o---o---o---o  next</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Podemos conseguir isso utilizando o seguinte comando:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>git rebase --onto master next topic</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Um outro exemplo da opção <code>--onto</code> é reconstruir a fundação da parte de uma
+ramificação.  Se tivermos a seguinte situação:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>                            H---I---J topicB
+                           /
+                  E---F---G  topicA
+                 /
+    A---B---C---D  master</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>então o comando</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>git rebase --onto master topicA topicB</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>resultaria em:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>                 H'--I'--J'  topicB
+                /
+                | E---F---G  topicA
+                |/
+    A---B---C---D  master</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>É útil quando o <em>topicB</em> não depender do <em>topicA</em>.</p>
+</div>
+<div class="paragraph">
+<p>Um intervalo dos commits também pode ser removido com a reconstrução
+<em>rebase</em>.  Se tivermos a seguinte situação:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    E---F---G---H---I---J  topicA</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>então o comando</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>git rebase --onto topicA~5 topicA~3 topicA</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>resultaria na remoção dos commits <em>F</em> e <em>G</em>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    E---H'---I'---J'  topicA</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>É útil caso <em>F</em> e <em>G</em> estejam de alguma forma com defeitos ou não deveriam
+fazer parte do <em>topicA</em>.  Observe que o argumento para <em>--onto</em> e o
+parâmetro <em>&lt;upstream&gt;</em> podem ser qualquer <em>commit-ish</em> válido.</p>
+</div>
+<div class="paragraph">
+<p>Em caso de conflito, o <em>git rebase</em> irá parar no primeiro commit
+problemático e deixar os marcadores de conflito na árvore.  Você pode
+utilizar o <em>git diff</em> para localizar os marcadores (&lt;&lt;&lt;&lt;&lt;&lt;) e fazer edições
+para resolver o conflito.  Para cada arquivo que você edita, é necessário
+informar ao Git que o conflito foi resolvido, normalmente isso seria feito
+com</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>git add &lt;nome-do-arquivo&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Depois de resolver o conflito manualmente e atualizar o índice com a
+resolução desejada, você pode continuar o processo de reconstrução com o
+comando</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>git rebase --continue</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Como alternativa, você pode desfazer o <em>git rebase</em> com</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>git rebase --abort</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuração"><a class="anchor" href="pt_BR.html#_configuração"></a>CONFIGURAÇÃO</h2>
+<div class="sectionbody">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Missing <code>pt_BR/config/rebase.txt</code></p>
+</div>
+<div class="paragraph">
+<p>See original version for this content.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_opções"><a class="anchor" href="pt_BR.html#_opções"></a>OPÇÕES</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-rebase---ontoltnova-basegt"> <a class="anchor" href="pt_BR.html#git-rebase---ontoltnova-basegt"></a>--onto &lt;nova-base&gt; </dt>
+<dd>
+<p>Ponto de partida onde criar os novos commits. Caso a opção <em>--onto</em> não seja
+utilizada, o ponto inicial é &lt;upstream&gt;.  Pode ser qualquer commit válido e
+não apenas um nome de um ramo já existente.</p>
+<div class="paragraph">
+<p>Como um caso especial, você pode utilizar "A...B" como um atalho para a
+base de mesclagem <em>A</em> e <em>B</em> caso haja exatamente uma base para
+mesclagem. Você pode deixar de fora no máximo um de <em>A</em> e <em>B</em>; nesse caso, a
+predefinição retorna para <code>HEAD</code>.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-rebase---keep-base"> <a class="anchor" href="pt_BR.html#git-rebase---keep-base"></a>--keep-base </dt>
+<dd>
+<p>Defina o ponto de partida para criar os novos commits para a mesclagem base
+do &lt;upstream&gt; &lt;ramo&gt;. Executando o comando <em>git rebase --keep-base
+&lt;upstream&gt; &lt;ramo&gt;</em> é o mesmo que executar o comando <em>git rebase --onto
+&lt;upstream&gt;&#8230;&#8203; &lt;upstream&gt;</em>.</p>
+<div class="paragraph">
+<p>Esta opção é útil no caso onde se está desenvolvendo um recurso em cima de
+um ramo <em>upstream</em>. Enquanto o recurso está sendo trabalhado, o ramo
+<em>upstream</em> pode avançar e talvez não seja a melhor ideia continuar
+reconstruindo no topo do <em>upstream</em>, porém manter a base do commit como
+está.</p>
+</div>
+<div class="paragraph">
+<p>Embora esta opção e o <code>--fork-point</code> encontrem a base da mesclagem entre
+&lt;upstream&gt; e &lt;ramo&gt;, esta opção utiliza a base da mesclagem como o <em>ponto
+inicial</em> onde os novos commits serão criados, enquanto <code>--fork-point</code>
+utiliza a mesclagem da base para determinar o <em>conjunto dos commits</em> que
+serão reconstruídos.</p>
+</div>
+<div class="paragraph">
+<p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-rebase-ltupstreamgt"> <a class="anchor" href="pt_BR.html#git-rebase-ltupstreamgt"></a>&lt;upstream&gt; </dt>
+<dd>
+<p>Ramo upstream para fazer a comparação.  Pode ser qualquer commit válido, não
+apenas um nome de uma ramo já existente. A predefinição retorna para
+"upstream" configurada para o ramo atual.</p>
+</dd>
+<dt class="hdlist1" id="git-rebase-ltramogt"> <a class="anchor" href="pt_BR.html#git-rebase-ltramogt"></a>&lt;ramo&gt; </dt>
+<dd>
+<p>Ramo de trabalho; A predefinição retorna para <code>HEAD</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-rebase---continue"> <a class="anchor" href="pt_BR.html#git-rebase---continue"></a>--continue </dt>
+<dd>
+<p>Reinicie o processo de reformulação após resolver um conflito de mesclagem.</p>
+</dd>
+<dt class="hdlist1" id="git-rebase---abort"> <a class="anchor" href="pt_BR.html#git-rebase---abort"></a>--abort </dt>
+<dd>
+<p>Interrompa a operação de reconstrução da fundação e redefina o <code>HEAD</code> para o
+ramo original. Caso &lt;ramo&gt; seja informado quando a operação de reconstrução
+da fundação seja iniciada, o <code>HEAD</code> será redefinido para &lt;ramo&gt;. Caso
+contrário, o HEAD será redefinido para onde estava quando a operação de
+reconstrução foi iniciada.</p>
+</dd>
+<dt class="hdlist1" id="git-rebase---quit"> <a class="anchor" href="pt_BR.html#git-rebase---quit"></a>--quit </dt>
+<dd>
+<p>Interrompa a operação de reconstrução, porém o <code>HEAD</code> não será redefinido
+para o ramo original. Como resultado, o índice e a árvore de trabalho também
+permanecem inalterados. Caso uma entrada temporária <em>stash</em> seja criada
+utilizando <code>--autostash</code>, ela será salva na lista <em>stash</em>.</p>
+</dd>
+<dt class="hdlist1" id="git-rebase---apply"> <a class="anchor" href="pt_BR.html#git-rebase---apply"></a>--apply </dt>
+<dd>
+<p>Utilize estratégias para aplicar o "rebase" (invocando <code>git-am</code>
+internamente).  Esta opção poderá se tornar não operacional no futuro uma
+vez que o processo interno da mesclagem processe tudo o que a opção
+<em>--apply</em> fizer.</p>
+<div class="paragraph">
+<p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-rebase---emptydropkeepask"> <a class="anchor" href="pt_BR.html#git-rebase---emptydropkeepask"></a>--empty={drop,keep,ask} </dt>
+<dd>
+<p>Como lidar com commits que não estão vazias para iniciar e não são escolhas
+seletivas limpas de nenhum commit upstream, mas que ficam vazias após a
+reconstrução (porque elas já contêm um subconjunto de alterações na
+upstream).  Com drop (a predefinição), os commits que ficam vazias são
+descartadas.  Com keep, estes commits são mantidos.  Com o comando <em>ask</em>
+(implícito através da opção <code>--interactive</code>), uma reconstrução <em>rebase</em> será
+interrompida quando um commit vazia for aplicado, permitindo que você
+escolha se elimina, edita mais arquivos ou apenas faça o commit das
+alterações vazias.  Outras opções, como <code>--exec</code>, utilizarão a predefinição
+<em>drop</em>, a menos que a opção <code>-i/--interactive</code> seja informado de forma
+explicita.</p>
+<div class="paragraph">
+<p>Observe que, os commits que começam vazios são mantidos (a menos que a opção
+<code>--no-keep-empty</code> seja utilizado) e os commits que são escolhas limpas
+(conforme determinado pelo comando <code>git log --cherry-mark ...</code>) são
+detectados e descartados como uma etapa preliminar (a menos que a opção
+`--reapply-cherry-picks seja utilizado).</p>
+</div>
+<div class="paragraph">
+<p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-rebase---no-keep-empty"> <a class="anchor" href="pt_BR.html#git-rebase---no-keep-empty"></a>--no-keep-empty </dt>
+<dt class="hdlist1" id="git-rebase---keep-empty"> <a class="anchor" href="pt_BR.html#git-rebase---keep-empty"></a>--keep-empty </dt>
+<dd>
+<p>Não mantenha os commits que começam vazios antes da reconstrução (ou seja,
+que não alteram em nada a origem) no resultado.  A predefinição é manter os
+commits que começam vazios, pois a criação destes commits requer o
+encaminhamento da opção <code>--allow-empty override</code> para o comando <code>git
+commit</code>, significa que um usuário está criando intencionalmente tal commit e
+portanto, deseja mantê-lo.</p>
+<div class="paragraph">
+<p>A utilização desta opção é bem rara, já que você pode se livrar dos commits
+que iniciam vazios simplesmente executando uma reconstrução interativa e
+removendo as linhas correspondentes ao commit que você não quer.  Está opção
+existe como um atalho por mera conveniência, para casos onde as ferramentas
+externas gerem muitos commits vazios e você que todos eles sejam removidos.</p>
+</div>
+<div class="paragraph">
+<p>Para os commits que não começam vazios, mas ficam vazios após a reconstrução
+(<em>rebase</em>), consulte a opção <code>--empty</code>.</p>
+</div>
+<div class="paragraph">
+<p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-rebase---reapply-cherry-picks"> <a class="anchor" href="pt_BR.html#git-rebase---reapply-cherry-picks"></a>--reapply-cherry-picks </dt>
+<dt class="hdlist1" id="git-rebase---no-reapply-cherry-picks"> <a class="anchor" href="pt_BR.html#git-rebase---no-reapply-cherry-picks"></a>--no-reapply-cherry-picks </dt>
+<dd>
+<p>Reaplique todas as escolhas seletivas que estejam limpas de qualquer commit
+"upstream" em vez inviabilizá-los por completo. (Então, caso estes commits
+se tornem vazios depois da reconstrução, por conter um subconjunto de
+alterações da "upstream", o comportamento em direção à eles é controlado
+através da opção <code>--empty</code>.)</p>
+<div class="paragraph">
+<p>É predefinido que (ou se `--no-reapply-cherry-picks 'for fornecido), estes
+commits serão automaticamente eliminados.  Como isso requer a leitura de
+todos os commits upstream, isso pode custar caro nos repositórios com uma
+grande quantidade de commits na upstream que precisam ser lidos.</p>
+</div>
+<div class="paragraph">
+<p>A opção <code>--reapply-cherry-picks</code> permite que a reconstrução anteceda a
+leitura de todos os commits "upstream", melhorando muito o desempenho.</p>
+</div>
+<div class="paragraph">
+<p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-rebase---allow-empty-message"> <a class="anchor" href="pt_BR.html#git-rebase---allow-empty-message"></a>--allow-empty-message </dt>
+<dd>
+<p>No-op.  A reconstrução dos commits com uma mensagem vazia costumava falhar,
+esta opção substitui este comportamento, permitindo que os commits com
+mensagens vazias sejam refeitas.  Agora os commits com uma mensagem vazia
+não causam mais a interrupção do "rebasing".</p>
+<div class="paragraph">
+<p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-rebase---skip"> <a class="anchor" href="pt_BR.html#git-rebase---skip"></a>--skip </dt>
+<dd>
+<p>Reinicie o processo de reconstrução da fundação ignorando o patch atual.</p>
+</dd>
+<dt class="hdlist1" id="git-rebase---edit-todo"> <a class="anchor" href="pt_BR.html#git-rebase---edit-todo"></a>--edit-todo </dt>
+<dd>
+<p>Edite a lista de tarefas durante uma nova reconstrução interativa.</p>
+</dd>
+<dt class="hdlist1" id="git-rebase---show-current-patch"> <a class="anchor" href="pt_BR.html#git-rebase---show-current-patch"></a>--show-current-patch </dt>
+<dd>
+<p>Exiba o patch atual em uma nova recuperação interativa ou quando a nova
+recuperação for interrompida por causa de conflitos. É o equivalente ao <code>git
+show REBASE_HEAD</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-rebase--m"> <a class="anchor" href="pt_BR.html#git-rebase--m"></a>-m </dt>
+<dt class="hdlist1" id="git-rebase---merge"> <a class="anchor" href="pt_BR.html#git-rebase---merge"></a>--merge </dt>
+<dd>
+<p>Utilize estratégias de mesclagem para fazer o <code>rebase</code>.  Quando a estratégia
+de mesclagem recursiva (predefinida) for utilizada, permite que o <code>rebase</code>
+esteja ciente das renomeações no lado upstream.  Esta é a predefinição.</p>
+<div class="paragraph">
+<p>Observe que uma mesclagem de reconstrução (rebase) funciona repetindo cada
+commit da ramificação de trabalho na parte do topo &lt;upstream&gt;.  Por esse
+motivo, quando ocorre um conflito na mesclagem, o lado relatado como <em>nosso</em>
+é a série até agora reformulada, começando com &lt;upstream&gt; e <em>deles</em> é o ramo
+de trabalho.  Em outras palavras, os lados são trocados.</p>
+</div>
+<div class="paragraph">
+<p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-rebase--sltestratgiagt"> <a class="anchor" href="pt_BR.html#git-rebase--sltestratgiagt"></a>-s &lt;estratégia&gt; </dt>
+<dt class="hdlist1" id="git-rebase---strategyltestratgiagt"> <a class="anchor" href="pt_BR.html#git-rebase---strategyltestratgiagt"></a>--strategy=&lt;estratégia&gt; </dt>
+<dd>
+<p>Use a estratégia de mesclagem informada.  Caso não haja a opção `-s <em>, o git
+merge-recursive</em> será utilizado em seu lugar.  implica no uso da opção
+<em>--merge</em>.</p>
+<div class="paragraph">
+<p>Como o <em>git rebase</em> repete cada commit do ramo de trabalho no cume do ramo
+&lt;upstream&gt; utilizando a estratégia informada, o uso da estratégia <em>our</em>
+simplesmente esvazia todos os patches do &lt;ramo&gt;, que faz pouco sentido.</p>
+</div>
+<div class="paragraph">
+<p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-rebase--Xltopo-da-estratgiagt"> <a class="anchor" href="pt_BR.html#git-rebase--Xltopo-da-estratgiagt"></a>-X &lt;opção-da-estratégia&gt; </dt>
+<dt class="hdlist1" id="git-rebase---strategy-optionltopo-da-estratgiagt"> <a class="anchor" href="pt_BR.html#git-rebase---strategy-optionltopo-da-estratgiagt"></a>--strategy-option=&lt;opção-da-estratégia&gt; </dt>
+<dd>
+<p>Encaminhe a &lt;opção-de-estratégia&gt; para a estratégia da mesclagem.  implica
+no uso da opção <code>--merge</code> e, se nenhuma estratégia foi definida, <code>-s
+recursive</code>.  Observe a reversão do <em>ours</em> (nossos) e <em>theirs</em> (deles),
+conforme observado acima para a opção <code>-m</code>.</p>
+<div class="paragraph">
+<p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-rebase---rerere-autoupdate"> <a class="anchor" href="pt_BR.html#git-rebase---rerere-autoupdate"></a>--rerere-autoupdate </dt>
+<dt class="hdlist1" id="git-rebase---no-rerere-autoupdate"> <a class="anchor" href="pt_BR.html#git-rebase---no-rerere-autoupdate"></a>--no-rerere-autoupdate </dt>
+<dd>
+<p>Permita que o mecanismo "rerere" atualize o índice com o resultado da
+resolução automática de conflitos, caso seja possível.</p>
+</dd>
+<dt class="hdlist1" id="git-rebase--Sltkeyidgt"> <a class="anchor" href="pt_BR.html#git-rebase--Sltkeyidgt"></a>-S[&lt;keyid&gt;] </dt>
+<dt class="hdlist1" id="git-rebase---gpg-signltkeyidgt"> <a class="anchor" href="pt_BR.html#git-rebase---gpg-signltkeyidgt"></a>--gpg-sign[=&lt;keyid&gt;] </dt>
+<dt class="hdlist1" id="git-rebase---no-gpg-sign"> <a class="anchor" href="pt_BR.html#git-rebase---no-gpg-sign"></a>--no-gpg-sign </dt>
+<dd>
+<p>Commits assinados com o GPG O argumento <code>keyid</code> é opcional e a predefinição
+retorna para a identidade de quem fez o commit; caso seja utilizado, deve
+estar anexado a opção e sem espaço. A opção <code>--no-gpg-sign</code> é útil para
+revogar a variável de configuração <code>commit.gpgSign</code> e a anterior
+<code>--gpg-sign</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-rebase--q"> <a class="anchor" href="pt_BR.html#git-rebase--q"></a>-q </dt>
+<dt class="hdlist1" id="git-rebase---quiet"> <a class="anchor" href="pt_BR.html#git-rebase---quiet"></a>--quiet </dt>
+<dd>
+<p>Fique em silêncio Implies --no-stat.</p>
+</dd>
+<dt class="hdlist1" id="git-rebase--v"> <a class="anchor" href="pt_BR.html#git-rebase--v"></a>-v </dt>
+<dt class="hdlist1" id="git-rebase---verbose"> <a class="anchor" href="pt_BR.html#git-rebase---verbose"></a>--verbose </dt>
+<dd>
+<p>Seja loquaz. Implica no uso de <code>--stat</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-rebase---stat"> <a class="anchor" href="pt_BR.html#git-rebase---stat"></a>--stat </dt>
+<dd>
+<p>Exiba uma descrição do que mudou na upstream desde a última reconstrução
+(rebase). O diffstat também é controlado pela opção de configuração
+<code>rebase.stat</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-rebase--n"> <a class="anchor" href="pt_BR.html#git-rebase--n"></a>-n </dt>
+<dt class="hdlist1" id="git-rebase---no-stat"> <a class="anchor" href="pt_BR.html#git-rebase---no-stat"></a>--no-stat </dt>
+<dd>
+<p>Não mostre um "diffstat" como parte do processo de reconstrução da fundação
+(rebase).</p>
+</dd>
+<dt class="hdlist1" id="git-rebase---no-verify"> <a class="anchor" href="pt_BR.html#git-rebase---no-verify"></a>--no-verify </dt>
+<dd>
+<p>Este comando ignora o gancho "pre-rebase".  Consulte também
+<a href='../githooks/pt_BR.html'>githooks[5]</a>.</p>
+</dd>
+<dt class="hdlist1" id="git-rebase---verify"> <a class="anchor" href="pt_BR.html#git-rebase---verify"></a>--verify </dt>
+<dd>
+<p>É predefinido que seja permitido que o gancho "pre-rebase" seja executado.
+Esta opção pode ser usada para substituir o comando ` --no-verify`.
+Consulte também <a href='../githooks/pt_BR.html'>githooks[5]</a>.</p>
+</dd>
+<dt class="hdlist1" id="git-rebase--Cltngt"> <a class="anchor" href="pt_BR.html#git-rebase--Cltngt"></a>-C&lt;n&gt; </dt>
+<dd>
+<p>Assegure que pelo menos <code>&lt;n&gt;</code> linhas ao redor do contexto coincidente antes
+e depois de cada alteração.  Quando há menos linhas de contexto ao redor,
+todas elas devem coincidir.  É predefinido que nenhum contexto seja
+ignorado.  Implica no uso da opção --apply.</p>
+<div class="paragraph">
+<p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-rebase---no-ff"> <a class="anchor" href="pt_BR.html#git-rebase---no-ff"></a>--no-ff </dt>
+<dt class="hdlist1" id="git-rebase---force-rebase"> <a class="anchor" href="pt_BR.html#git-rebase---force-rebase"></a>--force-rebase </dt>
+<dt class="hdlist1" id="git-rebase--f"> <a class="anchor" href="pt_BR.html#git-rebase--f"></a>-f </dt>
+<dd>
+<p>Reproduza individualmente todos os commits reconstruídos em vez de avançar
+rapidamente sobre os que estejam inalterados.  Isso garante que todo o
+histórico do ramo reconstruído seja composto por novos commits.</p>
+<div class="paragraph">
+<p>Pode ser útil depois de reverter uma mesclagem do ramo "topic", pois esta
+opção recria o ramo "topic" com os novos commits, para que possa ser
+recuperado com êxito sem precisar "reverter a reversão" (para mais detalhes,
+consulte o link: howto/revert-a-fafe-merge.html [Como reverter uma falha da
+mesclagem]).</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-rebase---fork-point"> <a class="anchor" href="pt_BR.html#git-rebase---fork-point"></a>--fork-point </dt>
+<dt class="hdlist1" id="git-rebase---no-fork-point"> <a class="anchor" href="pt_BR.html#git-rebase---no-fork-point"></a>--no-fork-point </dt>
+<dd>
+<p>Utilize reflog para encontrar um ancestral comum melhor entre a &lt;upstream&gt; e
+o &lt;ramo&gt; ao calcular quais os commits foram introduzidos pelo &lt;ramo&gt;.</p>
+<div class="paragraph">
+<p>Quando "--fork-point" está ativo o <em>fork_point</em> será utilizado em vez do
+<code>&lt;upstream&gt;</code> calcular o conjunto dos commits para fazer o "rebase" onde
+<em>fork_point</em> é o resultado do comando <code>git merge-base --fork-point
+&lt;upstream&gt; &lt;ramo&gt;</code> (consulte <a href='../git-merge-base/pt_BR.html'>git-merge-base[1]</a>).  Caso o
+<em>fork_point</em> termine vazio, o <code>&lt;upstream&gt;</code> será utilizado como substituto.</p>
+</div>
+<div class="paragraph">
+<p>Caso a &lt;upstream&gt; seja utilizada na linha de comando, a predefinição será
+<code>--no-fork-point</code>, caso contrário, a predefinição será <code>--fork-point</code>.</p>
+</div>
+<div class="paragraph">
+<p>Caso o seu ramo teve como base no &lt;upstream&gt;, porém &lt;upstream&gt; foi
+retrocedido e o seu ramo contém commits que foram eliminados, esta opção
+pode ser utilizada com a opção <code>--keep-base</code> para eliminar estes commits do
+seu ramo.</p>
+</div>
+<div class="paragraph">
+<p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-rebase---ignore-whitespace"> <a class="anchor" href="pt_BR.html#git-rebase---ignore-whitespace"></a>--ignore-whitespace </dt>
+<dt class="hdlist1" id="git-rebase---whitespaceltopogt"> <a class="anchor" href="pt_BR.html#git-rebase---whitespaceltopogt"></a>--whitespace=&lt;opção&gt; </dt>
+<dd>
+<p>Estas opções são repassados para o comando <em>git apply</em> que aplica o patch
+(consulte  <a href='../git-apply/pt_BR.html'>git-apply[1]</a>).  Implica no uso da opção --apply.</p>
+<div class="paragraph">
+<p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-rebase---committer-date-is-author-date"> <a class="anchor" href="pt_BR.html#git-rebase---committer-date-is-author-date"></a>--committer-date-is-author-date </dt>
+<dt class="hdlist1" id="git-rebase---ignore-date"> <a class="anchor" href="pt_BR.html#git-rebase---ignore-date"></a>--ignore-date </dt>
+<dd>
+<p>Estas opções são passados para o comando <em>git am</em> para alterar facilmente as
+datas dos commits onde o "rebase" foi feito (consulte <a href='../git-am/pt_BR.html'>git-am[1]</a>).</p>
+<div class="paragraph">
+<p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-rebase---signoff"> <a class="anchor" href="pt_BR.html#git-rebase---signoff"></a>--signoff </dt>
+<dd>
+<p>Adicione uma resposta Assinado-por: a todos os commits que tiveram a sua
+fundação reconstruída. Observe que caso a opção <code>--interactive</code> seja
+utilizada, apenas os commit marcados para serem selecionados, editados ou
+reformulados terão um caracteres de resposta adicionado.</p>
+<div class="paragraph">
+<p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-rebase--i"> <a class="anchor" href="pt_BR.html#git-rebase--i"></a>-i </dt>
+<dt class="hdlist1" id="git-rebase---interactive"> <a class="anchor" href="pt_BR.html#git-rebase---interactive"></a>--interactive </dt>
+<dd>
+<p>Faça uma lista dos commits que estão prestes a serem reconstruídos.  Deixe
+que o usuário edite esta lista antes da reconstrução.  Este modo também pode
+ser utilizado para dividir os commits (consulte <em>DIVIDINDO OS COMMITS</em>
+abaixo).</p>
+<div class="paragraph">
+<p>O formato da lista dos commits pode ser alterado definindo a opção de
+configuração <code>rebase.instructionFormat</code>.  Um formato de instrução
+personalizado terá automaticamente o hash longo do commit anexado ao
+formato.</p>
+</div>
+<div class="paragraph">
+<p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-rebase--r"> <a class="anchor" href="pt_BR.html#git-rebase--r"></a>-r </dt>
+<dt class="hdlist1" id="git-rebase---rebase-mergesrebase-cousinsno-rebase-cousins"> <a class="anchor" href="pt_BR.html#git-rebase---rebase-mergesrebase-cousinsno-rebase-cousins"></a>--rebase-merges[=(rebase-cousins|no-rebase-cousins)] </dt>
+<dd>
+<p>É predefinido que uma reconstrução simplesmente remova os commits mesclados
+da lista de tarefas e as coloca em uma única ramificação linear.  Com a
+opção <code>--rebase-merges</code>, a reconstrução tentará preservar a estrutura da
+ramificação dentro dos commits que serão reexaminadas, recriando a mesclagem
+dos commits. Quaisquer conflitos na mesclagem que forem resolvidos ou nas
+alterações manuais destes commits mesclados terão que ser
+resolvidos/reaplicados manualmente.</p>
+<div class="paragraph">
+<p>É predefinido que ou quando <code>no-rebase-cousins</code> seja utilizado, os commits
+que não possuam <code>&lt;upstream&gt;</code> como ancestral direto, manterão o seu ponto do
+ramo original, ou seja, os commits que seriam excluídos pela opção
+<a href='../git-log/pt_BR.html'>git-log[1]</a> <code>--ancestry-path</code>, por predefinição manterá a sua
+ancestralidade original. Caso o modo <code>rebase-cousins</code> esteja ativo, estes
+commits serão reconstruídos para a <code>&lt;upstream&gt;</code> (ou <code>&lt;onto&gt;</code>, caso seja
+utilizado).</p>
+</div>
+<div class="paragraph">
+<p>O modo <code>--rebase-merges</code> é semelhante (em espírito) a opção descontinuada
+<code>--preserve-merges</code> porém trabalha com reconstrução interativa (rebases),
+onde os commits possam ser reordenados, inseridos ou eliminados a vontade.</p>
+</div>
+<div class="paragraph">
+<p>Atualmente, só é possível recriar a mesclagem dos commits utilizando a
+estratégia de mesclagem <code>recursive</code> (recursiva); Diferentes estratégias de
+mesclagem podem ser utilizada apenas através dos comandos explícitos como
+<code>exec git merge -s &lt;strategy&gt; [...]</code>.</p>
+</div>
+<div class="paragraph">
+<p>Consulte também <em>RECONSTRUINDO AS MESCLAGENS</em> e <em>OPÇÕES INCOMPATÍVEIS</em>
+abaixo.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-rebase--p"> <a class="anchor" href="pt_BR.html#git-rebase--p"></a>-p </dt>
+<dt class="hdlist1" id="git-rebase---preserve-merges"> <a class="anchor" href="pt_BR.html#git-rebase---preserve-merges"></a>--preserve-merges </dt>
+<dd>
+<p>[DESCONTINUADO: utilize <code>--rebase-merges</code>] Recrie os commits mesclados em
+vez de achatar o histórico, reproduzindo os commits introduzidos por uma
+mesclagem do commit. As resoluções dos conflitos da mesclagem ou das emendas
+manuais para mesclar os commits não são preservadas.</p>
+<div class="paragraph">
+<p>Utiliza o mecanismo <code>--interactive</code> internamente, porém ao combiná-lo com a
+opção <code>--interactive</code> de forma explícita, em geral não é uma boa ideia a
+menos que saiba o que está fazendo (consulte <em>BUGS</em> abaixo).</p>
+</div>
+<div class="paragraph">
+<p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-rebase--xltcmdgt"> <a class="anchor" href="pt_BR.html#git-rebase--xltcmdgt"></a>-x &lt;cmd&gt; </dt>
+<dt class="hdlist1" id="git-rebase---execltcmdgt"> <a class="anchor" href="pt_BR.html#git-rebase---execltcmdgt"></a>--exec &lt;cmd&gt; </dt>
+<dd>
+<p>Anexe "exec &lt;cmd&gt;" após cada linha, criando um commit no final do
+histórico. O <code>&lt;cmd&gt;</code> será interpretado como um ou mais comandos do
+shell. Qualquer comando que falhar interromperá a reconstrução da fundação,
+com o código de encerramento igual a 1.</p>
+<div class="paragraph">
+<p>É possível executar vários comandos utilizando uma instância da opção
+<code>--exec</code> com vários comandos:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>git rebase -i --exec "cmd1 &amp;&amp; cmd2 &amp;&amp; ..."</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>ou utilizando mais de um <code>--exec</code>:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>git rebase -i --exec "cmd1" --exec "cmd2" --exec ...</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Caso a opção <code>--autosquash</code> seja utilizado, as linhas "exec" não serão
+anexadas aos commits intermediários e aparecerão apenas no final de cada
+série de compressão/correção.</p>
+</div>
+<div class="paragraph">
+<p>Utiliza o mecanismo <code>--interactive</code> internamente, porém pode ser executado
+sem a opção <code>--interactive</code> de forma explicita.</p>
+</div>
+<div class="paragraph">
+<p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-rebase---root"> <a class="anchor" href="pt_BR.html#git-rebase---root"></a>--root </dt>
+<dd>
+<p>Reconstrói todos os commits acessíveis a partir do &lt;ramo&gt;, em vez de
+limitá-los com a &lt;upstream&gt;.  Permite a reestruturação dos commit da raiz em
+um ramo.  Quando utilizado com a opção <code>--onto</code>, será ignorado as alterações
+já contidas em &lt;newbase&gt; (em vez de &lt;upstream&gt;) enquanto que sem a opção
+<code>--onto</code> a operação ocorrerá em todas as alterações.  Quando utilizado junto
+com ambas as opções <code>--onto</code> e <code>--preserve-merges</code>, <em>todos</em> os commits das
+raízes serão reescritos para ter o &lt;newbase&gt; como a sua origem.</p>
+<div class="paragraph">
+<p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-rebase---autosquash"> <a class="anchor" href="pt_BR.html#git-rebase---autosquash"></a>--autosquash </dt>
+<dt class="hdlist1" id="git-rebase---no-autosquash"> <a class="anchor" href="pt_BR.html#git-rebase---no-autosquash"></a>--no-autosquash </dt>
+<dd>
+<p>Quando a mensagem do registro log do commit começar com "squash! &#8230;&#8203;" (ou
+"fixup! &#8230;&#8203;"),e já existe um commit na lista de tarefas que coincidem com o
+mesmo <code>...</code>, altera a lista de tarefas automaticamente do <em>rebase -i</em> para
+que o commit marcado para ser comprimido venha logo após o commit que será
+modificado e altere a ação do commit movido de <code>pick</code> para <code>squash</code> (ou
+<code>fixup</code>).  Um commit coincide com <code>...</code> caso haja a coincidência do assunto
+do commit ou se o <code>...</code> se referir ao hash do commit. Como alternativa, as
+coincidências que forem parciais ao assunto do commit, também funcionam.  A
+maneira recomendada para se criar os commits para correção/compressão é
+utilizando as opções <code>--fixup</code>/<code>--squash</code> do comando <a href='../git-commit/pt_BR.html'>git-commit[1]</a>.</p>
+<div class="paragraph">
+<p>Caso a opção <code>--autosquash</code> esteja predefinitivamente ativada utilizando a
+variável de configuração <code>rebase.autoSquash</code>, esta opção poderá ser
+utilizada para substituir e desativar esta configuração.</p>
+</div>
+<div class="paragraph">
+<p>Consulte também a seção "OPÇÕES INCOMPATÍVEIS" logo abaixo.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-rebase---autostash"> <a class="anchor" href="pt_BR.html#git-rebase---autostash"></a>--autostash </dt>
+<dt class="hdlist1" id="git-rebase---no-autostash"> <a class="anchor" href="pt_BR.html#git-rebase---no-autostash"></a>--no-autostash </dt>
+<dd>
+<p>Crie automaticamente uma entrada temporária <em>stash</em> antes do início da
+operação e aplique-a ao finalizar.  Isso significa que é possível executar a
+reconstrução (rebase) em uma árvore de trabalho suja.  No entanto, use com
+cuidado: a aplicação <em>stash</em> final após uma nova reconstrução bem-sucedida
+pode acabar em conflitos não triviais.</p>
+</dd>
+<dt class="hdlist1" id="git-rebase---reschedule-failed-exec"> <a class="anchor" href="pt_BR.html#git-rebase---reschedule-failed-exec"></a>--reschedule-failed-exec </dt>
+<dt class="hdlist1" id="git-rebase---no-reschedule-failed-exec"> <a class="anchor" href="pt_BR.html#git-rebase---no-reschedule-failed-exec"></a>--no-reschedule-failed-exec </dt>
+<dd>
+<p>Reagende automaticamente os comandos <code>exec</code> que falharam. Isso só faz
+sentido no modo interativo (ou quando uma opção <code>--exec</code> for utilizada).</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_opções_incompatíveis"><a class="anchor" href="pt_BR.html#_opções_incompatíveis"></a>OPÇÕES INCOMPATÍVEIS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As seguintes opções:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>--apply</p>
+</li>
+<li>
+<p>--committer-date-is-author-date</p>
+</li>
+<li>
+<p>--ignore-date</p>
+</li>
+<li>
+<p>--ignore-whitespace</p>
+</li>
+<li>
+<p>--whitespace</p>
+</li>
+<li>
+<p>-C</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>são incompatíveis com as seguintes opções:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>--merge</p>
+</li>
+<li>
+<p>--strategy</p>
+</li>
+<li>
+<p>--strategy-option</p>
+</li>
+<li>
+<p>--allow-empty-message</p>
+</li>
+<li>
+<p>--[no-]autosquash</p>
+</li>
+<li>
+<p>--rebase-merges</p>
+</li>
+<li>
+<p>--preserve-merges</p>
+</li>
+<li>
+<p>--interactive</p>
+</li>
+<li>
+<p>--exec</p>
+</li>
+<li>
+<p>--no-keep-empty</p>
+</li>
+<li>
+<p>--empty=</p>
+</li>
+<li>
+<p>--reapply-cherry-picks</p>
+</li>
+<li>
+<p>--edit-todo</p>
+</li>
+<li>
+<p>--root quando utilizado em conjunto com --onto</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Além disso, os seguintes pares de opções são incompatíveis:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>--preserve-merges e --interactive</p>
+</li>
+<li>
+<p>--preserve-merges e --signoff</p>
+</li>
+<li>
+<p>--preserve-merges e --rebase-merges</p>
+</li>
+<li>
+<p>--preserve-merges e --empty=</p>
+</li>
+<li>
+<p>--keep-base e --onto</p>
+</li>
+<li>
+<p>--keep-base e --root</p>
+</li>
+<li>
+<p>--fork-point e --root</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>DIFERENÇAS COMPORTAMENTAIS</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>O git rebase possui duas estruturas primárias: `apply` e `merge`.  (A aplicação
+da estrutura era conhecido como 'am', porém o nome causava
+confusão já que parecia um verbo em vez de um substantivo.  Além disso, a estrutura
+`merge` era informada como 'interactive backend', porém agora
+também é usado para casos não interativos.  Ambos foram renomeados com base na
+funcionalidade de baixo nível que sustentava cada um.) Há algumas
+diferenças sutis em como estes dois processos internos se comportam:
+
+Commits vazios
+~~~~~~~~~~~~~
+
+A estrutura aplicada infelizmente descarta os commits vazios de forma intencional, ou seja.
+Os commits que começaram vazios, contudo na prática, é algo raro.  Também
+descarta os commits que se tornam vazios e não há uma opção para controlar
+este comportamento.
+
+É predefinido que a estrutura da mesclagem mantenha os commits
+intencionalmente vazios (com `-i` são marcados como vazio no editor da lista de tarefas,
+ou podem ser descartados automaticamente com a opção `--no-keep-empty`).
+
+Semelhante à estrutura aplicada, é predefinido que
+a estrutura da mesclagem derrube os commits que se tornaram vazios,
+a menos que as opções `-i` ou `--interactive` sejam definidas (nesse caso, ele
+para e pergunta ao usuário o que fazer).  A estrutura da mesclagem
+também possui uma opção --empty={drop,keep,ask} para alterar o comportamento
+da manipulação dos commits que ficam vazios.
+
+Detecção da renomeação do diretório
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Devido à falta de informações precisas sobre as árvores (que surge de
+construções dos ancestrais falsos com informações limitadas disponíveis nos
+patches), a detecção da renomeação do diretório é desativado na estrutura da aplicação.
+A desativação da detecção da renomeação do diretório, significa que se um lado do histórico
+renomear um diretório e o outro adicionar novos arquivos no diretório antigo, então
+os novos arquivos serão deixados para trás no diretório antigo sem qualquer aviso,
+durante a reconstrução onde você possa talvez querer mover estes arquivos,
+para o novo diretório.
+
+A detecção da renomeação do diretório funciona com a estrutura da mesclagem,
+neste caso, fornecendo informações para você.
+
+Contexto
+~~~~~~~~
+
+A aplicação da estrutura funciona ao criar uma sequencia de patches (chamando
+o `format-patch` internalmente), então se aplicam os patches em sequência
+(invocando o `am` internamente).  Os patches são compostos de vários pedaços,
+cada um com linhas numeradas, o contexto da região, e as alterações atuais.  As
+linhas numeradas devem ser tomadas com alguma imprecisão, já que antes
+o outro lado provavelmente terá inserido ou terá excluído as linhas no arquivo.  O
+contexto da região destina-se no auxílio para encontrar como ajustar as linhas numeradas
+na ordem para aplicar as alterações nas linhas corretas.  No entanto, caso
+ao redor das várias áreas do código tenham as mesmas linhas de contexto, um
+código errado pode ser selecionado.  Existem casos no mundo real onde isso
+fez com que os commits fossem reaplicados de forma incorreta e nenhum conflito foi relatado.
+Definindo o `diff.context` para um valor maior, isso pode impedir que
+estes tipos de problemas ocorram, porém aumenta a chance de conflitos espúrios (uma vez que
+exigirá mais linhas que coincidam com o contexto para serem aplicados).
+
+A estrutura da mesclagem trabalha com a cópia completa
+de casa arquivo relevante, isolando-os destes tipos de problemas.
+
+Rotulagem dos marcadores de conflitos
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Quando há conteúdos conflitantes, o mecanismo da mesclagem tenta
+anotar os marcadores de conflito de cada lado com os commits
+de onde o conteúdo veio.  Como a estrutura descarta o original, as
+informações sobre os commits reconstruídos e seus pais (em vez disso,
+gera novos commits falsos com base nas informações limitadas no
+patches que foram gerados), estes commits não podem ser identificados;
+em vez disso tem que retornar para um resumo do commit.  Além disso, quando `merge.conflictStyle` é
+definido para 'diff3', a estrutura aplicada utilizará uma
+"mesclagem reconstruída da base" para rotular o conteúdo da base mesclada
+e portanto, não fornecer qualquer informações sobre o commit da base mesclada.
+
+A estrutura da mesclagem funciona com commits completos nos dois
+lados da história e portanto, não tem tais limitações.
+
+Ganchos
+~~~~~~~
+
+A estrutura da aplicação não chama tradicionalmente o gancho pós-commit,
+enquanto a estrutura da mesclagem chama.  Ambos chamaram o gancho pós-averiguação,
+embora a estrutura da mesclagem reduza a sua saída.  Além disso, ambas
+as estruturas chamam apenas o gancho pós-averiguação com o ponto de partida
+para fazer o commit da reconstrução da fundação (rebase), nem o commit intermediário,
+nem o commit final.  Em cada caso, o chamado desses ganchos foi por acidente de
+implementação em vez de design (os dois processos internos eram originalmente
+implementados como scripts shell e passaram a chamar outros comandos
+como o 'git checkout' ou o 'git commit' que seriam chamados de ganchos).  Ambos
+os processos internos devem ter o mesmo comportamento, embora não seja inteiramente
+claro qual (caso existam), está correto.  Provavelmente faremos a reconstrução (rebase) parar
+chamando um destes ganchos no futuro.
+
+Interrupção
+~~~~~~~~~~~
+
+A aplicação da estrutura possui problemas de segurança relacionada
+com interrupção de tempo; caso o usuário pressione Ctrl+C no momento errado
+ao tentar interromper o processo 'rebase' (reconstrução), o processo então pode entrar
+em uma condição ele não pode ser parado posteriormente com um comando `git rebase --abort`.  A estrutura da mesclagem não
+parece sofrer da mesma deficiência.  (Consulte
+https://lore.kernel.org/git/20200207132152.GC2868@szeder.dev/
+para obter mais detalhes.)
+
+Reformulando o Commit
+~~~~~~~~~~~~~~~~~~~~~
+
+Quando ocorre um conflito durante o processo 'rebase', o processo
+para e pergunta ao usuário para resolver o problema.  Como o usuário pode precisar fazer muitas alterações enquanto
+resolve os conflitos, depois que os conflitos forem resolvidos e o
+usuário tenha executado o comando `git rebase --continue`, o 'rebase'
+deverá abrir o editor e perguntar ao usuário para atualizar a mensagem do commit.  A estrutura da mesclagem faz isso, enquanto
+a estrutura aplica cegamente a mensagem do commit original.
+
+Diferenças diversas
+~~~~~~~~~~~~~~~~~~~
+
+Existem mais algumas diferenças comportamentais que a maioria das
+pessoas considerariam fazer de forma inconsequente, porém são mencionadas
+por questões de integridade:
+
+* Reflog: As duas estruturas que utilizarão palavras diferentes durante a descrição
+  das alterações feitas no reflog, embora ambos façam a utilização da
+  palavra "rebase"
+
+* Mensagens de progresso, informacionais e de erro: As duas estruturas
+  fornecem um progresso ligeiramente diferente das mensagens informantes.
+  Além disso, a estrutura aplicada grava uma mensagens de erro (como "Os seus arquivos
+  serão substituídos...") para o stdout, enquanto a mesclagem da estrutura escrevem
+  eles no stderr.
+
+* Diretórios de estado: As duas estruturas mantêm a sua condição em diferentes
+  diretórios dentro do `.git/`
+
+ESTRATÉGIAS DE MESCLAGEM
+------------------------
+
+O mecanismo da mesclagem (comandos `git merge` e `git pull`) permite que as
+estruturas das 'estratégias de mesclagem' sejam escolhidas com a opção
+`-s`.  Algumas estratégias também podem ter suas próprias opções, que podem
+ser passadas usando `-X&lt;opção&gt;` como argumentos para o comando `git merge`
+e/ou `git pull`.
+
+resolve::
+	Isso só pode resultar em dois cabeçalhos (ou seja, a ramificação atual e uma
+	outra ramificada da que você obteve) utilizando um algoritmo de mesclagem de
+	três vias.  Ele tenta detectar cuidadosamente as ambiguidades cruzadas da
+	mesclagem e geralmente é considerado seguro e rápido.
+
+recursive::
+	Isso pode resolver apenas duas cabeças usando o algoritmo da mesclagem de 3
+	vias.  Quando há mais de um ancestral comum que pode ser usado para a
+	mesclagem de 3 vias, ele cria uma árvore mesclada dos ancestrais comuns e o
+	usa como a árvore de referência para a mesclagem de 3 vias.  Foi informado
+	que isso resulta em menos conflitos durante mesclagem sem causar distorções
+	pelos testes feitos nas mesclagens reais dos commits, retiradas do histórico
+	de desenvolvimento do Linux kernel 2.6.  Além disso, isso pode detectar e
+	manipular as mesclagens envolvendo renomeações, porém atualmente não pode
+	fazer uso das cópias detectadas.  Essa é a estratégia de mesclagem
+	predefinida ao extrair ou mesclar um ramo.
++
+A estratégia 'recursiva' pode ter as seguintes opções:
+
+ours;;
+	Esta opção impõem que os pedaços conflitantes que sejam resolvidos de forma
+	automática e de maneira limpa, favorecendo a 'nossa' versão.  As alterações
+	vindos de outra árvore que não conflitam com o nosso lado são refletidas no
+	resultado da mesclagem.  Para um arquivo binário, todo o conteúdo é retirado
+	do nosso lado.
++
+Isso não deve ser confundido com a estratégia da 'nossa' de mesclagem, que
+sequer olha para o que a outra árvore contém.  Descarta tudo o que a outra
+árvore fez, declarando que o 'nosso' histórico contém tudo o que aconteceu
+nela.
+
+theirs;;
+	Este é o oposto do 'nosso'; observe que, diferentemente do 'nosso', não
+	existe uma estratégia de mesclagem 'deles' para confundir esta opção de
+	mesclagem.
+
+patience;;
+	Com esta opção, 'merge-recursive' gasta um pouco de tempo extra para evitar
+	as distorções que às vezes ocorrem devido as coincidência das linhas sem
+	importância (como, por exemplo, chaves das funções distintas).  Use isso
+	quando os ramos que serão mesclados divergirem bastante.  Consulte também
+	<a href='../git-diff/pt_BR.html'>git-diff[1]</a> `--patience`.
+
+diff-algorithm=[patience|minimal|histogram|myers];;
+	Informa ao 'merge-recursive' para usar um algoritmo diff diferente, que pode
+	ajudar a evitar as distorções que ocorrem devido as linhas coincidentes sem
+	importância (como chaves das funções distintas).  Consulte também
+	<a href='../git-diff/pt_BR.html'>git-diff[1]</a> `--diff-algorithm`.
+
+ignore-space-change;;
+ignore-all-space;;
+ignore-space-at-eol;;
+ignore-cr-at-eol;;
+	Trata as linhas com o tipo indicado da mudança do espaço como inalterado por
+	uma mesclagem de três vias.  As alterações de espaço combinadas com outras
+	alterações em uma linha não são ignoradas.  Consulte também
+	<a href='../git-diff/pt_BR.html'>git-diff[1]</a> `-b`, `-w`, `--ignore-space-at-eol`, e
+	`--ignore-cr-at-eol`.
++
+* Caso a versão 'their' (dele) introduzir apenas as alterações de espaço em
+  uma linha, a 'our' (nossa) versão será utilizada;
+* Caso a 'our' (nossa) versão introduzir alterações nos espaços, porém a
+  versão 'their' (dele) incluir uma alteração substancial, a versão 'their'
+  (dele) será utilizada;
+* Caso contrário, a mesclagem continuará de forma usual.
+
+renormalize;;
+	Executa uma averiguação e um check-in virtual de três estágios em um arquivo
+	ao resolver uma mesclagem de três vias.  Esta opção deve ser utilizada ao
+	mesclar os ramos com diferentes filtros que estejam limpos ou as regras
+	normais para a quebra de linha.  Para obter mais detalhes, consulte
+	"Mesclando ramificações com diferentes atributos de check-in/check-out" em
+	<a href='../gitattributes/pt_BR.html'>gitattributes[5]</a>.
+
+no-renormalize;;
+	Desativa a opção `renormalize`.  Substitui a variável de configuração
+	`merge.renormalize`.
+
+no-renames;;
+	Desativa a detecção de renomeação. Isso substitui a variável de configuração
+	`merge.renames`.  Consulte também<a href='../git-diff/pt_BR.html'>git-diff[1]</a> `--no-renames`.
+
+find-renames[=&lt;n&gt;];;
+	Liga a detecção de renomeação, configurando opcionalmente o limite de
+	similaridade.  Esta é a predefinição. Isso substitui a configuração da
+	variável 'merge.renames'.  Consulte também <a href='../git-diff/pt_BR.html'>git-diff[1]</a>
+	`--find-renames`.
+
+rename-threshold=&lt;n&gt;;;
+	É um sinônimo obsoleto para `find-renames=&lt;n&gt;`.
+
+subtree[=&lt;caminho&gt;];;
+	Essa opção é uma forma mais avançada da estratégia da 'subárvore', onde a
+	estratégia adivinha como as duas árvores devem ser deslocadas para
+	coincidirem uma com a outra durante a mesclagem.  Em vez disso, o caminho
+	definido é prefixado (ou removido desde o início) para criar a forma das
+	duas árvores que serão coincididas.
+
+octopus::
+	Isso resolve os casos com mais de dois cabeçalhos, porém se recusa a fazer
+	uma mesclagem complexa que precise de uma resolução manual.  Destina-se
+	primeiramente para ser usado para agrupar junto o tópico dos cabeçalhos.
+	Esra é a estratégia de mesclagem predefinida durante a extração ou a
+	mesclagem com mais de um ramo.
+
+ours::
+	Isso resolve qualquer quantidade dos cabeçalhos, porém a árvore resultante
+	da mesclagem é sempre a do cabeçalho atual do ramo, ignorando efetivamente
+	todas as alterações de todas os outros ramos.  Ele deve ser usado para
+	substituir o histórico antigo de desenvolvimento das ramificações laterais.
+	Observe que isso é diferente da opção `-Xours` da estratégia de mesclagem
+	'recursiva'.
+
+subtree::
+	Esta é uma estratégia recursiva modificada. Ao mesclar as árvores 'A' e 'B',
+	caso 'B' corresponda a uma subárvore de 'A', o 'B' será ajustado primeiro
+	para coincidir à estrutura da árvore 'A', em vez de ler as árvores no mesmo
+	nível. Esse ajuste também é feito na árvore ancestral comum.
+
+Com as estratégias que usma a mesclagem de 3 vias (incluindo a predefinição,
+'recursive'), caso uma alteração seja feita em ambas as ramificações, porém
+depois revertida em uma das ramificações, essa alteração estará presente no
+resultado mesclado; algumas pessoas acham este comportamento confuso.  Isso
+ocorre porque apenas os cabeçalhos e a base da mesclagem são consideradas ao
+fazer uma mesclagem, e não os commits individuais.  Portanto, o algoritmo da
+mesclagem considera a alteração revertida como nenhuma alteração e substitui
+a versão alterada.
+[]
+
+OBSERVAÇÕES
+-----
+
+Você deve compreender as implicações da utilização do comando 'git rebase'
+em um repositório que você compartilha.  Consulte também SE RECUPERANDO DA
+RECONSTRUÇÃO DA FUNDAÇÃO INICIAL (UPSTREM REBASE) abaixo.
+
+Quando o comando 'git rebase' é executado, ele primeiro executa um gancho
+"pre-rebase", caso exista.  Você pode usar este gancho para fazer as
+verificações de sanidade e rejeitar a nova reconstrução, caso não seja
+apropriado.  Consulte o modelo do script do gancho 'pre-rebase' para ter um
+exemplo.
+
+Após a conclusão, o &lt;ramo&gt; será o ramo atual.
+
+MODO INTERATIVO
+---------------
+
+Reconstruir de forma interativa significa ter a chance de editar os commits
+que são reconstruídos.  É possível reordenar os commits e removê-los
+(eliminando os patches ruins ou indesejados).
+
+O modo interativo é destinado para este tipo de fluxo de trabalho:
+
+1. tenho uma ideia maravilhosa
+2. hackear o código
+3. preparar uma série para envio
+4. enviar
+
+onde o ponto 2. consiste em várias instâncias do
+
+a) uso regular
+
+ 1. termine algo digno de um commit
+ 2. commit
+
+b) correção independente
+
+ 1. perceber que algo não funciona
+ 2. conserte isso
+ 3. faça o commit
+
+Às vezes, a coisa fixada em b.2. não pode ser alterado para o commit nem tão
+perfeito que ele corrige, porque este commit está enterrado profundamente em
+uma série de correções.  É exatamente para isso que a reconstrução
+interativa serve: use-o após muitos "a" e "b", reorganizando e editando os
+commits e comprimindo vários commits em um.
+
+Inicie-o com o último commit que você quer manter como está:
+
+	git rebase -i &lt;após-este-commit&gt;
+
+Um editor será acionado com todos os commits no seu ramo atual (ignorando a
+mesclagem dos commits), que vêm após o commit informado.  Você pode
+reordenar os commits nesta lista para o conteúdo do seu coração e pode
+removê-los.  A lista é mais ou menos assim:
+
+-------------------------------------------
+pick deadbee Uma linha deste commit
+pick fa1afe1 Uma linha do próximo commit
+...
+-------------------------------------------
+
+As descrições on-line são puramente para o seu prazer; o comando 'git
+rebase' não examinará eles, porém os nomes dos commits ("deadbee" e
+"fa1afe1" neste exemplo), portanto, não exclua ou edite os nomes.
+
+Ao substituir o comando "pick" pelo comando "edit", é possível dizer ao
+comando 'git rebase' para parar após aplicar este commit, para que seja
+possível editar os arquivos e/ou a mensagem do commit, alterar o commit e
+continuar com a reconstrução.
+
+Para interromper um "rebase" (exatamente como um comando "edit" faria, mas
+sem fazer uma escolha seletiva de nenhum commit primeiro), use o comando
+"break".
+
+Caso apenas queira editar a mensagem do commit para um commit, substitua o
+comando `pick` pelo comando `reword`.
+
+Para eliminar um commit, substitua o comando "pick" por "drop" ou apenas
+exclua a linha coincidente.
+
+Caso queira dobrar dois ou mais commits em um, substitua o comando "pick" da
+segunda e os commits subsequentes por "squash" ou "fixup".  Caso os commits
+tenham autores diferentes, o commit dobrado será atribuído ao autor do
+primeiro commit.  A mensagem do commit sugerido para o commit que foi
+dobrado é a concatenação das mensagens dos commits do primeiro commit e
+daquelas feitas com o comando "squash", porém omite as mensagens dos commits
+feitas com o comando "fixup".
+
+O comando 'git rebase' será interrompido quando o "pick" for substituído por
+"edit" ou quando um comando falhar devido aos erros da mesclagem. Quando
+você terminar de editar e/ou resolver os conflitos, será possível continuar
+utilizando `git rebase --continue`.
+
+Como por exemplo, caso você queira reordenar os últimos 5 commits de maneira
+onde o que era `HEAD~4` se torne o novo `HEAD`. Para conseguir isso, você
+chamaria o comando 'git rebase' assim:
+
+----------------------
+$ git rebase -i HEAD~5
+----------------------
+
+E mova o primeiro patch para o ramo da lista.
+
+Convém recriar a mesclagem dos commits, por exemplo, caso tenha um histórico
+como este:
+
+------------------
+           X
+            \
+         A---M---B
+        /
+---o---O---P---Q
+------------------
+
+Suponha que queira reconstruir o lado do ramo ao lado começando em "A" para
+"Q". Verifique se o `HEAD` atual é "B" e chame
+
+-----------------------------
+$ git rebase -i -r --onto Q O
+-----------------------------
+
+Reordenando e editando os commits geralmente cria etapas intermediárias não
+testadas.  Convém verificar se a edição do seu histórico não quebrou nada
+durante a execução de um teste ou, pelo menos, recompilando em pontos
+intermediários do histórico utilizando o comando "exec" (atalho "x").  Você
+pode fazer isso criando uma lista de tarefas como esta:
+
+-------------------------------------------
+pick deadbee Implement feature XXX
+fixup f1a5c00 Fix to feature XXX
+exec make
+pick c0ffeee The oneline of the next commit
+edit deadbab The oneline of the commit after
+exec cd subdir; make test
+...
+-------------------------------------------
+
+A reconstrução interativa será interrompida quando um comando falhar (ou
+seja, encerra com uma condição diferente de 0) oferecendo uma oportunidade
+para a correção do problema. Você pode continuar com o comando `git rebase
+--continue`.
+
+O comando "exec" inicia o comando em um shell (aquele definido em `$SHELL`,
+ou o shell predefinido caso `$SHELL` não esteja definido), para que você
+possa utilizar os recursos do shell (como "cd", "&gt;", ";" ...). O comando é
+executado a partir da raiz da árvore de trabalho.
+
+----------------------------------
+$ git rebase -i --exec "make test"
+----------------------------------
+
+Este comando permite verificar se os commits intermediários são
+compiláveis.  A lista de tarefas fica assim:
+
+--------------------
+pick 5928aea one
+exec make test
+pick 04d0fda two
+exec make test
+pick ba46169 three
+exec make test
+pick f4593f9 four
+exec make test
+--------------------
+
+DIVIDINDO OS COMMITS
+---------------------
+
+No modo interativo, é possível marcar os commits com a ação "editar".  No
+entanto, isso não significa necessariamente que o comando 'git rebase'
+espere que o resultado dessa edição seja exatamente um commit.  Na verdade,
+é possível desfazer o commit ou adicionar outros.  Isso pode ser utilizado
+para dividir um commit em dois:
+
+- Inicie uma reconstrução interativa com `git rebase -i &lt;commit&gt;^`, onde
+  &lt;commit&gt; é o que você quer dividir.  De fato, qualquer intervalo do commit
+  serve, desde que contenha aquele commit.
+
+- Marque o commit que deseja dividir com a ação "edit".
+
+- Quando se trata de editar este commit, execute o comando `git reset HEAD^`.
+  O efeito é que o `HEAD` é retrocedido por um e o índice segue o conjunto.
+  No entanto, a árvore de trabalho permanece a mesma.
+
+- Agora adicione as alterações ao índice que você queira ter no primeiro
+  commit.  Você pode utilizar o comando `git add` (possivelmente de forma
+  interativa) ou o comando 'git gui' (ou ambos) para fazer isso.
+
+- Faça o commit do índice agora atual com qualquer mensagem do commit que seja
+  apropriada.
+
+- Repita as duas últimas etapas até que a sua árvore de trabalho esteja limpa.
+
+- Continue a reconstrução com `git rebase --continue`.
+
+Caso não tenha certeza absoluta que as revisões intermediárias são
+consistentes (elas compilam, passam no conjunto de testes, etc.), você deve
+usar o `git stash` para ocultar o commit das alterações que ainda não foram
+feitas após cada commit, teste e a alteração do commit caso as correções
+sejam necessárias.
+
+
+SE RECUPERANDO DA RECONSTRUÇÃO DA FUNDAÇÃO INICIAL (UPSTREM REBASE)
+-------------------------------------------------------------------
+
+Fazer a reconstrução da fundação (ou qualquer outra forma de reescrita) de
+um ramo onde outras pessoas tem a base de trabalho é uma péssima ideia:
+qualquer um que baixe dela é forçado a corrigir manualmente o seu
+histórico.  Esta seção explica como fazer a correção do ponto de vista de
+quem baixou.  A solução real, no entanto em primeiro lugar, seria evitar
+fazer a reconstrução da fundação de quem subiu (upstream).
+
+Para ilustrar, suponha que esteja em uma situação onde alguém desenvolva um
+ramo de um 'subsystem' e esteja trabalhando em um 'topic' que depende desse
+'subsistema'.  Você pode acabar com um histórico como este:
+
+------------
+    o---o---o---o---o---o---o---o  master
+	 \
+	  o---o---o---o---o  subsystem
+			   \
+			    *---*---*  topic
+------------
+
+Caso a reconstrução da fundação do 'subsystem' seja realizada contra o
+'master', o seguinte acontece:
+
+------------
+    o---o---o---o---o---o---o---o  master
+	 \			 \
+	  o---o---o---o---o	  o'--o'--o'--o'--o'  subsystem
+			   \
+			    *---*---*  topic
+------------
+
+Caso agora continue o desenvolvimento normalmente e eventualmente mescle o
+'topic' para 'subsystem', os commits do 'subsystem' permanecerão duplicados
+para sempre:
+
+------------
+    o---o---o---o---o---o---o---o  master
+	 \			 \
+	  o---o---o---o---o	  o'--o'--o'--o'--o'--M	 subsystem
+			   \			     /
+			    *---*---*-..........-*--*  topic
+------------
+
+Geralmente, essas duplicatas são desaprovadas porque desordenam a história,
+dificultando o acompanhamento.  Para organizar as coisas, é necessário
+transplantar os commits no 'topic' para o novo cume do 'subsystem', ou seja,
+reconstruir (rebase) o 'topic'.  Isso se torna um efeito cascata: qualquer
+um que baixe do 'topic' é forçado a reconstruir (rebase) também e por aí
+vai!
+
+Existem dois tipos de correções, discutidos nas seguintes subseções:
+
+Caso fácil: as alterações são literalmente as mesmas.::
+
+	Isso acontece caso a reconstrução do 'subsystem' foi uma reconstrução
+	simples e não houve conflitos.
+
+Caso difícil: as alterações não são as mesmas.::
+
+	Isso acontece caso a reconstrução da fundação (rebase) do 'subsistema' tiver
+	conflitos ou utilizar o `--interactive` para omitir, editar, esmagar ou
+	consertar consertos; ou se a inicial utilizou um dos comandos `commit
+	--amend`, `reset` ou um histórico completo da reescrita como
+	https://github.com/newren/git-filter-repo[`filter-repo`].
+
+
+O caso fácil
+~~~~~~~~~~~~
+
+Funciona apenas se as alterações (IDs do patch com base no conteúdo do diff)
+no 'subsystem' que forem literalmente as mesmas antes e depois da
+reconstrução do 'subsystem'.
+
+Nesse caso, a correção é fácil porque o comando 'git rebase' sabe ignorar as
+alterações que já estão presentes no novo 'upstream' (a menos que
+`--reapply-cherry-picks` seja utilizada). Então, se você diz (supondo que
+você esteja no 'topic')
+------------
+    $ git rebase subsystem
+------------
+você vai acabar com o histórico fixo
+------------
+    o---o---o---o---o---o---o---o  master
+				 \
+				  o'--o'--o'--o'--o'  subsystem
+						   \
+						    *---*---*  topic
+------------
+
+
+O caso difícil
+~~~~~~~~~~~~~~
+
+As coisas ficam mais complicadas caso as alterações do "subsistema" não
+coincidam de forma exata aquelas antes da reconstrução.
+
+NOTE: Embora uma "recuperação fácil dos casos" às vezes pareça ser bem-sucedida
+      mesmo no caso difícil, pode haver consequências não intencionais.  Para
+      Por exemplo, um commit que foi removido através do comando `git rebase
+      --interactive` será **ressuscitado**!
+
+A ideia é dizer manualmente ao comando 'git rebase' "onde o 'subsistema'
+antigo terminou e o seu 'tópico' começou", ou seja, qual era a base da
+mesclagem antiga entre eles.  Você precisará encontrar uma maneira de nomear
+o último commit do antigo 'subsistema', por exemplo:
+
+* Com o 'subsistema' reflog: depois de 'git fetch', o antigo cume do
+  'subsistema' fica em `subsystem@{1}`.  As capturas subsequentes aumentarão
+  este número.  (Consulte <a href='../git-reflog/pt_BR.html'>git-reflog[1]</a>.)
+
+* Em relação ao cume do 'topic': sabendo que o seu 'topic' tem três commits, o
+  cume antigo do 'subsystem' deve ser `topic~3`.
+
+Você pode então transplantar o antigo `subsystem..topic` para o novo cume
+dizendo (para o caso do reflog e supondo que você já esteja no 'topic'):
+------------
+    $ git rebase --onto subsystem subsystem@{1}
+------------
+
+O efeito cascata de uma recuperação "difícil" (hard case) é especialmente
+ruim: 'todos' baixaram do 'topic' e agora terão que executar também uma
+reconstrução "difícil"!
+
+RECONSTRUINDO AS MESCLAGENS
+---------------------------
+
+O comando de reconstrução interativa foi originalmente projetado para lidar
+com séries de patches individuais. Como tal, faz sentido excluir a mesclagem
+dos commits da lista de tarefas, pois o desenvolvedor pode ter mesclado o
+`master` atual enquanto trabalhava no ramo, apenas para redefinir todos os
+commits para `master` eventualmente (ignorando a mesclagem dos commits).
+
+No entanto, existem razões legítimas pelas quais um desenvolvedor pode
+querer recriar as mesclagens dos commits: para manter a estrutura do ramo
+(ou a "topologia do commit") ao trabalhar em diversos ramos
+inter-relacionadas.
+
+No exemplo a seguir, o desenvolvedor trabalha em um tópico no ramo que
+refatora a maneira como os botões são definidos, em outro tópico do ramo que
+utilize esta refatoração para implementar um botão "Relatar um bug". A saída
+do `git log --graph --format=%s -5` pode ficar assim:
+
+------------
+*   Mescla o ramo 'report-a-bug'
+|\
+| * Adiciona o botão de feedback
+* | Mescla o ramo 'refactor-button'
+|\ \
+| |/
+| * Utiliza a classe do Botão para todos os botões
+| * Extrai o botão genérico do DownloadButton
+------------
+
+O desenvolvedor pode querer redefinir estes commits para um novo `master`
+enquanto mantém a topologia da ramificação. Quando se espera que o primeiro
+tópico do ramo que seja integrado ao` master` muito antes do segundo por
+exemplo. Para resolver os conflitos da mesclagem com as alterações para a
+classe `DownloadButton` que a transformou em `master` por exemplo.
+
+Esta reconstrução pode ser realizada utilizando a opção `--rebase-merges`.
+Ele irá gerar uma lista de tarefas, assim:
+
+------------
+rotular para
+
+# Branch: refactor-button
+reset onto
+pick 123456 Extrai o botão genérico do DownloadButton
+pick 654321 Utiliza a classe do Botão para todos os botões
+label refactor-button
+
+# Branch: report-a-bug
+reset refactor-button # Utiliza a classe do Botão para todos os botões
+pick abcdef Adiciona o botão de feedback
+label report-a-bug
+
+reset onto
+merge -C a1b2c3 refactor-button # Mescla o 'refactor-button'
+merge -C 6f5e4d report-a-bug # Mescla o 'report-a-bug'
+------------
+
+Ao contrário de uma reconstrução interativa regular, existem os comandos
+`label`, `reset` e `merge` além dos comandos `pick`.
+
+O comando `label` associa um rótulo ao `HEAD` atual quando este comando for
+executado. Estes rótulos são criados como refs locais da árvore de trabalho
+(`refs/rewritten/&lt;label&gt;`) que serão excluídos quando a reconstrução
+terminar. Dessa forma, as operações da reconstrução em várias árvores de
+trabalho vinculadas ao mesmo repositório não interferem entre si. Caso o
+comando `label` falhe, este é imediatamente reagendado, com uma mensagem
+útil sobre como proceder.
+
+O comando `reset` redefine o `HEAD`, o índice e a árvore de trabalho para a
+revisão específica. É semelhante a um comando `exec git reset --hard
+&lt;label&gt;`, porém se recusa a sobrescrever os arquivos que não sejam
+monitorados. Se o comando `reset` falhar, ele será imediatamente reagendado,
+com uma mensagem útil sobre como editar a lista de tarefas (normalmente
+acontece quando um comando `reset` foi inserido manualmente na lista de
+tarefas e contém um erro de digitação).
+
+O comando `merge` mesclará revisões especificadas no que seja `HEAD` naquele
+momento. Com `-C &lt;original-commit&gt;`, a mensagem do commit de um determinada
+mesclagem será usada. Quando o `C` é alterado para minúsculo `-c`, a
+mensagem será aberta em um editor após uma mesclagem bem-sucedida, para que
+o usuário possa edita-lá.
+
+Caso um comando `merge` falhar por qualquer motivo que não seja um conflito
+da mesclagem (ou seja, quando a operação da mesclagem sequer iniciou), ele
+será reagendado imediatamente.
+
+Neste momento, o comando `merge` *sempre* utilizará a estratégia da
+mesclagem `recursiva` para as mesclagens regulares, e `octopus` para
+mesclagens "polvo", sem nenhuma maneira de escolher uma diferente. Para
+contornar isso, um comando `exec` pode ser utilizado para chamar o comando
+`git merge` de forma explicita, utilizando o fato onde os rótulos são as
+'refs' locais da área de trabalho (o ref `refs/rewritten/onto`
+corresponderia ao rótulo `onto` , por exemplo).
+
+Observação: o primeiro comando (`label onto`) rotula a revisão onde os
+commits são refeitos; O nome `onto` é apenas uma convenção, como um aceno
+para a opção `--onto`.
+
+Também é possível introduzir commits para mesclagem completamente novos,
+adicionando um comando no formato `merge &lt;merge-head&gt;`. Este formulário gera
+uma mensagem de commit provisória e sempre abre um editor para permitir que
+o usuário a edite. Pode ser útil quando por exemplo, um ramo de um tópico
+acaba resolvendo mais de um problema e quer ser dividido em dois ou mais
+ramos de tópico. Considere esta lista de tarefas:
+
+------------
+pick 192837 Alterna do GNU Makefiles para o CMake
+pick 5a6c7e Documente a alteração para o CMake
+pick 918273 Corrija a detecção do OpenSSL no CMake
+pick afbecd http: adicione a compatibilidade com o TLS v1.3
+pick fdbaec Corrija a detecção da cURL no CMake no Windows
+------------
+
+O único commit nesta lista que não está relacionado ao CMake pode muito bem
+ter sido motivado ao trabalhar na correção de todos os erros introduzidos
+durante a mudança para o CMake, porém ele lida com um interesse
+diferente. Para dividir esse ramo em dois tópicos, a lista de tarefas pode
+ser editada desta maneira:
+
+------------
+rotular para
+
+escolha afbecd http: adicione a compatibilidade para o TLS v1.3
+label tlsv1.3
+
+redefinir para
+pick 192837 Alterna do GNU Makefiles para o CMake
+pick 918273 Corrija a detecção do OpenSSL no CMake
+pick fdbaec Corrija a detecção da cURL no CMake no Windows
+pick 5a6c7e Documente a alteração para o CMake
+label cmake
+
+reset onto
+merge tlsv1.3
+merge cmake
+------------
+
+BUGS
+----
+A lista de tarefas apresentada pela opção descontinuada `--preserve-merges
+--interactive` não representa a topologia do grafo da revisão (em vez disso
+use a opção `--rebase-merges`).  A edição dos commits e a reformulação das
+suas mensagens devem funcionar bem, porém as tentativas de reordenar os
+commits tendem a produzir resultados contra-intuitivos.  Em vez disso, use a
+opção `--rebase-merges` em tais cenários.
+
+Por exemplo, uma tentativa para reorganizar
+------------
+1 --- 2 --- 3 --- 4 --- 5
+------------
+para
+------------
+1 --- 2 --- 4 --- 3 --- 5
+------------
+movendo a linha "pick 4" resultará no seguinte histórico:
+------------
+	3
+       /
+1 --- 2 --- 4 --- 5
+------------
+
+GIT
+---
+Parte do conjunto <a href='../git/pt_BR.html'>git[1]</a></pre>
+</div>
+</div>
+</div>
+</div>
+  </div>
+
+        </div>
+      </div>
+      <footer>
+  <div class="site-source">
+    <a href="https://git-scm.com/site">About this site</a><br>
+    Patches, suggestions, and comments are welcome.
+  </div>
+  <div class="sfc-member">
+    Git is a member of <a href="https://git-scm.com/sfc">Software Freedom Conservancy</a>
+  </div>
+</footer>
+<a href="pt_BR.html#top" class="no-js scrollToTop" id="scrollToTop" data-label="Scroll to top">
+  <img src="../../images/icons/chevron-up@2x.png" width="20" height="20" alt="scroll-to-top"/>
+</a>
+<script src="../../assets/application-e12a0e837db60213b777cd7a706e0741beed474d7e5b94a641979fc87ce0d2cc.js"></script>
+
+    </div>
+
+</body>
+</html>

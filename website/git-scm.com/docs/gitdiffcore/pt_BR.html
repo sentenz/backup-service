@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49925874-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-49925874-3');
+  </script>
+
+  <meta charset='utf-8'>
+  <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Git - gitdiffcore Documentation</title>
+
+  <link href='../../favicon.ico' rel='shortcut icon' type='image/x-icon'>
+
+  <link rel="stylesheet" media="screen" href="../../assets/application-42b7b91ccf5cb92469695cf08b5da9e9230594f634cb88264f305d5bd54e477f.css" />
+  <script src="../../assets/modernize-b3ebe0c31c24f230dc62179d3e1030d2e57a53b1668d9382c0a27dbd44a94beb.js"></script>
+  <!--[if (gte IE 6)&(lte IE 8)]>
+  <script src="/javascripts/selectivizr-min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body id="documentation">
+
+  <div class="inner">
+    <header>
+
+  <a href="https://git-scm.com/"><img src="../../images/logo@2x.png" width="110" height="46" alt="Git" /></a>
+  <span id="tagline"></span>
+  <script type="text/javascript">
+    var taglines = ["fast-version-control","everything-is-local","distributed-even-if-your-workflow-isnt","local-branching-on-the-cheap","distributed-is-the-new-centralized"];
+    var tagline = taglines[Math.floor(Math.random() * taglines.length)];
+    document.getElementById('tagline').innerHTML = '--' + tagline;
+  </script>
+  <form id="search" action="https://git-scm.com/search/results">
+    <input id="search-text" name="search" placeholder="Search entire site..." autocomplete="off" type="text" />
+  </form>
+  <div id="search-results"></div>
+
+</header>
+
+  </div> <!-- .inner -->
+
+    <div class="inner">
+      <div id="content-wrapper">
+        <button class="sidebar-btn"></button>
+<aside class="sidebar" id="sidebar">
+  <nav>
+    <ul>
+      <li>
+        <a href="https://git-scm.com/about">About</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/about">Branching and Merging</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/small-and-fast">Small and Fast</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/distributed">Distributed</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/info-assurance">Data Assurance</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/staging-area">Staging Area</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/free-and-open-source">Free and Open Source</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/trademark">Trademark</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a class="active" href="https://git-scm.com/doc">Documentation</a>
+        <ul class="expanded">
+          <li>
+            <a class="active" href="../git-pack/pt_BR.html">Reference</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/book">Book</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/videos">Videos</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/doc/ext">External Links</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/downloads">Downloads</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/downloads/guis">GUI Clients</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/downloads/logos">Logos</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/community">Community</a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+
+        <div id="content">
+          
+  <div id='reference-version'>
+    <a class="dropdown-trigger" id="reference-languages-trigger" data-panel-id="l10n-versions-dropdown" href="fr.html#">
+  English ▾</a>
+<div class='dropdown-panel right' id='l10n-versions-dropdown'>
+  <header>Localized versions of <strong>gitdiffcore</strong> manual</header>
+  <ol class='reference-previous-versions'>
+      <li>
+        <a href="en.html"><span class="version">English</span>
+        </a>
+        </li>
+  </ol>
+  <footer>
+    Want to read in your language or fix typos?<br/> <a href="https://github.com/jnavila/git-manpages-l10n">You can help translate this page</a>.
+  </footer>
+</div>
+
+    <a class="dropdown-trigger" id="reference-topics-trigger" data-panel-id="topics-dropdown" href="fr.html#">Topics ▾</a>
+<div class='dropdown-panel right' id='topics-dropdown'>
+  <div class='three-column'>
+    <div class='column-left'>
+      <h3 class='setup'>Setup and Config</h3>
+<ul class='unstyled'>
+  <li><a href="../git/ru.html">git</a></li>
+  <li><a href="../git-config/ru.html">config</a></li>
+  <li><a href="../git-help/ru.html">help</a></li>
+  <li><a href="../git-bugreport/ru.html">bugreport</a></li>
+</ul>
+
+      <h3 class='projects'>Getting and Creating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-init/ru.html">init</a></li>
+  <li><a href="../git-clone/ru.html">clone</a></li>
+</ul>
+
+      <h3 class='snapshotting'>Basic Snapshotting</h3>
+<ul class='unstyled'>
+  <li><a href="../git-add/ru.html">add</a></li>
+  <li><a href="../git-status/ru.html">status</a></li>
+  <li><a href="../git-diff/ru.html">diff</a></li>
+  <li><a href="../git-commit/ru.html">commit</a></li>
+  <li><a href="../git-notes/ru.html">notes</a></li>
+  <li><a href="../git-restore/ru.html">restore</a></li>
+  <li><a href="../git-reset/ru.html">reset</a></li>
+  <li><a href="../git-rm/ru.html">rm</a></li>
+  <li><a href="../git-mv/ru.html">mv</a></li>
+</ul>
+
+      <h3 class='branching'>Branching and Merging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-branch/ru.html">branch</a></li>
+  <li><a href="../git-checkout/ru.html">checkout</a></li>
+  <li><a href="../git-switch/ru.html">switch</a></li>
+  <li><a href="../git-merge/ru.html">merge</a></li>
+  <li><a href="../git-mergetool/ru.html">mergetool</a></li>
+  <li><a href="../git-log/ru.html">log</a></li>
+  <li><a href="../git-stash/ru.html">stash</a></li>
+  <li><a href="../git-tag/ru.html">tag</a></li>
+  <li><a href="../git-worktree/ru.html">worktree</a></li>
+</ul>
+
+      <h3 class='sharing'>Sharing and Updating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-fetch/ru.html">fetch</a></li>
+  <li><a href="../git-pull/ru.html">pull</a></li>
+  <li><a href="../git-push/ru.html">push</a></li>
+  <li><a href="../git-remote/ru.html">remote</a></li>
+  <li><a href="../git-submodule/ru.html">submodule</a></li>
+</ul>
+
+    </div>
+    <div class='column-middle'>
+      <h3 class='inspection'>Inspection and Comparison</h3>
+<ul class='unstyled'>
+  <li><a href="../git-show/ru.html">show</a></li>
+  <li><a href="../git-log/ru.html">log</a></li>
+  <li><a href="../git-diff/ru.html">diff</a></li>
+  <li><a href="../git-difftool/ru.html">difftool</a></li>
+  <li><a href="../git-range-diff/ru.html">range-diff</a></li>
+  <li><a href="../git-shortlog/ru.html">shortlog</a></li>
+  <li><a href="../git-describe/ru.html">describe</a></li>
+</ul>
+
+      <h3 class='patching'>Patching</h3>
+<ul class='unstyled'>
+  <li><a href="../git-apply/ru.html">apply</a></li>
+  <li><a href="../git-cherry-pick/ru.html">cherry-pick</a></li>
+  <li><a href="../git-diff/ru.html">diff</a></li>
+  <li><a href="../git-rebase/ru.html">rebase</a></li>
+  <li><a href="../git-revert/ru.html">revert</a></li>
+</ul>
+
+      <h3 class='debugging'>Debugging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-bisect/ru.html">bisect</a></li>
+  <li><a href="../git-blame/ru.html">blame</a></li>
+  <li><a href="../git-grep/ru.html">grep</a></li>
+</ul>
+
+      <h3 class='email'>Email</h3>
+<ul class='unstyled'>
+  <li><a href="../git-am/ru.html">am</a></li>
+  <li><a href="../git-apply/ru.html">apply</a></li>
+  <li><a href="../git-format-patch/ru.html">format-patch</a></li>
+  <li><a href="../git-send-email/ru.html">send-email</a></li>
+  <li><a href="../git-request-pull/ru.html">request-pull</a></li>
+</ul>
+
+      <h3 class='external'>External Systems</h3>
+<ul class='unstyled'>
+  <li><a href="../git-svn/ru.html">svn</a></li>
+  <li><a href="../git-fast-import/ru.html">fast-import</a></li>
+</ul>
+
+      <h3 class='server-admin'>Server Admin</h3>
+<ul class='unstyled'>
+  <li><a href="../git-daemon/ru.html">daemon</a></li>
+  <li><a href="../git-update-server-info/ru.html">update-server-info</a></li>
+</ul>
+
+    </div>
+    <div class='column-right'>
+      <h3 class='guides'>Guides</h3>
+<ul class='unstyled'>
+  <li><a href="../gitattributes/ru.html">gitattributes</a></li>
+  <li><a href="../gitcli/ru.html">Command-line interface conventions</a></li>
+  <li><a href="../giteveryday/ru.html">Everyday Git</a></li>
+  <li><a href="../gitfaq/ru.html">Frequently Asked Questions (FAQ)</a></li>
+  <li><a href="../gitglossary/zh_HANT.html">Glossary</a></li>
+  <li><a href="../githooks/ru.html">Hooks</a></li>
+  <li><a href="../gitignore/ru.html">gitignore</a></li>
+  <li><a href="../gitmodules/ru.html">gitmodules</a></li>
+  <li><a href="../gitrevisions/ru.html">Revisions</a></li>
+  <li><a href="../gitsubmodules/ru.html">Submodules</a></li>
+  <li><a href="../gittutorial/ru.html">Tutorial</a></li>
+  <li><a href="../gitworkflows/ru.html">Workflows</a></li>
+  <li><a href="../git/ru.html#_guides">All guides...</a></li>
+</ul>
+
+      <h3 class='admin'>Administration</h3>
+<ul class='unstyled'>
+  <li><a href="../git-clean/ru.html">clean</a></li>
+  <li><a href="../git-gc/ru.html">gc</a></li>
+  <li><a href="../git-fsck/ru.html">fsck</a></li>
+  <li><a href="../git-reflog/ru.html">reflog</a></li>
+  <li><a href="../git-filter-branch/ru.html">filter-branch</a></li>
+  <li><a href="../git-instaweb/ru.html">instaweb</a></li>
+  <li><a href="../git-archive/ru.html">archive</a></li>
+  <li><a href="../git-bundle/ru.html">bundle</a></li>
+</ul>
+
+      <h3 class='plumbing'>Plumbing Commands</h3>
+<ul class='unstyled'>
+  <li><a href="../git-cat-file/ru.html">cat-file</a></li>
+  <li><a href="../git-check-ignore/ru.html">check-ignore</a></li>
+  <li><a href="../git-checkout-index/ru.html">checkout-index</a></li>
+  <li><a href="../git-commit-tree/ru.html">commit-tree</a></li>
+  <li><a href="../git-count-objects/ru.html">count-objects</a></li>
+  <li><a href="../git-diff-index/ru.html">diff-index</a></li>
+  <li><a href="../git-for-each-ref/ru.html">for-each-ref</a></li>
+  <li><a href="../git-hash-object/ru.html">hash-object</a></li>
+  <li><a href="../git-ls-files/ru.html">ls-files</a></li>
+  <li><a href="../git-ls-tree/ru.html">ls-tree</a></li>
+  <li><a href="../git-merge-base/ru.html">merge-base</a></li>
+  <li><a href="../git-read-tree/ru.html">read-tree</a></li>
+  <li><a href="../rev-list.html">rev-list</a></li>
+  <li><a href="../git-rev-parse/ru.html">rev-parse</a></li>
+  <li><a href="../git-show-ref/ru.html">show-ref</a></li>
+  <li><a href="../git-symbolic-ref/ru.html">symbolic-ref</a></li>
+  <li><a href="../git-update-index/ru.html">update-index</a></li>
+  <li><a href="../git-update-ref/ru.html">update-ref</a></li>
+  <li><a href="../git-verify-pack/ru.html">verify-pack</a></li>
+  <li><a href="../git-write-tree/ru.html">write-tree</a></li>
+</ul>
+
+    </div>
+  </div>
+</div>
+
+    <a class="dropdown-trigger" id="reference-versions-trigger" data-panel-id="previous-versions-dropdown" href="fr.html#">
+    Version 2.34.1
+ ▾ </a>
+<span class="light d-flex">gitdiffcore last updated in 2.34.1</span>
+<div class='dropdown-panel left' id='previous-versions-dropdown'>
+  <header>Changes in the <strong>gitdiffcore</strong> manual</header>
+  <ol class='reference-previous-versions'>
+        <li class="no-change"><span>2.33.0 &rarr; 2.34.1 no changes</span></li>
+        <li>
+        <a href="2.32.0.html"><span class="version">2.32.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">06/06/21</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.31.1 no changes</span></li>
+        <li>
+        <a href="2.31.0.html"><span class="version">2.31.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+          </span>
+          <em class="date">03/15/21</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.21.1 &rarr; 2.30.2 no changes</span></li>
+        <li>
+        <a href="2.21.0.html"><span class="version">2.21.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">02/24/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.13.7 &rarr; 2.20.5 no changes</span></li>
+        <li>
+        <a href="2.12.5.html"><span class="version">2.12.5</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">09/22/17</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.10.5 &rarr; 2.11.4 no changes</span></li>
+        <li>
+        <a href="2.9.5.html"><span class="version">2.9.5</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">07/30/17</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.5.6 &rarr; 2.8.6 no changes</span></li>
+        <li>
+        <a href="2.4.12.html"><span class="version">2.4.12</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">05/05/17</em>
+        </a>
+        </li>
+    <li>&nbsp;</li>
+    <!-- <li><a class="more" href="#">See more previous releases →</a></li> -->
+  </ol>
+  <footer>
+    <p>Check your version of git by running</p>
+    <code class="command">git --version</code>
+  </footer>
+</div>
+
+  </div>
+
+  <div id='main'>
+    <div class="sect1">
+<h2 id="_name"><a class="anchor" href="fr.html#_name"></a>NAME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>gitdiffcore - Tweaking diff output</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis"><a class="anchor" href="fr.html#_synopsis"></a>SYNOPSIS</h2>
+<div class="sectionbody">
+<div class="verseblock">
+<pre class="content"><em>git diff</em> *</pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description"><a class="anchor" href="fr.html#_description"></a>DESCRIPTION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The diff commands <em>git diff-index</em>, <em>git diff-files</em>, and <em>git diff-tree</em>
+can be told to manipulate differences they find in
+unconventional ways before showing <em>diff</em> output.  The manipulation
+is collectively called "diffcore transformation".  This short note
+describes what they are and how to use them to produce <em>diff</em> output
+that is easier to understand than the conventional kind.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_chain_of_operation"><a class="anchor" href="fr.html#_the_chain_of_operation"></a>The chain of operation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <em>git diff-*</em> family works by first comparing two sets of
+files:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>git diff-index</em> compares contents of a "tree" object and the
+working directory (when <code>--cached</code> flag is not used) or a
+"tree" object and the index file (when <code>--cached</code> flag is
+used);</p>
+</li>
+<li>
+<p><em>git diff-files</em> compares contents of the index file and the
+working directory;</p>
+</li>
+<li>
+<p><em>git diff-tree</em> compares contents of two "tree" objects;</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In all of these cases, the commands themselves first optionally limit
+the two sets of files by any pathspecs given on their command-lines,
+and compare corresponding paths in the two resulting sets of files.</p>
+</div>
+<div class="paragraph">
+<p>The pathspecs are used to limit the world diff operates in.  They remove
+the filepairs outside the specified sets of pathnames.  E.g. If the
+input set of filepairs included:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>:100644 100644 bcd1234... 0123456... M junkfile</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>but the command invocation was <code>git diff-files myfile</code>, then the
+junkfile entry would be removed from the list because only "myfile"
+is under consideration.</p>
+</div>
+<div class="paragraph">
+<p>The result of comparison is passed from these commands to what is
+internally called "diffcore", in a format similar to what is output
+when the -p option is not used.  E.g.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>in-place edit  :100644 100644 bcd1234... 0123456... M file0
+create         :000000 100644 0000000... 1234567... A file4
+delete         :100644 000000 1234567... 0000000... D file5
+unmerged       :000000 000000 0000000... 0000000... U file6</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The diffcore mechanism is fed a list of such comparison results
+(each of which is called "filepair", although at this point each
+of them talks about a single file), and transforms such a list
+into another list.  There are currently 5 such transformations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>diffcore-break</p>
+</li>
+<li>
+<p>diffcore-rename</p>
+</li>
+<li>
+<p>diffcore-merge-broken</p>
+</li>
+<li>
+<p>diffcore-pickaxe</p>
+</li>
+<li>
+<p>diffcore-order</p>
+</li>
+<li>
+<p>diffcore-rotate</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These are applied in sequence.  The set of filepairs <em>git diff-*</em>
+commands find are used as the input to diffcore-break, and
+the output from diffcore-break is used as the input to the
+next transformation.  The final result is then passed to the
+output routine and generates either diff-raw format (see Output
+format sections of the manual for <em>git diff-*</em> commands) or
+diff-patch format.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_diffcore_break_for_splitting_up_complete_rewrites"><a class="anchor" href="fr.html#_diffcore_break_for_splitting_up_complete_rewrites"></a>diffcore-break: For Splitting Up Complete Rewrites</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The second transformation in the chain is diffcore-break, and is
+controlled by the -B option to the <em>git diff-*</em> commands.  This is
+used to detect a filepair that represents "complete rewrite" and
+break such filepair into two filepairs that represent delete and
+create.  E.g.  If the input contained this filepair:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>:100644 100644 bcd1234... 0123456... M file0</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and if it detects that the file "file0" is completely rewritten,
+it changes it to:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>:100644 000000 bcd1234... 0000000... D file0
+:000000 100644 0000000... 0123456... A file0</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For the purpose of breaking a filepair, diffcore-break examines
+the extent of changes between the contents of the files before
+and after modification (i.e. the contents that have "bcd1234&#8230;&#8203;"
+and "0123456&#8230;&#8203;" as their SHA-1 content ID, in the above
+example).  The amount of deletion of original contents and
+insertion of new material are added together, and if it exceeds
+the "break score", the filepair is broken into two.  The break
+score defaults to 50% of the size of the smaller of the original
+and the result (i.e. if the edit shrinks the file, the size of
+the result is used; if the edit lengthens the file, the size of
+the original is used), and can be customized by giving a number
+after "-B" option (e.g. "-B75" to tell it to use 75%).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_diffcore_rename_for_detecting_renames_and_copies"><a class="anchor" href="fr.html#_diffcore_rename_for_detecting_renames_and_copies"></a>diffcore-rename: For Detecting Renames and Copies</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This transformation is used to detect renames and copies, and is
+controlled by the -M option (to detect renames) and the -C option
+(to detect copies as well) to the <em>git diff-*</em> commands.  If the
+input contained these filepairs:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>:100644 000000 0123456... 0000000... D fileX
+:000000 100644 0000000... 0123456... A file0</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and the contents of the deleted file fileX is similar enough to
+the contents of the created file file0, then rename detection
+merges these filepairs and creates:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>:100644 100644 0123456... 0123456... R100 fileX file0</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the "-C" option is used, the original contents of modified files,
+and deleted files (and also unmodified files, if the
+"--find-copies-harder" option is used) are considered as candidates
+of the source files in rename/copy operation.  If the input were like
+these filepairs, that talk about a modified file fileY and a newly
+created file file0:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>:100644 100644 0123456... 1234567... M fileY
+:000000 100644 0000000... bcd3456... A file0</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>the original contents of fileY and the resulting contents of
+file0 are compared, and if they are similar enough, they are
+changed to:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>:100644 100644 0123456... 1234567... M fileY
+:100644 100644 0123456... bcd3456... C100 fileY file0</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In both rename and copy detection, the same "extent of changes"
+algorithm used in diffcore-break is used to determine if two
+files are "similar enough", and can be customized to use
+a similarity score different from the default of 50% by giving a
+number after the "-M" or "-C" option (e.g. "-M8" to tell it to use
+8/10 = 80%).</p>
+</div>
+<div class="paragraph">
+<p>Note that when rename detection is on but both copy and break
+detection are off, rename detection adds a preliminary step that first
+checks if files are moved across directories while keeping their
+filename the same.  If there is a file added to a directory whose
+contents is sufficiently similar to a file with the same name that got
+deleted from a different directory, it will mark them as renames and
+exclude them from the later quadratic step (the one that pairwise
+compares all unmatched files to find the "best" matches, determined by
+the highest content similarity).  So, for example, if a deleted
+docs/ext.txt and an added docs/config/ext.txt are similar enough, they
+will be marked as a rename and prevent an added docs/ext.md that may
+be even more similar to the deleted docs/ext.txt from being considered
+as the rename destination in the later step.  For this reason, the
+preliminary "match same filename" step uses a bit higher threshold to
+mark a file pair as a rename and stop considering other candidates for
+better matches.  At most, one comparison is done per file in this
+preliminary pass; so if there are several remaining ext.txt files
+throughout the directory hierarchy after exact rename detection, this
+preliminary step may be skipped for those files.</p>
+</div>
+<div class="paragraph">
+<p>Note.  When the "-C" option is used with <code>--find-copies-harder</code>
+option, <em>git diff-*</em> commands feed unmodified filepairs to
+diffcore mechanism as well as modified ones.  This lets the copy
+detector consider unmodified files as copy source candidates at
+the expense of making it slower.  Without <code>--find-copies-harder</code>,
+<em>git diff-*</em> commands can detect copies only if the file that was
+copied happened to have been modified in the same changeset.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_diffcore_merge_broken_for_putting_complete_rewrites_back_together"><a class="anchor" href="fr.html#_diffcore_merge_broken_for_putting_complete_rewrites_back_together"></a>diffcore-merge-broken: For Putting Complete Rewrites Back Together</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This transformation is used to merge filepairs broken by
+diffcore-break, and not transformed into rename/copy by
+diffcore-rename, back into a single modification.  This always
+runs when diffcore-break is used.</p>
+</div>
+<div class="paragraph">
+<p>For the purpose of merging broken filepairs back, it uses a
+different "extent of changes" computation from the ones used by
+diffcore-break and diffcore-rename.  It counts only the deletion
+from the original, and does not count insertion.  If you removed
+only 10 lines from a 100-line document, even if you added 910
+new lines to make a new 1000-line document, you did not do a
+complete rewrite.  diffcore-break breaks such a case in order to
+help diffcore-rename to consider such filepairs as candidate of
+rename/copy detection, but if filepairs broken that way were not
+matched with other filepairs to create rename/copy, then this
+transformation merges them back into the original
+"modification".</p>
+</div>
+<div class="paragraph">
+<p>The "extent of changes" parameter can be tweaked from the
+default 80% (that is, unless more than 80% of the original
+material is deleted, the broken pairs are merged back into a
+single modification) by giving a second number to -B option,
+like these:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>-B50/60 (give 50% "break score" to diffcore-break, use 60%
+for diffcore-merge-broken).</p>
+</li>
+<li>
+<p>-B/60 (the same as above, since diffcore-break defaults to 50%).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Note that earlier implementation left a broken pair as a separate
+creation and deletion patches.  This was an unnecessary hack and
+the latest implementation always merges all the broken pairs
+back into modifications, but the resulting patch output is
+formatted differently for easier review in case of such
+a complete rewrite by showing the entire contents of old version
+prefixed with <em>-</em>, followed by the entire contents of new
+version prefixed with <em>+</em>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_diffcore_pickaxe_for_detecting_additiondeletion_of_specified_string"><a class="anchor" href="fr.html#_diffcore_pickaxe_for_detecting_additiondeletion_of_specified_string"></a>diffcore-pickaxe: For Detecting Addition/Deletion of Specified String</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This transformation limits the set of filepairs to those that change
+specified strings between the preimage and the postimage in a certain
+way.  -S&lt;block of text&gt; and -G&lt;regular expression&gt; options are used to
+specify different ways these strings are sought.</p>
+</div>
+<div class="paragraph">
+<p>"-S&lt;block of text&gt;" detects filepairs whose preimage and postimage
+have different number of occurrences of the specified block of text.
+By definition, it will not detect in-file moves.  Also, when a
+changeset moves a file wholesale without affecting the interesting
+string, diffcore-rename kicks in as usual, and <code>-S</code> omits the filepair
+(since the number of occurrences of that string didn&#8217;t change in that
+rename-detected filepair).  When used with <code>--pickaxe-regex</code>, treat
+the &lt;block of text&gt; as an extended POSIX regular expression to match,
+instead of a literal string.</p>
+</div>
+<div class="paragraph">
+<p>"-G&lt;regular expression&gt;" (mnemonic: grep) detects filepairs whose
+textual diff has an added or a deleted line that matches the given
+regular expression.  This means that it will detect in-file (or what
+rename-detection considers the same file) moves, which is noise.  The
+implementation runs diff twice and greps, and this can be quite
+expensive.  To speed things up binary files without textconv filters
+will be ignored.</p>
+</div>
+<div class="paragraph">
+<p>When <code>-S</code> or <code>-G</code> are used without <code>--pickaxe-all</code>, only filepairs
+that match their respective criterion are kept in the output.  When
+<code>--pickaxe-all</code> is used, if even one filepair matches their respective
+criterion in a changeset, the entire changeset is kept.  This behavior
+is designed to make reviewing changes in the context of the whole
+changeset easier.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_diffcore_order_for_sorting_the_output_based_on_filenames"><a class="anchor" href="fr.html#_diffcore_order_for_sorting_the_output_based_on_filenames"></a>diffcore-order: For Sorting the Output Based on Filenames</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This is used to reorder the filepairs according to the user&#8217;s
+(or project&#8217;s) taste, and is controlled by the -O option to the
+<em>git diff-*</em> commands.</p>
+</div>
+<div class="paragraph">
+<p>This takes a text file each of whose lines is a shell glob
+pattern.  Filepairs that match a glob pattern on an earlier line
+in the file are output before ones that match a later line, and
+filepairs that do not match any glob pattern are output last.</p>
+</div>
+<div class="paragraph">
+<p>As an example, a typical orderfile for the core Git probably
+would look like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>README
+Makefile
+Documentation
+*.h
+*.c
+t</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_diffcore_rotate_for_changing_at_which_path_output_starts"><a class="anchor" href="fr.html#_diffcore_rotate_for_changing_at_which_path_output_starts"></a>diffcore-rotate: For Changing At Which Path Output Starts</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This transformation takes one pathname, and rotates the set of
+filepairs so that the filepair for the given pathname comes first,
+optionally discarding the paths that come before it.  This is used
+to implement the <code>--skip-to</code> and the <code>--rotate-to</code> options.  It is
+an error when the specified pathname is not in the set of filepairs,
+but it is not useful to error out when used with "git log" family of
+commands, because it is unreasonable to expect that a given path
+would be modified by each and every commit shown by the "git log"
+command.  For this reason, when used with "git log", the filepair
+that sorts the same as, or the first one that sorts after, the given
+pathname is where the output starts.</p>
+</div>
+<div class="paragraph">
+<p>Use of this transformation combined with diffcore-order will produce
+unexpected results, as the input to this transformation is likely
+not sorted when diffcore-order is in effect.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_see_also"><a class="anchor" href="fr.html#_see_also"></a>SEE ALSO</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href='../git-diff/ru.html'>git-diff[1]</a>,
+<a href='../git-diff-files/zh_HANS-CN.html'>git-diff-files[1]</a>,
+<a href='../git-diff-index/ru.html'>git-diff-index[1]</a>,
+<a href='../git-diff-tree/zh_HANS-CN.html'>git-diff-tree[1]</a>,
+<a href='../git-format-patch/ru.html'>git-format-patch[1]</a>,
+<a href='../git-log/ru.html'>git-log[1]</a>,
+<a href='../gitglossary/zh_HANT.html'>gitglossary[7]</a>,
+<a href="../user-manual/ru.html">The Git User&#8217;s Manual</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git"><a class="anchor" href="fr.html#_git"></a>GIT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Part of the <a href='../git/ru.html'>git[1]</a> suite</p>
+</div>
+</div>
+</div>
+  </div>
+
+        </div>
+      </div>
+      <footer>
+  <div class="site-source">
+    <a href="https://git-scm.com/site">About this site</a><br>
+    Patches, suggestions, and comments are welcome.
+  </div>
+  <div class="sfc-member">
+    Git is a member of <a href="https://git-scm.com/sfc">Software Freedom Conservancy</a>
+  </div>
+</footer>
+<a href="fr.html#top" class="no-js scrollToTop" id="scrollToTop" data-label="Scroll to top">
+  <img src="../../images/icons/chevron-up@2x.png" width="20" height="20" alt="scroll-to-top"/>
+</a>
+<script src="../../assets/application-e12a0e837db60213b777cd7a706e0741beed474d7e5b94a641979fc87ce0d2cc.js"></script>
+
+    </div>
+
+</body>
+</html>

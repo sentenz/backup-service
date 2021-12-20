@@ -1,0 +1,1647 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49925874-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-49925874-3');
+  </script>
+
+  <meta charset='utf-8'>
+  <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Git - git-shortlog Documentation</title>
+
+  <link href='../../favicon.ico' rel='shortcut icon' type='image/x-icon'>
+
+  <link rel="stylesheet" media="screen" href="../../assets/application-42b7b91ccf5cb92469695cf08b5da9e9230594f634cb88264f305d5bd54e477f.css" />
+  <script src="../../assets/modernize-b3ebe0c31c24f230dc62179d3e1030d2e57a53b1668d9382c0a27dbd44a94beb.js"></script>
+  <!--[if (gte IE 6)&(lte IE 8)]>
+  <script src="/javascripts/selectivizr-min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body id="documentation">
+
+  <div class="inner">
+    <header>
+
+  <a href="https://git-scm.com/"><img src="../../images/logo@2x.png" width="110" height="46" alt="Git" /></a>
+  <span id="tagline"></span>
+  <script type="text/javascript">
+    var taglines = ["fast-version-control","everything-is-local","distributed-even-if-your-workflow-isnt","local-branching-on-the-cheap","distributed-is-the-new-centralized"];
+    var tagline = taglines[Math.floor(Math.random() * taglines.length)];
+    document.getElementById('tagline').innerHTML = '--' + tagline;
+  </script>
+  <form id="search" action="https://git-scm.com/search/results">
+    <input id="search-text" name="search" placeholder="Search entire site..." autocomplete="off" type="text" />
+  </form>
+  <div id="search-results"></div>
+
+</header>
+
+  </div> <!-- .inner -->
+
+    <div class="inner">
+      <div id="content-wrapper">
+        <button class="sidebar-btn"></button>
+<aside class="sidebar" id="sidebar">
+  <nav>
+    <ul>
+      <li>
+        <a href="https://git-scm.com/about">About</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/about">Branching and Merging</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/small-and-fast">Small and Fast</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/distributed">Distributed</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/info-assurance">Data Assurance</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/staging-area">Staging Area</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/free-and-open-source">Free and Open Source</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/trademark">Trademark</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a class="active" href="https://git-scm.com/doc">Documentation</a>
+        <ul class="expanded">
+          <li>
+            <a class="active" href="../git-pack/pt_BR.html">Reference</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/book">Book</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/videos">Videos</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/doc/ext">External Links</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/downloads">Downloads</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/downloads/guis">GUI Clients</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/downloads/logos">Logos</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/community">Community</a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+
+        <div id="content">
+          
+  <div id='reference-version'>
+    <a class="dropdown-trigger" id="reference-languages-trigger" data-panel-id="l10n-versions-dropdown" href="pt_BR.html#">
+  Português (Brasil) ▾</a>
+<div class='dropdown-panel right' id='l10n-versions-dropdown'>
+  <header>Localized versions of <strong>git-shortlog</strong> manual</header>
+  <ol class='reference-previous-versions'>
+      <li>
+        <a href="en.html"><span class="version">English</span>
+        </a>
+        </li>
+      <li>
+        <a href="fr.html"><span class="version">Français</span>
+        </a>
+        </li>
+      <li>
+        <a href="pt_BR.html"><span class="version">Português (Brasil)</span>
+        </a>
+        </li>
+      <li>
+        <a href="zh_HANS-CN.html"><span class="version">简体中文</span>
+        </a>
+        </li>
+  </ol>
+  <footer>
+    Want to read in your language or fix typos?<br/> <a href="https://github.com/jnavila/git-manpages-l10n">You can help translate this page</a>.
+  </footer>
+</div>
+
+    <a class="dropdown-trigger" id="reference-topics-trigger" data-panel-id="topics-dropdown" href="pt_BR.html#">Topics ▾</a>
+<div class='dropdown-panel right' id='topics-dropdown'>
+  <div class='three-column'>
+    <div class='column-left'>
+      <h3 class='setup'>Setup and Config</h3>
+<ul class='unstyled'>
+  <li><a href="../git/pt_BR.html">git</a></li>
+  <li><a href="../git-config/pt_BR.html">config</a></li>
+  <li><a href="../git-help/pt_BR.html">help</a></li>
+  <li><a href="../git-bugreport/pt_BR.html">bugreport</a></li>
+</ul>
+
+      <h3 class='projects'>Getting and Creating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-init/pt_BR.html">init</a></li>
+  <li><a href="../git-clone/pt_BR.html">clone</a></li>
+</ul>
+
+      <h3 class='snapshotting'>Basic Snapshotting</h3>
+<ul class='unstyled'>
+  <li><a href="../git-add/pt_BR.html">add</a></li>
+  <li><a href="../git-status/pt_BR.html">status</a></li>
+  <li><a href="../git-diff/pt_BR.html">diff</a></li>
+  <li><a href="../git-commit/pt_BR.html">commit</a></li>
+  <li><a href="../git-notes/pt_BR.html">notes</a></li>
+  <li><a href="../git-restore/pt_BR.html">restore</a></li>
+  <li><a href="../git-reset/pt_BR.html">reset</a></li>
+  <li><a href="../git-rm/pt_BR.html">rm</a></li>
+  <li><a href="../git-mv/pt_BR.html">mv</a></li>
+</ul>
+
+      <h3 class='branching'>Branching and Merging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-branch/pt_BR.html">branch</a></li>
+  <li><a href="../git-checkout/pt_BR.html">checkout</a></li>
+  <li><a href="../git-switch/pt_BR.html">switch</a></li>
+  <li><a href="../git-merge/pt_BR.html">merge</a></li>
+  <li><a href="../git-mergetool/pt_BR.html">mergetool</a></li>
+  <li><a href="../git-log/pt_BR.html">log</a></li>
+  <li><a href="../git-stash/pt_BR.html">stash</a></li>
+  <li><a href="../git-tag/pt_BR.html">tag</a></li>
+  <li><a href="../git-worktree/pt_BR.html">worktree</a></li>
+</ul>
+
+      <h3 class='sharing'>Sharing and Updating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-fetch/pt_BR.html">fetch</a></li>
+  <li><a href="../git-pull/pt_BR.html">pull</a></li>
+  <li><a href="../git-push/pt_BR.html">push</a></li>
+  <li><a href="../git-remote/pt_BR.html">remote</a></li>
+  <li><a href="../git-submodule/pt_BR.html">submodule</a></li>
+</ul>
+
+    </div>
+    <div class='column-middle'>
+      <h3 class='inspection'>Inspection and Comparison</h3>
+<ul class='unstyled'>
+  <li><a href="../git-show/pt_BR.html">show</a></li>
+  <li><a href="../git-log/pt_BR.html">log</a></li>
+  <li><a href="../git-diff/pt_BR.html">diff</a></li>
+  <li><a href="../git-difftool/pt_BR.html">difftool</a></li>
+  <li><a href="../git-range-diff/pt_BR.html">range-diff</a></li>
+  <li><a class="active" href="pt_BR.html">shortlog</a></li>
+  <li><a href="../git-describe/pt_BR.html">describe</a></li>
+</ul>
+
+      <h3 class='patching'>Patching</h3>
+<ul class='unstyled'>
+  <li><a href="../git-apply/pt_BR.html">apply</a></li>
+  <li><a href="../git-cherry-pick/pt_BR.html">cherry-pick</a></li>
+  <li><a href="../git-diff/pt_BR.html">diff</a></li>
+  <li><a href="../git-rebase/pt_BR.html">rebase</a></li>
+  <li><a href="../git-revert/pt_BR.html">revert</a></li>
+</ul>
+
+      <h3 class='debugging'>Debugging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-bisect/pt_BR.html">bisect</a></li>
+  <li><a href="../git-blame/pt_BR.html">blame</a></li>
+  <li><a href="../git-grep/pt_BR.html">grep</a></li>
+</ul>
+
+      <h3 class='email'>Email</h3>
+<ul class='unstyled'>
+  <li><a href="../git-am/pt_BR.html">am</a></li>
+  <li><a href="../git-apply/pt_BR.html">apply</a></li>
+  <li><a href="../git-format-patch/pt_BR.html">format-patch</a></li>
+  <li><a href="../git-send-email/pt_BR.html">send-email</a></li>
+  <li><a href="../git-request-pull/pt_BR.html">request-pull</a></li>
+</ul>
+
+      <h3 class='external'>External Systems</h3>
+<ul class='unstyled'>
+  <li><a href="../git-svn/pt_BR.html">svn</a></li>
+  <li><a href="../git-fast-import/pt_BR.html">fast-import</a></li>
+</ul>
+
+      <h3 class='server-admin'>Server Admin</h3>
+<ul class='unstyled'>
+  <li><a href="../git-daemon/pt_BR.html">daemon</a></li>
+  <li><a href="../git-update-server-info/pt_BR.html">update-server-info</a></li>
+</ul>
+
+    </div>
+    <div class='column-right'>
+      <h3 class='guides'>Guides</h3>
+<ul class='unstyled'>
+  <li><a href="../gitattributes/pt_BR.html">gitattributes</a></li>
+  <li><a href="../gitcli/pt_BR.html">Command-line interface conventions</a></li>
+  <li><a href="../giteveryday/pt_BR.html">Everyday Git</a></li>
+  <li><a href="../gitfaq/pt_BR.html">Frequently Asked Questions (FAQ)</a></li>
+  <li><a href="../gitglossary/pt_BR.html">Glossary</a></li>
+  <li><a href="../githooks/pt_BR.html">Hooks</a></li>
+  <li><a href="../gitignore/pt_BR.html">gitignore</a></li>
+  <li><a href="../gitmodules/pt_BR.html">gitmodules</a></li>
+  <li><a href="../gitrevisions/pt_BR.html">Revisions</a></li>
+  <li><a href="../gitsubmodules/pt_BR.html">Submodules</a></li>
+  <li><a href="../gittutorial/pt_BR.html">Tutorial</a></li>
+  <li><a href="../gitworkflows/pt_BR.html">Workflows</a></li>
+  <li><a href="../git/ru.html#_guides">All guides...</a></li>
+</ul>
+
+      <h3 class='admin'>Administration</h3>
+<ul class='unstyled'>
+  <li><a href="../git-clean/pt_BR.html">clean</a></li>
+  <li><a href="../git-gc/pt_BR.html">gc</a></li>
+  <li><a href="../git-fsck/pt_BR.html">fsck</a></li>
+  <li><a href="../git-reflog/pt_BR.html">reflog</a></li>
+  <li><a href="../git-filter-branch/pt_BR.html">filter-branch</a></li>
+  <li><a href="../git-instaweb/pt_BR.html">instaweb</a></li>
+  <li><a href="../git-archive/pt_BR.html">archive</a></li>
+  <li><a href="../git-bundle/pt_BR.html">bundle</a></li>
+</ul>
+
+      <h3 class='plumbing'>Plumbing Commands</h3>
+<ul class='unstyled'>
+  <li><a href="../git-cat-file/pt_BR.html">cat-file</a></li>
+  <li><a href="../git-check-ignore/pt_BR.html">check-ignore</a></li>
+  <li><a href="../git-checkout-index/pt_BR.html">checkout-index</a></li>
+  <li><a href="../git-commit-tree/pt_BR.html">commit-tree</a></li>
+  <li><a href="../git-count-objects/pt_BR.html">count-objects</a></li>
+  <li><a href="../git-diff-index/pt_BR.html">diff-index</a></li>
+  <li><a href="../git-for-each-ref/pt_BR.html">for-each-ref</a></li>
+  <li><a href="../git-hash-object/pt_BR.html">hash-object</a></li>
+  <li><a href="../git-ls-files/pt_BR.html">ls-files</a></li>
+  <li><a href="../git-ls-tree/pt_BR.html">ls-tree</a></li>
+  <li><a href="../git-merge-base/pt_BR.html">merge-base</a></li>
+  <li><a href="../git-read-tree/pt_BR.html">read-tree</a></li>
+  <li><a href="../git-rev-list/pt_BR.html">rev-list</a></li>
+  <li><a href="../git-rev-parse/pt_BR.html">rev-parse</a></li>
+  <li><a href="../git-show-ref/pt_BR.html">show-ref</a></li>
+  <li><a href="../git-symbolic-ref/pt_BR.html">symbolic-ref</a></li>
+  <li><a href="../git-update-index/pt_BR.html">update-index</a></li>
+  <li><a href="../git-update-ref/pt_BR.html">update-ref</a></li>
+  <li><a href="../git-verify-pack/pt_BR.html">verify-pack</a></li>
+  <li><a href="../git-write-tree/pt_BR.html">write-tree</a></li>
+</ul>
+
+    </div>
+  </div>
+</div>
+
+    <a class="dropdown-trigger" id="reference-versions-trigger" data-panel-id="previous-versions-dropdown" href="pt_BR.html#">
+      Latest version
+       ▾ </a>
+<span class="light d-flex">git-shortlog last updated in 2.34.1</span>
+<div class='dropdown-panel left' id='previous-versions-dropdown'>
+  <header>Changes in the <strong>git-shortlog</strong> manual</header>
+  <ol class='reference-previous-versions'>
+        <li class="no-change"><span>2.34.1 no changes</span></li>
+        <li>
+        <a href="2.34.0.html"><span class="version">2.34.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">11/15/21</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.33.1.html"><span class="version">2.33.1</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">10/12/21</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.33.0.html"><span class="version">2.33.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">08/16/21</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.32.0.html"><span class="version">2.32.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+          </span>
+          <em class="date">06/06/21</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.31.1 no changes</span></li>
+        <li>
+        <a href="2.31.0.html"><span class="version">2.31.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">03/15/21</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.30.1 &rarr; 2.30.2 no changes</span></li>
+        <li>
+        <a href="2.30.0.html"><span class="version">2.30.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">12/27/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.29.1 &rarr; 2.29.3 no changes</span></li>
+        <li>
+        <a href="2.29.0.html"><span class="version">2.29.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">10/19/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.27.1 &rarr; 2.28.1 no changes</span></li>
+        <li>
+        <a href="2.27.0.html"><span class="version">2.27.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+          </span>
+          <em class="date">06/01/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.25.1 &rarr; 2.26.3 no changes</span></li>
+        <li>
+        <a href="2.25.0.html"><span class="version">2.25.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+          </span>
+          <em class="date">01/13/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.18.1 &rarr; 2.24.4 no changes</span></li>
+        <li>
+        <a href="2.18.0.html"><span class="version">2.18.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">06/21/18</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.13.7 &rarr; 2.17.6 no changes</span></li>
+        <li>
+        <a href="2.12.5.html"><span class="version">2.12.5</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">09/22/17</em>
+        </a>
+        </li>
+    <li>&nbsp;</li>
+    <!-- <li><a class="more" href="#">See more previous releases →</a></li> -->
+  </ol>
+  <footer>
+    <p>Check your version of git by running</p>
+    <code class="command">git --version</code>
+  </footer>
+</div>
+
+  </div>
+
+  <div id='main'>
+    <div class="sect1">
+<h2 id="_nome"><a class="anchor" href="pt_BR.html#_nome"></a>NOME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>git-shortlog - Resume a saída do comando <em>git log</em></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_resumo"><a class="anchor" href="pt_BR.html#_resumo"></a>RESUMO</h2>
+<div class="sectionbody">
+<div class="verseblock">
+<pre class="content"><em>git shortlog</em> [&lt;opções&gt;] [&lt;intervalo-das-revisões&gt;] [[--] &lt;caminho&gt;&#8230;&#8203;]
+git log --pretty=short | <em>git shortlog</em> [&lt;opções&gt;]</pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_descrição"><a class="anchor" href="pt_BR.html#_descrição"></a>DESCRIÇÃO</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Resume a saída <em>git log</em> em um formato adequado para inclusão nos anúncios
+de lançamento. Cada commit será agrupada por autor e título.</p>
+</div>
+<div class="paragraph">
+<p>Além disso, o "[PATCH]" será retirado da descrição do commit.</p>
+</div>
+<div class="paragraph">
+<p>Caso nenhuma revisão seja aprovada na linha de comando e a entrada padrão
+não seja um terminal ou não houver uma ramificação atual, o <code>git shortlog</code>
+exibirá um resumo do registro log lido da entrada padrão, sem referência ao
+repositório atual.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_opções"><a class="anchor" href="pt_BR.html#_opções"></a>OPÇÕES</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-shortlog--n"> <a class="anchor" href="pt_BR.html#git-shortlog--n"></a>-n </dt>
+<dt class="hdlist1" id="git-shortlog---numbered"> <a class="anchor" href="pt_BR.html#git-shortlog---numbered"></a>--numbered </dt>
+<dd>
+<p>Classifique a saída de acordo com a quantidade de commits feitas pelo autor,
+em vez da ordem alfabética do autor.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog--s"> <a class="anchor" href="pt_BR.html#git-shortlog--s"></a>-s </dt>
+<dt class="hdlist1" id="git-shortlog---summary"> <a class="anchor" href="pt_BR.html#git-shortlog---summary"></a>--summary </dt>
+<dd>
+<p>Suprima a descrição do commit e forneça apenas um resumo da contagem dos
+commits.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog--e"> <a class="anchor" href="pt_BR.html#git-shortlog--e"></a>-e </dt>
+<dt class="hdlist1" id="git-shortlog---email"> <a class="anchor" href="pt_BR.html#git-shortlog---email"></a>--email </dt>
+<dd>
+<p>Exibir o endereço de email de cada autor.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---formatltformatogt"> <a class="anchor" href="pt_BR.html#git-shortlog---formatltformatogt"></a>--format[=&lt;formato&gt;] </dt>
+<dd>
+<p>Em vez do assunto do commit, utilize outras informações para descrever cada
+commit.  O <em>&lt;formato&gt;</em> pode ser qualquer texto aceito pela opção <code>--format</code>
+do comando <em>git log</em>, assim como <em>* [%h] %s</em>.  (Consulte a seção "FORMATOS
+BONITOS" do <a href='../git-log/pt_BR.html'>git-log[1]</a>.)</p>
+<div class="literalblock">
+<div class="content">
+<pre>Cada commit bem impresso será reorganizado antes de ser exibido.</pre>
+</div>
+</div>
+</dd>
+<dt class="hdlist1" id="git-shortlog--c"> <a class="anchor" href="pt_BR.html#git-shortlog--c"></a>-c </dt>
+<dt class="hdlist1" id="git-shortlog---committer"> <a class="anchor" href="pt_BR.html#git-shortlog---committer"></a>--committer </dt>
+<dd>
+<p>Colete e exiba as identidades de quem realizou os commits em vez dos
+autores.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog--wltlarguragtltrecuo1gtltrecuo2gt"> <a class="anchor" href="pt_BR.html#git-shortlog--wltlarguragtltrecuo1gtltrecuo2gt"></a>-w[&lt;largura&gt;[,&lt;recuo1&gt;[,&lt;recuo2&gt;]]] </dt>
+<dd>
+<p>Limite o tamanho das linhas geradas, quebrando a linha através da sua
+<code>largura</code>.  A primeira linha de cada entrada é recuada pelos espaços
+<code>recuo1</code>, assim como a segunda linha junto com as próximas, são recuadas
+pelos espaços <code>recuo2</code>. A <code>largura</code>, <code>recuo1</code>, e <code>recuo2</code> estão predefinidos
+para 76, 6 e 9 caracteres, respectivamente.</p>
+<div class="paragraph">
+<p>Caso a largura seja <code>0</code> (zero), recue as linhas da saída sem quebrá-las.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-shortlog-ltintervalodarevisogt"> <a class="anchor" href="pt_BR.html#git-shortlog-ltintervalodarevisogt"></a>&lt;intervalo da revisão&gt; </dt>
+<dd>
+<p>Exibe apenas os commits no intervalo definido das revisões.  Quando um
+&lt;intervalo de revisão&gt; não é definido, a predefinição retorna para <code>HEAD</code>
+(ou seja, todo o histórico que leva ao commit atual).  O <code>origin..HEAD</code>
+define todos os commits acessíveis a partir do commit atual (ou seja,
+<code>HEAD</code>), porém não a partir do <code>origin</code>. Para uma lista mais completa das
+maneiras de escrever os nomes dos objetos, consulte a seção "DEFININDO AS
+REVISÕES" no <a href='../gitrevisions/pt_BR.html'>gitrevisions[7]</a>.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---ltcaminhogt82308203"> <a class="anchor" href="pt_BR.html#git-shortlog---ltcaminhogt82308203"></a>[--] &lt;caminho&gt;&#8230;&#8203; </dt>
+<dd>
+<p>Considere apenas os commits que são suficientes para explicar como os
+arquivos que coincidam com determinados caminhos foram criados.</p>
+<div class="paragraph">
+<p>Os caminhos podem precisar ser prefixados com um <code>--</code> para separá-los das
+opções ou do intervalo de revisões, quando um conflito surgir.</p>
+</div>
+</dd>
+</dl>
+</div>
+<div class="sect2">
+<h3 id="_limitação_do_commit"><a class="anchor" href="pt_BR.html#_limitação_do_commit"></a>Limitação do Commit</h3>
+<div class="paragraph">
+<p>Além de especificar uma série de commits que devem ser listados utilizando
+as notações especiais explicadas na descrição, podem ser aplicadas
+limitações adicionais ao commit.</p>
+</div>
+<div class="paragraph">
+<p>O uso de mais opções geralmente limita ainda mais a saída (por exemplo,
+limites <code>--since=&lt;date1&gt;</code> para commits mais recentes que <code>&lt;data1&gt;</code>, e usá-lo
+com <code>--grep=&lt;padrão&gt;</code> limita ainda mais para os commits cuja mensagem de
+registro log possua uma linha que coincida com <code>&lt;padrão&gt;</code>), a menos que
+indicado de outra maneira.</p>
+</div>
+<div class="paragraph">
+<p>Observe que eles são aplicados antes da organização do commit e das opções
+de formatação como <code>--reverse</code>.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-shortlog--ltquantidadegt"> <a class="anchor" href="pt_BR.html#git-shortlog--ltquantidadegt"></a>-&lt;quantidade&gt; </dt>
+<dt class="hdlist1" id="git-shortlog--nltquantidadegt"> <a class="anchor" href="pt_BR.html#git-shortlog--nltquantidadegt"></a>-n &lt;quantidade&gt; </dt>
+<dt class="hdlist1" id="git-shortlog---max-countltquantidadegt"> <a class="anchor" href="pt_BR.html#git-shortlog---max-countltquantidadegt"></a>--max-count=&lt;quantidade&gt; </dt>
+<dd>
+<p>Limita a quantidade de commits na saída.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---skipltquantidadegt"> <a class="anchor" href="pt_BR.html#git-shortlog---skipltquantidadegt"></a>--skip=&lt;quantidade&gt; </dt>
+<dd>
+<p>Ignora a 'quantidade&#8217;de commits antes começa a exibir a saída do commit.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---sinceltdatagt"> <a class="anchor" href="pt_BR.html#git-shortlog---sinceltdatagt"></a>--since=&lt;data&gt; </dt>
+<dt class="hdlist1" id="git-shortlog---afterltdatagt"> <a class="anchor" href="pt_BR.html#git-shortlog---afterltdatagt"></a>--after=&lt;data&gt; </dt>
+<dd>
+<p>Exiba os commits com data mais recente das que foram informada.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---untilltdatagt"> <a class="anchor" href="pt_BR.html#git-shortlog---untilltdatagt"></a>--until=&lt;data&gt; </dt>
+<dt class="hdlist1" id="git-shortlog---beforeltdatagt"> <a class="anchor" href="pt_BR.html#git-shortlog---beforeltdatagt"></a>--before=&lt;data&gt; </dt>
+<dd>
+<p>Exiba os commits mais antigos com data mais antiga das que foram informada.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---authorltpadrogt"> <a class="anchor" href="pt_BR.html#git-shortlog---authorltpadrogt"></a>--author=&lt;padrão&gt; </dt>
+<dt class="hdlist1" id="git-shortlog---committerltpadrogt"> <a class="anchor" href="pt_BR.html#git-shortlog---committerltpadrogt"></a>--committer=&lt;padrão&gt; </dt>
+<dd>
+<p>Limite os commits gerados para aqueles com linhas de cabeçalho do autor e de
+quem fez o commit que coincida com determinado padrão (expressão regular).
+Com um ou mais de um <code>--author=&lt;padrão&gt;</code>, são selecionados os commits cujo
+autor coincida com qualquer um dos padrões informados (é similar para vários
+<code>--committer=&lt;padrão&gt;</code>).</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---grep-reflogltpadrogt"> <a class="anchor" href="pt_BR.html#git-shortlog---grep-reflogltpadrogt"></a>--grep-reflog=&lt;padrão&gt; </dt>
+<dd>
+<p>Limite o commit gerado para aqueles com entradas de reflog que coincidam ao
+padrão informado (expressão regular). Com mais de uma opção <code>--grep-reflog</code>,
+são escolhidos os commits cuja mensagem do reflog coincida com qualquer um
+dos padrões informado.  É um erro usar esta opção, a menos que o
+<code>--walk-reflogs</code> esteja em uso.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---grepltpadrogt"> <a class="anchor" href="pt_BR.html#git-shortlog---grepltpadrogt"></a>--grep=&lt;padrão&gt; </dt>
+<dd>
+<p>Limite o commit gerado para aqueles com mensagem do registro log que
+coincida ao padrão informado (expressão regular).  Com mais de uma opção
+<code>--grep=&lt;padrão&gt;</code>, os commits cuja mensagem coincida com qualquer um dos
+padrões informados (porém consulte <code>--all-match</code>).</p>
+<div class="paragraph">
+<p>Quando <code>--notes</code> está em vigor, a mensagem das anotações é coincidida como
+se fizesse parte da mensagem do registro log.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-shortlog---all-match"> <a class="anchor" href="pt_BR.html#git-shortlog---all-match"></a>--all-match </dt>
+<dd>
+<p>Limita a saída dos commits para aqueles que coincidam com todos os comandos
+<code>--grep</code> utilizado, em vez daqueles que coincidam com apenas um.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---invert-grep"> <a class="anchor" href="pt_BR.html#git-shortlog---invert-grep"></a>--invert-grep </dt>
+<dd>
+<p>Limita a saída dos commits para aqueles com uma mensagem do registro log que
+não coincida com o padrão utilizado em com o comando <code>--grep=&lt;padrão&gt;</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog--i"> <a class="anchor" href="pt_BR.html#git-shortlog--i"></a>-i </dt>
+<dt class="hdlist1" id="git-shortlog---regexp-ignore-case"> <a class="anchor" href="pt_BR.html#git-shortlog---regexp-ignore-case"></a>--regexp-ignore-case </dt>
+<dd>
+<p>Coincida a expressão regular limitando o padrão sem considerar o tamanho das
+letras.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---basic-regexp"> <a class="anchor" href="pt_BR.html#git-shortlog---basic-regexp"></a>--basic-regexp </dt>
+<dd>
+<p>Considere os padrões limitadores como expressões regulares básicas; Essa é a
+predefinição.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog--E"> <a class="anchor" href="pt_BR.html#git-shortlog--E"></a>-E </dt>
+<dt class="hdlist1" id="git-shortlog---extended-regexp"> <a class="anchor" href="pt_BR.html#git-shortlog---extended-regexp"></a>--extended-regexp </dt>
+<dd>
+<p>Considere os padrões de limitação a serem estendidos nas expressões
+regulares em vez das expressões regulares básicas predefinidas.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog--F"> <a class="anchor" href="pt_BR.html#git-shortlog--F"></a>-F </dt>
+<dt class="hdlist1" id="git-shortlog---fixed-strings"> <a class="anchor" href="pt_BR.html#git-shortlog---fixed-strings"></a>--fixed-strings </dt>
+<dd>
+<p>Considere os padrões limitadores como cadeias de caracteres fixos (não
+interprete o padrão como uma expressão regular).</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog--p"> <a class="anchor" href="pt_BR.html#git-shortlog--p"></a>-p </dt>
+<dt class="hdlist1" id="git-shortlog---perl-regexp"> <a class="anchor" href="pt_BR.html#git-shortlog---perl-regexp"></a>--perl-regexp </dt>
+<dd>
+<p>Considere os padrões limitadores como expressões regulares compatíveis com o
+Perl.</p>
+<div class="paragraph">
+<p>A compatibilidade para estes tipos de expressões regulares é uma dependência
+opcional no momento da compilação. Caso o Git não tenha sido compilado com
+este suporte, o Git será encerrado caso esta opção seja utilizada.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-shortlog---remove-empty"> <a class="anchor" href="pt_BR.html#git-shortlog---remove-empty"></a>--remove-empty </dt>
+<dd>
+<p>Pare quando um caminho informado tenha desaparecido da árvore.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---merges"> <a class="anchor" href="pt_BR.html#git-shortlog---merges"></a>--merges </dt>
+<dd>
+<p>Exiba apenas os commits que foram mesclados. É exatamente o mesmo que a
+opção <code>--min-parents=2</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---no-merges"> <a class="anchor" href="pt_BR.html#git-shortlog---no-merges"></a>--no-merges </dt>
+<dd>
+<p>Não imprima os commits com mais de um pai. É exatamente o mesmo que a opção
+<code>--max-parents=1</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---min-parentsltquantidadegt"> <a class="anchor" href="pt_BR.html#git-shortlog---min-parentsltquantidadegt"></a>--min-parents=&lt;quantidade&gt; </dt>
+<dt class="hdlist1" id="git-shortlog---max-parentsltquantidadegt"> <a class="anchor" href="pt_BR.html#git-shortlog---max-parentsltquantidadegt"></a>--max-parents=&lt;quantidade&gt; </dt>
+<dt class="hdlist1" id="git-shortlog---no-min-parents"> <a class="anchor" href="pt_BR.html#git-shortlog---no-min-parents"></a>--no-min-parents </dt>
+<dt class="hdlist1" id="git-shortlog---no-max-parents"> <a class="anchor" href="pt_BR.html#git-shortlog---no-max-parents"></a>--no-max-parents </dt>
+<dd>
+<p>Exibe apenas os commits que tenham pelo menos (ou no máximo) aquela
+quantidade de pais dos commits. Em particular, <code>--max-parents=1</code> é o mesmo
+que <code>--no-merges</code>, <code>--min-parents=2</code> é o mesmo que <code>--merges</code>.  A opção
+<code>--max-parents=0</code> informa todos os commits raiz e <code>--min-parents=3</code> todas as
+mesclagens "polvo".</p>
+<div class="paragraph">
+<p>As opções <code>--no-min-parents</code> e <code>--no-max-parents</code> redefinem estes limites
+(para nenhum limite) novamente.  As formas equivalentes são
+<code>--min-parents=0</code> (qualquer commit que tenha 0 ou mais pais) e
+<code>--max-parents=-1</code> (os números negativos indicam nenhum limite acima).</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-shortlog---first-parent"> <a class="anchor" href="pt_BR.html#git-shortlog---first-parent"></a>--first-parent </dt>
+<dd>
+<p>Siga apenas o primeiro commit da origem ao ver a mesclagem de um commit.
+Essa opção pode lhe fornecer uma melhor visão geral durante a visualização
+da evolução de um tópico específico no ramo, pois faz a mesclagem em um
+tópico no ramo e tende a ser apenas sobre o ajuste das atualizações upstream
+de tempos em tempos, esta opção permite ignorar os commits individuais
+trazidas para o seu histórico feitas por essa mesclagem. Não pode ser
+combinado com <code>--bisect</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---not"> <a class="anchor" href="pt_BR.html#git-shortlog---not"></a>--not </dt>
+<dd>
+<p>Inverte o significado do prefixo <em>{cursor}</em> (ou falta dele)  para todos os
+especificadores das revisões seguintes, até o próximo <code>--not</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---all"> <a class="anchor" href="pt_BR.html#git-shortlog---all"></a>--all </dt>
+<dd>
+<p>Finja como se todos os refs em <code>refs/</code> junto com <code>HEAD</code> estejam listados na
+linha de comando como <em>&lt;commit&gt;</em>.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---branchesltpadrogt"> <a class="anchor" href="pt_BR.html#git-shortlog---branchesltpadrogt"></a>--branches[=&lt;padrão&gt;] </dt>
+<dd>
+<p>Finja como se todas as refs no <code>refs/heads</code> estejam listadas na linha de
+comando como <em>&lt;commit&gt;</em>. Caso <em>&lt;padrão&gt;</em> seja utilizado, limite os ramos
+para aqueles que coincidam com a "shell blob" informada. Caso o padrão não
+tenha <em>?</em>, <em>{asterisco}</em>, ou <em>[</em>, <em>/{asterisco}</em> no final é implícito.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---tagsltpadrogt"> <a class="anchor" href="pt_BR.html#git-shortlog---tagsltpadrogt"></a>--tags[=&lt;padrão&gt;] </dt>
+<dd>
+<p>Finja como se todas as refs no <code>refs/remotes</code> estejam listados na linha de
+comando como <em>&lt;commit&gt;</em>. Caso <em>&lt;padrão&gt;</em> seja utilizado, limite os ramos
+para aqueles que coincidam com a "shell blob" informada. Caso o padrão não
+tenha <em>?</em>, <em>{asterisco}</em>, ou <em>[</em>, <em>/{asterisco}</em> no final é implícito.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---remotesltpadrogt"> <a class="anchor" href="pt_BR.html#git-shortlog---remotesltpadrogt"></a>--remotes[=&lt;padrão&gt;] </dt>
+<dd>
+<p>Finja como se todos as refs no <code>refs/remotes</code> estejam listados na linha de
+comando como <em>&lt;commit&gt;</em>. Caso um <em>&lt;padrão&gt;</em> seja utilizado, limite as
+ramificações rastreadas remotamente que coincidam com aqueles da "shel glob"
+informada.  Caso o padrão não tenha <em>?</em>, <em>{asterisco}</em>, ou <em>[</em>,
+<em>/{asterisco}</em> no final é implícito.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---globltglob-patterngt"> <a class="anchor" href="pt_BR.html#git-shortlog---globltglob-patterngt"></a>--glob=&lt;glob-pattern&gt; </dt>
+<dd>
+<p>Finja como se todos as refs coincidentes com "shell glob" <em>&lt;glob-pattern&gt;</em>
+estejam listados na linha de comando como <em>&lt;commit&gt;</em>. A <em>refs/</em> principal é
+anexada automaticamente caso esteja ausente. Caso o padrão não tenha <em>?</em>,
+<em>{asterisco}</em>, ou <em>[</em>, <em>/{asterisco}</em> no final é implícito.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---excludeltglob-patterngt"> <a class="anchor" href="pt_BR.html#git-shortlog---excludeltglob-patterngt"></a>--exclude=&lt;glob-pattern&gt; </dt>
+<dd>
+<p>Não inclua as refs que coincidam com <code>&lt;glob-pattern&gt;</code> em que as próximas
+opções <code>--all</code>, <code>--branches</code>, <code>--tags</code>, <code>--remotes</code> ou <code>--glob</code>
+considerariam de outra forma. As repetições destas opções acumulam padrões
+de exclusão até a próxima opção <code>--all</code>, <code>--branches</code>, <code>--tags</code>, <code>--remotes</code>
+ou <code>--glob</code> (outras opções ou argumentos não limpam os padrões acumulados).</p>
+<div class="paragraph">
+<p>Os padrões informados não devem começar com <code>refs/heads</code>, <code>refs/tags</code>, ou
+<code>refs/remotes</code> quando aplicadas as opções <code>--branches</code>, <code>--tags</code>, ou
+<code>--remotes</code> respectivamente, e devem começar com <code>refs/</code> quando for aplicado
+ao <code>--glob</code> ou <code>--all</code>. Se a intenção for um delimitador <em>/{asterisco}</em>,
+este deve ser utilizado de forma explicita.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-shortlog---reflog"> <a class="anchor" href="pt_BR.html#git-shortlog---reflog"></a>--reflog </dt>
+<dd>
+<p>Finja que todos os objetos mencionados pelos <code>reflogs</code> estejam listados na
+linha de comando como <code>&lt;commit&gt;</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---alternate-refs"> <a class="anchor" href="pt_BR.html#git-shortlog---alternate-refs"></a>--alternate-refs </dt>
+<dd>
+<p>Finja como se todos os objetos mencionados como dicas "ref" dos repositórios
+alternativos fossem listados na linha de comando. Um repositório alternativo
+é qualquer repositório cujo diretório dos objetos seja definido no
+<code>objects/info/alternates</code>.  O conjunto dos objetos incluídos podem ser
+modificados pelo <code>core.alternateRefsCommand</code>, etc. Consulte
+<a href='../git-config/pt_BR.html'>git-config[1]</a>.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---single-worktree"> <a class="anchor" href="pt_BR.html#git-shortlog---single-worktree"></a>--single-worktree </dt>
+<dd>
+<p>É predefinido que todas as árvores de trabalho serão examinadas através das
+seguintes opções quando houver mais de uma (consulte
+<a href='../git-worktree/pt_BR.html'>git-worktree[1]</a>): <code>--all</code>, <code>--reflog</code> e <code>--indexed-objects</code>.  Esta
+opção impõem o exame seja feito apenas na árvore de trabalho atual.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---ignore-missing"> <a class="anchor" href="pt_BR.html#git-shortlog---ignore-missing"></a>--ignore-missing </dt>
+<dd>
+<p>Ao ver um nome de objeto inválido na entrada, finja que a entrada incorreta
+não foi informada.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---bisect"> <a class="anchor" href="pt_BR.html#git-shortlog---bisect"></a>--bisect </dt>
+<dd>
+<p>Finja como se uma bisseção ruim "ref" <code>refs/bisect/bad</code> estivesse listada e
+como se fosse seguida por <code>--not</code> e a boa bisseção refs <code>refs/bisect/good-*</code>
+na linha de comando. Não pode ser combinado com <code>--first-parent</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---stdin"> <a class="anchor" href="pt_BR.html#git-shortlog---stdin"></a>--stdin </dt>
+<dd>
+<p>Além dos <em>&lt;commits&gt;</em> listados na linha de comando, leia-os na entrada
+padrão. Caso um separador <code>--</code> seja visto, pare de ler os commits e comece a
+ler os caminhos para limitar o resultado.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---cherry-mark"> <a class="anchor" href="pt_BR.html#git-shortlog---cherry-mark"></a>--cherry-mark </dt>
+<dd>
+<p>Como <code>--cherry-pick</code> (veja abaixo), porém marque os commits equivalentes com
+<code>=</code> ao invés de omiti-los e equivalentes com <code>+</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---cherry-pick"> <a class="anchor" href="pt_BR.html#git-shortlog---cherry-pick"></a>--cherry-pick </dt>
+<dd>
+<p>Omitir qualquer commit que apresente a mesma alteração como em outro commit
+do ``outro lado" quando o conjunto de commits são limitadas com diferença
+simétrica.</p>
+<div class="paragraph">
+<p>Como por exemplo, caso você tenha dois ramos, <code>A</code> e <code>B</code>, uma maneira comum
+de listar todos os commits em apenas um lado deles é com a opção
+<code>--left-right</code> (veja o exemplo abaixo na descrição da opção
+<code>--left-right</code>). No entanto, exibe os commits que foram selecionados de
+forma seletiva no outro ramo (como por exemplo, &#8220;3º no b&#8221; pode ser a
+escolha seletiva do ramo <code>A</code>). Com esta opção, estes pares de commits são
+excluídos da saída.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-shortlog---left-only"> <a class="anchor" href="pt_BR.html#git-shortlog---left-only"></a>--left-only </dt>
+<dt class="hdlist1" id="git-shortlog---right-only"> <a class="anchor" href="pt_BR.html#git-shortlog---right-only"></a>--right-only </dt>
+<dd>
+<p>Liste apenas os commits nos respectivos lados de um "diff" simétrico, ou
+seja, apenas aqueles que seriam marcados como <code>&lt;</code> resp. <code>&gt;</code> por
+<code>--left-right</code>.</p>
+<div class="paragraph">
+<p>Por exemplo, a opção <code>--cherry-pick --right-only A...B</code> omite os commits de
+<code>B</code> que estão em <code>A</code> ou são equivalentes ao patch para um commit em <code>A</code>. Em
+outras palavras, lista os commits com sinal <code>+</code> do <code>git cherry A B</code>.  Mais
+precisamente, <code>--cherry-pick --right-only --no-merges</code> informa a lista
+exata.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-shortlog---cherry"> <a class="anchor" href="pt_BR.html#git-shortlog---cherry"></a>--cherry </dt>
+<dd>
+<p>Um sinônimo para <code>--right-only --cherry-mark --no-merges</code>; útil para limitar
+a saída dos commits do nosso lado e marcar aqueles que forem marcados no
+histórico bifurcado do outro lado com <code>git log --cherry
+upstream...meu-ramo</code>, semelhante ao <code>git cherry upstream meu-ramo</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog--g"> <a class="anchor" href="pt_BR.html#git-shortlog--g"></a>-g </dt>
+<dt class="hdlist1" id="git-shortlog---walk-reflogs"> <a class="anchor" href="pt_BR.html#git-shortlog---walk-reflogs"></a>--walk-reflogs </dt>
+<dd>
+<p>Em vez de percorrer a cadeia de ancestralidade do commit, passe pelas
+entradas do reflog vindo da mais recente para as mais antigas.  Quando esta
+opção é utilizada, você não pode definir os commits para exclusão (ou seja,
+as notações <em>^commit</em>, <em>commit1..commit2</em> e <em>commit1...commit2</em> não
+podem ser utilizadas).</p>
+<div class="paragraph">
+<p>Com o formato <code>--pretty</code> diferente do <code>oneline</code> e <code>reference</code> (por razões
+óbvias), isto faz com que a saída tenha duas linhas extras das informações
+extraídas do reflog.  O designador reflog na saída pode ser exibido como
+<code>ref@{Nth}</code> (onde <code>Nth</code> é o índice cronológico reverso no reflog) ou como
+<code>ref@{timestamp}</code> (com o registro de data e hora para esta entrada),
+dependendo de algumas regras:</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Caso o ponto inicial seja utilizado como <code>ref@{Nth}</code>, exiba o formato do
+índice.</p>
+</li>
+<li>
+<p>Caso o ponto inicial seja utilizado como <code>ref@{now}</code>, exiba o formato do
+registro de data e hora.</p>
+</li>
+<li>
+<p>Caso nenhum deles tenha sido utilizado, mas a opção <code>--data</code> foi utilizado
+na linha de comando, exibe o registro de data e hora no formato solicitado
+por <code>--data</code>.</p>
+</li>
+<li>
+<p>Caso contrário, exibe o formato do índice.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Em <code>pretty=oneline</code>, a mensagem do commit é prefixada com estas informações
+na mesma linha.  Esta opção não pode ser combinada com <code>--reverse</code>.
+Consulte também <a href='../git-reflog/pt_BR.html'>git-reflog[1]</a>.</p>
+</div>
+<div class="paragraph">
+<p>Esta informação não será exibida de forma alguma sob <code>--pretty = reference</code>.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-shortlog---merge"> <a class="anchor" href="pt_BR.html#git-shortlog---merge"></a>--merge </dt>
+<dd>
+<p>Após uma falha na mesclagem, exiba as refs que estão em atrito com os
+arquivos e não existam em todos os <code>HEADS</code> que serão mesclados.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---boundary"> <a class="anchor" href="pt_BR.html#git-shortlog---boundary"></a>--boundary </dt>
+<dd>
+<p>O limite da exclusão dos commits que forem gerados. Os limites entre os
+commits são prefixados com <code>-</code>.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_simplificação_do_histórico"><a class="anchor" href="pt_BR.html#_simplificação_do_histórico"></a>Simplificação do histórico</h3>
+<div class="paragraph">
+<p>Às vezes, você está interessado apenas nas partes da história, como por
+exemplo, os commit que alteraram um determinado &lt;caminho&gt;. Porém existem
+duas partes da <em>Simplificação do Histórico</em>, uma parte é a seleção dos
+commits e a outra é como fazê-lo, pois existem várias estratégias para
+simplificar o histórico.</p>
+</div>
+<div class="paragraph">
+<p>As seguintes opções selecionam os commits que serão exibidos:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-shortlog-ltcaminhosgt"> <a class="anchor" href="pt_BR.html#git-shortlog-ltcaminhosgt"></a>&lt;caminhos&gt; </dt>
+<dd>
+<p>São selecionados os commits que alterarem os &lt;caminhos&gt; informados.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---simplify-by-decoration"> <a class="anchor" href="pt_BR.html#git-shortlog---simplify-by-decoration"></a>--simplify-by-decoration </dt>
+<dd>
+<p>São selecionados os commits utilizados como referência por algumas
+ramificações ou tags.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Observe que os commits extras podem ser exibidos para fornecer um histórico
+significativo.</p>
+</div>
+<div class="paragraph">
+<p>As seguintes opções afetam a maneira como a simplificação é feita:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-shortlog-Modopredefinido"> <a class="anchor" href="pt_BR.html#git-shortlog-Modopredefinido"></a>Modo predefinido </dt>
+<dd>
+<p>Simplifique o histórico para o mais simples, explicando a condição final da
+árvore. Mais simples, porque elimina algumas ramificações laterais caso o
+resultado final for o mesmo (ou seja, mescle os ramos com o mesmo conteúdo)</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---show-pulls"> <a class="anchor" href="pt_BR.html#git-shortlog---show-pulls"></a>--show-pulls </dt>
+<dd>
+<p>Inclua todas os commits no modo predefinido, porém também qualquer commits
+mesclado que não sejam <em>TREESAME</em> para o primeiro parente, porém sejam
+<em>TREESAME</em> para um parente posterior. Este modo auxilia na exibição do
+commit mesclado que "introduziu primeiro" a alteração em um ramo.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---full-history"> <a class="anchor" href="pt_BR.html#git-shortlog---full-history"></a>--full-history </dt>
+<dd>
+<p>O mesmo que o modo predefinido, mas não corta parte do histórico.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---dense"> <a class="anchor" href="pt_BR.html#git-shortlog---dense"></a>--dense </dt>
+<dd>
+<p>Apenas os commits selecionados são exibidos e mais alguns que tenham algum
+histórico significante.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---sparse"> <a class="anchor" href="pt_BR.html#git-shortlog---sparse"></a>--sparse </dt>
+<dd>
+<p>São exibidos todos os commits com um histórico simplificado.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---simplify-merges"> <a class="anchor" href="pt_BR.html#git-shortlog---simplify-merges"></a>--simplify-merges </dt>
+<dd>
+<p>Opção adicional para <code>--full-history</code> para remover algumas mesclagens
+desnecessárias do histórico resultante, pois não há commits selecionados
+contribuindo para essa mesclagem.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---ancestry-path"> <a class="anchor" href="pt_BR.html#git-shortlog---ancestry-path"></a>--ancestry-path </dt>
+<dd>
+<p>Quando um intervalo dos commits é exibido (como por exemplo,
+<em>commit1..commit2</em> ou <em>commit2 ^commit1</em>), apenas exibe os commits que
+existem diretamente na cadeia de ancestralidade entre o <em>commit1</em> e o
+<em>commit1</em>, ou seja, os commits que são ambos descendentes doe <em>commit1</em> e os
+ancestrais do <em>commit2</em>.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Segue explicações com mais detalhes.</p>
+</div>
+<div class="paragraph">
+<p>Suponha que você defina <code>foo</code> como o &lt;caminho&gt;.  Vamos chamar os commits que
+alteraram <code>foo</code> <em>!TREESAME</em>, e o restante <em>TREESAME</em>.  (Em um diff filtrado
+pelo <code>foo</code>, eles parecem diferentes e iguais, respectivamente.)</p>
+</div>
+<div class="paragraph">
+<p>A seguir, sempre nos referiremos ao mesmo exemplo do histórico para ilustrar
+as diferenças entre as configurações de simplificação.  Assumimos que esteja
+filtrando um arquivo <code>foo</code> neste grafo do commit:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>	  .-A---M---N---O---P---Q
+	 /     /   /   /   /   /
+	I     B   C   D   E   Y
+	 \   /   /   /   /   /
+	  `-------------'   X</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A linha horizontal do histórico <em>A---Q</em> é considerada o primeira origem de
+cada mesclagem.  Os commits são:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>O <code>I</code> é o commit inicial onde <code>foo</code> existe com o conteúdo &#8220;asdf&#8221; e existe
+um arquivo <code>quux</code> com o conteúdo` <code>quux ''. Os commits iniciais são
+comparados com uma árvore vazia, então o `I</code> é !TREESAME.</p>
+</li>
+<li>
+<p>Em <code>A</code>, <code>foo</code> contém apenas &#8220;foo&#8221;.</p>
+</li>
+<li>
+<p>O <code>B</code> contém a mesma alteração que <code>A</code>.  A mesclagem <code>M</code> é trivial e
+portanto, <em>TREESAME</em> para todos os pais.</p>
+</li>
+<li>
+<p>O <code>C</code> não muda <code>foo</code>, mas a sua mesclagem <code>N</code> o altera para &#8220;foobar&#8221;,
+portanto não é <em>TREESAME</em> para nenhum dos pais.</p>
+</li>
+<li>
+<p><code>D</code> define <code>foo</code> para &#8220;baz&#8221;. Mescla <code>O</code> combinado com textos vindos de `
+N` e <code>D</code> a &#8220;foobarbaz&#8221;; ou seja, não é "TREESAME" para nenhuma das
+origens.</p>
+</li>
+<li>
+<p>O <code>E</code> altera <code>quux</code> para &#8220;xyzzy&#8221; e a sua mesclagem <code>P</code> combina as
+sequências dos caracteres para &#8220;quux xyzzy&#8221;. O <code>P</code> é <em>TREESAME</em> para <code>O</code>,
+porém não para <code>E</code>.</p>
+</li>
+<li>
+<p>O <code>X</code> é um commit raiz independente que adicionou um novo arquivo <code>side</code>, e
+<code>Y</code> o alterou. O <code>Y</code> é <em>TREESAME</em> para <code>X</code>. Mescla <code>Q</code> adicionou <code>side</code> para
+<code>P</code>, e <code>Q</code> e <em>TREESAME</em> para <code>P</code>, mas não para <code>Y</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>O <code>rev list</code> retrocede no histórico, incluindo ou excluindo os commits com
+base no uso do <code>--full-history</code> e/ou na reescrita dos pais (através da opção
+<code>--parents</code> ou <code>--children</code>). As seguintes configurações estão disponíveis.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-shortlog-Modopredefinido"> <a class="anchor" href="pt_BR.html#git-shortlog-Modopredefinido"></a>Modo predefinido </dt>
+<dd>
+<p>Os commits serão incluídas caso não sejam <em>TREESAME</em> para nenhum dos
+parentes (embora isso possa ser alterado, consulte a opção <code>--sparse</code>
+abaixo).  Se o commit foi uma mesclagem e também foi um <em>TREESAME</em> para um
+parente, siga apenas este parente.  (Mesmo que haja vários parentes
+<em>TREESAME</em>, siga apenas um deles.) Caso contrário, siga todos.</p>
+<div class="paragraph">
+<p>Isso resulta em:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>	  .-A---N---O
+	 /     /   /
+	I---------D</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Observe como a regra para seguir apenas a origem TREESAME, caso haja um,
+removeu <code>B</code> completamente.  <code>C</code> foi considerado através do <code>N</code>, mas é o
+TREESAME.  Os commits raiz são comparadas com uma árvore vazia, então <code>I</code> é
+!TREESAME.</p>
+</div>
+<div class="paragraph">
+<p>As relações entre pai/filho são visíveis apenas com <code>--parents</code>, porém isso
+não afeta os commits selecionados no modo predefinido, portanto, mostramos
+as linhas dos pais.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-shortlog-code--full-historycodesemreescritaanterior"> <a class="anchor" href="pt_BR.html#git-shortlog-code--full-historycodesemreescritaanterior"></a><code>--full-history</code> sem reescrita anterior </dt>
+<dd>
+<p>Este modo difere da predefinição em um ponto: sempre siga todos os pais de
+uma mesclagem, mesmo que seja <em>TREESAME</em> para um deles.  Mesmo se mais de um
+lado da mesclagem tiver commits que estejam inclusos, isso não implica que a
+própria mesclagem seja! No exemplo, nós temos</p>
+<div class="listingblock">
+<div class="content">
+<pre>	I  A  B  N  D  O  P  Q</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>O <code>M</code> foi excluído porque é <em>TREESAME</em> para ambos os pais.  <code>E</code>, <code>C</code> e <code>B</code>
+foram todos percorridos, porém apenas <code>B</code> foi <em>!TREESAME</em>, para que os
+outros não apareçam.</p>
+</div>
+<div class="paragraph">
+<p>Observe que, sem reescrever os pais, não é realmente possível falar sobre os
+relacionamentos pai/filho entre os commits, portanto, mostramos-lhes
+desconectados.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-shortlog-code--full-historycodecomreescritaanterior"> <a class="anchor" href="pt_BR.html#git-shortlog-code--full-historycodecomreescritaanterior"></a><code>--full-history</code> com reescrita anterior </dt>
+<dd>
+<p>Os commits comuns são incluídos apenas se forem <em>!TREESAME</em> (embora é
+possível alterar isso, consulte <code>--sparse</code> abaixo).</p>
+<div class="paragraph">
+<p>As mesclagens estão sempre inclusas.  No entanto, sua lista de origens é
+reescrita: em cada origem, remova os commit que não foram inclusos.  Isto
+resulta no</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>	  .-A---M---N---O---P---Q
+	 /     /   /   /   /
+	I     B   /   D   /
+	 \   /   /   /   /
+	  `-------------'</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Compare com a opção <code>--full-history</code> sem reescrever acima.  Observe que <code>E</code>
+foi removido porque é um <em>TREESAME</em>, porém a lista dos parentes <code>P</code> foi
+reescrita para conter <code>E</code> parente do <code>I</code>.  O mesmo aconteceu para <code>C</code> e <code>N</code>,
+e <code>X</code>, <code>Y</code> e <code>Q</code>.</p>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Além das configurações acima, é possível alterar se o <em>TREESAME</em> afeta a
+inclusão:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-shortlog---dense"> <a class="anchor" href="pt_BR.html#git-shortlog---dense"></a>--dense </dt>
+<dd>
+<p>Os commits encaminhados serão incluídos caso não sejam um <em>TREESAME</em> para
+nenhum dos parentes.</p>
+</dd>
+<dt class="hdlist1" id="git-shortlog---sparse"> <a class="anchor" href="pt_BR.html#git-shortlog---sparse"></a>--sparse </dt>
+<dd>
+<p>Todos os commits que forem passados serão incluidos.</p>
+<div class="paragraph">
+<p>Observe que sem o &#8216;--full-history&#8217;, isso ainda simplifica as mesclagens:
+caso um dos pais seja <em>TREESAME</em>, seguiremos apenas este, para que os outros
+lados da mesclagem nunca sejam percorridos.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-shortlog---simplify-merges"> <a class="anchor" href="pt_BR.html#git-shortlog---simplify-merges"></a>--simplify-merges </dt>
+<dd>
+<p>Primeiro, construa um grafo do histórico da mesma maneira que
+<code>--full-history</code> com a reescrita dos parentes (veja acima).</p>
+<div class="paragraph">
+<p>Simplifique cada commit <code>C</code> para a sua reposição <code>C'</code> no histórico final, de
+acordo com as seguintes regras:</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Defina <code>C'</code> para <code>C</code>.</p>
+</li>
+<li>
+<p>Substitua cada pai <code>P</code> do <code>C'</code> por sua simplificação <code>P'</code>.  No processo,
+solte os pais que são ancestrais dos outros pais ou que os commits raiz
+<em>TREESAME</em> em uma árvore vazia e remova as duplicatas, porém tome cuidado
+para nunca descartar todos os pais já que somos <em>TREESAME</em> também.</p>
+</li>
+<li>
+<p>Se após esta reescrita da origem, o <code>C'</code> for um commit raiz ou uma mesclagem
+(tem zero ou &gt; origens), um commit limite ou !TREESAME, será mantido.  Caso
+contrário, será substituído pela sua única origem.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>O efeito disso é melhor mostrado através da comparação com a opção
+<code>--full-history</code> com a reescrita dos pais.  O exemplo se transforma em:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>	  .-A---M---N---O
+	 /     /       /
+	I     B       D
+	 \   /       /
+	  `---------'</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Observe que as maiores diferenças entre <code>N</code>, <code>P</code>, e <code>Q</code> sobre
+<code>--full-history</code>:</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>A lista dos pais de <code>N</code> teve <code>I</code> removida, porque é um ancestral do outro
+pai <code>M</code>.  Ainda assim, <code>N</code> permaneceu porque é <em>!TREESAME</em>.</p>
+</li>
+<li>
+<p>A lista de pais de <code>P</code> também removeu o <code>I</code>.  O <code>P</code> foi então removido
+completamente, porque tinha um pai e é <em>TREESAME</em>.</p>
+</li>
+<li>
+<p>A lista de pais de <code>Q</code> tinha` Y` simplificado para <code>X</code>. O <code>X</code> foi então
+removido, porque era uma raiz <em>TREESAME</em>. O <code>Q</code> foi removido completamente,
+porque tinha um pai e é <em>TREESAME</em>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Há um outra modo de simplificação disponível:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-shortlog---ancestry-path"> <a class="anchor" href="pt_BR.html#git-shortlog---ancestry-path"></a>--ancestry-path </dt>
+<dd>
+<p>Limite os commits exibidos àquelas diretamente na cadeia de ancestralidade
+entre os commits &#8220;from&#8221; e &#8220;to&#8221; no intervalo dos commits informados. Ou
+seja, exiba apenas os commits que são ancestrais do commit &#8220;to&#8221; (<em>para</em>) e
+os descendentes do commit &#8220;from&#8221;.</p>
+<div class="paragraph">
+<p>Como um exemplo de caso, considere o seguinte histórico do commit:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>	    D---E-------F
+	   /     \       \
+	  B---C---G---H---I---J
+	 /                     \
+	A-------K---------------L--M</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Um <em>D..M</em> regular calcula o conjunto dos commits que são ancestrais do <code>M</code>,
+mas exclui os que são ancestrais do <code>D</code>. Isso é útil para ver o que
+aconteceu com a história que levou a <code>M</code> desde o <code>D</code>, no sentido que &#8220;o que
+<code>M</code> possui e que não existia em <code>D</code>&#8221;. O resultado neste exemplo seria todos
+os commits, exceto <code>A</code> e <code>B</code> (e <code>D</code>, obviamente).</p>
+</div>
+<div class="paragraph">
+<p>Quando queremos descobrir o qual commit em <code>M</code> está contaminado com o bug
+introduzido por <code>D</code> e precisa ser corrigido, contudo, podemos querer
+visualizar apenas o subconjunto <em>D..M</em> que são realmente descendentes do
+<code>D</code>, como por exemplo, excluindo <code>C</code> e <code>K</code>. É exatamente isso que a opção
+<code>--ancestry-path</code> faz. Aplicado à faixa <em>D..M</em>, resulta em:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>		E-------F
+		 \       \
+		  G---H---I---J
+			       \
+				L--M</pre>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Antes de discutir outra opção, <code>--show-pulls</code>, precisamos criar um novo
+histórico de exemplo.</p>
+</div>
+<div class="paragraph">
+<p>Um problema comum que os usuários enfrentam ao examinar o histórico
+simplificado é que um commit que eles conhecem alterou um arquivo e que de
+alguma maneira não aparece no histórico simplificado do arquivo. Vamos
+demonstrar um novo exemplo e exibir como as opções como <code>--full-history</code> e
+<code>--simplify-merges</code> funcionam neste caso:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>	  .-A---M-----C--N---O---P
+	 /     / \  \  \/   /   /
+	I     B   \  R-'`-Z'   /
+	 \   /     \/         /
+	  \ /      /\        /
+	   `---X--'  `---Y--'</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Para este exemplo, suponha que <code>I</code> tenha criado o <code>file.txt</code> que foi
+modificado por <code>A</code>, <code>B</code> e` X` de maneiras diferentes. O único parente fa o
+commit <code>C</code>, <code>Z</code> e <code>Y</code> não alteram o <code>file.txt</code>. O commit mesclado <code>M</code> foi
+criado resolvendo o conflito da mesclagem para incluir as alterações de <code>A</code>
+e <code>B</code>, portanto, também não é um <em>TREESAME</em>. O commit mesclado <code>R</code>, no
+entanto, foi criado ignorando o conteúdo do <code>file.txt</code> no <code>M</code> e levando
+apenas o conteúdo de <code>file.txt</code> no <code>X</code>. Portanto, <code>R</code> é o <em>TREESAME</em> para
+<code>X</code>, mas não para <code>M</code>. Finalmente, a resolução de mesclagem natural para
+criar <code>N</code> é levar o conteúdo do <code>file.txt</code> para <code>R</code>, de modo onde <code>N</code> seja
+um <em>TREESAME</em> para <code>R</code>, mas não para <code>C</code>.  O commit mesclado <code>O</code> e <code>P</code> são
+<em>TREESAME</em> para seus primeiros parentes, mas não para seus os parentes
+secundários, <code>Z</code> e <code>Y</code> respectivamente.</p>
+</div>
+<div class="paragraph">
+<p>Ao utilizar os modos predefinidos, ambos os <code>N</code> e <code>R</code> tem um pai TREESAME,
+então aquelas bordas são percorridas e outras são ignoradas. E o grafo
+resultante no histórico é:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>	I---X</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ao utilizar a opção <code>--full-history</code>, O Git percorre cada canto. Descobre se
+os commits <code>A</code>, <code>B</code> e o mesclado <code>M</code>, porém também revela se o commit
+mesclado <code>O</code> e <code>P</code>. Com a reescrita do pai, o resultado do grafo é:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>	  .-A---M--------N---O---P
+	 /     / \  \  \/   /   /
+	I     B   \  R-'`--'   /
+	 \   /     \/         /
+	  \ /      /\        /
+	   `---X--'  `------'</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Aqui, a mesclagem do commit <code>O</code> e <code>P</code> contribuem com um ruído extra, pois na
+verdade não contribuíram com uma alteração no <code>file.txt</code>. Eles mesclaram
+apenas um <em>topic</em> com base numa versão mais antiga do <code>file.txt</code>. Este é um
+problema comum em repositórios que utilizam um fluxo de trabalho onde que
+muitos colaboradores trabalham em paralelo e mesclam as suas ramificações
+dos tópicos em um único "trunk": as mesclagens não relacionadas ao manu
+aparecem nos resultados do comando <code>--full-history</code>.</p>
+</div>
+<div class="paragraph">
+<p>Ao utilizar a opção <code>--simplify-merges</code>, os commits <code>O</code> e <code>P</code> desaparecem
+dos resultados. Pois as reescritas do segundo pai de <code>O</code> e <code>P</code> são
+acessíveis a partir dos seus primeiros pais. Estes cantos são removidos e
+então os commits se parecem com commits com pai singular só que são TREESAME
+em relação aos seus pais. Isso também acontece ao commit <code>N</code>, resultando no
+histórico a seguir:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>	  .-A---M--.
+	 /     /    \
+	I     B      R
+	 \   /      /
+	  \ /      /
+	   `---X--'</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Nesta visão, vemos todas as alterações importantes da única origem vindas de
+<code>A</code>, <code>B</code> e <code>X</code>. Também vemos a mesclagem cuidadosamente resolvida de <code>M</code> e a
+mesclagem nem tão bem resolvida do <code>R</code>. Geralmente são informações
+suficientes para determinar por que os commit <code>A</code> e <code>B</code> "desapareceram" do
+histórico na visualização predefinida. No entanto, existem alguns problemas
+com esta abordagem.</p>
+</div>
+<div class="paragraph">
+<p>O primeiro problema é o desempenho. Diferente das opções anteriores, a opção
+<code>--simplify-merges</code> precisa percorrer todo o histórico do commit antes de
+retornar um único resultado. Isso pode fazer com que a opção seja difícil de
+usar em repositórios muito grandes.</p>
+</div>
+<div class="paragraph">
+<p>O segundo problema é a auditoria. Quando muitos colaboradores estão
+trabalhando no mesmo repositório, é importante saber qual mesclagem do
+commit introduziu uma importante alteração no ramo. A mesclagem problemática
+<code>R</code> acima não parece ser o commit mesclado que foi utilizado na mesclagem de
+um ramo importante. Em vez disso, a mesclagem <code>N</code> foi utilizada para mesclar
+<code>R</code> e <code>X</code> em um importante ramo. Este commit por ter informação sobre o por
+que do <code>X</code> chegou a substituir as alterações do <code>A</code> e <code>B</code> em suas mensagens
+do commit.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-shortlog---show-pulls"> <a class="anchor" href="pt_BR.html#git-shortlog---show-pulls"></a>--show-pulls </dt>
+<dd>
+<p>Além dos commits exibidos no histórico predefinido, exiba cada mesclagem do
+commit que não seja <em>TREESAME</em> para o primeiro parente, porém que seja
+<em>TREESAME</em> para um parente posterior.</p>
+<div class="paragraph">
+<p>Quando a mesclagem de um commit é incluso pela opção <code>--show-pulls</code>, a
+mesclagem é tratada como tivesse "capturado" as alterações de um outro
+ramo. Ao usar a opção <code>--show-pulls</code> nest exemplo (e em nenhuma outra opção)
+o grafo resultante é:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>	I---X---R---N</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Aqui, a mesclagem do commit <code>R</code> e <code>N</code> são incluídos porque obtiveram os
+commits <code>X</code> e <code>R</code> para o ramo base, respectivamente. Essas mesclagens são a
+razão pela qual os commits <code>A</code> e <code>B</code> não aparecem no histórico predefinido.</p>
+</div>
+<div class="paragraph">
+<p>Quando a opção <code>--show-pulls</code> for usado em conjunto com <code>--simplify-merges</code>,
+o grafo incluí todas as informações necessárias:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>	  .-A---M--.   N
+	 /     /    \ /
+	I     B      R
+	 \   /      /
+	  \ /      /
+	   `---X--'</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Repare que desde que <code>M</code> seja acessível de <code>R</code>, o canto de <code>N</code> para <code>M</code> foi
+simplificado. No entanto, o <code>N</code> ainda aparece no histórico como um commit
+importante porque ele "obteve" as alterações vindas de <code>R</code> para o ramo
+principal.</p>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>A opção <code>--simplify-by-decoration</code> permite exibir apenas o quadro geral da
+topologia do histórico, omitindo os commits que não sejam referenciadas
+pelas tags.  Os commits são marcadas como <em>!TREESAME</em> (em outras palavras,
+mantidas após as regras da simplificação do histórico descritas acima) caso
+(1) sejam referenciadas pelas tags ou (2) alteram o conteúdo dos caminhos
+usados na linha de comando.  Todos os outros commits são marcados como
+<em>TREESAME</em> (assunto que será simplificado).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_mapeando_autores"><a class="anchor" href="pt_BR.html#_mapeando_autores"></a>MAPEANDO AUTORES</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>O recurso <code>.mailmap</code> é utilizado para agrupar os commits da mesma pessoa no
+"shortlog", onde o seu nome ou endereço de email foram escritos de maneiras
+diferentes.</p>
+</div>
+<div class="paragraph">
+<p>Caso o arquivo <code>.mailmap</code> exista no topo do repositório ou no local apontado
+pelas opções da configuração <code>mailmap.file</code> ou <code>mailmap.blob</code>, ele será
+utilizado para mapear os nomes dos autores e os endereços de email para os
+seus respectivos nomes e endereços de email verdadeiros.</p>
+</div>
+<div class="paragraph">
+<p>No formato simples, cada linha do arquivo consiste no nome real de um autor,
+espaço e um endereço de email utilizado no commit (delimitado por <em>&lt;</em> and
+<em>&gt;</em>) mapeando para o nome. Por exemplo:</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="literalblock">
+<div class="content">
+<pre>Nome Próprio &lt;commit@email.xx&gt;</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Os formatos mais complexos são:</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="literalblock">
+<div class="content">
+<pre>&lt;proper@email.xx&gt; &lt;commit@email.xx&gt;</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>o que permite que o mailmap substitua apenas a parte do email de um commit
+e:</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="literalblock">
+<div class="content">
+<pre>Nome Próprio &lt;proper@email.xx&gt; &lt;commit@email.xx&gt;</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>o que permite que o mailmap substitua ambos os nomes e o email de um commit
+correspondente ao endereço de email do commit especificado, e:</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="literalblock">
+<div class="content">
+<pre>Nome Próprio &lt;proper@email.xx&gt; Nome de quem fez o Commit &lt;commit@email.xx&gt;</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>o que permite que o mailmap substitua ambos os nomes e o email de um commit
+que corresponda a ambos os nomes de quem fez o commit e com o endereço de
+email.</p>
+</div>
+<div class="paragraph">
+<p>Exemplo 1: O seu histórico contém confirmações de dois autores, Jane e Joe,
+cujos nomes aparecem no repositório de diferentes maneiras:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Joe Developer &lt;joe@example.com&gt;
+Joe R. Developer &lt;joe@example.com&gt;
+Jane Doe &lt;jane@example.com&gt;
+Jane Doe &lt;jane@laptop.(none)&gt;
+Jane D. &lt;jane@desktop.(none)&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Agora, suponha que Joe queira que seu nome do meio seja utilizado no começo
+e Jane prefere que o nome de sua família seja escrito por extenso. Um
+arquivo <code>.mailmap</code> apropriado se pareceria com:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Jane Doe         &lt;jane@desktop.(none)&gt;
+Joe R. Developer &lt;joe@example.com&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Observe como não há necessidade de uma entrada para <code>&lt;jane@laptop.(none)&gt;</code>
+porque o nome real deste autor já está correto.</p>
+</div>
+<div class="paragraph">
+<p>Exemplo 2: O seu repositório contém commits dos seguintes autores:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>nick1 &lt;bugs@company.xx&gt;
+nick2 &lt;bugs@company.xx&gt;
+nick2 &lt;nick2@company.xx&gt;
+santa &lt;me@company.xx&gt;
+claus &lt;me@company.xx&gt;
+CTO &lt;cto@coompany.xx&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Então você pode querer um arquivo <code>.mailmap</code> parecido com:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;cto@company.xx&gt;                       &lt;cto@coompany.xx&gt;
+Some Dude &lt;some@dude.xx&gt;         nick1 &lt;bugs@company.xx&gt;
+Other Author &lt;other@author.xx&gt;   nick2 &lt;bugs@company.xx&gt;
+Other Author &lt;other@author.xx&gt;         &lt;nick2@company.xx&gt;
+Santa Claus &lt;santa.claus@northpole.xx&gt; &lt;me@company.xx&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Utilize o sinal de jogo da velha <em>#</em> para comentários que estejam em sua
+própria linha ou após o endereço de email.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git"><a class="anchor" href="pt_BR.html#_git"></a>GIT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Parte do conjunto <a href='../git/pt_BR.html'>git[1]</a></p>
+</div>
+</div>
+</div>
+  </div>
+
+        </div>
+      </div>
+      <footer>
+  <div class="site-source">
+    <a href="https://git-scm.com/site">About this site</a><br>
+    Patches, suggestions, and comments are welcome.
+  </div>
+  <div class="sfc-member">
+    Git is a member of <a href="https://git-scm.com/sfc">Software Freedom Conservancy</a>
+  </div>
+</footer>
+<a href="pt_BR.html#top" class="no-js scrollToTop" id="scrollToTop" data-label="Scroll to top">
+  <img src="../../images/icons/chevron-up@2x.png" width="20" height="20" alt="scroll-to-top"/>
+</a>
+<script src="../../assets/application-e12a0e837db60213b777cd7a706e0741beed474d7e5b94a641979fc87ce0d2cc.js"></script>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49925874-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-49925874-3');
+  </script>
+
+  <meta charset='utf-8'>
+  <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Git - git-worktree Documentation</title>
+
+  <link href='../../favicon.ico' rel='shortcut icon' type='image/x-icon'>
+
+  <link rel="stylesheet" media="screen" href="../../assets/application-42b7b91ccf5cb92469695cf08b5da9e9230594f634cb88264f305d5bd54e477f.css" />
+  <script src="../../assets/modernize-b3ebe0c31c24f230dc62179d3e1030d2e57a53b1668d9382c0a27dbd44a94beb.js"></script>
+  <!--[if (gte IE 6)&(lte IE 8)]>
+  <script src="/javascripts/selectivizr-min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body id="documentation">
+
+  <div class="inner">
+    <header>
+
+  <a href="https://git-scm.com/"><img src="../../images/logo@2x.png" width="110" height="46" alt="Git" /></a>
+  <span id="tagline"></span>
+  <script type="text/javascript">
+    var taglines = ["fast-version-control","everything-is-local","distributed-even-if-your-workflow-isnt","local-branching-on-the-cheap","distributed-is-the-new-centralized"];
+    var tagline = taglines[Math.floor(Math.random() * taglines.length)];
+    document.getElementById('tagline').innerHTML = '--' + tagline;
+  </script>
+  <form id="search" action="https://git-scm.com/search/results">
+    <input id="search-text" name="search" placeholder="Search entire site..." autocomplete="off" type="text" />
+  </form>
+  <div id="search-results"></div>
+
+</header>
+
+  </div> <!-- .inner -->
+
+    <div class="inner">
+      <div id="content-wrapper">
+        <button class="sidebar-btn"></button>
+<aside class="sidebar" id="sidebar">
+  <nav>
+    <ul>
+      <li>
+        <a href="https://git-scm.com/about">About</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/about">Branching and Merging</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/small-and-fast">Small and Fast</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/distributed">Distributed</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/info-assurance">Data Assurance</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/staging-area">Staging Area</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/free-and-open-source">Free and Open Source</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/trademark">Trademark</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a class="active" href="https://git-scm.com/doc">Documentation</a>
+        <ul class="expanded">
+          <li>
+            <a class="active" href="../git-pack/pt_BR.html">Reference</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/book">Book</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/videos">Videos</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/doc/ext">External Links</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/downloads">Downloads</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/downloads/guis">GUI Clients</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/downloads/logos">Logos</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/community">Community</a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+
+        <div id="content">
+          
+  <div id='reference-version'>
+    <a class="dropdown-trigger" id="reference-languages-trigger" data-panel-id="l10n-versions-dropdown" href="pt_BR.html#">
+  Português (Brasil) ▾</a>
+<div class='dropdown-panel right' id='l10n-versions-dropdown'>
+  <header>Localized versions of <strong>git-worktree</strong> manual</header>
+  <ol class='reference-previous-versions'>
+      <li>
+        <a href="en.html"><span class="version">English</span>
+        </a>
+        </li>
+      <li>
+        <a href="fr.html"><span class="version">Français</span>
+        </a>
+        </li>
+      <li>
+        <a href="pt_BR.html"><span class="version">Português (Brasil)</span>
+        </a>
+        </li>
+  </ol>
+  <footer>
+    Want to read in your language or fix typos?<br/> <a href="https://github.com/jnavila/git-manpages-l10n">You can help translate this page</a>.
+  </footer>
+</div>
+
+    <a class="dropdown-trigger" id="reference-topics-trigger" data-panel-id="topics-dropdown" href="pt_BR.html#">Topics ▾</a>
+<div class='dropdown-panel right' id='topics-dropdown'>
+  <div class='three-column'>
+    <div class='column-left'>
+      <h3 class='setup'>Setup and Config</h3>
+<ul class='unstyled'>
+  <li><a href="../git/pt_BR.html">git</a></li>
+  <li><a href="../git-config/pt_BR.html">config</a></li>
+  <li><a href="../git-help/pt_BR.html">help</a></li>
+  <li><a href="../git-bugreport/pt_BR.html">bugreport</a></li>
+</ul>
+
+      <h3 class='projects'>Getting and Creating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-init/pt_BR.html">init</a></li>
+  <li><a href="../git-clone/pt_BR.html">clone</a></li>
+</ul>
+
+      <h3 class='snapshotting'>Basic Snapshotting</h3>
+<ul class='unstyled'>
+  <li><a href="../git-add/pt_BR.html">add</a></li>
+  <li><a href="../git-status/pt_BR.html">status</a></li>
+  <li><a href="../git-diff/pt_BR.html">diff</a></li>
+  <li><a href="../git-commit/pt_BR.html">commit</a></li>
+  <li><a href="../git-notes/pt_BR.html">notes</a></li>
+  <li><a href="../git-restore/pt_BR.html">restore</a></li>
+  <li><a href="../git-reset/pt_BR.html">reset</a></li>
+  <li><a href="../git-rm/pt_BR.html">rm</a></li>
+  <li><a href="../git-mv/pt_BR.html">mv</a></li>
+</ul>
+
+      <h3 class='branching'>Branching and Merging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-branch/pt_BR.html">branch</a></li>
+  <li><a href="../git-checkout/pt_BR.html">checkout</a></li>
+  <li><a href="../git-switch/pt_BR.html">switch</a></li>
+  <li><a href="../git-merge/pt_BR.html">merge</a></li>
+  <li><a href="../git-mergetool/pt_BR.html">mergetool</a></li>
+  <li><a href="../git-log/pt_BR.html">log</a></li>
+  <li><a href="../git-stash/pt_BR.html">stash</a></li>
+  <li><a href="../git-tag/pt_BR.html">tag</a></li>
+  <li><a class="active" href="pt_BR.html">worktree</a></li>
+</ul>
+
+      <h3 class='sharing'>Sharing and Updating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-fetch/pt_BR.html">fetch</a></li>
+  <li><a href="../git-pull/pt_BR.html">pull</a></li>
+  <li><a href="../git-push/pt_BR.html">push</a></li>
+  <li><a href="../git-remote/pt_BR.html">remote</a></li>
+  <li><a href="../git-submodule/pt_BR.html">submodule</a></li>
+</ul>
+
+    </div>
+    <div class='column-middle'>
+      <h3 class='inspection'>Inspection and Comparison</h3>
+<ul class='unstyled'>
+  <li><a href="../git-show/pt_BR.html">show</a></li>
+  <li><a href="../git-log/pt_BR.html">log</a></li>
+  <li><a href="../git-diff/pt_BR.html">diff</a></li>
+  <li><a href="../git-difftool/pt_BR.html">difftool</a></li>
+  <li><a href="../git-range-diff/pt_BR.html">range-diff</a></li>
+  <li><a href="../git-shortlog/pt_BR.html">shortlog</a></li>
+  <li><a href="../git-describe/pt_BR.html">describe</a></li>
+</ul>
+
+      <h3 class='patching'>Patching</h3>
+<ul class='unstyled'>
+  <li><a href="../git-apply/pt_BR.html">apply</a></li>
+  <li><a href="../git-cherry-pick/pt_BR.html">cherry-pick</a></li>
+  <li><a href="../git-diff/pt_BR.html">diff</a></li>
+  <li><a href="../git-rebase/pt_BR.html">rebase</a></li>
+  <li><a href="../git-revert/pt_BR.html">revert</a></li>
+</ul>
+
+      <h3 class='debugging'>Debugging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-bisect/pt_BR.html">bisect</a></li>
+  <li><a href="../git-blame/pt_BR.html">blame</a></li>
+  <li><a href="../git-grep/pt_BR.html">grep</a></li>
+</ul>
+
+      <h3 class='email'>Email</h3>
+<ul class='unstyled'>
+  <li><a href="../git-am/pt_BR.html">am</a></li>
+  <li><a href="../git-apply/pt_BR.html">apply</a></li>
+  <li><a href="../git-format-patch/pt_BR.html">format-patch</a></li>
+  <li><a href="../git-send-email/pt_BR.html">send-email</a></li>
+  <li><a href="../git-request-pull/pt_BR.html">request-pull</a></li>
+</ul>
+
+      <h3 class='external'>External Systems</h3>
+<ul class='unstyled'>
+  <li><a href="../git-svn/pt_BR.html">svn</a></li>
+  <li><a href="../git-fast-import/pt_BR.html">fast-import</a></li>
+</ul>
+
+      <h3 class='server-admin'>Server Admin</h3>
+<ul class='unstyled'>
+  <li><a href="../git-daemon/pt_BR.html">daemon</a></li>
+  <li><a href="../git-update-server-info/pt_BR.html">update-server-info</a></li>
+</ul>
+
+    </div>
+    <div class='column-right'>
+      <h3 class='guides'>Guides</h3>
+<ul class='unstyled'>
+  <li><a href="../gitattributes/pt_BR.html">gitattributes</a></li>
+  <li><a href="../gitcli/pt_BR.html">Command-line interface conventions</a></li>
+  <li><a href="../giteveryday/pt_BR.html">Everyday Git</a></li>
+  <li><a href="../gitfaq/pt_BR.html">Frequently Asked Questions (FAQ)</a></li>
+  <li><a href="../gitglossary/pt_BR.html">Glossary</a></li>
+  <li><a href="../githooks/pt_BR.html">Hooks</a></li>
+  <li><a href="../gitignore/pt_BR.html">gitignore</a></li>
+  <li><a href="../gitmodules/pt_BR.html">gitmodules</a></li>
+  <li><a href="../gitrevisions/pt_BR.html">Revisions</a></li>
+  <li><a href="../gitsubmodules/pt_BR.html">Submodules</a></li>
+  <li><a href="../gittutorial/pt_BR.html">Tutorial</a></li>
+  <li><a href="../gitworkflows/pt_BR.html">Workflows</a></li>
+  <li><a href="../git/ru.html#_guides">All guides...</a></li>
+</ul>
+
+      <h3 class='admin'>Administration</h3>
+<ul class='unstyled'>
+  <li><a href="../git-clean/pt_BR.html">clean</a></li>
+  <li><a href="../git-gc/pt_BR.html">gc</a></li>
+  <li><a href="../git-fsck/pt_BR.html">fsck</a></li>
+  <li><a href="../git-reflog/pt_BR.html">reflog</a></li>
+  <li><a href="../git-filter-branch/pt_BR.html">filter-branch</a></li>
+  <li><a href="../git-instaweb/pt_BR.html">instaweb</a></li>
+  <li><a href="../git-archive/pt_BR.html">archive</a></li>
+  <li><a href="../git-bundle/pt_BR.html">bundle</a></li>
+</ul>
+
+      <h3 class='plumbing'>Plumbing Commands</h3>
+<ul class='unstyled'>
+  <li><a href="../git-cat-file/pt_BR.html">cat-file</a></li>
+  <li><a href="../git-check-ignore/pt_BR.html">check-ignore</a></li>
+  <li><a href="../git-checkout-index/pt_BR.html">checkout-index</a></li>
+  <li><a href="../git-commit-tree/pt_BR.html">commit-tree</a></li>
+  <li><a href="../git-count-objects/pt_BR.html">count-objects</a></li>
+  <li><a href="../git-diff-index/pt_BR.html">diff-index</a></li>
+  <li><a href="../git-for-each-ref/pt_BR.html">for-each-ref</a></li>
+  <li><a href="../git-hash-object/pt_BR.html">hash-object</a></li>
+  <li><a href="../git-ls-files/pt_BR.html">ls-files</a></li>
+  <li><a href="../git-ls-tree/pt_BR.html">ls-tree</a></li>
+  <li><a href="../git-merge-base/pt_BR.html">merge-base</a></li>
+  <li><a href="../git-read-tree/pt_BR.html">read-tree</a></li>
+  <li><a href="../git-rev-list/pt_BR.html">rev-list</a></li>
+  <li><a href="../git-rev-parse/pt_BR.html">rev-parse</a></li>
+  <li><a href="../git-show-ref/pt_BR.html">show-ref</a></li>
+  <li><a href="../git-symbolic-ref/pt_BR.html">symbolic-ref</a></li>
+  <li><a href="../git-update-index/pt_BR.html">update-index</a></li>
+  <li><a href="../git-update-ref/pt_BR.html">update-ref</a></li>
+  <li><a href="../git-verify-pack/pt_BR.html">verify-pack</a></li>
+  <li><a href="../git-write-tree/pt_BR.html">write-tree</a></li>
+</ul>
+
+    </div>
+  </div>
+</div>
+
+    <a class="dropdown-trigger" id="reference-versions-trigger" data-panel-id="previous-versions-dropdown" href="pt_BR.html#">
+      Latest version
+       ▾ </a>
+<span class="light d-flex">git-worktree last updated in 2.34.1</span>
+<div class='dropdown-panel left' id='previous-versions-dropdown'>
+  <header>Changes in the <strong>git-worktree</strong> manual</header>
+  <ol class='reference-previous-versions'>
+        <li class="no-change"><span>2.33.1 &rarr; 2.34.1 no changes</span></li>
+        <li>
+        <a href="2.33.0.html"><span class="version">2.33.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">08/16/21</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.31.1 &rarr; 2.32.0 no changes</span></li>
+        <li>
+        <a href="2.31.0.html"><span class="version">2.31.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+          </span>
+          <em class="date">03/15/21</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.30.1 &rarr; 2.30.2 no changes</span></li>
+        <li>
+        <a href="2.30.0.html"><span class="version">2.30.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">12/27/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.29.1 &rarr; 2.29.3 no changes</span></li>
+        <li>
+        <a href="2.29.0.html"><span class="version">2.29.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">10/19/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.28.1 no changes</span></li>
+        <li>
+        <a href="2.28.0.html"><span class="version">2.28.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">07/27/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.22.1 &rarr; 2.27.1 no changes</span></li>
+        <li>
+        <a href="2.22.0.html"><span class="version">2.22.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">06/07/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.20.1 &rarr; 2.21.4 no changes</span></li>
+        <li>
+        <a href="2.20.0.html"><span class="version">2.20.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+          </span>
+          <em class="date">12/09/18</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.19.3 &rarr; 2.19.6 no changes</span></li>
+        <li>
+        <a href="2.19.2.html"><span class="version">2.19.2</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">11/21/18</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.19.1 no changes</span></li>
+        <li>
+        <a href="2.19.0.html"><span class="version">2.19.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+          </span>
+          <em class="date">09/10/18</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.18.1 &rarr; 2.18.5 no changes</span></li>
+        <li>
+        <a href="2.18.0.html"><span class="version">2.18.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">06/21/18</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.17.1 &rarr; 2.17.6 no changes</span></li>
+        <li>
+        <a href="2.17.0.html"><span class="version">2.17.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">04/02/18</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.16.6.html"><span class="version">2.16.6</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">12/06/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.14.6 &rarr; 2.15.4 no changes</span></li>
+        <li>
+        <a href="2.13.7.html"><span class="version">2.13.7</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">05/22/18</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.12.5.html"><span class="version">2.12.5</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">09/22/17</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.11.4 no changes</span></li>
+        <li>
+        <a href="2.10.5.html"><span class="version">2.10.5</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">09/22/17</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.9.5.html"><span class="version">2.9.5</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">07/30/17</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.8.6 no changes</span></li>
+        <li>
+        <a href="2.7.6.html"><span class="version">2.7.6</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">07/30/17</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.6.7.html"><span class="version">2.6.7</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">05/05/17</em>
+        </a>
+        </li>
+    <li>&nbsp;</li>
+    <!-- <li><a class="more" href="#">See more previous releases →</a></li> -->
+  </ol>
+  <footer>
+    <p>Check your version of git by running</p>
+    <code class="command">git --version</code>
+  </footer>
+</div>
+
+  </div>
+
+  <div id='main'>
+    <div class="sect1">
+<h2 id="_nome"><a class="anchor" href="pt_BR.html#_nome"></a>NOME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>git-worktree - Gerencie as várias árvores de trabalho</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_resumo"><a class="anchor" href="pt_BR.html#_resumo"></a>RESUMO</h2>
+<div class="sectionbody">
+<div class="verseblock">
+<pre class="content"><em>git worktree add</em> [-f] [--detach] [--checkout] [--lock] [-b &lt;novo-ramo&gt;] &lt;caminho&gt; [&lt;commit-ish&gt;]
+<em>git worktree list</em> [--porcelain]
+<em>git worktree lock</em> [--reason &lt;texto&gt;] &lt;árvore de trabalho&gt;
+<em>git worktree move</em> &lt;árvore de trabalho&gt; &lt;novo caminho&gt;
+<em>git worktree prune</em> [-n] [-v] [--expire &lt;expire&gt;]
+<em>git worktree remove</em> [-f] &lt;árvore de trabalho&gt;
+<em>git worktree unlock</em> &lt;árvore de trabalho&gt;</pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_descrição"><a class="anchor" href="pt_BR.html#_descrição"></a>DESCRIÇÃO</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Gerencie várias árvores de trabalho conectadas ao mesmo repositório.</p>
+</div>
+<div class="paragraph">
+<p>Um repositório git é compatível com várias árvores de trabalho, permitindo
+que você verifique mais de um ramo por vez.  Com o <code>git worktree add</code>, uma
+nova árvore de trabalho é associada ao repositório.  Esta nova árvore de
+trabalho é chamada de "árvore de trabalho vinculada" em oposição à "árvore
+de trabalho principal" preparada através do comando "git init" ou "git
+clone".  Um repositório possui uma árvore principal de trabalho (caso não
+seja um repositório simples) e zero ou mais árvores de trabalho
+vinculadas. Quando você terminar uma árvore de trabalho vinculada, remova-a
+com o comando <code>git worktree remove</code>.</p>
+</div>
+<div class="paragraph">
+<p>Caso uma árvore de trabalho seja excluída sem o a utilização do comando <code>git
+worktree remove</code>, os seus arquivos administrativos associados, que residam
+no repositório (consulte "DETALHES" abaixo), serão removidos automaticamente
+(consulte a opção de configuração <code>gc.worktreePruneExpire</code> no
+<a href='../git-config/pt_BR.html'>git-config[1]</a>), ou é possível executar o comando <code>git worktree
+prune</code> na árvore principal ou em qualquer árvore de trabalho vinculada para
+fazer a limpeza de quaisquer arquivos administrativos que estejam obsoletos.</p>
+</div>
+<div class="paragraph">
+<p>Caso uma árvore de trabalho vinculada estiver armazenada em um dispositivo
+portátil ou em um compartilhamento da rede que nem sempre seja montado, é
+possível impedir que os seus arquivos administrativos sejam removidos
+emitindo o comando <code>git worktree lock</code>, utilizando opcionalmente a opção
+<code>--reason</code> para explicar por que a árvore de trabalho está bloqueada.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_comandos"><a class="anchor" href="pt_BR.html#_comandos"></a>COMANDOS</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-worktree-addltcaminhogtltcommit-ishgt"> <a class="anchor" href="pt_BR.html#git-worktree-addltcaminhogtltcommit-ishgt"></a>add &lt;caminho&gt; [&lt;commit-ish&gt;] </dt>
+<dd>
+<p>Crie um <code>&lt;caminho&gt;</code> e faça a averiguação <code>&lt;commit-ish&gt;</code> nele. O novo
+diretório de trabalho está vinculado ao repositório atual, compartilhando
+tudo exceto arquivos específicos do diretório de trabalho, como HEAD,
+índice, etc. O <code>-</code> também pode ser utilizado como <code>&lt;commit-ish&gt; `; é um
+sinônimo de `@{-1}</code>.</p>
+<div class="paragraph">
+<p>Caso o &lt;commit-ish&gt; seja um nome do ramo (chame-o de <code>&lt;ramo&gt;</code>) e não for
+encontrado, nem <code>-b</code>, nem <code>-B</code>, nem <code>--detach</code>, serão utilizados, porém
+existe um monitoramento do ramo em exatamente um ramo remoto (chame-o de
+<code>&lt;remoto&gt;</code>) com um nome coincidente, trate-o como equivalente a:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git worktree add --track -b &lt;ramo&gt; &lt;caminho&gt; &lt;remoto&gt;/&lt;ramo&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Caso o ramo exista em diversos ramos remotos e um deles seja nomeado pela
+variável de configuração <code>checkout.defaultRemote</code>, para propósitos de
+desambiguação, mesmo que <code>&lt;ramo&gt;</code> não seja o único em todos os outros ramos
+remotos. Defina como por exemplo, <code>checkout.defaultRemote=origin</code> para que
+sempre verifique as ramificações remotas de lá caso <code>&lt;ramo&gt;</code> seja ambíguo e
+ainda assim <code>origin</code> exista. Consulte também <code>checkout.defaultRemote</code> em
+<a href='../git-config/pt_BR.html'>git-config[1]</a>.</p>
+</div>
+<div class="paragraph">
+<p>Caso o <code>&lt;commit-ish&gt;</code> seja omitido e nem a opção <code>-b</code>, <code>-B</code> ou <code>--detach</code>
+sejam utilizados, então, por conveniência, a nova árvore de trabalho será
+associada com um ramo (chame-o de <code>&lt;ramo&gt;</code>) nomeado após <code>$(basename
+&lt;caminho&gt;)</code>.  Caso o <code>&lt;ramo&gt;</code> não exista, um novo ramo com base no <code>HEAD</code>
+será criado automaticamente como se a opção <code>-b &lt;ramo&gt;</code> fosse informado.
+Caso o <code>&lt;ramo&gt;</code> exista, ele será averiguado na nova árvore de trabalho, se
+não tiver sido averiguado em nenhum outro lugar, caso contrário, o comando
+se recusará a criar a árvore de trabalho (a menos que <code>--force</code> seja
+utilizado).</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-worktree-list"> <a class="anchor" href="pt_BR.html#git-worktree-list"></a>list </dt>
+<dd>
+<p>Liste os detalhes de cada árvore de trabalho.  A árvore de trabalho
+principal é listada primeiro, seguida por cada uma das árvores de trabalho
+vinculadas.  Os detalhes gerados incluem se a árvore de trabalho está vazia
+e se a revisão e o ramo foi averiguado no momento (ou tem o <em>HEAD
+desanexado</em>, caso não haja).</p>
+</dd>
+<dt class="hdlist1" id="git-worktree-lock"> <a class="anchor" href="pt_BR.html#git-worktree-lock"></a>lock </dt>
+<dd>
+<p>Caso uma árvore de trabalho esteja em um dispositivo portátil ou em um
+compartilhamento da rede que nem sempre seja montado, bloqueie-o para
+impedir que os seus arquivos administrativos sejam removidos
+automaticamente. Isso também evita que ele seja movido ou
+excluído. Opcionalmente, especifique um motivo para o bloqueio com
+<code>--reason</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-worktree-move"> <a class="anchor" href="pt_BR.html#git-worktree-move"></a>move </dt>
+<dd>
+<p>Mova uma árvore de trabalho para um novo local. Observe que a árvore
+principal de trabalho ou as árvores de trabalho vinculadas que contenham
+submódulos, não poderão ser movidas.</p>
+</dd>
+<dt class="hdlist1" id="git-worktree-prune"> <a class="anchor" href="pt_BR.html#git-worktree-prune"></a>prune </dt>
+<dd>
+<p>Remova as informações da árvore de trabalho no <code>$GIT_DIR/worktrees</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-worktree-remove"> <a class="anchor" href="pt_BR.html#git-worktree-remove"></a>remove </dt>
+<dd>
+<p>Remova uma árvore de trabalho. Somente árvores de trabalho que estiverem
+vazias (sem arquivos não monitorados e nenhuma alteração nos arquivos
+monitorados) podem ser removidas. Árvores de trabalho que não estejam vazias
+ou com os sub-módulos podem ser removidas a força com a opção <code>--force</code>. A
+árvore principal de trabalho não pode ser removida.</p>
+</dd>
+<dt class="hdlist1" id="git-worktree-unlock"> <a class="anchor" href="pt_BR.html#git-worktree-unlock"></a>unlock </dt>
+<dd>
+<p>Desbloqueie uma árvore em funcionamento, permitindo que ela seja removida,
+movida ou excluída.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_opções"><a class="anchor" href="pt_BR.html#_opções"></a>OPÇÕES</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-worktree--f"> <a class="anchor" href="pt_BR.html#git-worktree--f"></a>-f </dt>
+<dt class="hdlist1" id="git-worktree---force"> <a class="anchor" href="pt_BR.html#git-worktree---force"></a>--force </dt>
+<dd>
+<p>É predefinido que <code>add</code> se recuse a criar uma nova árvore de trabalho quando
+<code>&lt;commit-ish&gt;</code> for um nome de uma filial e já está em averiguação por outra
+árvore de trabalho, ou caso <code>&lt;caminho&gt;</code> já esteja atribuído a alguma árvore
+de trabalho, porém ausente (caso <code>&lt;caminho&gt;</code> foi excluído manualmente por
+exemplo). Esta opção substitui estas salvaguardas. Para adicionar um caminho
+de árvore de trabalho ausente porém bloqueado, utilize a opção <code>--force</code>
+duas vezes.</p>
+<div class="paragraph">
+<p>o <code>move</code> se recusa a mover uma árvore de trabalho bloqueada a menos que a
+opção <code>--force</code> seja utilizada duas vezes. Caso o destino já esteja
+atribuído a alguma outra árvore de trabalho, porém esteja ausente (caso o
+<code>&lt;novo-caminho&gt;</code> tenha sido excluído manualmente por exemplo), então a opção
+<code>--force</code> permite que a ação de mover prossiga; utilize a opção --force duas
+vezes caso o destino esteja bloqueado.</p>
+</div>
+<div class="paragraph">
+<p>O <code>remove</code> se recusa a remover uma árvore de trabalho cheia, a menos que a
+opção <code>--force</code> seja usada.  Para remover uma árvore de trabalho bloqueada,
+utilize a opção <code>--force</code> duas vezes.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-worktree--bltnovo-ramogt"> <a class="anchor" href="pt_BR.html#git-worktree--bltnovo-ramogt"></a>-b &lt;novo-ramo&gt; </dt>
+<dt class="hdlist1" id="git-worktree--Bltnovo-ramogt"> <a class="anchor" href="pt_BR.html#git-worktree--Bltnovo-ramogt"></a>-B &lt;novo-ramo&gt; </dt>
+<dd>
+<p>Com <code>add</code>, crie um novo ramo chamado <code>&lt;novo-ramo&gt;</code> (novo-ramo) começando em
+<code>&lt;commit-ish&gt;</code> e faça uma averiguação do <code>&lt;novo-ramo&gt;</code> na nova árvore de
+trabalho.  Caso o <code>&lt;commit-ish&gt;</code> seja omitido, a predefinição retorna para
+<code>HEAD</code>.  É predefinido que <code>b</code> se recuse a criar um novo ramo, caso ele já
+exista. O <code>B</code> substitui esta salvaguarda, redefinindo o <code>&lt;novo-ramo&gt;</code> para
+<code>&lt;commit-ish&gt;</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-worktree---detach"> <a class="anchor" href="pt_BR.html#git-worktree---detach"></a>--detach </dt>
+<dd>
+<p>Com <code>add</code>, desanexe o HEAD na nova árvore de trabalho. Consulte "HEAD
+DESANEXADO" em <a href='../git-checkout/pt_BR.html'>git-checkout[1]</a>.</p>
+</dd>
+<dt class="hdlist1" id="git-worktree---no-checkout"> <a class="anchor" href="pt_BR.html#git-worktree---no-checkout"></a>--[no-]checkout </dt>
+<dd>
+<p>É predefinido que <code>add</code> faça a averiguação do <code>&lt;commit-ish&gt; `, no entanto a
+opção `--no-checkout</code> pode ser utilizado para suprimir a averiguação a fim
+de fazer as personalizações, como configurar a averiguação esparsa. Consulte
+"Averiguação esparsa" em <a href='../git-read-tree/pt_BR.html'>git-read-tree[1]</a>.</p>
+</dd>
+<dt class="hdlist1" id="git-worktree---no-guess-remote"> <a class="anchor" href="pt_BR.html#git-worktree---no-guess-remote"></a>--[no-]guess-remote </dt>
+<dd>
+<p>Com <code>worktree add &lt;caminho&gt;</code>, sem <code>&lt;commit-ish&gt;</code>, em vez de criar uma nova
+ramificação a partir do <code>HEAD</code>, caso exista uma ramificação de rastreamento
+em exatamente um ponto remoto que coincida com o <code>basename</code> do <code>&lt;caminho&gt;</code>,
+baseie a nova ramificação na ramificação remota rastreada e marque a
+ramificação rastreada remoto como um "upstream" da nova ramificação.</p>
+<div class="paragraph">
+<p>Isso também pode ser definido como um comportamento predefinido ao usar a
+opção da configuração <code>worktree.guessRemote</code>.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-worktree---no-track"> <a class="anchor" href="pt_BR.html#git-worktree---no-track"></a>--[no-]track </dt>
+<dd>
+<p>Ao criar um novo ramo, caso <code>&lt;commit-ish&gt;</code> seja um ramo, marque-a como
+"upstream" a partir do novo ramo.  Essa é a predefinição caso <code>&lt;commit-ish&gt;</code>
+seja um ramo monitorado remotamente.  Para mais detalhes, consulte "--track"
+em <a href='../git-branch/pt_BR.html'>git-branch[1]</a>.</p>
+</dd>
+<dt class="hdlist1" id="git-worktree---lock"> <a class="anchor" href="pt_BR.html#git-worktree---lock"></a>--lock </dt>
+<dd>
+<p>Mantenha a árvore de trabalho bloqueada após a criação. Isso é equivalente
+ao comando <code>git worktree lock</code> após <code>git worktree add</code>, porém sem a condição
+de corrida.</p>
+</dd>
+<dt class="hdlist1" id="git-worktree--n"> <a class="anchor" href="pt_BR.html#git-worktree--n"></a>-n </dt>
+<dt class="hdlist1" id="git-worktree---dry-run"> <a class="anchor" href="pt_BR.html#git-worktree---dry-run"></a>--dry-run </dt>
+<dd>
+<p>Com <code>prune</code>, não remove nada; apenas relate o que seria removido.</p>
+</dd>
+<dt class="hdlist1" id="git-worktree---porcelain"> <a class="anchor" href="pt_BR.html#git-worktree---porcelain"></a>--porcelain </dt>
+<dd>
+<p>Com <code>list</code> gere um formato para fácil análise dos scripts. Este formato
+permanecerá estável em todas as versões Git independentemente da
+configuração do usuário.  Veja abaixo os detalhes.</p>
+</dd>
+<dt class="hdlist1" id="git-worktree--q"> <a class="anchor" href="pt_BR.html#git-worktree--q"></a>-q </dt>
+<dt class="hdlist1" id="git-worktree---quiet"> <a class="anchor" href="pt_BR.html#git-worktree---quiet"></a>--quiet </dt>
+<dd>
+<p>Com <code>add</code>, suprima as mensagens de feedback.</p>
+</dd>
+<dt class="hdlist1" id="git-worktree--v"> <a class="anchor" href="pt_BR.html#git-worktree--v"></a>-v </dt>
+<dt class="hdlist1" id="git-worktree---verbose"> <a class="anchor" href="pt_BR.html#git-worktree---verbose"></a>--verbose </dt>
+<dd>
+<p>Com <code>prune</code>, relate todas as remoções.</p>
+</dd>
+<dt class="hdlist1" id="git-worktree---expirelttempogt"> <a class="anchor" href="pt_BR.html#git-worktree---expirelttempogt"></a>--expire &lt;tempo&gt; </dt>
+<dd>
+<p>Com <code>prune</code>, expire apenas as árvores de trabalho não utilizadas mais velhas
+que &lt;tempo&gt;.</p>
+</dd>
+<dt class="hdlist1" id="git-worktree---reasonlttextogt"> <a class="anchor" href="pt_BR.html#git-worktree---reasonlttextogt"></a>--reason &lt;texto&gt; </dt>
+<dd>
+<p>Com <code>lock</code>, uma explicação é dada do por quê a árvore está "locked"
+(travada).</p>
+</dd>
+<dt class="hdlist1" id="git-worktree-ltrvoredetrabalhogt"> <a class="anchor" href="pt_BR.html#git-worktree-ltrvoredetrabalhogt"></a>&lt;árvore de trabalho&gt; </dt>
+<dd>
+<p>As árvores de trabalho podem ser identificadas através do caminho, seja
+relativo ou absoluto.</p>
+<div class="paragraph">
+<p>Caso os componentes do último caminho da árvore de trabalho sejam únicos
+entre as árvores, ele poderá ser utilizado para identificar as árvores de
+trabalho. Como por exemplo, caso tenha apenas duas árvores de trabalho, em
+"/abc/def/ghi" e "/abc/def/ggg", "ghi" ou "def/ghi" serão suficientes para
+apontar para a antiga árvore de trabalho.</p>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_refs"><a class="anchor" href="pt_BR.html#_refs"></a>REFS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Em várias árvores de trabalho diferentes, algumas refs podem ser
+compartilhadas entre todas as árvores de trabalho, já outras são locais. Um
+exemplo é o <code>HEAD</code> que é único para cada a árvores de trabalho. Um exemplo é
+que <code>HEAD</code> seja diferente para todas as árvores de trabalho. Esta seção é
+sobre as regras de compartilhamento e como acessar tais refs de uma árvore
+de trabalho para outra.</p>
+</div>
+<div class="paragraph">
+<p>Geralmente, cada árvore de trabalho possuí uma ref própria e todas as refs
+que iniciem com <code>refs/</code> podem ser compartilhados. Os pseudo-refs são aqueles
+como <code>HEAD</code> que estão diretamente sob <code>GIT_DIR</code> ao invés de estarem dentro
+do <code>GIT_DIR/refs</code>. Há apenas uma exceção para esta regra: as refs não serão
+compartilhadas quando estiverem dentro do <code>refs/bisect</code> e do
+<code>refs/worktree</code>.</p>
+</div>
+<div class="paragraph">
+<p>As refs individuais de cada árvore de trabalho ainda podem ser acessadas de
+uma outra árvore de trabalho através de dois caminhos especiais,
+<code>main-worktree</code> e <code>worktrees</code>. A primeira oferece acesso <code>ref</code> individual a
+cada árvore de trabalho principal, enquanto a última a todas as árvores de
+trabalho que forem vinculadas à ela.</p>
+</div>
+<div class="paragraph">
+<p>Como por exemplo, <code>main-worktree/HEAD</code> ou <code>main-worktree/refs/bisect/good</code>
+resolve para o mesmo valor que <code>HEAD</code> nas principais árvores, assim como
+<code>refs/bisect/good</code> respectivamente. Da mesma forma, <code>worktrees/foo/HEAD</code> e
+<code>worktrees/bar/refs/bisect/bad</code> são as mesmas que
+<code>GIT_COMMON_DIR/worktrees/foo/HEAD</code> e
+<code>GIT_COMMON_DIR/worktrees/bar/refs/bisect/bad</code>.</p>
+</div>
+<div class="paragraph">
+<p>Para acessar as <code>refs</code> é melhor não olhar diretamente para dentro do
+<code>GIT_DIR</code>. Em vez disso, use comandos como o <a href='../git-rev-parse/pt_BR.html'>git-rev-parse[1]</a> ou
+<a href='../git-update-ref/pt_BR.html'>git-update-ref[1]</a> que manipularão corretamente as refs.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_arquivo_de_configuração"><a class="anchor" href="pt_BR.html#_arquivo_de_configuração"></a>ARQUIVO DE CONFIGURAÇÃO</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>É predefinido que o arquivo "config" do repositório seja compartilhado entre
+todas as árvores de trabalho. Caso as variáveis da configuração <code>core.bare</code>
+ou` core.worktree` estejam presentes no arquivo de configuração elas serão
+aplicadas apenas às principais árvores de trabalho.</p>
+</div>
+<div class="paragraph">
+<p>Você pode ativar a extensão <code>worktreeConfig</code> para ter uma configuração
+específica para as árvores de trabalho, por exemplo:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git config extensions.worktreeConfig true</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Neste modo, a configuração específica permanece no caminho apontado pelo
+comando <code>git rev-parse --git-path config.worktree</code>. Você pode adicionar ou
+atualizar a configuração neste arquivo com o comando <code>git config
+--worktree</code>. As versões mais antigas do Git se recusarão a acessar os
+repositórios com esta extensão.</p>
+</div>
+<div class="paragraph">
+<p>Observe que neste arquivo, a exceção para <code>core.bare</code> e <code>core.worktree</code>
+desapareceu. Caso você os possua antes no <em>$GIT_DIR/config</em>, você deve
+movê-los para o <code>config.worktree</code> da árvore principal de trabalho. Você
+também pode aproveitar esta oportunidade para revisar e mover as outras
+configurações que não deseja compartilhar com todas as árvores de trabalho:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>core.worktree</code> e <code>core.bare</code> nunca devem ser compartilhados</p>
+</li>
+<li>
+<p>Recomenda-se a opção de configuração <code>core.sparseCheckout</code> em cada árvore de
+trabalho, a menos que você tenha certeza de que sempre usa a verificação
+esparsa para todas as árvores de trabalho.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_detalhes"><a class="anchor" href="pt_BR.html#_detalhes"></a>DETALHES</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cada árvore de trabalho vinculada possui um subdiretório privado no
+diretório <code>$GIT_DIR/worktrees</code> do repositório.  O nome do subdiretório
+particular é geralmente o nome base do caminho do vínculo da árvore de
+trabalho, possivelmente anexada a um número para torná-lo único.  Como por
+exemplo, quando <code>$GIT_DIR=/path/main/.git</code> o comando` <code>git worktree add
+/path/other/test-next next</code> cria a árvore de trabalho vinculada no
+<code>/path/other/test-next</code> e também cria um diretório
+<code>$GIT_DIR/worktrees/test-next</code> (ou <code>$GIT_DIR/worktrees/test-next1</code> caso
+<code>test-next</code> já esteja em uso).</p>
+</div>
+<div class="paragraph">
+<p>Dentro de uma árvore de trabalho vinculada, <code>$GIT_DIR</code> é configurado para
+apontar para este diretório privado (<code>/path/main/.git/worktrees/test-next</code>
+no exemplo) e <code>$GIT_COMMON_DIR</code> é configurado para apontar de volta para a
+árvore de trabalho principal <code>$GIT_DIR</code> (<code>/path/main/.git</code> por
+exemplo). Estas configurações são feitas em um arquivo <code>.git</code> localizado no
+diretório vinculado mais alto da árvore de trabalho.</p>
+</div>
+<div class="paragraph">
+<p>A resolução do caminho através do comando <code>git rev-parse --git-path</code> utiliza
+<em>$GIT_DIR</em> ou <em>$GIT_COMMON_DIR</em>, dependendo do caminho. Na árvore de
+trabalho vinculada, o comando <code>git rev-parse --git-path HEAD</code> retorna
+<code>/path/main/.git/worktrees/test-next/HEAD</code> (não
+<code>/path/other/test-next/.git/HEAD</code> ou <code>/path/main/.git/HEAD</code>) enquanto o
+comando <code>git rev-parse --git-path refs/heads/master</code> usa <em>$GIT_COMMON_DIR</em> e
+retorna <code>/path/main/.git/refs/heads/master</code>, já que as refs são
+compartilhados em todas as árvores de trabalho, exceto <em>refs/bisect</em> e
+<em>refs/worktree</em>.</p>
+</div>
+<div class="paragraph">
+<p>Para mais informações consulte <a href='../gitrepository-layout/pt_BR.html'>gitrepository-layout[5]</a>. A regra
+geral é não fazer qualquer suposição sobre se um caminho pertence ao
+<code>$GIT_DIR</code> ou ao <code>$GIT_COMMON_DIR</code> quando você precisar acessar diretamente
+algo dentro do <code>$GIT_DIR</code>. Para obter o caminho final utilize o comando <code>git
+rev-parse --git-path</code>.</p>
+</div>
+<div class="paragraph">
+<p>Caso queira mover manualmente o vínculo de uma árvore de trabalho, será
+preciso atualizar o arquivo <em>gitdir</em> no diretório da entrada. Como por
+exemplo, caso o vínculo de uma árvore de trabalho seja movida para
+<code>/newpath/test-next</code> e o seu arquivo <code>.git</code> aponte para
+<code>/path/main/.git/worktrees/test-next</code>, então atualize
+<code>/path/main/.git/worktrees/test-next/gitdir</code> para a referência
+<code>/newpath/test-next</code>.</p>
+</div>
+<div class="paragraph">
+<p>Para impedir que uma entrada <code>$GIT_DIR/worktrees</code> seja removida (que pode
+ser útil em algumas situações, como quando a árvore de trabalho da entrada é
+armazenada em um dispositivo portátil), utilize o comando <code>git worktree
+lock</code> que adiciona um arquivo chamado <em>locked</em> ao diretório da entrada. O
+arquivo contém o motivo no formato texto puro, sem formatação. Por exemplo,
+caso o arquivo <code>.git</code> aponte para <code>/path/main/.git/worktrees/test-next</code>
+então o arquivo de nome <code>/path/main/.git/worktrees/test-next/locked</code>
+prevenirá que a entrada <code>test-next</code> seja excluída.  Para mais detalhes
+consulte <a href='../gitrepository-layout/pt_BR.html'>gitrepository-layout[5]</a>.</p>
+</div>
+<div class="paragraph">
+<p>Quando a opção de configuração <code>extensions.worktreeConfig</code> está ativo, o
+arquivo de configuração <code>.git/worktrees/&lt;id&gt;/config.worktree</code> é lido após o
+<code>.git/config</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_formato_da_lista_de_saída"><a class="anchor" href="pt_BR.html#_formato_da_lista_de_saída"></a>FORMATO DA LISTA DE SAÍDA</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>O comando <code>worktree</code> gera dois formatos na saída.  O formato já predefinido
+exibe os detalhes em uma única linha com colunas.  Por exemplo:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git worktree list
+/path/to/bare-source            (bare)
+/path/to/linked-worktree        abcd1234 [master]
+/path/to/other-linked-worktree  1234abc  (HEAD desanexado)</pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_formato_porcelana"><a class="anchor" href="pt_BR.html#_formato_porcelana"></a>Formato Porcelana</h3>
+<div class="paragraph">
+<p>The porcelain format has a line per attribute.  Attributes are listed with a
+label and value separated by a single space.  Boolean attributes (like
+<em>bare</em> and <em>detached</em>) are listed as a label only, and are only present if
+and only if the value is true.  The first attribute of a worktree is always
+<code>worktree</code>, an empty line indicates the end of the record.  Por exemplo:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git worktree list --porcelain
+worktree /path/to/bare-source
+bare
+
+worktree /path/to/linked-worktree
+HEAD abcd1234abcd1234abcd1234abcd1234abcd1234
+branch refs/heads/master
+
+worktree /path/to/other-linked-worktree
+HEAD 1234abc1234abc1234abc1234abc1234abc1234a
+detached</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exemplos"><a class="anchor" href="pt_BR.html#_exemplos"></a>EXEMPLOS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Você está no meio de uma sessão de refatoração e o seu chefe entra e exige
+que você conserte algo imediatamente. Você normalmente pode usar o
+<a href='../git-stash/pt_BR.html'>git-stash[1]</a> para armazenar temporariamente as suas alterações, no
+entanto, a sua árvore de trabalho está em uma condição de desordem (com
+arquivos novos, movidos e removidos e outros pedaços espalhados) que você
+não quer arriscar mexer em nenhum deles. Em vez disso, você cria uma árvore
+de trabalho vinculada temporária para fazer a correção de emergência,
+removê-la quando terminar e em seguida, retomar a sua sessão de refatoração
+anterior.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git worktree add -b emergency-fix ../temp master
+$ pushd ../temp
+# ... hack hack hack ...
+$ git commit -a -m 'correção de emergência para o chefe'
+$ popd
+$ git worktree remove ../temp</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bugs"><a class="anchor" href="pt_BR.html#_bugs"></a>BUGS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A averiguação múltipla em geral ainda é experimental e a compatibilidade
+para os submódulos ainda está incompleto. NÃO é recomendado fazer várias
+averiguações de um superprojeto.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git"><a class="anchor" href="pt_BR.html#_git"></a>GIT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Parte do conjunto <a href='../git/pt_BR.html'>git[1]</a></p>
+</div>
+</div>
+</div>
+  </div>
+
+        </div>
+      </div>
+      <footer>
+  <div class="site-source">
+    <a href="https://git-scm.com/site">About this site</a><br>
+    Patches, suggestions, and comments are welcome.
+  </div>
+  <div class="sfc-member">
+    Git is a member of <a href="https://git-scm.com/sfc">Software Freedom Conservancy</a>
+  </div>
+</footer>
+<a href="pt_BR.html#top" class="no-js scrollToTop" id="scrollToTop" data-label="Scroll to top">
+  <img src="../../images/icons/chevron-up@2x.png" width="20" height="20" alt="scroll-to-top"/>
+</a>
+<script src="../../assets/application-e12a0e837db60213b777cd7a706e0741beed474d7e5b94a641979fc87ce0d2cc.js"></script>
+
+    </div>
+
+</body>
+</html>

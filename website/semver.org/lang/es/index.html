@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../css/main.css">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Versionado Semántico 2.0.0 | Semantic Versioning</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Versionado Semántico 2.0.0" />
+<meta name="author" content="Tom Preston-Werner" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Semantic Versioning spec and website" />
+<meta property="og:description" content="Semantic Versioning spec and website" />
+<link rel="canonical" href="index.html" />
+<meta property="og:url" content="https://semver.org/lang/es/" />
+<meta property="og:site_name" content="Semantic Versioning" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Versionado Semántico 2.0.0" />
+<script type="application/ld+json">
+{"description":"Semantic Versioning spec and website","headline":"Versionado Semántico 2.0.0","url":"https://semver.org/lang/es/","@type":"WebPage","author":{"@type":"Person","name":"Tom Preston-Werner"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+  <body>
+    <ul class="nav lang" dir="ltr">
+      
+      
+        <li class="language language-ar">
+          <a rel="alternate" lang="ar" hreflang="ar"
+            
+              href="../ar/index.html"
+            
+            >العربية (ar)</a>
+        </li>
+      
+        <li class="language language-bg">
+          <a rel="alternate" lang="bg" hreflang="bg"
+            
+              href="../bg/index.html"
+            
+            >Български (bg)</a>
+        </li>
+      
+        <li class="language language-ca">
+          <a rel="alternate" lang="ca" hreflang="ca"
+            
+              href="../ca/index.html"
+            
+            >català (ca)</a>
+        </li>
+      
+        <li class="language language-cs">
+          <a rel="alternate" lang="cs" hreflang="cs"
+            
+              href="../cs/index.html"
+            
+            >čeština (cs)</a>
+        </li>
+      
+        <li class="language language-de">
+          <a rel="alternate" lang="de" hreflang="de"
+            
+              href="../de/index.html"
+            
+            >Deutsch (de)</a>
+        </li>
+      
+        <li class="language language-en">
+          <a rel="alternate" lang="en" hreflang="en"
+            
+              href="../../index.html"
+            
+            >English (en)</a>
+        </li>
+      
+        <li class="language language-es">
+          <a rel="alternate" lang="es" hreflang="es"
+            
+              href="index.html"
+            
+            >español (es)</a>
+        </li>
+      
+        <li class="language language-fa">
+          <a rel="alternate" lang="fa" hreflang="fa"
+            
+              href="../fa/index.html"
+            
+            >فارسی (fa)</a>
+        </li>
+      
+        <li class="language language-fr">
+          <a rel="alternate" lang="fr" hreflang="fr"
+            
+              href="../fr/index.html"
+            
+            >français (fr)</a>
+        </li>
+      
+        <li class="language language-he">
+          <a rel="alternate" lang="he" hreflang="he"
+            
+              href="../he/index.html"
+            
+            >עברית (he)</a>
+        </li>
+      
+        <li class="language language-hin">
+          <a rel="alternate" lang="hin" hreflang="hin"
+            
+              href="../hin/index.html"
+            
+            >हिन्दी (hin)</a>
+        </li>
+      
+        <li class="language language-hr">
+          <a rel="alternate" lang="hr" hreflang="hr"
+            
+              href="../hr/index.html"
+            
+            >hrvatski (hr)</a>
+        </li>
+      
+        <li class="language language-hu">
+          <a rel="alternate" lang="hu" hreflang="hu"
+            
+              href="../hu/index.html"
+            
+            >magyar (hu)</a>
+        </li>
+      
+        <li class="language language-hy">
+          <a rel="alternate" lang="hy" hreflang="hy"
+            
+              href="../hy/index.html"
+            
+            >Հայերեն (hy)</a>
+        </li>
+      
+        <li class="language language-id">
+          <a rel="alternate" lang="id" hreflang="id"
+            
+              href="../id/index.html"
+            
+            >bahasa Indonesia (id)</a>
+        </li>
+      
+        <li class="language language-it">
+          <a rel="alternate" lang="it" hreflang="it"
+            
+              href="../it/index.html"
+            
+            >italiano (it)</a>
+        </li>
+      
+        <li class="language language-ja">
+          <a rel="alternate" lang="ja" hreflang="ja"
+            
+              href="../ja/index.html"
+            
+            >日本語 (ja)</a>
+        </li>
+      
+        <li class="language language-ka">
+          <a rel="alternate" lang="ka" hreflang="ka"
+            
+              href="../ka/index.html"
+            
+            >ქართული (ka)</a>
+        </li>
+      
+        <li class="language language-kab">
+          <a rel="alternate" lang="kab" hreflang="kab"
+            
+              href="../kab/index.html"
+            
+            >taqbaylit (kab)</a>
+        </li>
+      
+        <li class="language language-ko">
+          <a rel="alternate" lang="ko" hreflang="ko"
+            
+              href="../ko/index.html"
+            
+            >한국어 (ko)</a>
+        </li>
+      
+        <li class="language language-nl">
+          <a rel="alternate" lang="nl" hreflang="nl"
+            
+              href="../nl/index.html"
+            
+            >Nederlands (nl)</a>
+        </li>
+      
+        <li class="language language-pl">
+          <a rel="alternate" lang="pl" hreflang="pl"
+            
+              href="../pl/index.html"
+            
+            >polski (pl)</a>
+        </li>
+      
+        <li class="language language-pt-BR">
+          <a rel="alternate" lang="pt-BR" hreflang="pt-BR"
+            
+              href="../pt-BR/index.html"
+            
+            >português brasileiro (pt-BR)</a>
+        </li>
+      
+        <li class="language language-ro">
+          <a rel="alternate" lang="ro" hreflang="ro"
+            
+              href="../ro/index.html"
+            
+            >Română (ro)</a>
+        </li>
+      
+        <li class="language language-ru">
+          <a rel="alternate" lang="ru" hreflang="ru"
+            
+              href="../ru/index.html"
+            
+            >pyccкий (ru)</a>
+        </li>
+      
+        <li class="language language-sk">
+          <a rel="alternate" lang="sk" hreflang="sk"
+            
+              href="../sk/index.html"
+            
+            >slovensky (sk)</a>
+        </li>
+      
+        <li class="language language-sl">
+          <a rel="alternate" lang="sl" hreflang="sl"
+            
+              href="../sl/index.html"
+            
+            >slovenščina (sl)</a>
+        </li>
+      
+        <li class="language language-sv">
+          <a rel="alternate" lang="sv" hreflang="sv"
+            
+              href="../sv/index.html"
+            
+            >svenska (sv)</a>
+        </li>
+      
+        <li class="language language-tr">
+          <a rel="alternate" lang="tr" hreflang="tr"
+            
+              href="../tr/index.html"
+            
+            >Türkçe (tr)</a>
+        </li>
+      
+        <li class="language language-uk">
+          <a rel="alternate" lang="uk" hreflang="uk"
+            
+              href="../uk/index.html"
+            
+            >українська (uk)</a>
+        </li>
+      
+        <li class="language language-vi">
+          <a rel="alternate" lang="vi" hreflang="vi"
+            
+              href="../vi/index.html"
+            
+            >vietnamese (vi)</a>
+        </li>
+      
+        <li class="language language-zh-CN">
+          <a rel="alternate" lang="zh-CN" hreflang="zh-CN"
+            
+              href="../zh-CN/index.html"
+            
+            >简体中文 (zh-CN)</a>
+        </li>
+      
+        <li class="language language-zh-TW">
+          <a rel="alternate" lang="zh-TW" hreflang="zh-TW"
+            
+              href="../zh-TW/index.html"
+            
+            >繁體中文 (zh-TW)</a>
+        </li>
+      
+    </ul>
+    <ul class="nav">
+      
+      
+        
+        
+        
+      
+        
+        
+        
+          <li class="version version-2.0.0-rc.2">
+            <a href="spec/v2.0.0-rc.2.html">2.0.0-rc.2</a>
+          </li>
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+    </ul>
+    <div id="spec">
+     <h1 id="versionado-semántico-200">Versionado Semántico 2.0.0</h1>
+
+<h2 id="resumen">Resumen</h2>
+
+<p>Dado un número de versión MAYOR.MENOR.PARCHE, se incrementa:</p>
+
+<ol>
+  <li>la versión MAYOR cuando realizas un cambio incompatible en el API,</li>
+  <li>la versión MENOR cuando añades funcionalidad que compatible con versiones anteriores, y</li>
+  <li>la versión PARCHE cuando reparas errores compatibles con versiones anteriores.</li>
+</ol>
+
+<p>Hay disponibles etiquetas para prelanzamiento y metadata de compilación como extensiones al formato MAYOR.MENOR.PARCHE.</p>
+
+<h2 id="introducción">Introducción</h2>
+
+<p>En el mundo de la administración de software existe un temido lugar llamado “Infierno de Dependencias”. Mientras más crece tu sistema y más paquetes integras dentro de tu software, más probable se hace que un día te encuentres en este pozo de desesperación.</p>
+
+<p>En sistemas con muchas dependencias, lanzar nuevas versiones de los paquetes puede convertirse en una pesadilla. Si las especificaciones de la dependencias son muy estrictas, estarás en peligro de bloquear una versión (la inhabilidad de actualizar un paquete sin tener que publicar una nueva versión de cada otro paquete dependiente). Si las dependencias son especificadas de forma muy relajada, inevitablemente serás mordido por versiones promiscuas (asumir la compatibilidad con próximas versiones más allá de lo razonable). El Infierno de Dependencias es donde estás cuando una versión bloqueada y/o promiscua previenen que muevas tu proyecto adelante de forma fácil y segura.</p>
+
+<p>Como solución a este problema, propuse un conjunto simple de reglas y requerimientos que dicten cómo asignar e incrementar los números de la versión. Estas reglas están basadas en prácticas preexistentes de uso generalizado tanto en software de código cerrado como de código abierto, pero no necesariamente limitadas a éstas. Para que este sistema funcione, primero debes declarar un API público. Éste puede consistir en documentación aparte o ser impuesto por el código mismo. Independientemente de lo anterior, es importante que este API sea claro y preciso. Una vez identifiques tu API público, debes comunicar los cambios realizados a éste con incrementos específicos a tu número de versión. Considera un formato de versión X.Y.Z (Mayor.Menor.Parche). Las correcciones de errores que no afectan el API incrementan la versión parche. Adiciones o sustracciones compatibles con versiones anteriores incrementan la versión menor, y cambios en el API incompatibles con versiones anteriores incrementan la versión mayor.</p>
+
+<p>Llamo a este sistema “Versionado Semántico”. Bajo este esquema, los números de versión y la forma en la que cambian transmiten el sentido del código y lo que ha sido modificado de una versión a otra.</p>
+
+<h2 id="especificación-del-versionado-semántico-semver">Especificación del Versionado Semántico (SemVer)</h2>
+
+<p>Las palabras clave “DEBE”, “NO DEBE”, “OBLIGATORIO”, “DEBERÁ”, “NO DEBERÁ”, “DEBERÍA”, “NO DEBERÍA”, “RECOMENDADO”, “PUEDE” y “OPCIONAL” en este documento serán interpretadas como se describe en <a href="https://www.rfc-es.org/rfc/rfc2119-es.txt">RFC 2119-es</a>.</p>
+
+<ol>
+  <li>
+    <p>El Software que usa Versionado Semántico DEBE declarar un API público. Este API puede ser declarado en el propio código o debe existir estrictamente en la documentación. Sin importar como sea realizado, este DEBERÍA ser preciso y comprehensivo.</p>
+  </li>
+  <li>
+    <p>Un número de versión normal DEBE tener la forma de X.Y.Z donde X, Y y Z son números enteros no negativos, y NO DEBEN ser precedidos de ceros. X es la versión mayor, Y es la versión menor, y Z es la versión parche. Cada elemento DEBE incrementarse numéricamente. Por ejemplo: 1.9.0 -&gt; 1.10.0 -&gt; 1.11.0</p>
+  </li>
+  <li>
+    <p>Una vez que el paquete versionado ha sido publicado, el contenido de esa versión NO DEBE ser modificado. Cualquier modificación DEBE ser publicada como una nueva versión.</p>
+  </li>
+  <li>
+    <p>Una versión mayor en cero (0.y.z) se considera como desarrollo inicial. Todo PUEDE cambiar en cualquier momento. El API público NO DEBERÍA ser considerado estable.</p>
+  </li>
+  <li>
+    <p>La versión 1.0.0 define el API público. La manera en que cada número de versión es incrementado después de esta publicación dependerá de su API público y cómo cambia.</p>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>La versión parche Z (x.y.Z</td>
+          <td>x &gt; 0) DEBE ser incrementada si solamente se introducen correcciones de errores compatibles con versiones anteriores. Una corrección de error se define como un cambio interno que corrige un comportamiento incorrecto.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>La versión menor Y (x.Y.z</td>
+          <td>x &gt; 0) DEBE ser incrementada si se introduce funcionalidad nueva y compatible con la versión anterior del API público. Ésta DEBE ser incrementada si se introduce cualquier funcionalidad al API público o mejora al código privado. Este PUEDE incluir cambios a nivel de parches. La versión parche DEBE reiniciarse a 0 cuando una versión menor se incrementa.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>La versión mayor (X.y.z</td>
+          <td>X &gt; 0) DEBE ser incrementada solamente si se introducen cambios incompatibles con la versión anterior del API público. Este PUEDE incluir cambios de nivel menor y parches. Versiones parche y menores DEBEN ser reiniciadas a 0 cuando una versión mayor es incrementada.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p>Una versión de prelanzamiento PUEDE ser denotada agregando un guión y una serie de identificadores separados por puntos, inmediatamente seguida de la versión parche. Los identificadores DEBEN ser compuestos sólo de caracteres alfanuméricos ASCII y guión ([0-9A-Za-z-]). Los identificadores NO DEBEN estar vacíos. Identificadores numéricos NO DEBEN ser precedidos de cero. Versiones de prelanzamiento tienen una precedencia inferior que una versión normal. Una versión de prelanzamiento indica que esa versión no es estable y puede no satisfacer los requerimientos de compatibilidad destinados como se denota en la versión normal asociada. Por ejemplo: 1.0.0-alpha, 1.0.0-alpha.1, 1.0.0-0.3.7, 1.0.0-x.7.z.92.</p>
+  </li>
+  <li>
+    <p>Metadatos de compilación PUEDEN ser denotados agregando el signo más y una serie de identificadores separados por puntos, inmediatamente seguido de la versión parche o prelanzamiento.  Los identificadores DEBEN ser compuestos de sólo caracteres alfanuméricos ASCII y guión ([0-9A-Za-z-]). Los identificadores NO DEBEN estar vacíos. Identificadores numéricos NO DEBEN ser precedidos de cero. Los metadatos de compilación DEBEN ser ignorados cuando se determina la precedencia de la versión. Por lo tanto, dos versiones que difieren solamente en los metadatos de compilación tienen la misma precedencia. Por ejemplo: 1.0.0-alpha+001, 1.0.0+20130313144700, 1.0.0-beta+exp.sha.5114f85.</p>
+  </li>
+  <li>
+    <p>La precedencia se refiere a cómo las versiones se comparan entre ellas cuando se ordenan.</p>
+
+    <ol>
+      <li>La precedencia DEBE ser calculada separando los identificadores de la versión en mayor, menor, parche y prelanzamiento (dejando de lado los metadatos de compilación).</li>
+      <li>
+        <p>La precedencia es determinada por la primera diferencia al comparar cada uno de los identificadores de izquierda a derecha como se indica: mayor, menor y parche son siempre comparadas numéricamente.</p>
+
+        <p>Por ejemplo: 1.0.0 &lt; 2.0.0 &lt; 2.1.0 &lt; 2.1.1.</p>
+      </li>
+      <li>
+        <p>Cuando la versión mayor, menor y parche son iguales, la versión de prelanzamiento tiene menor precedencia que la versión normal.</p>
+
+        <p>Por ejemplo: 1.0.0-alpha &lt; 1.0.0.</p>
+      </li>
+      <li>
+        <p>La precedencia para dos versiones de prelanzamiento con la misma versión mayor, menor y parche DEBE ser determinada comparando cada identificador separado por punto, de izquierda a derecha, hasta que una diferencia sea encontrada como se indica:</p>
+
+        <ol>
+          <li>
+            <p>identificadores compuestos solamente por números son comparados numéricamente</p>
+          </li>
+          <li>
+            <p>los identificadores con letras o guiones son comparados léxicamente en orden ASCII.</p>
+          </li>
+          <li>
+            <p>Identificadores numéricos siempre tienen menor precedencia que identificadores no numéricos.</p>
+          </li>
+          <li>
+            <p>Un conjunto de campos de prelanzamiento más numeroso tiene mayor precedencia que un conjunto menos numeroso, si todos los identificadores anteriores son iguales.</p>
+          </li>
+        </ol>
+
+        <p>Por ejemplo: 1.0.0-alpha &lt; 1.0.0-alpha.1 &lt; 1.0.0-alpha.beta &lt; 1.0.0-beta &lt; 1.0.0-beta.2 &lt; 1.0.0-beta.11 &lt; 1.0.0-rc.1 &lt; 1.0.0.</p>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="forma-gramatical-backusnaur-para-versiones-válidas-semver">Forma Gramatical Backus–Naur para Versiones Válidas SemVer</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;semver válido&gt; ::= &lt;versión núcleo&gt;
+                  | &lt;versión núcleo&gt; "-" &lt;prelanzamiento&gt;
+                  | &lt;versión núcleo&gt; "+" &lt;compilación&gt;
+                  | &lt;versión núcleo&gt; "-" &lt;prelanzamiento&gt; "+" &lt;compilación&gt;
+
+&lt;versión núcleo&gt; ::= &lt;mayor&gt; "." &lt;menor&gt; "." &lt;parche&gt;
+
+&lt;mayor&gt; ::= &lt;identificador numérico&gt;
+
+&lt;menor&gt; ::= &lt;identificador numérico&gt;
+
+&lt;parche&gt; ::= &lt;identificador numérico&gt;
+
+&lt;prelanzamiento&gt; ::= &lt;identificadores prelanzamiento separados-por-puntos&gt;
+
+&lt;identificadores prelanzamiento separados-por-puntos&gt; ::= &lt;identificador prelanzamiento&gt;
+                                                        | &lt;identificador prelanzamiento&gt; "." &lt;identificadores prelanzamiento separados-por-puntos&gt;
+
+&lt;compilación&gt; ::= &lt;identificadores compilación separados-por-puntos&gt;
+
+&lt;identificadores compilación separados-por-puntos&gt; ::= &lt;identificador compilación&gt;
+                                                     | &lt;identificador compilación&gt; "." &lt;identificadores compilación separados-por-puntos&gt;
+
+&lt;identificador prelanzamiento&gt; ::= &lt;identificador alfanumérico&gt;
+                                 | &lt;identificador numérico&gt;
+
+&lt;identificador compilación&gt; ::= &lt;identificador alfanumérico&gt;
+                              | &lt;dígitos&gt;
+
+&lt;identificador alfanumérico&gt; ::= &lt;no-dígito&gt;
+                               | &lt;no-dígito&gt; &lt;caracteres identificadores&gt;
+                               | &lt;caracteres identificadores&gt; &lt;no-dígito&gt;
+                               | &lt;caracteres identificadores&gt; &lt;no-dígito&gt; &lt;caracteres identificadores&gt;
+
+&lt;identificador numérico&gt; ::= "0"
+                           | &lt;dígito positivo&gt;
+                           | &lt;dígito positivo&gt; &lt;dígitos&gt;
+
+&lt;caracteres identificadores&gt; ::= &lt;carácter identificador&gt;
+                               | &lt;carácter identificador&gt; &lt;caracteres identificadores&gt;
+
+&lt;identificador caracter&gt; ::= &lt;dígito&gt;
+                           | &lt;no-dígito&gt;
+
+&lt;no-dígito&gt; ::= &lt;letra&gt;
+              | "-"
+
+&lt;dígitos&gt; ::= &lt;dígito&gt;
+            | &lt;dígito&gt; &lt;dígitos&gt;
+
+&lt;dígito&gt; ::= "0"
+           | &lt;dígito positivo&gt;
+
+&lt;dígito positivo&gt; ::= "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+
+&lt;letra&gt; ::= "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J"
+          | "K" | "L" | "M" | "N" | "O" | "P" | "Q" | "R" | "S" | "T"
+          | "U" | "V" | "W" | "X" | "Y" | "Z" | "a" | "b" | "c" | "d"
+          | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m" | "n"
+          | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x"
+          | "y" | "z"
+</code></pre></div></div>
+
+<h2 id="porqué-usar-versionado-semántico">Porqué usar Versionado Semántico</h2>
+
+<p>Esto no es una idea nueva o revolucionaria. De hecho, probablemente ya tengas algo parecido a ésto. El problema es que “parecido” no significa suficientemente bueno. Sin el cumplimiento de alguna especie de especificación formal, los números de versión son esencialmente inútiles para el manejo de dependencias. Dándole un nombre y una definición clara a las ideas anteriores, se hace fácil comunicar tus intenciones a los usuarios de tu software. Una vez estas intenciones son claras y flexibles (pero no tanto) las especificaciones de dependencia finalmente se pueden generar.</p>
+
+<p>Un simple ejemplo demuestra cómo el Versionado Semántico puede hacer el Infierno de Dependencias una cosa del pasado. Considera una librería llamada “Camión de bomberos”. Este requiere un paquete versionado semánticamente llamado “Escalera”. Al mismo tiempo que el “Camión de bomberos” es creado, “Escalera” está en su versión 3.1.0. Dado que “Camión de bomberos” usa una funcionalidad que fue introducida en 3.1.0, puedes especificar con seguridad la dependencia “Escalera” igual o mayor a 3.1.0 pero menor a 4.0.0. Ahora, cuando la versión “Escalera” 3.1.1 y 3.2.0 se hagan disponibles, puedes recibirlas en tu gestor de paquetes y saber que son compatibles con tu software existente.</p>
+
+<p>Como desarrollador responsable vas a querer verificar, como deberías, que cada actualización de paquetes funciona como se indica. El mundo real es un lugar desordenado; no hay nada que podamos hacer excepto estar atentos. Lo que puedes hacer es dejar que el Versionado Semántico te otorgue una sana manera de publicar y actualizar paquetes sin tener que crear nuevas versiones de paquetes dependientes, ahorrándote tiempo y molestias.</p>
+
+<p>Si todo esto suena demasiado bueno como para ocuparlo, todo lo que tienes que hacer para usar Versionado Semántico es declarar que los vas a hacer y seguir las reglas. Vincula este sitio web en tu LÉEME para que otros sepan estas reglas y puedan beneficiarse de ellas.</p>
+
+<h2 id="preguntas-frecuentes">PREGUNTAS FRECUENTES</h2>
+
+<h3 id="cómo-debería-lidiar-con-las-revisiones-en-la-fase-inicial-de-desarrollo-0yz">¿Cómo debería lidiar con las revisiones en la fase inicial de desarrollo 0.y.z?</h3>
+
+<p>La manera más simple de hacerlo es comenzar publicando tu desarrollo inicial en 0.1.0 y luego incrementar la versión menor por cada siguiente lanzamiento.</p>
+
+<h3 id="cómo-voy-a-saber-cuando-publique-la-versión-100">¿Cómo voy a saber cuando publique la versión 1.0.0?</h3>
+
+<p>Si tu software está siendo usado en producción, probablemente ya debería ser 1.0.0. Si tienes un API estable del cual los usuarios dependen, debería ser 1.0.0. Si te estás preocupando mucho por la retrocompatibilidad, probablemente ya debería ser 1.0.0.</p>
+
+<h3 id="acaso-esto-no-desalienta-el-desarrollo-rápido-y-la-iteración-rápida">¿Acaso esto no desalienta el desarrollo rápido y la iteración rápida?</h3>
+
+<p>La versión mayor en cero se trata de desarrollo rápido. Si estás cambiando el API cada día entonces aún deberías estar en la versión 0.y.z o en una rama separada de desarrollo trabajando en la siguiente versión.</p>
+
+<h3 id="si-incluso-el-más-pequeño-cambio-incompatible-con-versiones-anteriores-del-api-público-requiere-incrementar-la-versión-mayor-acaso-no-voy-a-terminar-pronto-con-una-versión-4200">Si incluso el más pequeño cambio incompatible con versiones anteriores del API público requiere incrementar la versión mayor, ¿Acaso no voy a terminar pronto con una versión 42.0.0?</h3>
+
+<p>Esto es una pregunta de desarrollo responsable y precaución. Cambios incompatibles no deberían ser introducidos a la ligera en un software que tiene mucho código del cual depender. El costo que se incurre en actualizar puede ser significativo. Tener que incrementar versiones mayores para publicar cambios incompatibles quiere decir que tendrás que pensar sobre el impacto de tus cambios, y evaluar la proporción costo/beneficio involucrado.</p>
+
+<h3 id="documentar-todo-el-api-público-es-demasiado-trabajo">¡Documentar todo el API público es demasiado trabajo!</h3>
+
+<p>Es tu responsabilidad como desarrollador profesional el documentar apropiadamente el software destinado a ser utilizados por otros. Administrar la complejidad del software es una parte muy importante para mantener un proyecto eficiente, y eso es difícil de hacer si nadie sabe cómo se usa tu software, o qué métodos son seguros de llamar. A largo plazo, el Versionado Semántico, y la insistencia de un API público bien definido puede mantener a todos y todo funcionando sin contratiempos.</p>
+
+<h3 id="qué-pasa-si-accidentalmente-publico-una-versión-incompatible-como-versión-menor">¿Qué pasa si accidentalmente publico una versión incompatible como versión menor?</h3>
+
+<p>Tan pronto como te des cuenta que has roto las especificaciones del Versionado Semántico, arregla el problema y publica una nueva versión menor que corrija el problema y restaure la retrocompatibilidad. Incluso bajo estas circunstancias, es inaceptable modificar publicaciones versionadas. Si es apropiado, documenta la versión problemática e informa a tus usuarios sobre el percance para que todos sepan de esta versión problemática.</p>
+
+<h3 id="qué-debería-hacer-si-actualizo-mis-propias-dependencias-sin-cambiar-el-api-público">¿Qué debería hacer si actualizo mis propias dependencias sin cambiar el API público?</h3>
+
+<p>Eso sería considerado compatible dado que no afecta el API público. El sofware que explícitamente dependa de las mismas dependencias que tu paquete deberían tener su propias especificaciones de dependencias y el autor se dará cuenta de cualquier conflicto. Determinar si el cambio requiere modificar la versión parche o la versión menor dependerá en si has actualizado tus dependencias para arreglar un error o introducir nueva funcionalidad. Usualmente sospecho de código adicional sobre lo último, en ese caso es obviamente un incremento a la versión menor.</p>
+
+<h3 id="qué-pasa-si-altero-el-api-público-sin-darme-cuenta-de-una-manera-que-deja-de-cumplir-con-el-número-de-la-versión-como-cuando-el-código-incorrectamente-introduce-un-cambio-importante-en-una-versión-parche">¿Qué pasa si altero el API público sin darme cuenta, de una manera que deja de cumplir con el número de la versión, como cuando el código incorrectamente introduce un cambio importante en una versión parche?</h3>
+
+<p>Usa tu mejor juicio. Si tienes una gran audiencia que será drásticamente impactada al devolver el comportamiento a lo que pretendía el API público, entonces quizás sea mejor realizar un lanzamiento de una versión mayor, incluso si una corrección pudiera ser estrictamente considerada una versión parche. Recuerda, el Versionado Semántico se trata de darle sentido a cómo un número de versión cambia. Si estos cambios son importantes para tus usuarios, usa el número de versión para informarles.</p>
+
+<h3 id="cómo-debería-manejar-funcionalidad-obsoleta">¿Cómo debería manejar funcionalidad obsoleta?</h3>
+
+<p>Desechar funcionalidad existente es algo normal en el desarrollo de software y es usualmente requerido para progresar. Cuando desechas parte de tu API público, deberías hacer dos cosas: (1) actualizar tu documentación para avisar a tus usuarios sobre el cambio, (2) lanzar una nueva versión menor mateniendo la obsolescencia en su lugar. Antes que remuevas completamente la funcionalidad en una nueva versión mayor debería haber al menos una versión menor anterior que contenga la obsolescencia para que todos los usuarios puedan planear una transición sin sobresaltos al nuevo API.</p>
+
+<h3 id="tiene-semver-una-longitud-límite-en-el-texto-de-la-versión">¿Tiene SemVer una longitud límite en el texto de la versión?</h3>
+
+<p>No, pero usa tu juicio. Por ejemplo, una versión de 255 caracteres probablemente sea exagerada. También, algunos sistemas en específico pueden imponer sus propios límites en la longitud del texto.</p>
+
+<h3 id="es-v123-una-versión-semántica">¿Es “v1.2.3” una versión semántica?</h3>
+
+<p>No, “v1.2.3” no es una versión semántica. Sin embargo, anteponer una versión semántica con un “v” es una forma muy generalizada (en inglés) de indicar que es un número de versión. Abreviar “version” como “v” es visto muy a menudo en programas de control de versiones. Por ejemplo: <code class="language-plaintext highlighter-rouge">git tag v1.2.3 -m "Release version 1.2.3"</code>, en donde “v1.2.3” es el nombre de la etiqueta y la versión semántica es “1.2.3”.</p>
+
+<h3 id="hay-alguna-expresión-regular-regex-sugerida-para-verificar-un-texto-semver">¿Hay alguna expresión regular (RegEx) sugerida para verificar un texto SemVer?</h3>
+
+<p>Hay dos. Uno incluye grupos con nombre para sistemas que los soportan (PCRE [Perl Compatible Regular Expressions, i.e. Perl, PHP and R], Python y Go)</p>
+
+<p>Mira: <a href="https://regex101.com/r/Ly7O1x/3/">https://regex101.com/r/Ly7O1x/3/</a></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>^(?P&lt;major&gt;0|[1-9]\d*)\.(?P&lt;minor&gt;0|[1-9]\d*)\.(?P&lt;patch&gt;0|[1-9]\d*)(?:-(?P&lt;prerelease&gt;(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+(?P&lt;buildmetadata&gt;[0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
+</code></pre></div></div>
+
+<p>Y el otro, en cambio, incluye grupos capturados numéricamente (así que cg1 = mayor, cg2 = menor, cg3 = parche, cg4 = prelanzamiento y cg5 = metadatos de compilación) que es compatible con ECMA Script (JavaScript), PCRE (Perl Compatible Regular Expressions, i.e. Perl, PHP and R), Python y Go.</p>
+
+<p>Mira: <a href="https://regex101.com/r/vkijKf/1/">https://regex101.com/r/vkijKf/1/</a></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
+</code></pre></div></div>
+
+<h2 id="acerca-de">Acerca de</h2>
+
+<p>La especificación de Versionado Semántico ha sido escrita por <a href="http://tom.preston-werner.com">Tom Preston-Werner</a>, inventor de Gravatar y co-fundador de GitHub.</p>
+
+<p>Si quieres dejar comentarios, porfavor <a href="https://github.com/semver/semver/issues">abre un problema (issue) en Github</a>.</p>
+
+<h2 id="traducción">Traducción</h2>
+
+<p>Esta traducción ha sido realizada por <a href="https://italobc.com">Italo Baeza Cabrera</a>. Si deseas editar esta traducción, puedes <a href="https://github.com/semver/semver.org/blob/gh-pages/lang/es/index.md">dirigirte al respectivo repositorio en Github</a></p>
+
+<h2 id="licencia">Licencia</h2>
+
+<p><a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons ― CC BY 3.0</a> ([en español])[https://creativecommons.org/licenses/by/3.0/deed.es]</p>
+
+    </div>
+    <script src="../../js/anchorli.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49925874-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-49925874-3');
+  </script>
+
+  <meta charset='utf-8'>
+  <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Git - git-status Documentation</title>
+
+  <link href='../../favicon.ico' rel='shortcut icon' type='image/x-icon'>
+
+  <link rel="stylesheet" media="screen" href="../../assets/application-42b7b91ccf5cb92469695cf08b5da9e9230594f634cb88264f305d5bd54e477f.css" />
+  <script src="../../assets/modernize-b3ebe0c31c24f230dc62179d3e1030d2e57a53b1668d9382c0a27dbd44a94beb.js"></script>
+  <!--[if (gte IE 6)&(lte IE 8)]>
+  <script src="/javascripts/selectivizr-min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body id="documentation">
+
+  <div class="inner">
+    <header>
+
+  <a href="https://git-scm.com/"><img src="../../images/logo@2x.png" width="110" height="46" alt="Git" /></a>
+  <span id="tagline"></span>
+  <script type="text/javascript">
+    var taglines = ["fast-version-control","everything-is-local","distributed-even-if-your-workflow-isnt","local-branching-on-the-cheap","distributed-is-the-new-centralized"];
+    var tagline = taglines[Math.floor(Math.random() * taglines.length)];
+    document.getElementById('tagline').innerHTML = '--' + tagline;
+  </script>
+  <form id="search" action="https://git-scm.com/search/results">
+    <input id="search-text" name="search" placeholder="Search entire site..." autocomplete="off" type="text" />
+  </form>
+  <div id="search-results"></div>
+
+</header>
+
+  </div> <!-- .inner -->
+
+    <div class="inner">
+      <div id="content-wrapper">
+        <button class="sidebar-btn"></button>
+<aside class="sidebar" id="sidebar">
+  <nav>
+    <ul>
+      <li>
+        <a href="https://git-scm.com/about">About</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/about">Branching and Merging</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/small-and-fast">Small and Fast</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/distributed">Distributed</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/info-assurance">Data Assurance</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/staging-area">Staging Area</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/free-and-open-source">Free and Open Source</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/trademark">Trademark</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a class="active" href="https://git-scm.com/doc">Documentation</a>
+        <ul class="expanded">
+          <li>
+            <a class="active" href="../git-pack/pt_BR.html">Reference</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/book">Book</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/videos">Videos</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/doc/ext">External Links</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/downloads">Downloads</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/downloads/guis">GUI Clients</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/downloads/logos">Logos</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/community">Community</a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+
+        <div id="content">
+          
+  <div id='reference-version'>
+    <a class="dropdown-trigger" id="reference-languages-trigger" data-panel-id="l10n-versions-dropdown" href="pt_BR.html#">
+  Português (Brasil) ▾</a>
+<div class='dropdown-panel right' id='l10n-versions-dropdown'>
+  <header>Localized versions of <strong>git-status</strong> manual</header>
+  <ol class='reference-previous-versions'>
+      <li>
+        <a href="en.html"><span class="version">English</span>
+        </a>
+        </li>
+      <li>
+        <a href="fr.html"><span class="version">Français</span>
+        </a>
+        </li>
+      <li>
+        <a href="pt_BR.html"><span class="version">Português (Brasil)</span>
+        </a>
+        </li>
+      <li>
+        <a href="zh_HANS-CN.html"><span class="version">简体中文</span>
+        </a>
+        </li>
+  </ol>
+  <footer>
+    Want to read in your language or fix typos?<br/> <a href="https://github.com/jnavila/git-manpages-l10n">You can help translate this page</a>.
+  </footer>
+</div>
+
+    <a class="dropdown-trigger" id="reference-topics-trigger" data-panel-id="topics-dropdown" href="pt_BR.html#">Topics ▾</a>
+<div class='dropdown-panel right' id='topics-dropdown'>
+  <div class='three-column'>
+    <div class='column-left'>
+      <h3 class='setup'>Setup and Config</h3>
+<ul class='unstyled'>
+  <li><a href="../git/pt_BR.html">git</a></li>
+  <li><a href="../git-config/pt_BR.html">config</a></li>
+  <li><a href="../git-help/pt_BR.html">help</a></li>
+  <li><a href="../git-bugreport/pt_BR.html">bugreport</a></li>
+</ul>
+
+      <h3 class='projects'>Getting and Creating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-init/pt_BR.html">init</a></li>
+  <li><a href="../git-clone/pt_BR.html">clone</a></li>
+</ul>
+
+      <h3 class='snapshotting'>Basic Snapshotting</h3>
+<ul class='unstyled'>
+  <li><a href="../git-add/pt_BR.html">add</a></li>
+  <li><a class="active" href="pt_BR.html">status</a></li>
+  <li><a href="../git-diff/pt_BR.html">diff</a></li>
+  <li><a href="../git-commit/pt_BR.html">commit</a></li>
+  <li><a href="../git-notes/pt_BR.html">notes</a></li>
+  <li><a href="../git-restore/pt_BR.html">restore</a></li>
+  <li><a href="../git-reset/pt_BR.html">reset</a></li>
+  <li><a href="../git-rm/pt_BR.html">rm</a></li>
+  <li><a href="../git-mv/pt_BR.html">mv</a></li>
+</ul>
+
+      <h3 class='branching'>Branching and Merging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-branch/pt_BR.html">branch</a></li>
+  <li><a href="../git-checkout/pt_BR.html">checkout</a></li>
+  <li><a href="../git-switch/pt_BR.html">switch</a></li>
+  <li><a href="../git-merge/pt_BR.html">merge</a></li>
+  <li><a href="../git-mergetool/pt_BR.html">mergetool</a></li>
+  <li><a href="../git-log/pt_BR.html">log</a></li>
+  <li><a href="../git-stash/pt_BR.html">stash</a></li>
+  <li><a href="../git-tag/pt_BR.html">tag</a></li>
+  <li><a href="../git-worktree/pt_BR.html">worktree</a></li>
+</ul>
+
+      <h3 class='sharing'>Sharing and Updating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-fetch/pt_BR.html">fetch</a></li>
+  <li><a href="../git-pull/pt_BR.html">pull</a></li>
+  <li><a href="../git-push/pt_BR.html">push</a></li>
+  <li><a href="../git-remote/pt_BR.html">remote</a></li>
+  <li><a href="../git-submodule/pt_BR.html">submodule</a></li>
+</ul>
+
+    </div>
+    <div class='column-middle'>
+      <h3 class='inspection'>Inspection and Comparison</h3>
+<ul class='unstyled'>
+  <li><a href="../git-show/pt_BR.html">show</a></li>
+  <li><a href="../git-log/pt_BR.html">log</a></li>
+  <li><a href="../git-diff/pt_BR.html">diff</a></li>
+  <li><a href="../git-difftool/pt_BR.html">difftool</a></li>
+  <li><a href="../git-range-diff/pt_BR.html">range-diff</a></li>
+  <li><a href="../git-shortlog/pt_BR.html">shortlog</a></li>
+  <li><a href="../git-describe/pt_BR.html">describe</a></li>
+</ul>
+
+      <h3 class='patching'>Patching</h3>
+<ul class='unstyled'>
+  <li><a href="../git-apply/pt_BR.html">apply</a></li>
+  <li><a href="../git-cherry-pick/pt_BR.html">cherry-pick</a></li>
+  <li><a href="../git-diff/pt_BR.html">diff</a></li>
+  <li><a href="../git-rebase/pt_BR.html">rebase</a></li>
+  <li><a href="../git-revert/pt_BR.html">revert</a></li>
+</ul>
+
+      <h3 class='debugging'>Debugging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-bisect/pt_BR.html">bisect</a></li>
+  <li><a href="../git-blame/pt_BR.html">blame</a></li>
+  <li><a href="../git-grep/pt_BR.html">grep</a></li>
+</ul>
+
+      <h3 class='email'>Email</h3>
+<ul class='unstyled'>
+  <li><a href="../git-am/pt_BR.html">am</a></li>
+  <li><a href="../git-apply/pt_BR.html">apply</a></li>
+  <li><a href="../git-format-patch/pt_BR.html">format-patch</a></li>
+  <li><a href="../git-send-email/pt_BR.html">send-email</a></li>
+  <li><a href="../git-request-pull/pt_BR.html">request-pull</a></li>
+</ul>
+
+      <h3 class='external'>External Systems</h3>
+<ul class='unstyled'>
+  <li><a href="../git-svn/pt_BR.html">svn</a></li>
+  <li><a href="../git-fast-import/pt_BR.html">fast-import</a></li>
+</ul>
+
+      <h3 class='server-admin'>Server Admin</h3>
+<ul class='unstyled'>
+  <li><a href="../git-daemon/pt_BR.html">daemon</a></li>
+  <li><a href="../git-update-server-info/pt_BR.html">update-server-info</a></li>
+</ul>
+
+    </div>
+    <div class='column-right'>
+      <h3 class='guides'>Guides</h3>
+<ul class='unstyled'>
+  <li><a href="../gitattributes/pt_BR.html">gitattributes</a></li>
+  <li><a href="../gitcli/pt_BR.html">Command-line interface conventions</a></li>
+  <li><a href="../giteveryday/pt_BR.html">Everyday Git</a></li>
+  <li><a href="../gitfaq/pt_BR.html">Frequently Asked Questions (FAQ)</a></li>
+  <li><a href="../gitglossary/pt_BR.html">Glossary</a></li>
+  <li><a href="../githooks/pt_BR.html">Hooks</a></li>
+  <li><a href="../gitignore/pt_BR.html">gitignore</a></li>
+  <li><a href="../gitmodules/pt_BR.html">gitmodules</a></li>
+  <li><a href="../gitrevisions/pt_BR.html">Revisions</a></li>
+  <li><a href="../gitsubmodules/pt_BR.html">Submodules</a></li>
+  <li><a href="../gittutorial/pt_BR.html">Tutorial</a></li>
+  <li><a href="../gitworkflows/pt_BR.html">Workflows</a></li>
+  <li><a href="../git/ru.html#_guides">All guides...</a></li>
+</ul>
+
+      <h3 class='admin'>Administration</h3>
+<ul class='unstyled'>
+  <li><a href="../git-clean/pt_BR.html">clean</a></li>
+  <li><a href="../git-gc/pt_BR.html">gc</a></li>
+  <li><a href="../git-fsck/pt_BR.html">fsck</a></li>
+  <li><a href="../git-reflog/pt_BR.html">reflog</a></li>
+  <li><a href="../git-filter-branch/pt_BR.html">filter-branch</a></li>
+  <li><a href="../git-instaweb/pt_BR.html">instaweb</a></li>
+  <li><a href="../git-archive/pt_BR.html">archive</a></li>
+  <li><a href="../git-bundle/pt_BR.html">bundle</a></li>
+</ul>
+
+      <h3 class='plumbing'>Plumbing Commands</h3>
+<ul class='unstyled'>
+  <li><a href="../git-cat-file/pt_BR.html">cat-file</a></li>
+  <li><a href="../git-check-ignore/pt_BR.html">check-ignore</a></li>
+  <li><a href="../git-checkout-index/pt_BR.html">checkout-index</a></li>
+  <li><a href="../git-commit-tree/pt_BR.html">commit-tree</a></li>
+  <li><a href="../git-count-objects/pt_BR.html">count-objects</a></li>
+  <li><a href="../git-diff-index/pt_BR.html">diff-index</a></li>
+  <li><a href="../git-for-each-ref/pt_BR.html">for-each-ref</a></li>
+  <li><a href="../git-hash-object/pt_BR.html">hash-object</a></li>
+  <li><a href="../git-ls-files/pt_BR.html">ls-files</a></li>
+  <li><a href="../git-ls-tree/pt_BR.html">ls-tree</a></li>
+  <li><a href="../git-merge-base/pt_BR.html">merge-base</a></li>
+  <li><a href="../git-read-tree/pt_BR.html">read-tree</a></li>
+  <li><a href="../git-rev-list/pt_BR.html">rev-list</a></li>
+  <li><a href="../git-rev-parse/pt_BR.html">rev-parse</a></li>
+  <li><a href="../git-show-ref/pt_BR.html">show-ref</a></li>
+  <li><a href="../git-symbolic-ref/pt_BR.html">symbolic-ref</a></li>
+  <li><a href="../git-update-index/pt_BR.html">update-index</a></li>
+  <li><a href="../git-update-ref/pt_BR.html">update-ref</a></li>
+  <li><a href="../git-verify-pack/pt_BR.html">verify-pack</a></li>
+  <li><a href="../git-write-tree/pt_BR.html">write-tree</a></li>
+</ul>
+
+    </div>
+  </div>
+</div>
+
+    <a class="dropdown-trigger" id="reference-versions-trigger" data-panel-id="previous-versions-dropdown" href="pt_BR.html#">
+      Latest version
+       ▾ </a>
+<span class="light d-flex">git-status last updated in 2.34.1</span>
+<div class='dropdown-panel left' id='previous-versions-dropdown'>
+  <header>Changes in the <strong>git-status</strong> manual</header>
+  <ol class='reference-previous-versions'>
+        <li class="no-change"><span>2.34.1 no changes</span></li>
+        <li>
+        <a href="2.34.0.html"><span class="version">2.34.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">11/15/21</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.31.1 &rarr; 2.33.1 no changes</span></li>
+        <li>
+        <a href="2.31.0.html"><span class="version">2.31.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">03/15/21</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.30.2 no changes</span></li>
+        <li>
+        <a href="2.30.1.html"><span class="version">2.30.1</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">02/08/21</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.24.1 &rarr; 2.30.0 no changes</span></li>
+        <li>
+        <a href="2.24.0.html"><span class="version">2.24.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">11/04/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.22.1 &rarr; 2.23.4 no changes</span></li>
+        <li>
+        <a href="2.22.0.html"><span class="version">2.22.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">06/07/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.21.1 &rarr; 2.21.4 no changes</span></li>
+        <li>
+        <a href="2.21.0.html"><span class="version">2.21.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">02/24/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.19.1 &rarr; 2.20.5 no changes</span></li>
+        <li>
+        <a href="2.19.0.html"><span class="version">2.19.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">09/10/18</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.18.1 &rarr; 2.18.5 no changes</span></li>
+        <li>
+        <a href="2.18.0.html"><span class="version">2.18.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">06/21/18</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.17.1 &rarr; 2.17.6 no changes</span></li>
+        <li>
+        <a href="2.17.0.html"><span class="version">2.17.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">04/02/18</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.16.6.html"><span class="version">2.16.6</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">12/06/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.15.4 no changes</span></li>
+        <li>
+        <a href="2.14.6.html"><span class="version">2.14.6</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">12/06/19</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.13.7.html"><span class="version">2.13.7</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">05/22/18</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.12.5 no changes</span></li>
+        <li>
+        <a href="2.11.4.html"><span class="version">2.11.4</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+          </span>
+          <em class="date">09/22/17</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.7.6 &rarr; 2.10.5 no changes</span></li>
+        <li>
+        <a href="2.6.7.html"><span class="version">2.6.7</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">05/05/17</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.5.6.html"><span class="version">2.5.6</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">05/05/17</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.4.12.html"><span class="version">2.4.12</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">05/05/17</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.3.10 no changes</span></li>
+        <li>
+        <a href="2.2.3.html"><span class="version">2.2.3</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">09/04/15</em>
+        </a>
+        </li>
+    <li>&nbsp;</li>
+    <!-- <li><a class="more" href="#">See more previous releases →</a></li> -->
+  </ol>
+  <footer>
+    <p>Check your version of git by running</p>
+    <code class="command">git --version</code>
+  </footer>
+</div>
+
+  </div>
+
+  <div id='main'>
+    <div class="sect1">
+<h2 id="_nome"><a class="anchor" href="pt_BR.html#_nome"></a>NOME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>git-status - Exibe o a condição da árvore de trabalho</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_resumo"><a class="anchor" href="pt_BR.html#_resumo"></a>RESUMO</h2>
+<div class="sectionbody">
+<div class="verseblock">
+<pre class="content"><em>git status</em> [&lt;opções&gt;&#8230;&#8203;] [--] [&lt;pathspec&gt;&#8230;&#8203;]</pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_descrição"><a class="anchor" href="pt_BR.html#_descrição"></a>DESCRIÇÃO</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Exibe os caminhos que têm diferenças entre o arquivo do índice e o commit
+atual no <code>HEAD</code>, os caminhos que têm diferenças entre a árvore de trabalho e
+o arquivo do índice, os caminhos na árvore de trabalho que não são
+rastreados pelo Git (e não foram ignorados pelo <a href='../gitignore/pt_BR.html'>gitignore[5]</a>). O
+primeiro é o que você <em>confirmaria</em> executando o comando <code>git commit</code>; o
+segundo e o terceiro são os que você pode confirmar, executando o comando
+<code>git add</code> antes de executar o comando <code>git commit</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_opções"><a class="anchor" href="pt_BR.html#_opções"></a>OPÇÕES</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-status--s"> <a class="anchor" href="pt_BR.html#git-status--s"></a>-s </dt>
+<dt class="hdlist1" id="git-status---short"> <a class="anchor" href="pt_BR.html#git-status---short"></a>--short </dt>
+<dd>
+<p>Dar a saída em um formato curto.</p>
+</dd>
+<dt class="hdlist1" id="git-status--b"> <a class="anchor" href="pt_BR.html#git-status--b"></a>-b </dt>
+<dt class="hdlist1" id="git-status---branch"> <a class="anchor" href="pt_BR.html#git-status---branch"></a>--branch </dt>
+<dd>
+<p>Exibe o ramo e a informação de rastreio quando estiver em formato curto.</p>
+</dd>
+<dt class="hdlist1" id="git-status---show-stash"> <a class="anchor" href="pt_BR.html#git-status---show-stash"></a>--show-stash </dt>
+<dd>
+<p>Exibe a quantidade de entradas ocultas atualmente.</p>
+</dd>
+<dt class="hdlist1" id="git-status---porcelainltversogt"> <a class="anchor" href="pt_BR.html#git-status---porcelainltversogt"></a>--porcelain[=&lt;versão&gt;] </dt>
+<dd>
+<p>Forneça a saída em um formato fácil de analisar para os scripts.  Isso é
+semelhante à saída curta, mas permanecerá estável nas versões do Git e
+independentemente da configuração do usuário. Veja abaixo os detalhes.</p>
+<div class="paragraph">
+<p>O parâmetro da versão é utilizado para definir a versão do formato.  Este é
+opcional e retorna para a predefinição do formato da versão original <em>v1</em>.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-status---long"> <a class="anchor" href="pt_BR.html#git-status---long"></a>--long </dt>
+<dd>
+<p>Gere um formato longo na saída. Esta é a predefinição.</p>
+</dd>
+<dt class="hdlist1" id="git-status--v"> <a class="anchor" href="pt_BR.html#git-status--v"></a>-v </dt>
+<dt class="hdlist1" id="git-status---verbose"> <a class="anchor" href="pt_BR.html#git-status---verbose"></a>--verbose </dt>
+<dd>
+<p>Além dos nomes dos arquivos que foram alterados, exiba também as alterações
+textuais que são preparadas para o commit (ou seja, como a saída do <code>git
+diff --cached</code>). Caso a opção <code>-v</code> seja utilizada duas vezes, também exiba
+as alterações na árvore de trabalho que ainda não foram preparadas (ou seja,
+como a saída do comando <code>git diff</code>).</p>
+</dd>
+<dt class="hdlist1" id="git-status--ultmodogt"> <a class="anchor" href="pt_BR.html#git-status--ultmodogt"></a>-u[&lt;modo&gt;] </dt>
+<dt class="hdlist1" id="git-status---untracked-filesltmodogt"> <a class="anchor" href="pt_BR.html#git-status---untracked-filesltmodogt"></a>--untracked-files[=&lt;modo&gt;] </dt>
+<dd>
+<p>Exibe arquivos sem rastreamento.</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>O parâmetro <code>modo</code> é utilizado para definir a manipulação dos arquivos não
+rastreados.  É opcional: a predefinição retorna para <em>all</em> e caso seja
+definido, deve estar junto a opção (como por exemplo, <code>-uno</code>, porém não <code>-u
+no</code>).</p>
+</div>
+<div class="paragraph">
+<p>As opções disponíveis são:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>no</em>     - Não exibe qualquer arquivo que não tenham sido rastreados.</p>
+</li>
+<li>
+<p><em>normal</em> - Exibe todos os arquivo e diretórios que não foram rastreados.</p>
+</li>
+<li>
+<p><em>all</em>    - Exibe todos os arquivos individualmente nos diretórios não rastreados.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Quando a opção <code>-u</code> não é utilizada, os arquivos e diretórios não rastreados
+são exibidos (ou seja, o mesmo que usar <code>normal</code>), para ajudar a evitar o
+esquecimento de adicionar os arquivos recém-criados.  Como é necessário um
+trabalho extra para encontrar os arquivos que não foram rastreados no
+sistema de arquivos, esse modo pode levar algum tempo em uma grande árvore
+de trabalho.  Considere ativar o cache não rastreado e dividir o índice, se
+suportado (consulte <code>git update-index --untracked-cache</code> e <code>git update-index
+--split-index</code>). Caso contrário, você pode usar <code>no</code> para obter o retorno do
+comando <code>git status</code> mais rapidamente sem demonstrar quais foram os arquivos
+que não foram rastreados.</p>
+</div>
+<div class="paragraph">
+<p>A predefinição pode ser alterada utilizando a variável de configuração
+<code>status.showUntrackedFiles</code> documentada em <a href='../git-config/pt_BR.html'>git-config[1]</a>.</p>
+</div>
+</div>
+</div>
+</dd>
+<dt class="hdlist1" id="git-status---ignore-submodulesltquandogt"> <a class="anchor" href="pt_BR.html#git-status---ignore-submodulesltquandogt"></a>--ignore-submodules[=&lt;quando&gt;] </dt>
+<dd>
+<p>Ignore as alterações nos submódulos ao procular pelas alterações. O
+<code>&lt;quando&gt;</code> pode ser "none" (nenhum), "untracked" (sem
+monitoramento/rastreamento), "dirty" (sujo) ou "all" (todos), que é a
+predefinição.  O "none" considera o submódulo modificado quando houver
+arquivos não estejam rastreados, modificados ou o seu <code>HEAD</code> seja diferente
+do commit registrado no superprojeto, pode ser utilizado para substituir
+qualquer configuração da opção <em>ignore</em> (ignorar) em  <a href='../git-config/pt_BR.html'>git-config[1]</a>
+ou <a href='../gitmodules/pt_BR.html'>gitmodules[5]</a>. Quando o "untracked" é utilizado, os submódulos
+não são considerados sujos quando houver apenas  um conteúdo sem
+rastreamento (porém o monitoramento de alterações do seu conteúdo continua)
+O uso de "dirty" ignora todas as alterações na árvore de trabalho dos
+submódulos, apenas as alterações nos commit que foram armazenados no
+superprojeto são exibidos (esse era o comportamento anterior a versão
+1.7.0). O uso de "all" oculta todas as alterações nos submódulos (e suprime
+a saída dos resumos dos submódulos quando a variável de configuração
+<code>status.submoduleSummary</code> estiver definida).</p>
+</dd>
+<dt class="hdlist1" id="git-status---ignoredltmodogt"> <a class="anchor" href="pt_BR.html#git-status---ignoredltmodogt"></a>--ignored[=&lt;modo&gt;] </dt>
+<dd>
+<p>Exiba os arquivos ignorados também.</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>O parâmetro de modo é utilizado para definir o manuseio dos arquivos
+ignorados.  É opcional: a sua predefinição retorna para <em>traditional</em>.</p>
+</div>
+<div class="paragraph">
+<p>As opções disponíveis são:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>traditional</em> - Exibe os arquivos e diretórios ignorados, a menos que
+--untracked-files=tudo é especificado, neste caso
+os arquivos individuais nos diretórios que foram
+ignorados são exibidos.</p>
+</li>
+<li>
+<p><em>no</em>	        - Não exibe os arquivos ignorados.</p>
+</li>
+<li>
+<p><em>matching</em>    - Exibe os arquivos e diretórios ignorados que correspondem a um
+ignora o padrão.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Quando o modo <em>matching</em> é utilizado, os caminhos que coincidam
+explicitamente a um padrão ignorado são exibidos. Caso um diretório
+coincidir com um padrão a ser ignorado, ele será exibido, mas não os
+caminhos existentes no diretório ignorado. Caso um diretório não coincida
+com um padrão a ser ignorado, mas todo o conteúdo for ignorado, o diretório
+não será exibido, mas todo o resto do conteúdo será.</p>
+</div>
+</div>
+</div>
+</dd>
+<dt class="hdlist1" id="git-status--z"> <a class="anchor" href="pt_BR.html#git-status--z"></a>-z </dt>
+<dd>
+<p>Terminar as entradas com <code>NUL</code>, em vez de <code>LF</code>.  Isto implica o formato de
+saída <code>--porcelain=v1</code> caso nenhum outro formato seja utilizado.</p>
+</dd>
+<dt class="hdlist1" id="git-status---colunaltopesgt"> <a class="anchor" href="pt_BR.html#git-status---colunaltopesgt"></a>--coluna[=&lt;opções&gt;] </dt>
+<dt class="hdlist1" id="git-status---no-column"> <a class="anchor" href="pt_BR.html#git-status---no-column"></a>--no-column </dt>
+<dd>
+<p>Exiba os arquivos que não foram rastreados em colunas. Veja a variável de
+configuração <code>column.status</code> para conhecer a sintaxe desta opção.<code>--column</code>
+e <code>--no-column</code> sem as opções são equivalentes a <em>always</em> e <em>never</em>
+respectivamente.</p>
+</dd>
+<dt class="hdlist1" id="git-status---ahead-behind"> <a class="anchor" href="pt_BR.html#git-status---ahead-behind"></a>--ahead-behind </dt>
+<dt class="hdlist1" id="git-status---no-ahead-behind"> <a class="anchor" href="pt_BR.html#git-status---no-ahead-behind"></a>--no-ahead-behind </dt>
+<dd>
+<p>Exiba ou não as contagens detalhadas antecipadas/atrasadas do ramo em
+relação a ramificação <code>upstream</code>.  A predefinição retorna para <code>true</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-status---renames"> <a class="anchor" href="pt_BR.html#git-status---renames"></a>--renames </dt>
+<dt class="hdlist1" id="git-status---no-renames"> <a class="anchor" href="pt_BR.html#git-status---no-renames"></a>--no-renames </dt>
+<dd>
+<p>Ligue/desligue a detecção de renomeação, independentemente da configuração
+do utilizador.  Consulte também<a href='../git-diff/pt_BR.html'>git-diff[1]</a> <code>--no-renames</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-status---find-renamesltngt"> <a class="anchor" href="pt_BR.html#git-status---find-renamesltngt"></a>--find-renames[=&lt;n&gt;] </dt>
+<dd>
+<p>Liga a detecção de renomeação, configurando opcionalmente o limite de
+similaridade.  Consulte também <a href='../git-diff/pt_BR.html'>git-diff[1]</a> <code>--find-renames</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-status-ltpathspecgt82308203"> <a class="anchor" href="pt_BR.html#git-status-ltpathspecgt82308203"></a>&lt;pathspec&gt;&#8230;&#8203; </dt>
+<dd>
+<p>Consulte a entrada <em>pathspec</em> em <a href='../gitglossary/pt_BR.html'>gitglossary[7]</a>.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_saída"><a class="anchor" href="pt_BR.html#_saída"></a>SAÍDA</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A saída deste comando foi projetada para ser utilizada como um comentário
+modelo do commit.  A predefinição é utilizar o formato longo, foi projetado
+para ser legível por seres humanos, detalhado e descritivo.  Seu conteúdo e
+formato estão sujeitos a alterações a qualquer momento.</p>
+</div>
+<div class="paragraph">
+<p>Os caminhos mencionados na saída, diferentemente de muitos outros comandos
+Git, são feitos em relação ao diretório atual. Caso esteja trabalhando em um
+subdiretório (isso é proposital, para ajudar a cortar e colar). Consulte a
+opção da configuração <code>status.relativePaths</code> abaixo.</p>
+</div>
+<div class="sect2">
+<h3 id="_formato_curto"><a class="anchor" href="pt_BR.html#_formato_curto"></a>Formato Curto</h3>
+<div class="paragraph">
+<p>No formato curto, a condição de cada caminho é exibido como uma das
+seguintes formas</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>XY PATH
+XY ORIG_PATH -&gt; PATH</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>onde <code>ORIG_PATH</code> é de onde veio o conteúdo renomeado/copiado. O <code>ORIG_PATH</code>
+só é exibido quando a entrada é renomeada ou copiada. O <code>XY</code> é um código de
+condição com duas letras.</p>
+</div>
+<div class="paragraph">
+<p>Os campos (incluindo o <code>-&gt;</code>) estão separados um do outro por um único
+espaço. Caso um nome do arquivo contenha um espaço ou outros caracteres não
+imprimíveis, este campo será citado na forma de uma string C literal:
+cercado por caracteres ASCII com aspas duplas (34) e com os caracteres
+especiais internos escapados por barra invertida.</p>
+</div>
+<div class="paragraph">
+<p>Para os caminhos com conflitos de mesclagem, <code>X</code> e <code>Y</code> exibem a condição das
+modificações de cada lado da mesclagem. Para os caminhos que não possuam
+conflitos de mesclagem, <code>X</code> exibe a condição do índice e <code>Y</code> exibe a
+condição da árvore de trabalho.  Para os caminhos não rastreados, <code>XY</code> é
+<code>??</code>.  Os outros códigos das condições podem ser interpretados da seguinte
+maneira:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>' ' = não modificado</p>
+</li>
+<li>
+<p><em>M</em> = modificado</p>
+</li>
+<li>
+<p><em>A</em> = adicionado</p>
+</li>
+<li>
+<p><em>D</em> = excluído</p>
+</li>
+<li>
+<p><em>R</em> = renomeado</p>
+</li>
+<li>
+<p><em>C</em> = copiado</p>
+</li>
+<li>
+<p><em>U</em> = atualizado, mas não mesclado</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Os arquivos ignorados não estão listados, a menos que a opção <code>--ignored</code>
+esteja em vigor; nesse caso, <code>XY</code> é <code>!!</code>.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>X          Y     Significado
+-------------------------------------------------
+	 [AMD]   não atualizado
+M        [ MD]   atualizado no índice
+A        [ MD]   adicionado ao índice
+D                excluído do índice
+R        [ MD]   renomeado no índice
+C        [ MD]   copiado no índice
+[MARC]           o índice e a árvore de trabalho coincidem
+[ MARC]     M    a árvore de trabalho foi alterada desde o índice
+[ MARC]     D    excluído na árvore de trabalho
+[ D]        R    renomeado na árvore de trabalho
+[ D]        C    copiado na árvore de trabalho
+-------------------------------------------------
+D           D    não mesclado, ambos excluídos
+A           U    não mesclado, adicionado por nós
+U           D    não mesclado, excluídos por eles
+U           A    não mesclado, adicionados por eles
+D           U    não mesclado, excluídos por nós
+A           A    não mesclado, ambos foram adicionados
+U           U    não mesclado, ambos foram alterados
+-------------------------------------------------
+?           ?    não rastreado
+!           !    ignorado
+-------------------------------------------------</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Os submódulos têm mais condição e, em vez disso, relatam
+		M    o submódulo possui um <code>head</code> diferente da
+		     gravada no índice
+		m    o submódulo modificou o conteúdo
+		?    o submódulo possui arquivos não rastreados
+pois conteúdo modificado ou arquivos não rastreados em um
+submódulo não podem ser adicionados via <code>git add</code> no <code>superproject</code> para preparar um commit.</p>
+</div>
+<div class="paragraph">
+<p><em>m</em> e <em>?</em> são aplicados recursivamente. Por exemplo, se um submódulo
+aninhado em um submódulo contiver um arquivo não rastreado, isso será
+relatado como <em>?</em> também.</p>
+</div>
+<div class="paragraph">
+<p>Caso <code>-b</code> seja utilizado, a condição de formato curto será precedido por uma
+linhas</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>## info de  rastreio do nome do ramo</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_formato_de_porcelana_versão_1"><a class="anchor" href="pt_BR.html#_formato_de_porcelana_versão_1"></a>Formato de Porcelana Versão 1</h3>
+<div class="paragraph">
+<p>O formato de porcelana da versão 1 é semelhante ao formato curto, no entanto
+é garantido que não seja alterado de maneira que seja incompatível com as
+versões anteriores das versões do Git ou com a base na configuração do
+usuário.  Isso o torna ideal para ser analisado por scripts.  A descrição do
+formato curto acima também descreve o formato de porcelana, com algumas
+exceções:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Caso a configuração da variável <code>color.status</code> do usuário não seja
+respeitada; a cor estará sempre desligada.</p>
+</li>
+<li>
+<p>Caso a configuração da variável <code>status.relativePaths</code> do usuário não seja
+respeitada; os caminhos exibidos sempre serão relativos à raiz do
+repositório.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Há também um formato alternativo <code>-z</code> recomendado para a análise de
+máquina. Neste formato, o campo do status é o mesmo, porém algumas outras
+coisas mudam.  Primeiro, o <em>\ &#8594;</em> é omitido das entradas de renomeação e a
+ordem dos campos é revertida (por exemplo, <em>from -&gt; to</em> se torna <em>to
+from</em>). Segundo, um <code>NUL</code> (ASCII 0) segue cada nome de arquivo substituindo
+o espaço como um separador de campos e a nova linha final (porém um espaço
+ainda separa o campo de status do primeiro nome do arquivo).  Terceiro, os
+nomes dos arquivos que contenha caracteres especiais não são especialmente
+formatados; nenhuma citação ou barra de escape invertida é executada.</p>
+</div>
+<div class="paragraph">
+<p>Quaisquer alterações no submódulo são relatadas como <code>M</code> modificado em vez
+de <code>m</code> ou um único <code>?</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_formato_de_porcelana_versão_2"><a class="anchor" href="pt_BR.html#_formato_de_porcelana_versão_2"></a>Formato de Porcelana Versão 2</h3>
+<div class="paragraph">
+<p>O formato da versão 2 adiciona informações mais detalhadas sobre a condição
+da árvore de trabalho e os itens que foram alterados.  Na versão 2 também é
+definido um conjunto extensível de cabeçalhos opcionais fáceis de serem
+analisados.</p>
+</div>
+<div class="paragraph">
+<p>As linhas do cabeçalho começam com o símbolo "#" e são adicionadas em
+resposta aos argumentos específicos da linha de comando.  Os analisadores
+devem ignorar os cabeçalhos que não sejam reconhecidos.</p>
+</div>
+<div class="sect3">
+<h4 id="_cabeçalho_dos_ramos"><a class="anchor" href="pt_BR.html#_cabeçalho_dos_ramos"></a>Cabeçalho dos Ramos</h4>
+<div class="paragraph">
+<p>Caso <code>--branch</code> seja utilizado, uma série de linhas de cabeçalho será
+impressa com as informações sobre a ramificação atual.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Line                                     Notes
+------------------------------------------------------------
+# branch.oid &lt;commit&gt; | (initial)        Commit atual.
+# branch.head &lt;ramo&gt; | (desanexado)      Ramificação atual.
+# branch.upstream &lt;upstream_branch&gt;      Caso o "upstream" esteja definido.
+# branch.ab +&lt;ahead&gt; -&lt;behind&gt;           Caso o "upstream" esteja definido e
+					 o commit esteja presente.
+------------------------------------------------------------</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_entradas_rastreadas_que_foram_alteradas"><a class="anchor" href="pt_BR.html#_entradas_rastreadas_que_foram_alteradas"></a>Entradas Rastreadas que Foram Alteradas</h4>
+<div class="paragraph">
+<p>Após os cabeçalhos, uma série de linhas é impressa para entradas que são
+rastreadas.  Um dos três formatos diferentes da linha podem ser utilizados
+para descrever uma entrada, dependendo do tipo da alteração.  As entradas
+rastreadas são impressas em uma ordem indefinida; os analisadores devem
+permitir uma mistura dos três tipos de linha e em qualquer ordem.</p>
+</div>
+<div class="paragraph">
+<p>Os itens comuns que foram alterados têm o seguinte formato:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>1 &lt;XY&gt; &lt;sub&gt; &lt;mH&gt; &lt;mI&gt; &lt;mW&gt; &lt;hH&gt; &lt;hI&gt; &lt;caminho&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As entradas que foram renomeadas ou copiadas têm o seguinte formato:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>2 &lt;XY&gt; &lt;sub&gt; &lt;mH&gt; &lt;mI&gt; &lt;mW&gt; &lt;hH&gt; &lt;hI&gt; &lt;X&gt;&lt;score&gt; &lt;caminho&gt;&lt;sep&gt;&lt;caminho original&gt;</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Campo       Significado
+--------------------------------------------------------
+&lt;XY&gt;        Um campo com 2 characteres contendo valores XY
+	    montados e não montados descrito em um formato curto,
+	    sem modificações indicadas por um "." em vez de
+	    um espaço.
+&lt;sub&gt;       Um campo com 4 caracteres descrevendo a condição do submódulo.
+	    "N..." quando a entrada não for um submódulo.
+	    "S&lt;c&gt;&lt;m&gt;&lt;u&gt;" quando a entrada for um submódulo.
+	    &lt;c&gt; is "C" caso o commit seja modificado; senão ".".
+	    &lt;m&gt; is "M" caso haja mudanças rastreadas; senão ".".
+	    &lt;u&gt; is "U" caso não haja mudanças rastreadas; senão ".".
+&lt;mH&gt;        O modo de um arquivo octal no HEAD.
+&lt;mI&gt;        O modo de um arquivo octal no índice.
+&lt;mW&gt;        O modo de um arquivo octal na árvore de trabalho.
+&lt;hH&gt;        O nome do objeto no HEAD.
+&lt;hI&gt;        O nome do objeto no índice.
+&lt;X&gt;&lt;score&gt;  O renomeamento ou a cópia do score "placar"(denota a porcentagem
+	    ou a similaridade entre a fonte e o destino da ação de
+	    mover ou copiar. Por exemplo, "R100" ou "C75".
+&lt;caminho&gt;      O `pathname` "nome do caminho".  Em um lançamento de renomeação/cópia,
+	    este é o caminho de destino.
+&lt;sep&gt;       Quando a opção `-z` for utilizada, os 2 `pathnames` são separados
+	    com um byte `NUL` (ASCII 0x00); senão um byte tab (ASCII 0x09)
+	    que os separam.
+&lt;origPath&gt;  O `pathname` dentro do commit localizado no HEAD ou no índice.
+	    Só está presente no caso de um lançamento de renomeação ou cópia
+	    assim como informa de onde a renomeação ou cópia vieram.
+--------------------------------------------------------</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As entradas que não forem mescladas têm o seguinte formato; o primeiro
+caractere é um "u" para se distinguir das entradas comum que foram
+alteradas.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>u &lt;xy&gt; &lt;sub&gt; &lt;m1&gt; &lt;m2&gt; &lt;m3&gt; &lt;mW&gt; &lt;h1&gt; &lt;h2&gt; &lt;h3&gt; &lt;caminho&gt;</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Campo       Significado
+--------------------------------------------------------
+&lt;XY&gt;        Um campo com 2 caracteres descrevendo o tipo de conflito
+	    como descrito em um formato curto.
+&lt;sub&gt;       Um campo com 4 caracteres descrevendo a condição do submódulo
+	    como descrito abaixo.
+&lt;m1&gt;        O modo de um arquivo octal no estágio 1.
+&lt;m2&gt;        O modo de um arquivo octal no estágio 2.
+&lt;m3&gt;        O modo de um arquivo octal no estágio 3.
+&lt;mW&gt;        O modo de um arquivo octal na árvore de trabalho.
+&lt;h1&gt;        O nome do objeto no estágio 1.
+&lt;h1&gt;        O nome do objeto no estágio 2.
+&lt;h1&gt;        O nome do objeto no estágio 3.
+&lt;caminho&gt;      O `pathname` "nome do caminho".
+--------------------------------------------------------</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_outros_itens"><a class="anchor" href="pt_BR.html#_outros_itens"></a>Outros itens</h4>
+<div class="paragraph">
+<p>Após as entradas rastreadas (se for solicitado), uma série de linhas será
+impressa para os itens não rastreados e depois ignorados para os itens
+encontrados na árvore de trabalho.</p>
+</div>
+<div class="paragraph">
+<p>Itens não rastreados têm o seguinte formato:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>? &lt;caminho&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Os itens ignorados tem o seguinte formato:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>! &lt;caminho&gt;</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_notas_sobre_o_formato_do_pathname_e_z"><a class="anchor" href="pt_BR.html#_notas_sobre_o_formato_do_pathname_e_z"></a>Notas sobre o formato do <code>pathname</code> e <code>-z</code></h4>
+<div class="paragraph">
+<p>Quando a opção <code>z</code> é utilizada os <code>pathnames</code> são exibidos como estão e sem
+nenhuma citação e as linhas são terminadas com um byte NUL (ASCII 0x00).</p>
+</div>
+<div class="paragraph">
+<p>Sem a opção <code>z</code>, os <code>pathnames</code> com os caracteres "incomuns" são citados
+conforme explicado na variável de configuração <code>core.quotePath</code> (consulte
+<a href='../git-config/pt_BR.html'>git-config[1]</a>).</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuração"><a class="anchor" href="pt_BR.html#_configuração"></a>CONFIGURAÇÃO</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>O comando segue a variável <code>color.status</code> (ou <code>status.color</code>, ambos têm o
+mesmo significado, o último é mantido para compatibilidade com versões
+anteriores). As variáveis de configuração <code>color.status.</code> serve para para
+colorir a saída.</p>
+</div>
+<div class="paragraph">
+<p>Se a variável de configuração <code>status.relativePaths</code> estiver configurada
+como <code>false</code>, todos os caminhos exibidos serão relativos à raiz do
+repositório e não ao diretório atual.</p>
+</div>
+<div class="paragraph">
+<p>Se a variável <code>status.submoduleSummary</code> for definida como um número
+diferente de zero ou <code>true</code> (idêntico a <code>-1</code> ou um número ilimitado), o
+resumo do submódulo será ativado para o formato longo e um resumo dos
+commits para os submódulos modificados serão exibidos (consulte a opção
+--summary-limit de <a href='../git-submodule/pt_BR.html'>git-submodule[1]</a>). Por favor note que a saída
+resumida do comando status será suprimida para todos os submódulos quando a
+variável <code>diff.ignoreSubmodules</code> estiver definida como <code>all</code> ou apenas para
+aqueles submódulos em onde seja o mesmo que
+<code>submodule.&lt;nome&gt;.ignore=all</code>. Para visualizar também o resumo dos
+submódulos ignorados, você pode usar a opção de clinha de comando
+<code>--ignore-submodules=dirty ` ou o comando `git submodule summary</code>, que exibe
+uma saída semelhante porém não respeita estas configurações.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_renovação_do_plano_de_fundo"><a class="anchor" href="pt_BR.html#_renovação_do_plano_de_fundo"></a>RENOVAÇÃO DO PLANO DE FUNDO</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>É predefinido que o comando <code>git status</code> renove automaticamente o índice, as
+estatísticas das informações armazenadas no cache da árvore de trabalho e
+gravando o seu resultado. Escrever o índice atualizado é uma otimização que
+não é estritamente necessária (o <code>status</code> calcula os valores por si só, mas
+escrevê-los é apenas para evitar que os programas subsequentes repitam o
+nosso processamento). Quando o <code>status</code> é executado em segundo plano, o
+bloqueio retido durante a gravação pode entrar em conflito com os outros
+processos simultâneos, causando falhas. Os scripts que executam <code>status</code> em
+segundo plano devem considerar a utilização do comando <code>git
+--no-optional-locks status</code> (para mais detalhes consulte <a href='../git/pt_BR.html'>git[1]</a>).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_veja_também"><a class="anchor" href="pt_BR.html#_veja_também"></a>VEJA TAMBÉM</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href='../gitignore/pt_BR.html'>gitignore[5]</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git"><a class="anchor" href="pt_BR.html#_git"></a>GIT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Parte do conjunto <a href='../git/pt_BR.html'>git[1]</a></p>
+</div>
+</div>
+</div>
+  </div>
+
+        </div>
+      </div>
+      <footer>
+  <div class="site-source">
+    <a href="https://git-scm.com/site">About this site</a><br>
+    Patches, suggestions, and comments are welcome.
+  </div>
+  <div class="sfc-member">
+    Git is a member of <a href="https://git-scm.com/sfc">Software Freedom Conservancy</a>
+  </div>
+</footer>
+<a href="pt_BR.html#top" class="no-js scrollToTop" id="scrollToTop" data-label="Scroll to top">
+  <img src="../../images/icons/chevron-up@2x.png" width="20" height="20" alt="scroll-to-top"/>
+</a>
+<script src="../../assets/application-e12a0e837db60213b777cd7a706e0741beed474d7e5b94a641979fc87ce0d2cc.js"></script>
+
+    </div>
+
+</body>
+</html>

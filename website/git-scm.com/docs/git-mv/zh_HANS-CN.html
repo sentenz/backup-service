@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49925874-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-49925874-3');
+  </script>
+
+  <meta charset='utf-8'>
+  <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Git - git-mv Documentation</title>
+
+  <link href='../../favicon.ico' rel='shortcut icon' type='image/x-icon'>
+
+  <link rel="stylesheet" media="screen" href="../../assets/application-42b7b91ccf5cb92469695cf08b5da9e9230594f634cb88264f305d5bd54e477f.css" />
+  <script src="../../assets/modernize-b3ebe0c31c24f230dc62179d3e1030d2e57a53b1668d9382c0a27dbd44a94beb.js"></script>
+  <!--[if (gte IE 6)&(lte IE 8)]>
+  <script src="/javascripts/selectivizr-min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body id="documentation">
+
+  <div class="inner">
+    <header>
+
+  <a href="https://git-scm.com/"><img src="../../images/logo@2x.png" width="110" height="46" alt="Git" /></a>
+  <span id="tagline"></span>
+  <script type="text/javascript">
+    var taglines = ["fast-version-control","everything-is-local","distributed-even-if-your-workflow-isnt","local-branching-on-the-cheap","distributed-is-the-new-centralized"];
+    var tagline = taglines[Math.floor(Math.random() * taglines.length)];
+    document.getElementById('tagline').innerHTML = '--' + tagline;
+  </script>
+  <form id="search" action="https://git-scm.com/search/results">
+    <input id="search-text" name="search" placeholder="Search entire site..." autocomplete="off" type="text" />
+  </form>
+  <div id="search-results"></div>
+
+</header>
+
+  </div> <!-- .inner -->
+
+    <div class="inner">
+      <div id="content-wrapper">
+        <button class="sidebar-btn"></button>
+<aside class="sidebar" id="sidebar">
+  <nav>
+    <ul>
+      <li>
+        <a href="https://git-scm.com/about">About</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/about">Branching and Merging</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/small-and-fast">Small and Fast</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/distributed">Distributed</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/info-assurance">Data Assurance</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/staging-area">Staging Area</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/free-and-open-source">Free and Open Source</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/trademark">Trademark</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a class="active" href="https://git-scm.com/doc">Documentation</a>
+        <ul class="expanded">
+          <li>
+            <a class="active" href="../git-pack/pt_BR.html">Reference</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/book">Book</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/videos">Videos</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/doc/ext">External Links</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/downloads">Downloads</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/downloads/guis">GUI Clients</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/downloads/logos">Logos</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/community">Community</a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+
+        <div id="content">
+          
+  <div id='reference-version'>
+    <a class="dropdown-trigger" id="reference-languages-trigger" data-panel-id="l10n-versions-dropdown" href="zh_HANS-CN.html#">
+  简体中文 ▾</a>
+<div class='dropdown-panel right' id='l10n-versions-dropdown'>
+  <header>Localized versions of <strong>git-mv</strong> manual</header>
+  <ol class='reference-previous-versions'>
+      <li>
+        <a href="de.html"><span class="version">Deutsch</span>
+        </a>
+        </li>
+      <li>
+        <a href="en.html"><span class="version">English</span>
+        </a>
+        </li>
+      <li>
+        <a href="fr.html"><span class="version">Français</span>
+        </a>
+        </li>
+      <li>
+        <a href="pt_BR.html"><span class="version">Português (Brasil)</span>
+        </a>
+        </li>
+      <li>
+        <a href="zh_HANS-CN.html"><span class="version">简体中文</span>
+        </a>
+        </li>
+  </ol>
+  <footer>
+    Want to read in your language or fix typos?<br/> <a href="https://github.com/jnavila/git-manpages-l10n">You can help translate this page</a>.
+  </footer>
+</div>
+
+    <a class="dropdown-trigger" id="reference-topics-trigger" data-panel-id="topics-dropdown" href="zh_HANS-CN.html#">Topics ▾</a>
+<div class='dropdown-panel right' id='topics-dropdown'>
+  <div class='three-column'>
+    <div class='column-left'>
+      <h3 class='setup'>Setup and Config</h3>
+<ul class='unstyled'>
+  <li><a href="../git/zh_HANS-CN.html">git</a></li>
+  <li><a href="../git-config/zh_HANS-CN.html">config</a></li>
+  <li><a href="../git-help/zh_HANS-CN.html">help</a></li>
+  <li><a href="../git-bugreport/zh_HANS-CN.html">bugreport</a></li>
+</ul>
+
+      <h3 class='projects'>Getting and Creating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-init/zh_HANS-CN.html">init</a></li>
+  <li><a href="../git-clone/zh_HANS-CN.html">clone</a></li>
+</ul>
+
+      <h3 class='snapshotting'>Basic Snapshotting</h3>
+<ul class='unstyled'>
+  <li><a href="../git-add/zh_HANS-CN.html">add</a></li>
+  <li><a href="../git-status/zh_HANS-CN.html">status</a></li>
+  <li><a href="../git-diff/zh_HANS-CN.html">diff</a></li>
+  <li><a href="../git-commit/zh_HANS-CN.html">commit</a></li>
+  <li><a href="../git-notes/zh_HANS-CN.html">notes</a></li>
+  <li><a href="../git-restore/zh_HANS-CN.html">restore</a></li>
+  <li><a href="../git-reset/zh_HANS-CN.html">reset</a></li>
+  <li><a href="../git-rm/zh_HANS-CN.html">rm</a></li>
+  <li><a class="active" href="zh_HANS-CN.html">mv</a></li>
+</ul>
+
+      <h3 class='branching'>Branching and Merging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-branch/zh_HANS-CN.html">branch</a></li>
+  <li><a href="../git-checkout/zh_HANS-CN.html">checkout</a></li>
+  <li><a href="../git-switch/zh_HANS-CN.html">switch</a></li>
+  <li><a href="../git-merge/zh_HANS-CN.html">merge</a></li>
+  <li><a href="../git-mergetool/zh_HANS-CN.html">mergetool</a></li>
+  <li><a href="../git-log/zh_HANS-CN.html">log</a></li>
+  <li><a href="../git-stash/zh_HANS-CN.html">stash</a></li>
+  <li><a href="../git-tag/zh_HANS-CN.html">tag</a></li>
+  <li><a href="../git-worktree/zh_HANS-CN.html">worktree</a></li>
+</ul>
+
+      <h3 class='sharing'>Sharing and Updating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-fetch/zh_HANS-CN.html">fetch</a></li>
+  <li><a href="../git-pull/zh_HANS-CN.html">pull</a></li>
+  <li><a href="../git-push/zh_HANS-CN.html">push</a></li>
+  <li><a href="../git-remote/zh_HANS-CN.html">remote</a></li>
+  <li><a href="../git-submodule/zh_HANS-CN.html">submodule</a></li>
+</ul>
+
+    </div>
+    <div class='column-middle'>
+      <h3 class='inspection'>Inspection and Comparison</h3>
+<ul class='unstyled'>
+  <li><a href="../git-show/zh_HANS-CN.html">show</a></li>
+  <li><a href="../git-log/zh_HANS-CN.html">log</a></li>
+  <li><a href="../git-diff/zh_HANS-CN.html">diff</a></li>
+  <li><a href="../git-difftool/zh_HANS-CN.html">difftool</a></li>
+  <li><a href="../git-range-diff/zh_HANS-CN.html">range-diff</a></li>
+  <li><a href="../git-shortlog/zh_HANS-CN.html">shortlog</a></li>
+  <li><a href="../git-describe/zh_HANS-CN.html">describe</a></li>
+</ul>
+
+      <h3 class='patching'>Patching</h3>
+<ul class='unstyled'>
+  <li><a href="../git-apply/zh_HANS-CN.html">apply</a></li>
+  <li><a href="../git-cherry-pick/zh_HANS-CN.html">cherry-pick</a></li>
+  <li><a href="../git-diff/zh_HANS-CN.html">diff</a></li>
+  <li><a href="../git-rebase/zh_HANS-CN.html">rebase</a></li>
+  <li><a href="../git-revert/zh_HANS-CN.html">revert</a></li>
+</ul>
+
+      <h3 class='debugging'>Debugging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-bisect/zh_HANS-CN.html">bisect</a></li>
+  <li><a href="../git-blame/zh_HANS-CN.html">blame</a></li>
+  <li><a href="../git-grep/zh_HANS-CN.html">grep</a></li>
+</ul>
+
+      <h3 class='email'>Email</h3>
+<ul class='unstyled'>
+  <li><a href="../git-am/zh_HANS-CN.html">am</a></li>
+  <li><a href="../git-apply/zh_HANS-CN.html">apply</a></li>
+  <li><a href="../git-format-patch/zh_HANS-CN.html">format-patch</a></li>
+  <li><a href="../git-send-email/zh_HANS-CN.html">send-email</a></li>
+  <li><a href="../git-request-pull/zh_HANS-CN.html">request-pull</a></li>
+</ul>
+
+      <h3 class='external'>External Systems</h3>
+<ul class='unstyled'>
+  <li><a href="../git-svn/zh_HANS-CN.html">svn</a></li>
+  <li><a href="../git-fast-import/zh_HANS-CN.html">fast-import</a></li>
+</ul>
+
+      <h3 class='server-admin'>Server Admin</h3>
+<ul class='unstyled'>
+  <li><a href="../git-daemon/zh_HANS-CN.html">daemon</a></li>
+  <li><a href="../git-update-server-info/zh_HANS-CN.html">update-server-info</a></li>
+</ul>
+
+    </div>
+    <div class='column-right'>
+      <h3 class='guides'>Guides</h3>
+<ul class='unstyled'>
+  <li><a href="../gitattributes/zh_HANS-CN.html">gitattributes</a></li>
+  <li><a href="../gitcli/zh_HANS-CN.html">Command-line interface conventions</a></li>
+  <li><a href="../giteveryday/zh_HANS-CN.html">Everyday Git</a></li>
+  <li><a href="../gitfaq/zh_HANS-CN.html">Frequently Asked Questions (FAQ)</a></li>
+  <li><a href="../gitglossary/zh_HANS-CN.html">Glossary</a></li>
+  <li><a href="../githooks/zh_HANS-CN.html">Hooks</a></li>
+  <li><a href="../gitignore/zh_HANS-CN.html">gitignore</a></li>
+  <li><a href="../gitmodules/zh_HANS-CN.html">gitmodules</a></li>
+  <li><a href="../gitrevisions/zh_HANS-CN.html">Revisions</a></li>
+  <li><a href="../gitsubmodules/zh_HANS-CN.html">Submodules</a></li>
+  <li><a href="../gittutorial/zh_HANS-CN.html">Tutorial</a></li>
+  <li><a href="../gitworkflows/zh_HANS-CN.html">Workflows</a></li>
+  <li><a href="../git/ru.html#_guides">All guides...</a></li>
+</ul>
+
+      <h3 class='admin'>Administration</h3>
+<ul class='unstyled'>
+  <li><a href="../git-clean/zh_HANS-CN.html">clean</a></li>
+  <li><a href="../git-gc/zh_HANS-CN.html">gc</a></li>
+  <li><a href="../git-fsck/zh_HANS-CN.html">fsck</a></li>
+  <li><a href="../git-reflog/zh_HANS-CN.html">reflog</a></li>
+  <li><a href="../git-filter-branch/zh_HANS-CN.html">filter-branch</a></li>
+  <li><a href="../git-instaweb/zh_HANS-CN.html">instaweb</a></li>
+  <li><a href="../git-archive/zh_HANS-CN.html">archive</a></li>
+  <li><a href="../git-bundle/zh_HANS-CN.html">bundle</a></li>
+</ul>
+
+      <h3 class='plumbing'>Plumbing Commands</h3>
+<ul class='unstyled'>
+  <li><a href="../git-cat-file/zh_HANS-CN.html">cat-file</a></li>
+  <li><a href="../git-check-ignore/zh_HANS-CN.html">check-ignore</a></li>
+  <li><a href="../git-checkout-index/zh_HANS-CN.html">checkout-index</a></li>
+  <li><a href="../git-commit-tree/zh_HANS-CN.html">commit-tree</a></li>
+  <li><a href="../git-count-objects/zh_HANS-CN.html">count-objects</a></li>
+  <li><a href="../git-diff-index/zh_HANS-CN.html">diff-index</a></li>
+  <li><a href="../git-for-each-ref/zh_HANS-CN.html">for-each-ref</a></li>
+  <li><a href="../git-hash-object/zh_HANS-CN.html">hash-object</a></li>
+  <li><a href="../git-ls-files/zh_HANS-CN.html">ls-files</a></li>
+  <li><a href="../git-ls-tree/zh_HANS-CN.html">ls-tree</a></li>
+  <li><a href="../git-merge-base/zh_HANS-CN.html">merge-base</a></li>
+  <li><a href="../git-read-tree/zh_HANS-CN.html">read-tree</a></li>
+  <li><a href="../git-rev-list/zh_HANS-CN.html">rev-list</a></li>
+  <li><a href="../git-rev-parse/zh_HANS-CN.html">rev-parse</a></li>
+  <li><a href="../git-show-ref/zh_HANS-CN.html">show-ref</a></li>
+  <li><a href="../git-symbolic-ref/zh_HANS-CN.html">symbolic-ref</a></li>
+  <li><a href="../git-update-index/zh_HANS-CN.html">update-index</a></li>
+  <li><a href="../git-update-ref/zh_HANS-CN.html">update-ref</a></li>
+  <li><a href="../git-verify-pack/zh_HANS-CN.html">verify-pack</a></li>
+  <li><a href="../git-write-tree/zh_HANS-CN.html">write-tree</a></li>
+</ul>
+
+    </div>
+  </div>
+</div>
+
+    <a class="dropdown-trigger" id="reference-versions-trigger" data-panel-id="previous-versions-dropdown" href="zh_HANS-CN.html#">
+      Latest version
+       ▾ </a>
+<span class="light d-flex">git-mv last updated in 2.34.1</span>
+<div class='dropdown-panel left' id='previous-versions-dropdown'>
+  <header>Changes in the <strong>git-mv</strong> manual</header>
+  <ol class='reference-previous-versions'>
+        <li class="no-change"><span>2.10.5 &rarr; 2.34.1 no changes</span></li>
+        <li>
+        <a href="2.9.5.html"><span class="version">2.9.5</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">07/30/17</em>
+        </a>
+        </li>
+    <li>&nbsp;</li>
+    <!-- <li><a class="more" href="#">See more previous releases →</a></li> -->
+  </ol>
+  <footer>
+    <p>Check your version of git by running</p>
+    <code class="command">git --version</code>
+  </footer>
+</div>
+
+  </div>
+
+  <div id='main'>
+    <div class="sect1">
+<h2 id="_名称"><a class="anchor" href="zh_HANS-CN.html#_名称"></a>名称</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>git-mv - 移动或重命名一个文件、一个目录或一个符号链接</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_概述"><a class="anchor" href="zh_HANS-CN.html#_概述"></a>概述</h2>
+<div class="sectionbody">
+<div class="verseblock">
+<pre class="content"><em>git mv</em> &lt;options&gt;&#8230;&#8203;&lt;args&gt;&#8230;&#8203;</pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_描述"><a class="anchor" href="zh_HANS-CN.html#_描述"></a>描述</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>移动或重命名一个文件、目录或符号链接。</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>git mv [-v] [-f] [-n] [-k] &lt;来源&gt; &lt;目的地&gt;。
+git mv [-v] [-f] [-n] [-k] &lt;source&gt; ...&lt;目的地&gt;目录</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>在第一种形式中，它将&lt;source&gt;重命名为&lt;destination&gt;，它必须存在并且是一个文件、符号链接或目录。 在第二种形式中，最后一个参数必须是一个现有的目录；给定的源将被移到这个目录中。</p>
+</div>
+<div class="paragraph">
+<p>索引在成功完成后被更新，但变化仍必须被提交。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_选项"><a class="anchor" href="zh_HANS-CN.html#_选项"></a>选项</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-mv--f"> <a class="anchor" href="zh_HANS-CN.html#git-mv--f"></a>-f </dt>
+<dt class="hdlist1" id="git-mv---force"> <a class="anchor" href="zh_HANS-CN.html#git-mv---force"></a>--force </dt>
+<dd>
+<p>强制重命名或移动一个文件，即使目标存在。</p>
+</dd>
+<dt class="hdlist1" id="git-mv--k"> <a class="anchor" href="zh_HANS-CN.html#git-mv--k"></a>-k </dt>
+<dd>
+<p>跳过会导致错误情况的移动或重命名操作。当一个源文件既不存在也不被Git控制，或者它将覆盖一个现有的文件时，就会发生错误，除非给出`-f`。</p>
+</dd>
+<dt class="hdlist1" id="git-mv--n"> <a class="anchor" href="zh_HANS-CN.html#git-mv--n"></a>-n </dt>
+<dt class="hdlist1" id="git-mv---dry-run"> <a class="anchor" href="zh_HANS-CN.html#git-mv---dry-run"></a>--dry-run </dt>
+<dd>
+<p>什么都不做；只显示会发生什么</p>
+</dd>
+<dt class="hdlist1" id="git-mv--v"> <a class="anchor" href="zh_HANS-CN.html#git-mv--v"></a>-v </dt>
+<dt class="hdlist1" id="git-mv---verbose"> <a class="anchor" href="zh_HANS-CN.html#git-mv---verbose"></a>--verbose </dt>
+<dd>
+<p>当文件被移动时，报告它们的名称。</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_子模块"><a class="anchor" href="zh_HANS-CN.html#_子模块"></a>子模块</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>使用 gitfile 移动一个子模块（这意味着它们是用 1.7.8 或更新的 Git 版本克隆的）将更新 gitfile 和 core.worktree 设置以使子模块在新的位置工作。 它也会尝试更新<a href='../gitmodules/zh_HANS-CN.html'>gitmodules[5]</a>文件中的submodule.&lt;name&gt;.path设置，并将该文件放入舞台（除非使用-n）。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bugs"><a class="anchor" href="zh_HANS-CN.html#_bugs"></a>BUGS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>每次超级项目更新移动一个已填充的子模块（例如，当在移动前后的提交之间切换时），一个陈旧的子模块检出将保留在旧的位置，一个空目录将出现在新的位置。要在新的位置再次填充子模块，用户将不得不在之后运行 "git submodule update"。移除舊目錄只有在使用 gitfile 時才是安全的，否則子模塊的歷史也會被刪除。当递归子模块更新被实施后，这两个步骤将被淘汰。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git"><a class="anchor" href="zh_HANS-CN.html#_git"></a>GIT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Part of the <a href='../git/zh_HANS-CN.html'>git[1]</a> suite</p>
+</div>
+</div>
+</div>
+  </div>
+
+        </div>
+      </div>
+      <footer>
+  <div class="site-source">
+    <a href="https://git-scm.com/site">About this site</a><br>
+    Patches, suggestions, and comments are welcome.
+  </div>
+  <div class="sfc-member">
+    Git is a member of <a href="https://git-scm.com/sfc">Software Freedom Conservancy</a>
+  </div>
+</footer>
+<a href="zh_HANS-CN.html#top" class="no-js scrollToTop" id="scrollToTop" data-label="Scroll to top">
+  <img src="../../images/icons/chevron-up@2x.png" width="20" height="20" alt="scroll-to-top"/>
+</a>
+<script src="../../assets/application-e12a0e837db60213b777cd7a706e0741beed474d7e5b94a641979fc87ce0d2cc.js"></script>
+
+    </div>
+
+</body>
+</html>

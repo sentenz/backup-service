@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49925874-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-49925874-3');
+  </script>
+
+  <meta charset='utf-8'>
+  <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Git - git-show-branch Documentation</title>
+
+  <link href='../../favicon.ico' rel='shortcut icon' type='image/x-icon'>
+
+  <link rel="stylesheet" media="screen" href="../../assets/application-42b7b91ccf5cb92469695cf08b5da9e9230594f634cb88264f305d5bd54e477f.css" />
+  <script src="../../assets/modernize-b3ebe0c31c24f230dc62179d3e1030d2e57a53b1668d9382c0a27dbd44a94beb.js"></script>
+  <!--[if (gte IE 6)&(lte IE 8)]>
+  <script src="/javascripts/selectivizr-min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body id="documentation">
+
+  <div class="inner">
+    <header>
+
+  <a href="https://git-scm.com/"><img src="../../images/logo@2x.png" width="110" height="46" alt="Git" /></a>
+  <span id="tagline"></span>
+  <script type="text/javascript">
+    var taglines = ["fast-version-control","everything-is-local","distributed-even-if-your-workflow-isnt","local-branching-on-the-cheap","distributed-is-the-new-centralized"];
+    var tagline = taglines[Math.floor(Math.random() * taglines.length)];
+    document.getElementById('tagline').innerHTML = '--' + tagline;
+  </script>
+  <form id="search" action="https://git-scm.com/search/results">
+    <input id="search-text" name="search" placeholder="Search entire site..." autocomplete="off" type="text" />
+  </form>
+  <div id="search-results"></div>
+
+</header>
+
+  </div> <!-- .inner -->
+
+    <div class="inner">
+      <div id="content-wrapper">
+        <button class="sidebar-btn"></button>
+<aside class="sidebar" id="sidebar">
+  <nav>
+    <ul>
+      <li>
+        <a href="https://git-scm.com/about">About</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/about">Branching and Merging</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/small-and-fast">Small and Fast</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/distributed">Distributed</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/info-assurance">Data Assurance</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/staging-area">Staging Area</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/free-and-open-source">Free and Open Source</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/trademark">Trademark</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a class="active" href="https://git-scm.com/doc">Documentation</a>
+        <ul class="expanded">
+          <li>
+            <a class="active" href="../git-pack/pt_BR.html">Reference</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/book">Book</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/videos">Videos</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/doc/ext">External Links</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/downloads">Downloads</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/downloads/guis">GUI Clients</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/downloads/logos">Logos</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/community">Community</a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+
+        <div id="content">
+          
+  <div id='reference-version'>
+    <a class="dropdown-trigger" id="reference-languages-trigger" data-panel-id="l10n-versions-dropdown" href="2.9.5.html#">
+  English ▾</a>
+<div class='dropdown-panel right' id='l10n-versions-dropdown'>
+  <header>Localized versions of <strong>git-show-branch</strong> manual</header>
+  <ol class='reference-previous-versions'>
+      <li>
+        <a href="en.html"><span class="version">English</span>
+        </a>
+        </li>
+      <li>
+        <a href="pt_BR.html"><span class="version">Português (Brasil)</span>
+        </a>
+        </li>
+  </ol>
+  <footer>
+    Want to read in your language or fix typos?<br/> <a href="https://github.com/jnavila/git-manpages-l10n">You can help translate this page</a>.
+  </footer>
+</div>
+
+    <a class="dropdown-trigger" id="reference-topics-trigger" data-panel-id="topics-dropdown" href="2.9.5.html#">Topics ▾</a>
+<div class='dropdown-panel right' id='topics-dropdown'>
+  <div class='three-column'>
+    <div class='column-left'>
+      <h3 class='setup'>Setup and Config</h3>
+<ul class='unstyled'>
+  <li><a href="../git/ru.html">git</a></li>
+  <li><a href="../git-config/ru.html">config</a></li>
+  <li><a href="../git-help/ru.html">help</a></li>
+  <li><a href="../git-bugreport/ru.html">bugreport</a></li>
+</ul>
+
+      <h3 class='projects'>Getting and Creating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-init/ru.html">init</a></li>
+  <li><a href="../git-clone/ru.html">clone</a></li>
+</ul>
+
+      <h3 class='snapshotting'>Basic Snapshotting</h3>
+<ul class='unstyled'>
+  <li><a href="../git-add/ru.html">add</a></li>
+  <li><a href="../git-status/ru.html">status</a></li>
+  <li><a href="../git-diff/ru.html">diff</a></li>
+  <li><a href="../git-commit/ru.html">commit</a></li>
+  <li><a href="../git-notes/ru.html">notes</a></li>
+  <li><a href="../git-restore/ru.html">restore</a></li>
+  <li><a href="../git-reset/ru.html">reset</a></li>
+  <li><a href="../git-rm/ru.html">rm</a></li>
+  <li><a href="../git-mv/ru.html">mv</a></li>
+</ul>
+
+      <h3 class='branching'>Branching and Merging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-branch/ru.html">branch</a></li>
+  <li><a href="../git-checkout/ru.html">checkout</a></li>
+  <li><a href="../git-switch/ru.html">switch</a></li>
+  <li><a href="../git-merge/ru.html">merge</a></li>
+  <li><a href="../git-mergetool/ru.html">mergetool</a></li>
+  <li><a href="../git-log/ru.html">log</a></li>
+  <li><a href="../git-stash/ru.html">stash</a></li>
+  <li><a href="../git-tag/ru.html">tag</a></li>
+  <li><a href="../git-worktree/ru.html">worktree</a></li>
+</ul>
+
+      <h3 class='sharing'>Sharing and Updating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-fetch/ru.html">fetch</a></li>
+  <li><a href="../git-pull/ru.html">pull</a></li>
+  <li><a href="../git-push/ru.html">push</a></li>
+  <li><a href="../git-remote/ru.html">remote</a></li>
+  <li><a href="../git-submodule/ru.html">submodule</a></li>
+</ul>
+
+    </div>
+    <div class='column-middle'>
+      <h3 class='inspection'>Inspection and Comparison</h3>
+<ul class='unstyled'>
+  <li><a href="../git-show/ru.html">show</a></li>
+  <li><a href="../git-log/ru.html">log</a></li>
+  <li><a href="../git-diff/ru.html">diff</a></li>
+  <li><a href="../git-difftool/ru.html">difftool</a></li>
+  <li><a href="../git-range-diff/ru.html">range-diff</a></li>
+  <li><a href="../git-shortlog/ru.html">shortlog</a></li>
+  <li><a href="../git-describe/ru.html">describe</a></li>
+</ul>
+
+      <h3 class='patching'>Patching</h3>
+<ul class='unstyled'>
+  <li><a href="../git-apply/ru.html">apply</a></li>
+  <li><a href="../git-cherry-pick/ru.html">cherry-pick</a></li>
+  <li><a href="../git-diff/ru.html">diff</a></li>
+  <li><a href="../git-rebase/ru.html">rebase</a></li>
+  <li><a href="../git-revert/ru.html">revert</a></li>
+</ul>
+
+      <h3 class='debugging'>Debugging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-bisect/ru.html">bisect</a></li>
+  <li><a href="../git-blame/ru.html">blame</a></li>
+  <li><a href="../git-grep/ru.html">grep</a></li>
+</ul>
+
+      <h3 class='email'>Email</h3>
+<ul class='unstyled'>
+  <li><a href="../git-am/ru.html">am</a></li>
+  <li><a href="../git-apply/ru.html">apply</a></li>
+  <li><a href="../git-format-patch/ru.html">format-patch</a></li>
+  <li><a href="../git-send-email/ru.html">send-email</a></li>
+  <li><a href="../git-request-pull/ru.html">request-pull</a></li>
+</ul>
+
+      <h3 class='external'>External Systems</h3>
+<ul class='unstyled'>
+  <li><a href="../git-svn/ru.html">svn</a></li>
+  <li><a href="../git-fast-import/ru.html">fast-import</a></li>
+</ul>
+
+      <h3 class='server-admin'>Server Admin</h3>
+<ul class='unstyled'>
+  <li><a href="../git-daemon/ru.html">daemon</a></li>
+  <li><a href="../git-update-server-info/ru.html">update-server-info</a></li>
+</ul>
+
+    </div>
+    <div class='column-right'>
+      <h3 class='guides'>Guides</h3>
+<ul class='unstyled'>
+  <li><a href="../gitattributes/ru.html">gitattributes</a></li>
+  <li><a href="../gitcli/ru.html">Command-line interface conventions</a></li>
+  <li><a href="../giteveryday/ru.html">Everyday Git</a></li>
+  <li><a href="../gitfaq/ru.html">Frequently Asked Questions (FAQ)</a></li>
+  <li><a href="../gitglossary/zh_HANT.html">Glossary</a></li>
+  <li><a href="../githooks/ru.html">Hooks</a></li>
+  <li><a href="../gitignore/ru.html">gitignore</a></li>
+  <li><a href="../gitmodules/ru.html">gitmodules</a></li>
+  <li><a href="../gitrevisions/ru.html">Revisions</a></li>
+  <li><a href="../gitsubmodules/ru.html">Submodules</a></li>
+  <li><a href="../gittutorial/ru.html">Tutorial</a></li>
+  <li><a href="../gitworkflows/ru.html">Workflows</a></li>
+  <li><a href="../git/ru.html#_guides">All guides...</a></li>
+</ul>
+
+      <h3 class='admin'>Administration</h3>
+<ul class='unstyled'>
+  <li><a href="../git-clean/ru.html">clean</a></li>
+  <li><a href="../git-gc/ru.html">gc</a></li>
+  <li><a href="../git-fsck/ru.html">fsck</a></li>
+  <li><a href="../git-reflog/ru.html">reflog</a></li>
+  <li><a href="../git-filter-branch/ru.html">filter-branch</a></li>
+  <li><a href="../git-instaweb/ru.html">instaweb</a></li>
+  <li><a href="../git-archive/ru.html">archive</a></li>
+  <li><a href="../git-bundle/ru.html">bundle</a></li>
+</ul>
+
+      <h3 class='plumbing'>Plumbing Commands</h3>
+<ul class='unstyled'>
+  <li><a href="../git-cat-file/ru.html">cat-file</a></li>
+  <li><a href="../git-check-ignore/ru.html">check-ignore</a></li>
+  <li><a href="../git-checkout-index/ru.html">checkout-index</a></li>
+  <li><a href="../git-commit-tree/ru.html">commit-tree</a></li>
+  <li><a href="../git-count-objects/ru.html">count-objects</a></li>
+  <li><a href="../git-diff-index/ru.html">diff-index</a></li>
+  <li><a href="../git-for-each-ref/ru.html">for-each-ref</a></li>
+  <li><a href="../git-hash-object/ru.html">hash-object</a></li>
+  <li><a href="../git-ls-files/ru.html">ls-files</a></li>
+  <li><a href="../git-ls-tree/ru.html">ls-tree</a></li>
+  <li><a href="../git-merge-base/ru.html">merge-base</a></li>
+  <li><a href="../git-read-tree/ru.html">read-tree</a></li>
+  <li><a href="../rev-list.html">rev-list</a></li>
+  <li><a href="../git-rev-parse/ru.html">rev-parse</a></li>
+  <li><a href="../git-show-ref/ru.html">show-ref</a></li>
+  <li><a href="../git-symbolic-ref/ru.html">symbolic-ref</a></li>
+  <li><a href="../git-update-index/ru.html">update-index</a></li>
+  <li><a href="../git-update-ref/ru.html">update-ref</a></li>
+  <li><a href="../git-verify-pack/ru.html">verify-pack</a></li>
+  <li><a href="../git-write-tree/ru.html">write-tree</a></li>
+</ul>
+
+    </div>
+  </div>
+</div>
+
+    <a class="dropdown-trigger" id="reference-versions-trigger" data-panel-id="previous-versions-dropdown" href="2.9.5.html#">
+    Version 2.9.5
+ ▾ </a>
+<span class="light d-flex">git-show-branch last updated in 2.34.1</span>
+<div class='dropdown-panel left' id='previous-versions-dropdown'>
+  <header>Changes in the <strong>git-show-branch</strong> manual</header>
+  <ol class='reference-previous-versions'>
+        <li class="no-change"><span>2.22.1 &rarr; 2.34.1 no changes</span></li>
+        <li>
+        <a href="2.22.0.html"><span class="version">2.22.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">06/07/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.19.3 &rarr; 2.21.4 no changes</span></li>
+        <li>
+        <a href="2.19.2.html"><span class="version">2.19.2</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">11/21/18</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.18.1 &rarr; 2.19.1 no changes</span></li>
+        <li>
+        <a href="2.18.0.html"><span class="version">2.18.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">06/21/18</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.10.5 &rarr; 2.17.6 no changes</span></li>
+        <li>
+        <a href="2.9.5.html"><span class="version">2.9.5</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">07/30/17</em>
+        </a>
+        </li>
+    <li>&nbsp;</li>
+    <!-- <li><a class="more" href="#">See more previous releases →</a></li> -->
+  </ol>
+  <footer>
+    <p>Check your version of git by running</p>
+    <code class="command">git --version</code>
+  </footer>
+</div>
+
+  </div>
+
+  <div id='main'>
+    <div class="sect1">
+<h2 id="_name"><a class="anchor" href="2.9.5.html#_name"></a>NAME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>git-show-branch - Show branches and their commits</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis"><a class="anchor" href="2.9.5.html#_synopsis"></a>SYNOPSIS</h2>
+<div class="sectionbody">
+<div class="verseblock">
+<pre class="content"><em>git show-branch</em> [-a|--all] [-r|--remotes] [--topo-order | --date-order]
+		[--current] [--color[=&lt;when&gt;] | --no-color] [--sparse]
+		[--more=&lt;n&gt; | --list | --independent | --merge-base]
+		[--no-name | --sha1-name] [--topics]
+		[(&lt;rev&gt; | &lt;glob&gt;)&#8230;&#8203;]
+<em>git show-branch</em> (-g|--reflog)[=&lt;n&gt;[,&lt;base&gt;]] [--list] [&lt;ref&gt;]</pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description"><a class="anchor" href="2.9.5.html#_description"></a>DESCRIPTION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Shows the commit ancestry graph starting from the commits named
+with &lt;rev&gt;s or &lt;globs&gt;s (or all refs under refs/heads
+and/or refs/tags) semi-visually.</p>
+</div>
+<div class="paragraph">
+<p>It cannot show more than 29 branches and commits at a time.</p>
+</div>
+<div class="paragraph">
+<p>It uses <code>showbranch.default</code> multi-valued configuration items if
+no &lt;rev&gt; or &lt;glob&gt; is given on the command line.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_options"><a class="anchor" href="2.9.5.html#_options"></a>OPTIONS</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="Documentation/git-show-branch.txt-ltrevgt"> <a class="anchor" href="2.9.5.html#Documentation/git-show-branch.txt-ltrevgt"></a>&lt;rev&gt; </dt>
+<dd>
+<p>Arbitrary extended SHA-1 expression (see <a href='../gitrevisions/ru.html'>gitrevisions[7]</a>)
+that typically names a branch head or a tag.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-show-branch.txt-ltglobgt"> <a class="anchor" href="2.9.5.html#Documentation/git-show-branch.txt-ltglobgt"></a>&lt;glob&gt; </dt>
+<dd>
+<p>A glob pattern that matches branch or tag names under
+refs/.  For example, if you have many topic
+branches under refs/heads/topic, giving
+<code>topic/*</code> would show all of them.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-show-branch.txt--r"> <a class="anchor" href="2.9.5.html#Documentation/git-show-branch.txt--r"></a>-r </dt>
+<dt class="hdlist1" id="Documentation/git-show-branch.txt---remotes"> <a class="anchor" href="2.9.5.html#Documentation/git-show-branch.txt---remotes"></a>--remotes </dt>
+<dd>
+<p>Show the remote-tracking branches.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-show-branch.txt--a"> <a class="anchor" href="2.9.5.html#Documentation/git-show-branch.txt--a"></a>-a </dt>
+<dt class="hdlist1" id="Documentation/git-show-branch.txt---all"> <a class="anchor" href="2.9.5.html#Documentation/git-show-branch.txt---all"></a>--all </dt>
+<dd>
+<p>Show both remote-tracking branches and local branches.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-show-branch.txt---current"> <a class="anchor" href="2.9.5.html#Documentation/git-show-branch.txt---current"></a>--current </dt>
+<dd>
+<p>With this option, the command includes the current
+branch to the list of revs to be shown when it is not
+given on the command line.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-show-branch.txt---topo-order"> <a class="anchor" href="2.9.5.html#Documentation/git-show-branch.txt---topo-order"></a>--topo-order </dt>
+<dd>
+<p>By default, the branches and their commits are shown in
+reverse chronological order.  This option makes them
+appear in topological order (i.e., descendant commits
+are shown before their parents).</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-show-branch.txt---date-order"> <a class="anchor" href="2.9.5.html#Documentation/git-show-branch.txt---date-order"></a>--date-order </dt>
+<dd>
+<p>This option is similar to <code>--topo-order</code> in the sense that no
+parent comes before all of its children, but otherwise commits
+are ordered according to their commit date.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-show-branch.txt---sparse"> <a class="anchor" href="2.9.5.html#Documentation/git-show-branch.txt---sparse"></a>--sparse </dt>
+<dd>
+<p>By default, the output omits merges that are reachable
+from only one tip being shown.  This option makes them
+visible.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-show-branch.txt---moreltngt"> <a class="anchor" href="2.9.5.html#Documentation/git-show-branch.txt---moreltngt"></a>--more=&lt;n&gt; </dt>
+<dd>
+<p>Usually the command stops output upon showing the commit
+that is the common ancestor of all the branches.  This
+flag tells the command to go &lt;n&gt; more common commits
+beyond that.  When &lt;n&gt; is negative, display only the
+&lt;reference&gt;s given, without showing the commit ancestry
+tree.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-show-branch.txt---list"> <a class="anchor" href="2.9.5.html#Documentation/git-show-branch.txt---list"></a>--list </dt>
+<dd>
+<p>Synonym to <code>--more=-1</code></p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-show-branch.txt---merge-base"> <a class="anchor" href="2.9.5.html#Documentation/git-show-branch.txt---merge-base"></a>--merge-base </dt>
+<dd>
+<p>Instead of showing the commit list, determine possible
+merge bases for the specified commits. All merge bases
+will be contained in all specified commits. This is
+different from how <a href='../git-merge-base/ru.html'>git-merge-base[1]</a> handles
+the case of three or more commits.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-show-branch.txt---independent"> <a class="anchor" href="2.9.5.html#Documentation/git-show-branch.txt---independent"></a>--independent </dt>
+<dd>
+<p>Among the &lt;reference&gt;s given, display only the ones that
+cannot be reached from any other &lt;reference&gt;.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-show-branch.txt---no-name"> <a class="anchor" href="2.9.5.html#Documentation/git-show-branch.txt---no-name"></a>--no-name </dt>
+<dd>
+<p>Do not show naming strings for each commit.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-show-branch.txt---sha1-name"> <a class="anchor" href="2.9.5.html#Documentation/git-show-branch.txt---sha1-name"></a>--sha1-name </dt>
+<dd>
+<p>Instead of naming the commits using the path to reach
+them from heads (e.g. "master~2" to mean the grandparent
+of "master"), name them with the unique prefix of their
+object names.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-show-branch.txt---topics"> <a class="anchor" href="2.9.5.html#Documentation/git-show-branch.txt---topics"></a>--topics </dt>
+<dd>
+<p>Shows only commits that are NOT on the first branch given.
+This helps track topic branches by hiding any commit that
+is already in the main line of development.  When given
+"git show-branch --topics master topic1 topic2", this
+will show the revisions given by "git rev-list ^master
+topic1 topic2"</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-show-branch.txt--g"> <a class="anchor" href="2.9.5.html#Documentation/git-show-branch.txt--g"></a>-g </dt>
+<dt class="hdlist1" id="Documentation/git-show-branch.txt---reflogltngtltbasegtltrefgt"> <a class="anchor" href="2.9.5.html#Documentation/git-show-branch.txt---reflogltngtltbasegtltrefgt"></a>--reflog[=&lt;n&gt;[,&lt;base&gt;]] [&lt;ref&gt;] </dt>
+<dd>
+<p>Shows &lt;n&gt; most recent ref-log entries for the given
+ref.  If &lt;base&gt; is given, &lt;n&gt; entries going back from
+that entry.  &lt;base&gt; can be specified as count or date.
+When no explicit &lt;ref&gt; parameter is given, it defaults to the
+current branch (or <code>HEAD</code> if it is detached).</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-show-branch.txt---colorltwhengt"> <a class="anchor" href="2.9.5.html#Documentation/git-show-branch.txt---colorltwhengt"></a>--color[=&lt;when&gt;] </dt>
+<dd>
+<p>Color the status sign (one of these: <code>*</code> <code>!</code> <code>+</code> <code>-</code>) of each commit
+corresponding to the branch it&#8217;s in.
+The value must be always (the default), never, or auto.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-show-branch.txt---no-color"> <a class="anchor" href="2.9.5.html#Documentation/git-show-branch.txt---no-color"></a>--no-color </dt>
+<dd>
+<p>Turn off colored output, even when the configuration file gives the
+default to color output.
+Same as <code>--color=never</code>.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Note that --more, --list, --independent and --merge-base options
+are mutually exclusive.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_output"><a class="anchor" href="2.9.5.html#_output"></a>OUTPUT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Given N &lt;references&gt;, the first N lines are the one-line
+description from their commit message.  The branch head that is
+pointed at by $GIT_DIR/HEAD is prefixed with an asterisk <code>*</code>
+character while other heads are prefixed with a <code>!</code> character.</p>
+</div>
+<div class="paragraph">
+<p>Following these N lines, one-line log for each commit is
+displayed, indented N places.  If a commit is on the I-th
+branch, the I-th indentation character shows a <code>+</code> sign;
+otherwise it shows a space.  Merge commits are denoted by
+a <code>-</code> sign.  Each commit shows a short name that
+can be used as an extended SHA-1 to name that commit.</p>
+</div>
+<div class="paragraph">
+<p>The following example shows three branches, "master", "fixes"
+and "mhf":</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git show-branch master fixes mhf
+* [master] Add 'git show-branch'.
+ ! [fixes] Introduce "reset type" flag to "git reset"
+  ! [mhf] Allow "+remote:local" refspec to cause --force when fetching.
+---
+  + [mhf] Allow "+remote:local" refspec to cause --force when fetching.
+  + [mhf~1] Use git-octopus when pulling more than one heads.
+ +  [fixes] Introduce "reset type" flag to "git reset"
+  + [mhf~2] "git fetch --force".
+  + [mhf~3] Use .git/remote/origin, not .git/branches/origin.
+  + [mhf~4] Make "git pull" and "git fetch" default to origin
+  + [mhf~5] Infamous 'octopus merge'
+  + [mhf~6] Retire git-parse-remote.
+  + [mhf~7] Multi-head fetch.
+  + [mhf~8] Start adding the $GIT_DIR/remotes/ support.
+*++ [master] Add 'git show-branch'.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>These three branches all forked from a common commit, [master],
+whose commit message is "Add {apostrophe}git show-branch{apostrophe}".
+The "fixes" branch adds one commit "Introduce "reset type" flag to
+"git reset"". The "mhf" branch adds many other commits.
+The current branch is "master".</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_example"><a class="anchor" href="2.9.5.html#_example"></a>EXAMPLE</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you keep your primary branches immediately under
+<code>refs/heads</code>, and topic branches in subdirectories of
+it, having the following in the configuration file may help:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[showbranch]
+	default = --topo-order
+	default = heads/*</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With this, <code>git show-branch</code> without extra parameters would show
+only the primary branches.  In addition, if you happen to be on
+your topic branch, it is shown as well.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git show-branch --reflog="10,1 hour ago" --list master</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>shows 10 reflog entries going back from the tip as of 1 hour ago.
+Without <code>--list</code>, the output also shows how these tips are
+topologically related with each other.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git"><a class="anchor" href="2.9.5.html#_git"></a>GIT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Part of the <a href='../git/ru.html'>git[1]</a> suite</p>
+</div>
+</div>
+</div>
+  </div>
+
+        </div>
+      </div>
+      <footer>
+  <div class="site-source">
+    <a href="https://git-scm.com/site">About this site</a><br>
+    Patches, suggestions, and comments are welcome.
+  </div>
+  <div class="sfc-member">
+    Git is a member of <a href="https://git-scm.com/sfc">Software Freedom Conservancy</a>
+  </div>
+</footer>
+<a href="2.9.5.html#top" class="no-js scrollToTop" id="scrollToTop" data-label="Scroll to top">
+  <img src="../../images/icons/chevron-up@2x.png" width="20" height="20" alt="scroll-to-top"/>
+</a>
+<script src="../../assets/application-e12a0e837db60213b777cd7a706e0741beed474d7e5b94a641979fc87ce0d2cc.js"></script>
+
+    </div>
+
+</body>
+</html>

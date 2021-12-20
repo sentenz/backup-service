@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49925874-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-49925874-3');
+  </script>
+
+  <meta charset='utf-8'>
+  <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Git - git-cat-file Documentation</title>
+
+  <link href='../../favicon.ico' rel='shortcut icon' type='image/x-icon'>
+
+  <link rel="stylesheet" media="screen" href="../../assets/application-42b7b91ccf5cb92469695cf08b5da9e9230594f634cb88264f305d5bd54e477f.css" />
+  <script src="../../assets/modernize-b3ebe0c31c24f230dc62179d3e1030d2e57a53b1668d9382c0a27dbd44a94beb.js"></script>
+  <!--[if (gte IE 6)&(lte IE 8)]>
+  <script src="/javascripts/selectivizr-min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body id="documentation">
+
+  <div class="inner">
+    <header>
+
+  <a href="https://git-scm.com/"><img src="../../images/logo@2x.png" width="110" height="46" alt="Git" /></a>
+  <span id="tagline"></span>
+  <script type="text/javascript">
+    var taglines = ["fast-version-control","everything-is-local","distributed-even-if-your-workflow-isnt","local-branching-on-the-cheap","distributed-is-the-new-centralized"];
+    var tagline = taglines[Math.floor(Math.random() * taglines.length)];
+    document.getElementById('tagline').innerHTML = '--' + tagline;
+  </script>
+  <form id="search" action="https://git-scm.com/search/results">
+    <input id="search-text" name="search" placeholder="Search entire site..." autocomplete="off" type="text" />
+  </form>
+  <div id="search-results"></div>
+
+</header>
+
+  </div> <!-- .inner -->
+
+    <div class="inner">
+      <div id="content-wrapper">
+        <button class="sidebar-btn"></button>
+<aside class="sidebar" id="sidebar">
+  <nav>
+    <ul>
+      <li>
+        <a href="https://git-scm.com/about">About</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/about">Branching and Merging</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/small-and-fast">Small and Fast</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/distributed">Distributed</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/info-assurance">Data Assurance</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/staging-area">Staging Area</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/free-and-open-source">Free and Open Source</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/trademark">Trademark</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a class="active" href="https://git-scm.com/doc">Documentation</a>
+        <ul class="expanded">
+          <li>
+            <a class="active" href="../git-pack/pt_BR.html">Reference</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/book">Book</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/videos">Videos</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/doc/ext">External Links</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/downloads">Downloads</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/downloads/guis">GUI Clients</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/downloads/logos">Logos</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/community">Community</a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+
+        <div id="content">
+          
+  <div id='reference-version'>
+    <a class="dropdown-trigger" id="reference-languages-trigger" data-panel-id="l10n-versions-dropdown" href="fr.html#">
+  Français ▾</a>
+<div class='dropdown-panel right' id='l10n-versions-dropdown'>
+  <header>Localized versions of <strong>git-cat-file</strong> manual</header>
+  <ol class='reference-previous-versions'>
+      <li>
+        <a href="en.html"><span class="version">English</span>
+        </a>
+        </li>
+      <li>
+        <a href="fr.html"><span class="version">Français</span>
+        </a>
+        </li>
+      <li>
+        <a href="pt_BR.html"><span class="version">Português (Brasil)</span>
+        </a>
+        </li>
+  </ol>
+  <footer>
+    Want to read in your language or fix typos?<br/> <a href="https://github.com/jnavila/git-manpages-l10n">You can help translate this page</a>.
+  </footer>
+</div>
+
+    <a class="dropdown-trigger" id="reference-topics-trigger" data-panel-id="topics-dropdown" href="fr.html#">Topics ▾</a>
+<div class='dropdown-panel right' id='topics-dropdown'>
+  <div class='three-column'>
+    <div class='column-left'>
+      <h3 class='setup'>Setup and Config</h3>
+<ul class='unstyled'>
+  <li><a href="../git/fr.html">git</a></li>
+  <li><a href="../git-config/fr.html">config</a></li>
+  <li><a href="../git-help/fr.html">help</a></li>
+  <li><a href="../git-bugreport/fr.html">bugreport</a></li>
+</ul>
+
+      <h3 class='projects'>Getting and Creating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-init/fr.html">init</a></li>
+  <li><a href="../git-clone/fr.html">clone</a></li>
+</ul>
+
+      <h3 class='snapshotting'>Basic Snapshotting</h3>
+<ul class='unstyled'>
+  <li><a href="../git-add/fr.html">add</a></li>
+  <li><a href="../git-status/fr.html">status</a></li>
+  <li><a href="../git-diff/fr.html">diff</a></li>
+  <li><a href="../git-commit/fr.html">commit</a></li>
+  <li><a href="../git-notes/fr.html">notes</a></li>
+  <li><a href="../git-restore/fr.html">restore</a></li>
+  <li><a href="../git-reset/fr.html">reset</a></li>
+  <li><a href="../git-rm/fr.html">rm</a></li>
+  <li><a href="../git-mv/fr.html">mv</a></li>
+</ul>
+
+      <h3 class='branching'>Branching and Merging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-branch/fr.html">branch</a></li>
+  <li><a href="../git-checkout/fr.html">checkout</a></li>
+  <li><a href="../git-switch/fr.html">switch</a></li>
+  <li><a href="../git-merge/fr.html">merge</a></li>
+  <li><a href="../git-mergetool/fr.html">mergetool</a></li>
+  <li><a href="../git-log/fr.html">log</a></li>
+  <li><a href="../git-stash/fr.html">stash</a></li>
+  <li><a href="../git-tag/fr.html">tag</a></li>
+  <li><a href="../git-worktree/fr.html">worktree</a></li>
+</ul>
+
+      <h3 class='sharing'>Sharing and Updating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-fetch/fr.html">fetch</a></li>
+  <li><a href="../git-pull/fr.html">pull</a></li>
+  <li><a href="../git-push/fr.html">push</a></li>
+  <li><a href="../git-remote/fr.html">remote</a></li>
+  <li><a href="../git-submodule/fr.html">submodule</a></li>
+</ul>
+
+    </div>
+    <div class='column-middle'>
+      <h3 class='inspection'>Inspection and Comparison</h3>
+<ul class='unstyled'>
+  <li><a href="../git-show/fr.html">show</a></li>
+  <li><a href="../git-log/fr.html">log</a></li>
+  <li><a href="../git-diff/fr.html">diff</a></li>
+  <li><a href="../git-difftool/fr.html">difftool</a></li>
+  <li><a href="../git-range-diff/fr.html">range-diff</a></li>
+  <li><a href="../git-shortlog/fr.html">shortlog</a></li>
+  <li><a href="../git-describe/fr.html">describe</a></li>
+</ul>
+
+      <h3 class='patching'>Patching</h3>
+<ul class='unstyled'>
+  <li><a href="../git-apply/fr.html">apply</a></li>
+  <li><a href="../git-cherry-pick/fr.html">cherry-pick</a></li>
+  <li><a href="../git-diff/fr.html">diff</a></li>
+  <li><a href="../git-rebase/fr.html">rebase</a></li>
+  <li><a href="../git-revert/fr.html">revert</a></li>
+</ul>
+
+      <h3 class='debugging'>Debugging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-bisect/fr.html">bisect</a></li>
+  <li><a href="../git-blame/fr.html">blame</a></li>
+  <li><a href="../git-grep/fr.html">grep</a></li>
+</ul>
+
+      <h3 class='email'>Email</h3>
+<ul class='unstyled'>
+  <li><a href="../git-am/fr.html">am</a></li>
+  <li><a href="../git-apply/fr.html">apply</a></li>
+  <li><a href="../git-format-patch/fr.html">format-patch</a></li>
+  <li><a href="../git-send-email/fr.html">send-email</a></li>
+  <li><a href="../git-request-pull/fr.html">request-pull</a></li>
+</ul>
+
+      <h3 class='external'>External Systems</h3>
+<ul class='unstyled'>
+  <li><a href="../git-svn/fr.html">svn</a></li>
+  <li><a href="../git-fast-import/fr.html">fast-import</a></li>
+</ul>
+
+      <h3 class='server-admin'>Server Admin</h3>
+<ul class='unstyled'>
+  <li><a href="../git-daemon/fr.html">daemon</a></li>
+  <li><a href="../git-update-server-info/fr.html">update-server-info</a></li>
+</ul>
+
+    </div>
+    <div class='column-right'>
+      <h3 class='guides'>Guides</h3>
+<ul class='unstyled'>
+  <li><a href="../gitattributes/fr.html">gitattributes</a></li>
+  <li><a href="../gitcli/fr.html">Command-line interface conventions</a></li>
+  <li><a href="../giteveryday/fr.html">Everyday Git</a></li>
+  <li><a href="../gitfaq/fr.html">Frequently Asked Questions (FAQ)</a></li>
+  <li><a href="../gitglossary/fr.html">Glossary</a></li>
+  <li><a href="../githooks/fr.html">Hooks</a></li>
+  <li><a href="../gitignore/fr.html">gitignore</a></li>
+  <li><a href="../gitmodules/fr.html">gitmodules</a></li>
+  <li><a href="../gitrevisions/fr.html">Revisions</a></li>
+  <li><a href="../gitsubmodules/fr.html">Submodules</a></li>
+  <li><a href="../gittutorial/fr.html">Tutorial</a></li>
+  <li><a href="../gitworkflows/fr.html">Workflows</a></li>
+  <li><a href="../git/ru.html#_guides">All guides...</a></li>
+</ul>
+
+      <h3 class='admin'>Administration</h3>
+<ul class='unstyled'>
+  <li><a href="../git-clean/fr.html">clean</a></li>
+  <li><a href="../git-gc/fr.html">gc</a></li>
+  <li><a href="../git-fsck/fr.html">fsck</a></li>
+  <li><a href="../git-reflog/fr.html">reflog</a></li>
+  <li><a href="../git-filter-branch/fr.html">filter-branch</a></li>
+  <li><a href="../git-instaweb/fr.html">instaweb</a></li>
+  <li><a href="../git-archive/fr.html">archive</a></li>
+  <li><a href="../git-bundle/fr.html">bundle</a></li>
+</ul>
+
+      <h3 class='plumbing'>Plumbing Commands</h3>
+<ul class='unstyled'>
+  <li><a class="active" href="fr.html">cat-file</a></li>
+  <li><a href="../git-check-ignore/fr.html">check-ignore</a></li>
+  <li><a href="../git-checkout-index/fr.html">checkout-index</a></li>
+  <li><a href="../git-commit-tree/fr.html">commit-tree</a></li>
+  <li><a href="../git-count-objects/fr.html">count-objects</a></li>
+  <li><a href="../git-diff-index/fr.html">diff-index</a></li>
+  <li><a href="../git-for-each-ref/fr.html">for-each-ref</a></li>
+  <li><a href="../git-hash-object/fr.html">hash-object</a></li>
+  <li><a href="../git-ls-files/fr.html">ls-files</a></li>
+  <li><a href="../git-ls-tree/fr.html">ls-tree</a></li>
+  <li><a href="../git-merge-base/fr.html">merge-base</a></li>
+  <li><a href="../git-read-tree/fr.html">read-tree</a></li>
+  <li><a href="../git-rev-list/fr.html">rev-list</a></li>
+  <li><a href="../git-rev-parse/fr.html">rev-parse</a></li>
+  <li><a href="../git-show-ref/fr.html">show-ref</a></li>
+  <li><a href="../git-symbolic-ref/fr.html">symbolic-ref</a></li>
+  <li><a href="../git-update-index/fr.html">update-index</a></li>
+  <li><a href="../git-update-ref/fr.html">update-ref</a></li>
+  <li><a href="../git-verify-pack/fr.html">verify-pack</a></li>
+  <li><a href="../git-write-tree/fr.html">write-tree</a></li>
+</ul>
+
+    </div>
+  </div>
+</div>
+
+    <a class="dropdown-trigger" id="reference-versions-trigger" data-panel-id="previous-versions-dropdown" href="fr.html#">
+      Latest version
+       ▾ </a>
+<span class="light d-flex">git-cat-file last updated in 2.34.1</span>
+<div class='dropdown-panel left' id='previous-versions-dropdown'>
+  <header>Changes in the <strong>git-cat-file</strong> manual</header>
+  <ol class='reference-previous-versions'>
+        <li class="no-change"><span>2.34.1 no changes</span></li>
+        <li>
+        <a href="2.34.0.html"><span class="version">2.34.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">11/15/21</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.33.0 &rarr; 2.33.1 no changes</span></li>
+        <li>
+        <a href="2.32.0.html"><span class="version">2.32.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">06/06/21</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.28.1 &rarr; 2.31.1 no changes</span></li>
+        <li>
+        <a href="2.28.0.html"><span class="version">2.28.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">07/27/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.21.1 &rarr; 2.27.1 no changes</span></li>
+        <li>
+        <a href="2.21.0.html"><span class="version">2.21.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">02/24/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.19.1 &rarr; 2.20.5 no changes</span></li>
+        <li>
+        <a href="2.19.0.html"><span class="version">2.19.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+          </span>
+          <em class="date">09/10/18</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.17.0 &rarr; 2.18.5 no changes</span></li>
+        <li>
+        <a href="2.16.6.html"><span class="version">2.16.6</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">12/06/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.15.4 no changes</span></li>
+        <li>
+        <a href="2.14.6.html"><span class="version">2.14.6</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">12/06/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.12.5 &rarr; 2.13.7 no changes</span></li>
+        <li>
+        <a href="2.11.4.html"><span class="version">2.11.4</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">09/22/17</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.10.5 no changes</span></li>
+        <li>
+        <a href="2.9.5.html"><span class="version">2.9.5</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">07/30/17</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.7.6 &rarr; 2.8.6 no changes</span></li>
+        <li>
+        <a href="2.6.7.html"><span class="version">2.6.7</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">05/05/17</em>
+        </a>
+        </li>
+        <li>
+        <a href="2.5.6.html"><span class="version">2.5.6</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+          </span>
+          <em class="date">05/05/17</em>
+        </a>
+        </li>
+    <li>&nbsp;</li>
+    <!-- <li><a class="more" href="#">See more previous releases →</a></li> -->
+  </ol>
+  <footer>
+    <p>Check your version of git by running</p>
+    <code class="command">git --version</code>
+  </footer>
+</div>
+
+  </div>
+
+  <div id='main'>
+    <div class="sect1">
+<h2 id="_nom"><a class="anchor" href="fr.html#_nom"></a>NOM</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>git-cat-file - Fournir le contenu ou l&#8217;information de type et taille pour les objets du dépôt</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis"><a class="anchor" href="fr.html#_synopsis"></a>SYNOPSIS</h2>
+<div class="sectionbody">
+<div class="verseblock">
+<pre class="content"><em>git cat-file</em> (-t [--allow-unknown-type]| -s [--allow-unknown-type]| -e | -p | &lt;type&gt; | --textconv | --filters ) [--path=&lt;chemin&gt;] &lt;objet&gt;
+<em>git cat-file</em> (--batch[=&lt;format&gt;] | --batch-check[=&lt;format&gt;]) [ --textconv | --filters ] [--follow-symlinks]</pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description"><a class="anchor" href="fr.html#_description"></a>DESCRIPTION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Dans sa première forme, la commande fournit le contenu ou le type d&#8217;un objet dans le référentiel. Le type est obligatoire sauf si <code>-t</code> ou <code>-p</code> est utilisé pour trouver le type de l&#8217;objet, ou <code>-s</code> est utilisé pour trouver la taille de l&#8217;objet, ou <code>--textconv</code> ou <code>--filters</code> est utilisé (ce qui implique le type "blob").</p>
+</div>
+<div class="paragraph">
+<p>Dans la seconde forme, une liste d&#8217;objets (séparés par des sauts de ligne) est fournie sur stdin, et le SHA-1, le type et la taille de chaque objet sont imprimés sur la sortie standard. Le format de sortie peut être modifié en utilisant l&#8217;argument optionnel <code>&lt;format&gt;</code>. Si <code>--textconv</code> ou <code>--filters</code> a été spécifié, l&#8217;entrée est censée lister les noms d&#8217;objets suivis du nom du chemin, séparés par un simple espace, afin que les pilotes appropriés puissent être déterminés.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_options"><a class="anchor" href="fr.html#_options"></a>OPTIONS</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-cat-file-ltobjetgt"> <a class="anchor" href="fr.html#git-cat-file-ltobjetgt"></a>&lt;objet&gt; </dt>
+<dd>
+<p>Le nom de l&#8217;objet à afficher. Pour une liste plus complète des façons d&#8217;épeler les noms d&#8217;objets, voir la section « SPÉCIFICATION DE RÉVISIONS" dans <a href='../gitrevisions/fr.html'>gitrevisions[7]</a>.</p>
+</dd>
+<dt class="hdlist1" id="git-cat-file--t"> <a class="anchor" href="fr.html#git-cat-file--t"></a>-t </dt>
+<dd>
+<p>Au lieu du contenu, afficher le type d&#8217;objet identifié par <code>&lt;objet&gt;</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-cat-file--s"> <a class="anchor" href="fr.html#git-cat-file--s"></a>-s </dt>
+<dd>
+<p>Au lieu du contenu, afficher la taille de l&#8217;objet identifié par <code>&lt;objet&gt;</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-cat-file--e"> <a class="anchor" href="fr.html#git-cat-file--e"></a>-e </dt>
+<dd>
+<p>Sortir avec un statut nul si <code>&lt;objet&gt;</code> existe et est un objet valide. Si <code>&lt;objet&gt;</code> est d&#8217;un format invalide, sortir avec un état non-zéro et émettre une erreur sur stderr.</p>
+</dd>
+<dt class="hdlist1" id="git-cat-file--p"> <a class="anchor" href="fr.html#git-cat-file--p"></a>-p </dt>
+<dd>
+<p>Formater l&#8217;affichage du contenu de <code>&lt;objet&gt;</code> en fonction de son type.</p>
+</dd>
+<dt class="hdlist1" id="git-cat-file-lttypegt"> <a class="anchor" href="fr.html#git-cat-file-lttypegt"></a>&lt;type&gt; </dt>
+<dd>
+<p>Typiquement, cela correspond au type réel de <code>&lt;objet&gt;</code> mais la demande d&#8217;un type qui peut trivialement être déréférencé à partir du <code>&lt;objet&gt;</code> donné est également autorisée. Un exemple est de demander un "tree" avec <code>&lt;objet&gt;</code> étant un objet commit qui le contient, ou de demander un "blob" avec <code>&lt;objet&gt;</code> étant un objet tag qui le pointe.</p>
+</dd>
+<dt class="hdlist1" id="git-cat-file---textconv"> <a class="anchor" href="fr.html#git-cat-file---textconv"></a>--textconv </dt>
+<dd>
+<p>Afficher le contenu tel que transformé par un filtre textconv. Dans ce cas, <code>&lt;objet&gt;</code> doit être de la forme <code>&lt;arbre-esque&gt;:&lt;chemin&gt;</code>, ou <code>:&lt;chemin&gt;</code> afin d&#8217;appliquer le filtre au contenu enregistré dans l&#8217;index à <code>&lt;chemin&gt;</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-cat-file---filters"> <a class="anchor" href="fr.html#git-cat-file---filters"></a>--filters </dt>
+<dd>
+<p>Afficher le contenu tel qu&#8217;il a été converti par les filtres configurés dans l&#8217;arbre de travail actuel pour le <code>&lt;chemin&gt;</code> donné (c&#8217;est-à-dire les filtres de maculage, la conversion de fin de ligne, etc). Dans ce cas, <code>&lt;objet&gt;</code> doit être de la forme <code>&lt;arbre-esque&gt;:&lt;chemin&gt;</code>, ou <code>:&lt;chemin&gt;</code>.</p>
+</dd>
+<dt class="hdlist1" id="git-cat-file---pathltchemingt"> <a class="anchor" href="fr.html#git-cat-file---pathltchemingt"></a>--path=&lt;chemin&gt; </dt>
+<dd>
+<p>À utiliser avec <code>--textconv</code> ou <code>--filters</code>, pour permettre de spécifier un nom d&#8217;objet et un chemin séparément, par exemple lorsqu&#8217;il est difficile de déterminer la révision d&#8217;où provient le blob.</p>
+</dd>
+<dt class="hdlist1" id="git-cat-file---batch"> <a class="anchor" href="fr.html#git-cat-file---batch"></a>--batch </dt>
+<dt class="hdlist1" id="git-cat-file---batchltformatgt"> <a class="anchor" href="fr.html#git-cat-file---batchltformatgt"></a>--batch=&lt;format&gt; </dt>
+<dd>
+<p>Afficher les informations et le contenu des objets pour chaque objet fourni sur stdin. Ne peut être combiné avec aucune autre option ou argument sauf <code>--textconv</code> ou <code>--filters</code>, auquel cas les lignes d&#8217;entrée doivent aussi spécifier le chemin, séparé par des espaces. Voir la section <code>SORTIE PAR LOT</code> ci-dessous pour plus de détails.</p>
+</dd>
+<dt class="hdlist1" id="git-cat-file---batch-check"> <a class="anchor" href="fr.html#git-cat-file---batch-check"></a>--batch-check </dt>
+<dt class="hdlist1" id="git-cat-file---batch-checkltformatgt"> <a class="anchor" href="fr.html#git-cat-file---batch-checkltformatgt"></a>--batch-check=&lt;format&gt; </dt>
+<dd>
+<p>Afficher les informations sur les objets pour chaque objet fourni sur stdin. Ne peut être combiné avec aucune autre option ou argument sauf <code>--textconv</code> ou <code>--filters</code>, auquel cas les lignes d&#8217;entrée doivent aussi spécifier le chemin, séparé par des espaces. Voir la section <code>SORTIE PAR LOT</code> ci-dessous pour plus de détails.</p>
+</dd>
+<dt class="hdlist1" id="git-cat-file---batch-all-objects"> <a class="anchor" href="fr.html#git-cat-file---batch-all-objects"></a>--batch-all-objects </dt>
+<dd>
+<p>Au lieu de lire une liste d&#8217;objets sur stdin, exécuter l&#8217;opération par lot demandée sur tous les objets du dépôt et de tous les magasins d&#8217;objets alternatifs (pas seulement les objets accessibles). Nécessite que <code>--batch</code> ou <code>--batch-check</code> soit spécifié. Par défaut, les objets sont visités dans l&#8217;ordre trié par leurs empreintes ; voir aussi <code>--unordered</code> ci-dessous. Les objets sont présentés tels quels, sans respecter le mécanisme "replace" de <a href='../git-replace/fr.html'>git-replace[1]</a>.</p>
+</dd>
+<dt class="hdlist1" id="git-cat-file---buffer"> <a class="anchor" href="fr.html#git-cat-file---buffer"></a>--buffer </dt>
+<dd>
+<p>Normalement, la sortie par lot est vidée après la sortie de chaque objet, afin qu&#8217;un processus puisse lire et écrire de manière interactive depuis <code>cat-file</code>. Avec cette option, la sortie utilise la mise en tampon normale de stdio ; c&#8217;est beaucoup plus efficace quand on invoque <code>--batch-check</code> sur un grand nombre d&#8217;objets.</p>
+</dd>
+<dt class="hdlist1" id="git-cat-file---unordered"> <a class="anchor" href="fr.html#git-cat-file---unordered"></a>--unordered </dt>
+<dd>
+<p>Lorsque <code>--batch-all-objects</code> est utilisé, visiter les objets dans un ordre qui peut être plus efficace pour accéder au contenu des objets que l&#8217;ordre de hachage. Les détails exacts de l&#8217;ordre ne sont pas spécifiés, mais si vous n&#8217;avez pas besoin d&#8217;un ordre spécifique, ceci devrait généralement résulter en une sortie plus rapide, particulièrement avec <code>--batch</code>. Notez que <code>cat-file</code> ne montrera chaque objet qu&#8217;une seule fois, même s&#8217;il est stocké plusieurs fois dans le dépôt.</p>
+</dd>
+<dt class="hdlist1" id="git-cat-file---allow-unknown-type"> <a class="anchor" href="fr.html#git-cat-file---allow-unknown-type"></a>--allow-unknown-type </dt>
+<dd>
+<p>Permettre à <code>-s</code> ou <code>-t</code> d&#8217;interroger les objets cassés/corrompus de type inconnu.</p>
+</dd>
+<dt class="hdlist1" id="git-cat-file---follow-symlinks"> <a class="anchor" href="fr.html#git-cat-file---follow-symlinks"></a>--follow-symlinks </dt>
+<dd>
+<p>Avec <code>--batch</code> ou <code>--batch-check</code>, suivre les liens symboliques à l&#8217;intérieur du dépôt lors de la recherche des objets avec des expressions SHA-1 étendues de la forme arbre-esque:chemin-dans-l-arbre. Au lieu de fournir une sortie sur le lien lui-même, fournir une sortie sur l&#8217;objet lié. Si un lien symbolique pointe en dehors de l&#8217;arbre (par exemple un lien vers <code>/foo</code> ou un lien au niveau de la racine vers <code>../foo</code>), la partie du lien qui est en dehors de l&#8217;arbre sera affichée.</p>
+<div class="paragraph">
+<p>Cette option ne fonctionne pas (actuellement) correctement lorsqu&#8217;un objet dans l&#8217;index est spécifié (par exemple <code>:link</code> au lieu de <code>HEAD:link</code>) plutôt qu&#8217;un objet dans l&#8217;arbre.</p>
+</div>
+<div class="paragraph">
+<p>Cette option ne peut (actuellement) être utilisée que si <code>--batch</code> ou <code>--batch-check</code> est utilisé.</p>
+</div>
+<div class="paragraph">
+<p>Par exemple, considérons un dépôt git contenant :</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="literalblock">
+<div class="content">
+<pre>f : un fichier contenant "hello\n".
+link : un lien symbolique vers f
+dir/link : un lien symbolique vers ../f
+plink : un lien symbolique vers ../f
+alink : un lien symbolique vers /etc/passwd</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Pour un fichier régulier <code>f</code>, <code>echo HEAD:f | git cat-file --batch</code> afficherait</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="literalblock">
+<div class="content">
+<pre>ce013625030ba8dba906f756967f9e9ca394464a blob 6</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Et <code>echo HEAD:link | git cat-file --batch --follow-symlinks</code> imprimerait la même chose, tout comme <code>HEAD:dir/link</code>, puisqu&#8217;ils pointent tous deux vers <code>HEAD:f</code>.</p>
+</div>
+<div class="paragraph">
+<p>Sans <code>--follow-symlinks</code>, ils afficheraient des données sur le lien symbolique lui-même. Dans le cas de <code>HEAD:link</code>, vous verrez</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="literalblock">
+<div class="content">
+<pre>4d1ae35ba2c8ec712fa2a379db44ad639ca277bd blob 1</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Les deux <code>plink</code> et` alink` pointent en dehors de l&#8217;arbre, donc ils afficheraient respectivement :</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="literalblock">
+<div class="content">
+<pre>symlink 4
+../f</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>symlink 11
+/etc/passwd</pre>
+</div>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sortie"><a class="anchor" href="fr.html#_sortie"></a>SORTIE</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Si <code>-t</code> est spécifié, un des <code>&lt;type&gt;</code>.</p>
+</div>
+<div class="paragraph">
+<p>Si <code>-s</code> est spécifié, la taille de l'<code>&lt;objet&gt;</code> en octets.</p>
+</div>
+<div class="paragraph">
+<p>Si <code>-e</code> est spécifié, aucune sortie, à moins que le <code>&lt;objet&gt;</code> soit malformé.</p>
+</div>
+<div class="paragraph">
+<p>Si <code>-p</code> est spécifié, le contenu de <code>&lt;objet&gt;</code> est formatté à l&#8217;affichage.</p>
+</div>
+<div class="paragraph">
+<p>Si <code>&lt;type&gt;</code> est spécifié, le contenu brut (mais non compressé) de l'<code>&lt;objet&gt;</code> sera retourné.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sortie_de_lot"><a class="anchor" href="fr.html#_sortie_de_lot"></a>SORTIE DE LOT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Si <code>--batch</code> ou <code>--batch-check</code> est donné, <code>cat-file</code> lira les objets depuis stdin, un par ligne, et affichera les informations les concernant. Par défaut, la ligne entière est considérée comme un objet, comme si elle était envoyée à <a href='../git-rev-parse/fr.html'>git-rev-parse[1]</a>.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez spécifier les informations affichées pour chaque objet en utilisant un <code>&lt;format&gt;</code> personnalisé. Le <code>&lt;format&gt;</code> est copié littéralement sur stdout pour chaque objet, avec des variables de la forme <code>%(atome)</code> développés, suivi d&#8217;une nouvelle ligne. Les atomes disponibles sont :</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-cat-file-codeobjectnamecode"> <a class="anchor" href="fr.html#git-cat-file-codeobjectnamecode"></a><code>objectname</code> </dt>
+<dd>
+<p>La représentation hexadécimale complète du nom de l&#8217;objet.</p>
+</dd>
+<dt class="hdlist1" id="git-cat-file-codeobjecttypecode"> <a class="anchor" href="fr.html#git-cat-file-codeobjecttypecode"></a><code>objecttype</code> </dt>
+<dd>
+<p>Le type de l&#8217;objet (le même que ce que <code>cat-file -t</code> renvoie).</p>
+</dd>
+<dt class="hdlist1" id="git-cat-file-codeobjectsizecode"> <a class="anchor" href="fr.html#git-cat-file-codeobjectsizecode"></a><code>objectsize</code> </dt>
+<dd>
+<p>La taille, en octets, de l&#8217;objet (la même que celle que <code>cat-file -s</code> renvoie).</p>
+</dd>
+<dt class="hdlist1" id="git-cat-file-codeobjectsizediskcode"> <a class="anchor" href="fr.html#git-cat-file-codeobjectsizediskcode"></a><code>objectsize:disk</code> </dt>
+<dd>
+<p>La taille, en octets, que l&#8217;objet occupe sur le disque. Voir la note sur les tailles sur disque dans la section <code>MISES EN GARDES</code> ci-dessous.</p>
+</dd>
+<dt class="hdlist1" id="git-cat-file-codedeltabasecode"> <a class="anchor" href="fr.html#git-cat-file-codedeltabasecode"></a><code>deltabase</code> </dt>
+<dd>
+<p>Si l&#8217;objet est stocké en tant que delta sur le disque, il se développe en représentation hexadécimale complète du nom de l&#8217;objet de base delta. Sinon, il se développe jusqu&#8217;à l&#8217;OID nul (tout à zéro). Voir <code>MISES EN GARDE</code> ci-dessous.</p>
+</dd>
+<dt class="hdlist1" id="git-cat-file-coderestcode"> <a class="anchor" href="fr.html#git-cat-file-coderestcode"></a><code>rest</code> </dt>
+<dd>
+<p>Si cet atome est utilisé dans la chaîne de sortie, les lignes d&#8217;entrée sont coupées à la première limite de caractères d&#8217;espace. Tous les caractères avant cet espace sont considérés comme le nom de l&#8217;objet ; les caractères après ce premier espace (c&#8217;est-à-dire le "reste" de la ligne) sont émis à la place de l&#8217;atome <code>%(rest)</code>.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Si aucun format n&#8217;est spécifié, le format par défaut est <code>%(objectname) %(objecttype) %(objectsize)</code>.</p>
+</div>
+<div class="paragraph">
+<p>Si <code>--batch</code> est spécifié, les informations sur l&#8217;objet sont suivies du contenu de l&#8217;objet (consistant en <code>%(objectsize)</code> octets), suivi d&#8217;une nouvelle ligne.</p>
+</div>
+<div class="paragraph">
+<p>Par exemple, <code>--batch</code> sans un format personnalisé produirait :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;oid&gt; SP &lt;type&gt; SP &lt;taille&gt; LF
+&lt;contenu&gt; LF</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Alors que <code>--batch-check='%(objectname) %(objecttype)'</code> produirait :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;oid&gt; SP &lt;type&gt; LF</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Si un nom est spécifié sur stdin qui ne peut pas être résolu en un objet dans le dépôt, alors <code>cat-file</code> ignorera tout format personnalisé et affichera :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;objet&gt; SP missing LF</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Si un nom est spécifié qui pourrait faire référence à plus d&#8217;un objet (un sha court ambigu), alors <code>cat-file</code> ignorera tout format personnalisé et affichera :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;objet&gt; SP ambiguous LF</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Si <code>--follow-symlinks</code> est utilisé, et qu&#8217;un lien symbolique dans le dépôt pointe en dehors du dépôt, alors <code>cat-file</code> ignorera tout format personnalisé et affichera :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>symlink SP &lt;taille&gt; LF
+&lt;lien-symbolique&gt; LF</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Le lien symbolique sera soit absolu (commençant par un <code>/</code>), soit relatif à la racine de l&#8217;arbre. Par exemple, si rép/lien pointe vers <code>../../foo</code>, alors <code>&lt;lien-symbolique&gt;</code> sera <code>../foo</code>. <code>&lt;taille&gt;</code> est la taille du lien symbolique en octets.</p>
+</div>
+<div class="paragraph">
+<p>Si <code>--follow-symlinks</code> est utilisé, les messages d&#8217;erreur suivants seront affichés :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;objet&gt; SP missing LF</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>est imprimé lorsque le lien symbolique initial demandé n&#8217;existe pas.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>dangling SP &lt;taille&gt; LF
+&lt;objet&gt; LF</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>est affiché lorsque le lien symbolique initial existe, mais que ce vers quoi il pointe (transitivement) n&#8217;existe pas.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>loop SP &lt;taille&gt; LF
+&lt;objet&gt; LF</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>est affiché pour les boucles de liens symboliques (ou tous les liens symboliques qui nécessitent plus de 40 résolutions de liens pour être résolus).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>notdir SP &lt;taille&gt; LF
+&lt;objet&gt; LF</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>est affiché lorsque, pendant la résolution des liens symboliques, un fichier est utilisé comme nom de répertoire.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_mises_en_garde"><a class="anchor" href="fr.html#_mises_en_garde"></a>MISES EN GARDE</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Notez que les tailles des objets sur le disque sont rapportées avec précision, mais il faut faire attention avant de tirer des conclusions sur les références ou les objets qui sont responsables de l&#8217;utilisation du disque. La taille d&#8217;un objet non-delta empaqueté peut être beaucoup plus grande que la taille des objets qui sont delta par rapport à lui, mais le choix de l&#8217;objet de base et de l&#8217;objet delta est arbitraire et peut être modifié lors d&#8217;un repack.</p>
+</div>
+<div class="paragraph">
+<p>Notez également que plusieurs copies d&#8217;un objet peuvent être présentes dans la base de données des objets ; dans ce cas, il n&#8217;est pas défini quelle taille ou base delta de la copie sera rapportée.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git"><a class="anchor" href="fr.html#_git"></a>GIT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Fait partie de la suite <a href='../git/fr.html'>git[1]</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_traduction"><a class="anchor" href="fr.html#_traduction"></a>TRADUCTION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cette  page de manuel a été traduite par Jean-Noël Avila &lt;jn.avila AT free DOT fr&gt; et les membres du projet git-manpages-l10n. Veuillez signaler toute erreur de traduction par un rapport de bogue sur le site <a href="https://github.com/jnavila/git-manpages-l10n" class="bare">https://github.com/jnavila/git-manpages-l10n</a> .</p>
+</div>
+</div>
+</div>
+  </div>
+
+        </div>
+      </div>
+      <footer>
+  <div class="site-source">
+    <a href="https://git-scm.com/site">About this site</a><br>
+    Patches, suggestions, and comments are welcome.
+  </div>
+  <div class="sfc-member">
+    Git is a member of <a href="https://git-scm.com/sfc">Software Freedom Conservancy</a>
+  </div>
+</footer>
+<a href="fr.html#top" class="no-js scrollToTop" id="scrollToTop" data-label="Scroll to top">
+  <img src="../../images/icons/chevron-up@2x.png" width="20" height="20" alt="scroll-to-top"/>
+</a>
+<script src="../../assets/application-e12a0e837db60213b777cd7a706e0741beed474d7e5b94a641979fc87ce0d2cc.js"></script>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49925874-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-49925874-3');
+  </script>
+
+  <meta charset='utf-8'>
+  <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Git - git-init Documentation</title>
+
+  <link href='../../favicon.ico' rel='shortcut icon' type='image/x-icon'>
+
+  <link rel="stylesheet" media="screen" href="../../assets/application-42b7b91ccf5cb92469695cf08b5da9e9230594f634cb88264f305d5bd54e477f.css" />
+  <script src="../../assets/modernize-b3ebe0c31c24f230dc62179d3e1030d2e57a53b1668d9382c0a27dbd44a94beb.js"></script>
+  <!--[if (gte IE 6)&(lte IE 8)]>
+  <script src="/javascripts/selectivizr-min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body id="documentation">
+
+  <div class="inner">
+    <header>
+
+  <a href="https://git-scm.com/"><img src="../../images/logo@2x.png" width="110" height="46" alt="Git" /></a>
+  <span id="tagline"></span>
+  <script type="text/javascript">
+    var taglines = ["fast-version-control","everything-is-local","distributed-even-if-your-workflow-isnt","local-branching-on-the-cheap","distributed-is-the-new-centralized"];
+    var tagline = taglines[Math.floor(Math.random() * taglines.length)];
+    document.getElementById('tagline').innerHTML = '--' + tagline;
+  </script>
+  <form id="search" action="https://git-scm.com/search/results">
+    <input id="search-text" name="search" placeholder="Search entire site..." autocomplete="off" type="text" />
+  </form>
+  <div id="search-results"></div>
+
+</header>
+
+  </div> <!-- .inner -->
+
+    <div class="inner">
+      <div id="content-wrapper">
+        <button class="sidebar-btn"></button>
+<aside class="sidebar" id="sidebar">
+  <nav>
+    <ul>
+      <li>
+        <a href="https://git-scm.com/about">About</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/about">Branching and Merging</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/small-and-fast">Small and Fast</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/distributed">Distributed</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/info-assurance">Data Assurance</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/staging-area">Staging Area</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/free-and-open-source">Free and Open Source</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/about/trademark">Trademark</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a class="active" href="https://git-scm.com/doc">Documentation</a>
+        <ul class="expanded">
+          <li>
+            <a class="active" href="../git-pack/pt_BR.html">Reference</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/book">Book</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/videos">Videos</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/doc/ext">External Links</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/downloads">Downloads</a>
+        <ul class="">
+          <li>
+            <a href="https://git-scm.com/downloads/guis">GUI Clients</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/downloads/logos">Logos</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://git-scm.com/community">Community</a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+
+        <div id="content">
+          
+  <div id='reference-version'>
+    <a class="dropdown-trigger" id="reference-languages-trigger" data-panel-id="l10n-versions-dropdown" href="ja.html#">
+  日本語 ▾</a>
+<div class='dropdown-panel right' id='l10n-versions-dropdown'>
+  <header>Localized versions of <strong>git-init</strong> manual</header>
+  <ol class='reference-previous-versions'>
+      <li>
+        <a href="de.html"><span class="version">Deutsch</span>
+        </a>
+        </li>
+      <li>
+        <a href="en.html"><span class="version">English</span>
+        </a>
+        </li>
+      <li>
+        <a href="fr.html"><span class="version">Français</span>
+        </a>
+        </li>
+      <li>
+        <a href="is.html"><span class="version">Íslenska</span>
+        </a>
+        </li>
+      <li>
+        <a href="ja.html"><span class="version">日本語</span>
+        </a>
+        </li>
+      <li>
+        <a href="pt_BR.html"><span class="version">Português (Brasil)</span>
+        </a>
+        </li>
+      <li>
+        <a href="ro.html"><span class="version">Română</span>
+        </a>
+        </li>
+      <li>
+        <a href="zh_HANS-CN.html"><span class="version">简体中文</span>
+        </a>
+        </li>
+      <li>
+        <a href="zh_HANT.html"><span class="version">繁體中文</span>
+        </a>
+        </li>
+  </ol>
+  <footer>
+    Want to read in your language or fix typos?<br/> <a href="https://github.com/jnavila/git-manpages-l10n">You can help translate this page</a>.
+  </footer>
+</div>
+
+    <a class="dropdown-trigger" id="reference-topics-trigger" data-panel-id="topics-dropdown" href="ja.html#">Topics ▾</a>
+<div class='dropdown-panel right' id='topics-dropdown'>
+  <div class='three-column'>
+    <div class='column-left'>
+      <h3 class='setup'>Setup and Config</h3>
+<ul class='unstyled'>
+  <li><a href="../git/ja.html">git</a></li>
+  <li><a href="../git-config/ja.html">config</a></li>
+  <li><a href="../git-help/ja.html">help</a></li>
+  <li><a href="../git-bugreport/ja.html">bugreport</a></li>
+</ul>
+
+      <h3 class='projects'>Getting and Creating Projects</h3>
+<ul class='unstyled'>
+  <li><a class="active" href="ja.html">init</a></li>
+  <li><a href="../git-clone/ja.html">clone</a></li>
+</ul>
+
+      <h3 class='snapshotting'>Basic Snapshotting</h3>
+<ul class='unstyled'>
+  <li><a href="../git-add/ja.html">add</a></li>
+  <li><a href="../git-status/ja.html">status</a></li>
+  <li><a href="../git-diff/ja.html">diff</a></li>
+  <li><a href="../git-commit/ja.html">commit</a></li>
+  <li><a href="../git-notes/ja.html">notes</a></li>
+  <li><a href="../git-restore/ja.html">restore</a></li>
+  <li><a href="../git-reset/ja.html">reset</a></li>
+  <li><a href="../git-rm/ja.html">rm</a></li>
+  <li><a href="../git-mv/ja.html">mv</a></li>
+</ul>
+
+      <h3 class='branching'>Branching and Merging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-branch/ja.html">branch</a></li>
+  <li><a href="../git-checkout/ja.html">checkout</a></li>
+  <li><a href="../git-switch/ja.html">switch</a></li>
+  <li><a href="../git-merge/ja.html">merge</a></li>
+  <li><a href="../git-mergetool/ja.html">mergetool</a></li>
+  <li><a href="../git-log/ja.html">log</a></li>
+  <li><a href="../git-stash/ja.html">stash</a></li>
+  <li><a href="../git-tag/ja.html">tag</a></li>
+  <li><a href="../git-worktree/ja.html">worktree</a></li>
+</ul>
+
+      <h3 class='sharing'>Sharing and Updating Projects</h3>
+<ul class='unstyled'>
+  <li><a href="../git-fetch/ja.html">fetch</a></li>
+  <li><a href="../git-pull/ja.html">pull</a></li>
+  <li><a href="../git-push/ja.html">push</a></li>
+  <li><a href="../git-remote/ja.html">remote</a></li>
+  <li><a href="../git-submodule/ja.html">submodule</a></li>
+</ul>
+
+    </div>
+    <div class='column-middle'>
+      <h3 class='inspection'>Inspection and Comparison</h3>
+<ul class='unstyled'>
+  <li><a href="../git-show/ja.html">show</a></li>
+  <li><a href="../git-log/ja.html">log</a></li>
+  <li><a href="../git-diff/ja.html">diff</a></li>
+  <li><a href="../git-difftool/ja.html">difftool</a></li>
+  <li><a href="../git-range-diff/ja.html">range-diff</a></li>
+  <li><a href="../git-shortlog/ja.html">shortlog</a></li>
+  <li><a href="../git-describe/ja.html">describe</a></li>
+</ul>
+
+      <h3 class='patching'>Patching</h3>
+<ul class='unstyled'>
+  <li><a href="../git-apply/ja.html">apply</a></li>
+  <li><a href="../git-cherry-pick/ja.html">cherry-pick</a></li>
+  <li><a href="../git-diff/ja.html">diff</a></li>
+  <li><a href="../git-rebase/ja.html">rebase</a></li>
+  <li><a href="../git-revert/ja.html">revert</a></li>
+</ul>
+
+      <h3 class='debugging'>Debugging</h3>
+<ul class='unstyled'>
+  <li><a href="../git-bisect/ja.html">bisect</a></li>
+  <li><a href="../git-blame/ja.html">blame</a></li>
+  <li><a href="../git-grep/ja.html">grep</a></li>
+</ul>
+
+      <h3 class='email'>Email</h3>
+<ul class='unstyled'>
+  <li><a href="../git-am/ja.html">am</a></li>
+  <li><a href="../git-apply/ja.html">apply</a></li>
+  <li><a href="../git-format-patch/ja.html">format-patch</a></li>
+  <li><a href="../git-send-email/ja.html">send-email</a></li>
+  <li><a href="../git-request-pull/ja.html">request-pull</a></li>
+</ul>
+
+      <h3 class='external'>External Systems</h3>
+<ul class='unstyled'>
+  <li><a href="../git-svn/ja.html">svn</a></li>
+  <li><a href="../git-fast-import/ja.html">fast-import</a></li>
+</ul>
+
+      <h3 class='server-admin'>Server Admin</h3>
+<ul class='unstyled'>
+  <li><a href="../git-daemon/ja.html">daemon</a></li>
+  <li><a href="../git-update-server-info/ja.html">update-server-info</a></li>
+</ul>
+
+    </div>
+    <div class='column-right'>
+      <h3 class='guides'>Guides</h3>
+<ul class='unstyled'>
+  <li><a href="../gitattributes/ja.html">gitattributes</a></li>
+  <li><a href="../gitcli/ja.html">Command-line interface conventions</a></li>
+  <li><a href="../giteveryday/ja.html">Everyday Git</a></li>
+  <li><a href="../gitfaq/ja.html">Frequently Asked Questions (FAQ)</a></li>
+  <li><a href="../gitglossary/ja.html">Glossary</a></li>
+  <li><a href="../githooks/ja.html">Hooks</a></li>
+  <li><a href="../gitignore/ja.html">gitignore</a></li>
+  <li><a href="../gitmodules/ja.html">gitmodules</a></li>
+  <li><a href="../gitrevisions/ja.html">Revisions</a></li>
+  <li><a href="../gitsubmodules/ja.html">Submodules</a></li>
+  <li><a href="../gittutorial/ja.html">Tutorial</a></li>
+  <li><a href="../gitworkflows/ja.html">Workflows</a></li>
+  <li><a href="../git/ru.html#_guides">All guides...</a></li>
+</ul>
+
+      <h3 class='admin'>Administration</h3>
+<ul class='unstyled'>
+  <li><a href="../git-clean/ja.html">clean</a></li>
+  <li><a href="../git-gc/ja.html">gc</a></li>
+  <li><a href="../git-fsck/ja.html">fsck</a></li>
+  <li><a href="../git-reflog/ja.html">reflog</a></li>
+  <li><a href="../git-filter-branch/ja.html">filter-branch</a></li>
+  <li><a href="../git-instaweb/ja.html">instaweb</a></li>
+  <li><a href="../git-archive/ja.html">archive</a></li>
+  <li><a href="../git-bundle/ja.html">bundle</a></li>
+</ul>
+
+      <h3 class='plumbing'>Plumbing Commands</h3>
+<ul class='unstyled'>
+  <li><a href="../git-cat-file/ja.html">cat-file</a></li>
+  <li><a href="../git-check-ignore/ja.html">check-ignore</a></li>
+  <li><a href="../git-checkout-index/ja.html">checkout-index</a></li>
+  <li><a href="../git-commit-tree/ja.html">commit-tree</a></li>
+  <li><a href="../git-count-objects/ja.html">count-objects</a></li>
+  <li><a href="../git-diff-index/ja.html">diff-index</a></li>
+  <li><a href="../git-for-each-ref/ja.html">for-each-ref</a></li>
+  <li><a href="../git-hash-object/ja.html">hash-object</a></li>
+  <li><a href="../git-ls-files/ja.html">ls-files</a></li>
+  <li><a href="../git-ls-tree/ja.html">ls-tree</a></li>
+  <li><a href="../git-merge-base/ja.html">merge-base</a></li>
+  <li><a href="../git-read-tree/ja.html">read-tree</a></li>
+  <li><a href="../git-rev-list/ja.html">rev-list</a></li>
+  <li><a href="../git-rev-parse/ja.html">rev-parse</a></li>
+  <li><a href="../git-show-ref/ja.html">show-ref</a></li>
+  <li><a href="../git-symbolic-ref/ja.html">symbolic-ref</a></li>
+  <li><a href="../git-update-index/ja.html">update-index</a></li>
+  <li><a href="../git-update-ref/ja.html">update-ref</a></li>
+  <li><a href="../git-verify-pack/ja.html">verify-pack</a></li>
+  <li><a href="../git-write-tree/ja.html">write-tree</a></li>
+</ul>
+
+    </div>
+  </div>
+</div>
+
+    <a class="dropdown-trigger" id="reference-versions-trigger" data-panel-id="previous-versions-dropdown" href="ja.html#">
+      Latest version
+       ▾ </a>
+<span class="light d-flex">git-init last updated in 2.34.1</span>
+<div class='dropdown-panel left' id='previous-versions-dropdown'>
+  <header>Changes in the <strong>git-init</strong> manual</header>
+  <ol class='reference-previous-versions'>
+        <li class="no-change"><span>2.30.1 &rarr; 2.34.1 no changes</span></li>
+        <li>
+        <a href="2.30.0.html"><span class="version">2.30.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">12/27/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.29.1 &rarr; 2.29.3 no changes</span></li>
+        <li>
+        <a href="2.29.0.html"><span class="version">2.29.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">10/19/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.28.1 no changes</span></li>
+        <li>
+        <a href="2.28.0.html"><span class="version">2.28.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">07/27/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.27.1 no changes</span></li>
+        <li>
+        <a href="2.27.0.html"><span class="version">2.27.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">06/01/20</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.21.1 &rarr; 2.26.3 no changes</span></li>
+        <li>
+        <a href="2.21.0.html"><span class="version">2.21.0</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">02/24/19</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.13.7 &rarr; 2.20.5 no changes</span></li>
+        <li>
+        <a href="2.12.5.html"><span class="version">2.12.5</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">09/22/17</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.10.5 &rarr; 2.11.4 no changes</span></li>
+        <li>
+        <a href="2.9.5.html"><span class="version">2.9.5</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">07/30/17</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.5.6 &rarr; 2.8.6 no changes</span></li>
+        <li>
+        <a href="2.4.12.html"><span class="version">2.4.12</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+              <img src="../../images/icons/grey-dot.png" />
+          </span>
+          <em class="date">05/05/17</em>
+        </a>
+        </li>
+        <li class="no-change"><span>2.3.10 no changes</span></li>
+        <li>
+        <a href="2.2.3.html"><span class="version">2.2.3</span>
+          <span class="diff">
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/green-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+              <img src="../../images/icons/red-dot.png" />
+          </span>
+          <em class="date">09/04/15</em>
+        </a>
+        </li>
+    <li>&nbsp;</li>
+    <!-- <li><a class="more" href="#">See more previous releases →</a></li> -->
+  </ol>
+  <footer>
+    <p>Check your version of git by running</p>
+    <code class="command">git --version</code>
+  </footer>
+</div>
+
+  </div>
+
+  <div id='main'>
+    <div class="sect1">
+<h2 id="_name"><a class="anchor" href="ja.html#_name"></a>NAME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>git-init - 空のGitリポジトリを作成、または既存のリポジトリを再初期化する</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_概要"><a class="anchor" href="ja.html#_概要"></a>概要</h2>
+<div class="sectionbody">
+<div class="verseblock">
+<pre class="content"><em>git init</em> [-q | --quiet] [--bare] [--template=&lt;template_directory&gt;]
+	  [--separate-git-dir &lt;git dir&gt;] [--object-format=&lt;format&gt;]
+	  [-b &lt;branch-name&gt; | --initial-branch=&lt;branch-name&gt;]
+	  [--shared[=&lt;permissions&gt;]] [directory]</pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_説明"><a class="anchor" href="ja.html#_説明"></a>説明</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>このコマンドは、空の Git リポジトリを作成します。基本的には、<code>.git</code> ディレクトリに <code>objects</code> や <code>refs/heads</code>, <code>refs/tags</code>, テンプレートファイルなどのサブディレクトリを置くことになります。 何もコミットされていない最初のブランチが作成されます (この名前は後述の <code>--initial-branch</code> オプションを参照)。</p>
+</div>
+<div class="paragraph">
+<p>環境変数 <code>$GIT_DIR</code> が設定されている場合は、リポジトリのベースとして <code>./.git</code> の代わりに使用するパスを指定します。</p>
+</div>
+<div class="paragraph">
+<p>オブジェクトストレージのディレクトリが環境変数 <code>$GIT_OBJECT_DIRECTORY</code> で指定されている場合は、その下に sha1 ディレクトリが作成されますが、そうでない場合は、デフォルトの <code>$GIT_DIR/objects</code> ディレクトリが使用されます。</p>
+</div>
+<div class="paragraph">
+<p>既存のリポジトリで&#8217;git init&#8217;を実行しても安全です。すでにあるものを上書きすることはありません。再度 <em>git init</em> を実行する主な理由は、新しく追加されたテンプレートを取り込むためです (あるいは、--separate&#8212;&#8203;git&#8212;&#8203;dir が指定されている場合はリポジトリを別の場所に移動させるためです)。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_オプション"><a class="anchor" href="ja.html#_オプション"></a>オプション</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-init--q"> <a class="anchor" href="ja.html#git-init--q"></a>-q </dt>
+<dt class="hdlist1" id="git-init---quiet"> <a class="anchor" href="ja.html#git-init---quiet"></a>--quiet </dt>
+<dd>
+<p>エラーと警告のメッセージのみを出力し、その他の出力はすべて抑制されます。</p>
+</dd>
+<dt class="hdlist1" id="git-init---bare"> <a class="anchor" href="ja.html#git-init---bare"></a>--bare </dt>
+<dd>
+<p>ベアリポジトリを作成します。`GIT_DIR`環境が設定されていない場合は、現在の作業ディレクトリに設定されます。</p>
+</dd>
+<dt class="hdlist1" id="git-init---object-formatltformatgt"> <a class="anchor" href="ja.html#git-init---object-formatltformatgt"></a>--object-format=&lt;format&gt; </dt>
+<dd>
+<p>リポジトリのオブジェクトフォーマット（ハッシュアルゴリズム）を指定します。 有効な値は&#8217;sha1&#8217;と（有効な場合は）'sha256&#8217;です。 'sha1&#8217;がデフォルトです。</p>
+<div class="paragraph">
+<p>このオプションは実験的なものです！SHA-256サポートは実験的なもので、まだ初期段階にあります。 SHA-256 リポジトリは、一般的に「通常の」SHA-1 リポジトリと作業を共有することができません。 たとえば、SHA-256 リポジトリに関連する Git 内部のファイルフォーマットが、後方互換性のない方法で変更される可能性があることを想定しておく必要があります。 <code>--object-format=sha256</code> は、テスト目的でのみ使用してください。</p>
+</div>
+</dd>
+</dl>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-init---templatelttemplatedirectorygt"> <a class="anchor" href="ja.html#git-init---templatelttemplatedirectorygt"></a>--template=&lt;template_directory&gt; </dt>
+<dd>
+<p>テンプレートを使用するディレクトリを指定します。 (後述の「TEMPLATE DIRECTORY」のセクションを参照)</p>
+</dd>
+<dt class="hdlist1" id="git-init---separate-git-dirltgitdirgt"> <a class="anchor" href="ja.html#git-init---separate-git-dirltgitdirgt"></a>--separate-git-dir=&lt;git dir&gt; </dt>
+<dd>
+<p>リポジトリを <code>$GIT_DIR</code> や <code>./.git/</code> のようなディレクトリとして初期化するのではなく、実際のリポジトリへのパスを含むテキストファイルをそこに作成します。 このファイルは、ファイルシステムにとらわれない Git のリポジトリへのシンボリックリンクとして機能します。</p>
+<div class="paragraph">
+<p>再初期化の場合は、指定したパスにリポジトリが移動します。</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-init--bltbranch-namegt"> <a class="anchor" href="ja.html#git-init--bltbranch-namegt"></a>-b &lt;branch-name&gt; </dt>
+<dt class="hdlist1" id="git-init---initial-branchltbranch-namegt"> <a class="anchor" href="ja.html#git-init---initial-branchltbranch-namegt"></a>--initial-branch=&lt;branch-name&gt; </dt>
+<dd>
+<p>新しく作成されたリポジトリの最初のブランチに、指定された名前を使用します。 指定されていない場合は、デフォルトの名前に戻ります (現在は <code>master</code> ですが、将来的には変更される可能性があります。名前は <code>init.defaultBranch</code> 設定変数でカスタマイズできます)。</p>
+</dd>
+<dt class="hdlist1" id="git-init---sharedfalsetrueumaskgroupallworldeverybody0xxx"> <a class="anchor" href="ja.html#git-init---sharedfalsetrueumaskgroupallworldeverybody0xxx"></a>--shared[=(false|true|umask|group|all|world|everybody|0xxx)] </dt>
+<dd>
+<p>Gitリポジトリを複数のユーザーで共有することを指定します。 これにより、同じグループに属するユーザーがそのリポジトリにプッシュできるようになります。 指定すると、コンフィグ変数 "core.sharedRepository" が設定され、<code>$GIT_DIR</code> 以下のファイルやディレクトリが要求されたパーミッションで作成されるようになります。 指定されていない場合、Gitはumask(2)によって報告されたパーミッションを使用します。</p>
+<div class="paragraph">
+<p>このオプションには以下の値を指定できますが、値が指定されていない場合はデフォルトで「group」が設定されます。</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-init-emumaskemoremfalseem"> <a class="anchor" href="ja.html#git-init-emumaskemoremfalseem"></a><em>umask</em> (or <em>false</em>) </dt>
+<dd>
+<p>umask(2)で報告されたパーミッションを使用します。`--shared`が指定されていない場合の初期設定です。</p>
+</dd>
+<dt class="hdlist1" id="git-init-emgroupemoremtrueem"> <a class="anchor" href="ja.html#git-init-emgroupemoremtrueem"></a><em>group</em> (or <em>true</em>) </dt>
+<dd>
+<p>リポジトリをグループ書き込み可能にします (git グループがすべてのユーザーのプライマリグループではない場合があるので、g+sx も)。これは、安全なumask(2)の値のパーミッションを緩めるために使われます。ただし、umask は他のパーミッションビットにも適用されることに注意しましょう (たとえば umask が <em>0022</em> の場合、<em>group</em> を使っても他の (グループではない) ユーザーから読み取り権限を奪うことはできません)。リポジトリのパーミッションを正確に指定する方法については、'0xxx&#8217;を参照してください。</p>
+</dd>
+<dt class="hdlist1" id="git-init-emallemoremworldemoremeverybodyem"> <a class="anchor" href="ja.html#git-init-emallemoremworldemoremeverybodyem"></a><em>all</em> (or <em>world</em> or <em>everybody</em>) </dt>
+<dd>
+<p>'group&#8217;と同じですが、すべてのユーザーがリポジトリを読み取り可能にします。</p>
+</dd>
+<dt class="hdlist1" id="git-init-em0xxxem"> <a class="anchor" href="ja.html#git-init-em0xxxem"></a><em>0xxx</em> </dt>
+<dd>
+<p><em>0xxx</em> は8進数で、各ファイルのモードは <em>0xxx</em> になります。 <em>0xxx</em> は、ユーザーのumask(2)の値を上書きします（<em>group</em> や <em>all</em> のようにパーミッションが緩くなるだけではありません）。<em>0640</em> は、グループでの読み取りは可能ですが、グループでの書き込みや他の人からのアクセスはできないリポジトリを作成します。<em>0660</em> は、現在のユーザーとグループは読み書き可能だが、他のユーザーにはアクセスできないリポジトリを作成します。</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>デフォルトでは、共有リポジトリでは設定フラグの <code>receive.denyNonFastForwards</code> が有効になっており、高速転送ではないプッシュを強制できません。</p>
+</div>
+<div class="paragraph">
+<p><em>ディレクトリ</em> を指定した場合は、その中でコマンドが実行されます。このディレクトリが存在しない場合は、作成されます。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_テンプレートディレクトリ"><a class="anchor" href="ja.html#_テンプレートディレクトリ"></a>テンプレートディレクトリ</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>テンプレートディレクトリ内のファイルやディレクトリのうち、名前がドットで始まらないものは、`$GIT_DIR`の作成後にコピーされます。</p>
+</div>
+<div class="paragraph">
+<p>テンプレートディレクトリは、以下のいずれかになります（順番に）。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>`--template`オプションで指定された引数。</p>
+</li>
+<li>
+<p>`$ GIT_TEMPLATE_DIR`環境変数の内容。</p>
+</li>
+<li>
+<p>`init.templateDir`構成変数。または</p>
+</li>
+<li>
+<p>デフォルトのテンプレートディレクトリ: <code>/usr/share/git-core/templates</code>。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>デフォルトのテンプレートディレクトリには、いくつかのディレクトリ構造、推奨される「除外パターン」（<a href='../gitignore/ja.html'>gitignore[5]</a>を参照）、およびサンプルのフックファイルが含まれています。</p>
+</div>
+<div class="paragraph">
+<p>サンプルフックは、デフォルトではすべて無効になっています。サンプルフックを有効にするには、フックの名前を変更し、接尾辞 <code>.sample</code> を削除してください。</p>
+</div>
+<div class="paragraph">
+<p>フックの実行についての一般的な情報は <a href='../githooks/ja.html'>githooks[5]</a> を参照してください。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_例"><a class="anchor" href="ja.html#_例"></a>例</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-init-Git"> <a class="anchor" href="ja.html#git-init-Git"></a>既存のコードベースの新しいGitリポジトリを開始する </dt>
+<dd>
+<div class="listingblock">
+<div class="content">
+<pre>$ cd /path/to/my/codebase
+$ git init      <b class="conum">(1)</b>
+$ git add .     <b class="conum">(2)</b>
+$ git commit    <b class="conum">(3)</b></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>/path/to/my/codebase/.git ディレクトリを作成します。</p>
+</li>
+<li>
+<p>既存のすべてのファイルをインデックスに追加します。</p>
+</li>
+<li>
+<p>ヒストリの最初のコミットとして、元の状態を記録します。</p>
+</li>
+</ol>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git"><a class="anchor" href="ja.html#_git"></a>GIT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Part of the <a href='../git/ja.html'>git[1]</a> suite</p>
+</div>
+</div>
+</div>
+  </div>
+
+        </div>
+      </div>
+      <footer>
+  <div class="site-source">
+    <a href="https://git-scm.com/site">About this site</a><br>
+    Patches, suggestions, and comments are welcome.
+  </div>
+  <div class="sfc-member">
+    Git is a member of <a href="https://git-scm.com/sfc">Software Freedom Conservancy</a>
+  </div>
+</footer>
+<a href="ja.html#top" class="no-js scrollToTop" id="scrollToTop" data-label="Scroll to top">
+  <img src="../../images/icons/chevron-up@2x.png" width="20" height="20" alt="scroll-to-top"/>
+</a>
+<script src="../../assets/application-e12a0e837db60213b777cd7a706e0741beed474d7e5b94a641979fc87ce0d2cc.js"></script>
+
+    </div>
+
+</body>
+</html>
